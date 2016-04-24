@@ -1,0 +1,428 @@
+{strip}
+
+<!-- ÁREA DE LISTAGEM -->
+<div id="{$param_out_list}parametros_listagem" valorqtdpaginas="{$qtd_paginas}" paginaativa="{$page}"></div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- MENSAGEM DE INFORMAÇÃO -->
+            {if $mensagem_informativa != ""}
+            <div id="{$param_out_list}area_msg_informativa" class="callout callout-info m-b-25">
+                <a title="Expandir" href="javascript:void(0);" class="mostra_area text-decoration-none" hide_area="#{$param_out_list}area_texto_inf_btn1" show_area="#{$param_out_list}area_texto_inf_btn2" show_area2="#area_texto_informativo"><span class="hidden_area" id="{$param_out_list}area_texto_inf_btn1">
+                    <button type="button" class="pull-right close font-size-m" data-dismiss="alert" aria-hidden="true"><i class="fa fa-chevron-down"></i></button>
+                    <h4 class="margin-bottom0"><i class="fa fa-exclamation-circle"></i> ATENÇÃO!</h4>
+                </span></a>
+                <a title="Ocultar" href="javascript:void(0);" class="mostra_area text-decoration-none" hide_area="#{$param_out_list}area_texto_inf_btn2" show_area="#{$param_out_list}area_texto_inf_btn1" hide_area2="#area_texto_informativo"><span class="" id="{$param_out_list}area_texto_inf_btn2">
+                    <button type="button" class="pull-right close font-size-m" data-dismiss="alert" aria-hidden="true"><i class="fa fa-chevron-up"></i></button>
+                    <h4 class="margin-bottom0"><i class="fa fa-exclamation-circle"></i> ATENÇÃO!</h4>
+                </span></a>
+                <div id="{$param_out_list}area_texto_informativo">
+                    <p class="margin-m-top">{$mensagem_informativa}</p>
+                </div>
+            </div>
+            {/if}
+
+            <!-- BOX LISTAGEM -->
+            <div class="box box-listagem">
+                {if $status_area_pesquisa == false && $status_acao_pesquisa_avancada == false}
+                <div class="box-header hidden">
+                {else}
+                <div class="box-header">
+                {/if}
+
+                    <!-- PESQUISA AVANCADA -->
+                    {if $status_acao_pesquisa_avancada == true}
+                    <div id="{$param_out_list}area_pesquisa_avancada" class="pesquisa_avancada {if $status_area_pesquisa_avancada == false}hidden_area{/if}">
+                        <div class="box pesquisa_avancada">
+
+                            <!-- HEADER -->
+                            <div class="box-header with-border">
+                                <div class="hidden_area remove_area_responsive show_area_responsive">
+                                    <h3 class="box-title"><i class="fa fa-search"></i> Pesquisa Avançada</h3>
+                                </div>
+                                <div class="hidden_area show_area_responsive1">
+                                    <h3 class="box-title"><i class="fa fa-search"></i> Avançada</h3>
+                                </div>
+                                <div class="box-tools pull-right">
+									<span class="box-tools-right-pesq-avan">
+                                        <div class="hidden_area remove_area_responsive show_area_responsive">
+                                            <a href="javascript:void(0);" data-placement="bottom" id="btn_box_menos" class=" btn btn-box-tool mostra_area" show_area="#{$param_out_list}area_pesquisa_avancada" show_area2="#{$param_out_list}area_form_pesq_avancada" show_area3="#btn_box_mais" show_area4="#{$param_out_list}btn_pesquisa_avancada" hide_area="#btn_box_menos"><i class="fa fa-chevron-down"></i> EXPANDIR</a>
+                                            <a href="javascript:void(0);" data-placement="bottom" id="btn_box_mais" class=" btn btn-box-tool mostra_area hidden_area" show_area="#btn_box_menos" hide_area="#{$param_out_list}area_form_pesq_avancada" hide_area2="#btn_box_mais" hide_area3="#{$param_out_list}btn_pesquisa_avancada"><i class="fa fa-chevron-up"></i> OCULTAR</a>
+                                        </div>
+                                        <div class="hidden_area show_area_responsive1">
+                                            <a href="javascript:void(0);" data-title="tooltip" data-placement="bottom" title="Expandir" id="btn_box_menos" class="btn btn-box-tool mostra_area btn btn-default" show_area="#{$param_out_list}area_pesquisa_avancada" show_area2="#{$param_out_list}area_form_pesq_avancada" show_area3="#btn_box_mais" show_area4="#{$param_out_list}btn_pesquisa_avancada" hide_area="#btn_box_menos"><i class="fa fa-chevron-down"></i></a>
+                                            <a href="javascript:void(0);" data-title="tooltip" data-placement="bottom" title="Ocultar" id="btn_box_mais" class="btn btn-box-tool mostra_area hidden_area btn btn-default" show_area="#btn_box_menos" hide_area="#{$param_out_list}area_form_pesq_avancada" hide_area2="#btn_box_mais" hide_area3="#{$param_out_list}btn_pesquisa_avancada"><i class="fa fa-chevron-up"></i></a>
+                                        </div>
+									</span>
+								</div>
+                            </div>
+
+                            <!-- FORM -->
+                            <form id="{$param_out_list}form-pesq_avancada" name="{$param_out_list}form-pesq_avancada" action="javascript:void(0);" method="post">
+                                <div id="{$param_out_list}area_form_pesq_avancada" class="box-body area-pesquisa-i {if $status_area_pesquisa_avancada_conteudo == false}hidden_area{/if}">
+                                        <div class="">
+                                                <!-- INCLUDE -->
+                                                {include file="modulos/geral/includes/forms/form_pes_avancada_$pagina_ativa.phtml"}
+
+                                                <div class="col-md-12 col-sm-12 col-xs-12 pull-left p-t-20 p-b-20 p-l-15">
+                                                    <button data-title="tooltip" data-placement="bottom" title="Pesquisar" id="{$param_out_list}btn_pesquisa_avancada" class="m-r-5 btn btn-primary mostra_area {if $status_area_pesquisa_avancada_conteudo == false}hidden_area{/if}" hide_area="#{$param_out_list}area_form_pesq_avancada"><i class="fa fa-search"></i> Pesquisar</button>
+            										<a href="javascript:void(0);" data-title="tooltip" data-placement="bottom" title="Fechar e limpar pesquisa" id="{$param_out_list}btn_limpar_filtros2" class="btn btn-default mostra_area" show_area="#{$param_out_list}area_pesquisar"  hide_area="#{$param_out_list}area_pesquisa_avancada"><i class="fa fa-remove"></i> Fechar</a>
+                                                </div>
+										</div>
+                                </div>
+                            </form>
+
+                         </div>
+                       </div>
+                       {/if}
+
+
+                            <div id="{$param_out_list}area_pesquisar" class="pesquisar col-md-12 {if $status_area_geral_pesquisa == true}hidden_area{/if}">
+
+                                <div class="form-group pull-left col-lg-6 col-md-12 col-xs-12 col-sm-12 row hidden_area remove_area_responsive show_area_responsive">
+                                    <div class="input-group">
+                                        <div class="{if $status_area_pesquisa == false}hidden_area{/if}">
+                                            <input data-toggle="popover" data-content="{$param_de_pesquisa}" title="Pesquise por:" data-placement="top" placeholder="O que você procura?" id="{$param_out_list}campo_pesquisa" name="{$param_out_list}campo_pesquisa" type="text" class="form-control" value="{$param_pesquisa}">
+                                        </div>
+                                        <div class="input-group-btn {if $status_area_pesquisa == false}hidden_area{/if}">
+                                            <a type="button" href="javascript:void(0);" id="{$param_out_list}btn_limpar_filtros" name="{$param_out_list}btn_limpar_filtros" data-title="tooltip" title="Limpar filtros" class="load-elements btn btn-filtro {if $status_area_pesquisa == false}hidden_area{/if}"><i class="fa fa-times"></i></a>
+                                            <button type="button" data-title="tooltip" title="Filtros" class="btn btn-filtro dropdown-toggle {if $status_btn_filtros == false}hidden_area{/if}" data-toggle="dropdown"><i class="fa fa-filter"></i> Filtros <span class="sr-only">Toggle Dropdown</span> </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                {foreach $dropdown_filtros as $i}
+                                                {if $i.btn_status == true}
+                                                <li><a href="{$i.btn_href}" target="{$i.btn_target}" title="{$i.btn_title}" id="{$i.btn_id}" class="{$i.btn_class}" {$i.btn_outros}><i class="{$i.btn_class_icon}"></i> {$i.btn_texto}</a></li>
+                                                {/if}
+                                                {if $i.class_divider != ""}
+                                                <li class="{$i.class_divider}"></li>
+                                                {/if}
+                                                {/foreach}
+                                            </ul>
+                                            <a type="button" href="javascript:void(0);" id="{$param_out_list}btn_pesquisar" name="{$param_out_list}btn_pesquisar" data-title="tooltip"  title="Pesquisar" class="load-elements btn btn-primary {if $status_area_pesquisa == false}hidden_area{/if}"><i class="fa fa-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group pull-left col-md-12 col-lg-6 col-xs-12 col-sm-12 hidden_area show_area_responsive1">
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <button type="button" data-title="tooltip" title="Filtros" class="btn btn-filtro dropdown-toggle {if $status_btn_filtros == false}hidden_area{/if}" data-toggle="dropdown"><i class="fa fa-filter"></i> <span class="sr-only">Toggle Dropdown</span> </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                {foreach $dropdown_filtros as $i}
+                                                {if $i.btn_status == true}
+                                                <li><a href="{$i.btn_href}" target="{$i.btn_target}" title="{$i.btn_title}" id="{$i.btn_id}" class="{$i.btn_class}" {$i.btn_outros}><i class="{$i.btn_class_icon}"></i> {$i.btn_texto}</a></li>
+                                                {/if}
+                                                {if $i.class_divider != ""}
+                                                <li class="{$i.class_divider}"></li>
+                                                {/if}
+                                                {/foreach}
+                                            </ul>
+                                        </div>
+                                        <div class="{if $status_area_pesquisa == false}hidden_area{/if}">
+                                            <input data-toggle="popover" data-content="{$param_de_pesquisa}" title="Pesquise por:" data-placement="top" placeholder="Pesquisar" id="{$param_out_list}campo_pesquisa" name="{$param_out_list}campo_pesquisa" type="text" class="form-control" value="{$param_pesquisa}">
+                                        </div>
+                                        <div class="input-group-btn">
+                                            <a type="button" href="javascript:void(0);" id="{$param_out_list}btn_limpar_filtros" name="{$param_out_list}btn_limpar_filtros" data-title="tooltip" title="Limpar filtros" class="load-elements btn btn-filtro {if $status_area_pesquisa == false}hidden_area{/if}"><i class="fa fa-times"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                <div class="box-body p-b-15">
+
+                        <!-- NENHUM REGISTRO ENCONTRADO -->
+                        {if $total_reg == 0}
+                              <div class="row margin-top-area-header-tabela">
+                                <div class="col-md-12 margin-top-area-header-tabela">
+                                  <h3 class="col-md-12 col-sm-12 col-xs-12"><span class="pull-left margin-bottom"><i class="fa fa-ban"></i> {if $param_pesquisa != ""} Nenhuma informação encontrada para: <strong>{$param_pesquisa}</strong> {else} Não há informações há serem exibidas! {/if} </span>  </h3>
+                                  <span class="col-md-12 col-sm-12 col-xs-12">{if $param_pesquisa != ""} <a href="javascript:void(0);" class="btn btn-primary pull-left" id="{$param_out_list}btn_limpar_filtros3"><i class="fa fa-times"></i> Limpar filtros de pesquisa</a>{/if}</span>
+                                </div>
+                              </div>
+                        {/if}
+
+                        <!-- TABELA DE LISTAGEM -->
+                        <div class=" form-inline-dois">
+                        <div class="col-md-12">
+                            <div class="area-margin-tabela p-t-30">
+
+                                {if $total_reg > 0}
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pull-left">
+                                        <div class="row">
+
+                                            <!-- AGRUPAR POR -->
+                                            {if $status_area_agrupar == true}
+                                            <div id="area-agrupar" class="col-md-12 p-b-35 hidden_area">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <p>
+                                                            <strong><i class="fa fa-object-group"></i> AGRUPAR REGISTROS:</strong> <br />
+                                                        </p>
+                                                        <select title="Agrupar registros por" data-title="tooltip" style="width: 100% !important" aria-hidden="true" class="form-control select_multiple" multiple="multiple" id="{$param_out_list}option_ordenar2" name"{$param_out_list}option_agrupar" data-placeholder="Agrupar Registros">
+                                                        {html_options options=$option_agrupar selected=$agrupar}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/if}
+
+                                            <!-- ORDENADO POR -->
+                                            {if $status_area_ordenacao == true}
+                                            <div id="{$param_out_list}area-ordenacao" class="col-md-12 p-b-20 hidden_area">
+                                              <div class="row">
+                                                <div class="col-md-12">
+                                                  <div class="">
+                                                      <p>
+                                                          <strong><i class="fa fa-sort"></i> ORDENAR REGISTROS:</strong> <br />
+                                                          <strong>1)</strong> Selecione os campos que deseja ordenar; <br />
+                                                          <strong>2)</strong> Arraste as tags para definir uma sequência de ordenação;  <br />
+                                                          <strong>3)</strong> Clique em Ordenar;  <br />
+                                                      </p>
+                                                    <select id="{$param_out_list}option_ordenar" multiple="multiple" name="{$param_out_list}option_ordenar[]" title="Selecione os campos" class="hidden_area">
+                                                      <option disabled>-------------</option>
+                                                      {foreach $option_ordenar as $i}
+                                                            {if $option_ordenar_selected == $i.value}
+                                                                <option value="{$i.value}" selected>{$i.value}</option>
+                                                            {/if}
+                                                            {if $i.value == 'separator'}
+                                                                <option disabled>-------------</option>
+                                                            {/if}
+                                                            {if $i.value != 'separator'}
+                                                                <option value="{$i.value}">{$i.value}</option>
+                                                            {/if}
+                                                      {/foreach}
+                                                    </select>
+                                                    <button id="{$param_out_list}option_ordenar_form" class="btn btn-primary btn-ordenar load-elements">Ordenar <i class="fa fa-sort"></i></button>
+                                                  </div>
+                                              </div>
+                                            </div>
+                                            </div>
+                                            {/if}
+                                    </div>
+                                    </div>
+                                    </div>
+                                {/if}
+
+                            <!-- CABECALHO DA TABELA -->
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 pull-left">
+                                    <div class="row">
+                                        {if $total_reg > 0}
+
+                                              <!-- AREA DA ESQUERDA -->
+                                              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 m-b-20 text-left">
+                                                {if $titulo_tabela != ""}<strong style="font-size:17px;"><i class="{$icone_titulo_tabela}"></i> {$titulo_tabela|upper}</strong> {/if}
+                                                {if $status_area_paginacao == true && $status_area_total_registros == true} <br /> {/if} {if $status_area_total_registros == true} <strong>{$total_reg}</strong> Registro(s) - {/if}
+                                                {if $status_area_paginacao == true}  Pagina <strong>{$page}</strong> de <strong>{$qtd_paginas}</strong>  {/if}
+                                                <div class="m-t-10 ">
+                                                    {if $total_reg > 0}
+                                                    {if $status_area_paginacao == true}
+                                                    <div class="paginacao pull-left">
+                                                        <div class="form-group ">
+                                                            <div class="input-group">
+                                                                <div class="input-group-btn">
+                                                                    {if $qtd_paginas > $page}
+                                                                    {if $page == 1}
+                                                                    <a href="javascript:void(0);" class="btn-default btn disabled" type="button" title="Página Anterior" data-title="tooltip" id="{$param_out_list}btn_anterior_pag" disabled><i class="fa fa-chevron-left"></i> Anterior</a>
+                                                                    {else}
+                                                                    <a href="javascript:void(0);" class="btn-default btn load-elements" type="button" title="Página Anterior" data-title="tooltip" id="{$param_out_list}btn_anterior_pag"><i class="fa fa-chevron-left"></i> Anterior</a>
+                                                                    {/if}
+                                                                    {else}
+                                                                    {if $page == 1}
+                                                                    <a href="javascript:void(0);" class="btn-default btn disabled" type="button" title="Página Anterior" data-title="tooltip" id="{$param_out_list}btn_anterior_pag" disabled><i class="fa fa-chevron-left"></i> Anterior</a>
+                                                                    {else}
+                                                                    <a href="javascript:void(0);" class="btn-default btn load-elements" type="button" title="Página Anterior" data-title="tooltip" id="{$param_out_list}btn_anterior_pag"><i class="fa fa-chevron-left"></i> Anterior</a>
+                                                                    {/if}
+                                                                    {/if}
+                                                                </div>
+                                                                <input title="Ir para página" data-title="tooltip" class="form-control text-center numeros" type="text" name="{$param_out_list}ir_pagina" id="{$param_out_list}ir_pagina" value="{$page}">
+                                                                <div class="input-group-btn">
+                                                                    {if $qtd_paginas > $page}
+                                                                    <a href="javascript:void(0);" class="btn-default btn load-elements" type="button" title="Próxima Página" data-title="tooltip" id="{$param_out_list}btn_proxima_pag">Próximo <i class="fa fa-chevron-right"></i></a>
+                                                                    {else}
+                                                                    <a href="javascript:void(0);" class="btn-default btn disabled" type="button" title="Próxima Página" data-title="tooltip" id="{$param_out_list}btn_proxima_pag" disabled>Próximo <i class="fa fa-chevron-right"></i></a>
+                                                                    {/if}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {/if}
+                                                    {/if}
+                                                </div>
+                                              </div>
+
+                                              <!-- AREA DA DIREITA -->
+                                              <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 m-b-20 text-right-responsive">
+                                                  {if $status_area_ordenacao == true}<a data-title="tooltip" title="Ordenar Registros" href="#0" class="mostra_area" focus="bsmSelectbsmContainer0" show_area="#area-ordenacao"><strong><i class="fa fa-sort"></i> Ordenado por:</strong> {foreach $option_ordenar_selected as $i}{if count($option_ordenar_selected) > 1}{$i|upper}, {else} {$i|upper} {/if} {/foreach}</a><br />{/if}
+                                                  {if $status_area_agrupar == true }<a data-title="tooltip" title="Agrupar Registros" href="#0" class="mostra_area" focus="option_ordenar2" show_area="#area-agrupar"><i class="fa fa-object-group"></i> <strong>Agrupado por:</strong> {foreach $agrupar as $i}{if count($agrupar) > 1}{$i|upper}, {else} {$i|upper} {/if}{/foreach} </a> {/if}
+                                                  <div class="form-inline m-t-10">
+                                                      <div class="form-group">
+                                                          <!-- PESQUISA AVANÇADA -->
+                                                          {if $status_acao_pesquisa_avancada == true}
+                                                              <div class="input-group m-r-5">
+                                                                  <a type="button" href="javascript:void(0);" show_area="#{$param_out_list}area_pesquisa_avancada" show_area2="#{$param_out_list}area_form_pesq_avancada" show_area4="#{$param_out_list}btn_pesquisa_avancada" hide_area="#{$param_out_list}area_pesquisar" hide_area2="#btn_box_menos" show_area3="#btn_box_mais" class="btn btn-default mostra_area"><i class="fa fa-search"></i> Pesquisa Avançada</a>
+                                                              </div>
+                                                          {/if}
+                                                          <!-- TOTAL DE REGISTROS -->
+                                                          {if $status_area_total_registros == true}
+                                                          <div class="form-group hidden_area remove_area_responsive show_area_responsive" id="example1_length">
+                                                              <select id="{$param_out_list}total_registros_pp" name="{$param_out_list}total_registros_pp" title="Total de registros por página" data-title="tooltip" class="form-control">
+                                                                  {html_options options=$option_qtd_reg_listagem selected=$qtd_reg_listagem}
+                                                              </select>
+                                                          </div>
+                                                          {/if}
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="tabela_responsiva" class="table table-striped table-hover tablesaw" data-tablesaw-mode="stack">
+                                <!-- CABEÇALHO DA TABELA -->
+                                {if $total_reg > 0}
+                                <thead>
+                                    <tr role="row">
+                                        {if $status_col_checkbox == true}
+                                            <th style="width:45px;" class="text-center hidden-sm hidden-xs">
+                                                <input data-title="tooltip" class="hidden-sm hidden-xs" title="Marcar todos os registros" type="checkbox" id="check_all"/>
+                                            </th>
+                                        {/if}
+                                        {if $status_col_acoes == true}
+                                            <th style="width:85px;" class="text-center">
+                                                AÇÕES
+                                            </th>
+                                        {/if}
+                                        {foreach $header_tabela as $i}
+                                            <th class="{$i.th_class}" {$i.th_outros}>{$i.th_titulo}</th>
+                                        {/foreach}
+                                    </tr>
+                                </thead>
+                                {/if}
+
+                                <!-- CONTEÚDO DA TABELA -->
+                                <tbody>
+
+                                    {foreach $conteudo_tabela as $i}
+                                    <tr role="row" id="area_acoes_td_{$i.id}" class="hover_acoes_td" param_id="{$i.id}">
+
+                                        <!-- COLUNA CHECKBOX -->
+                                        {if $status_col_checkbox == true}
+                                        <td for="ckeckbox_{$i.id}" class="text-center td_checked_l hidden-sm hidden-xs">
+                                            <span class="hidden_area remove_area_responsive show_area_responsive">
+                                                <input class="checkbox1" type="checkbox" name="check[]" id="ckeckbox_{$i.id}" value="{$i.id}" autocomplete="off">
+                                            </span>
+                                            <label class="btn hidden_area show_area_responsive1">
+                                                <input class="checkbox1" type="checkbox" name="check[]" id="ckeckbox_{$i.id}" value="{$i.id}" autocomplete="off">
+                                            </label>
+                                        </td>
+
+                                        {/if}
+
+                                        {if $status_col_acoes == true}
+                                            <td class="text-center">
+
+                                                <div class="dropdown">
+                                                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <i class="fa fa-bars"></i> <span class="caret"></span>
+                                                  </button>
+                                                  <ul class="dropdown-menu dropdown-menu-hover-acoes" aria-labelledby="dropdownMenu1">
+                                                      {if $status_btn_editar == true}
+                                                          <li><a href="javascript:void(0);" data-placement="left" param_id="{$i.id}" param_url="{$action_set_editar}" class="btn_editar"><i class="{$class_icone_editar}"></i> {$txt_btn_editar} </a></li>
+                                                      {/if}
+                                                      {if $status_btn_excluir == true}
+                                                          <li><a href="javascript:void(0);"  data-placement="left" param_id="{$i.id}" param_url="{$action_excluir}" class="btn_excluir"><i class="{$class_icone_excluir}"></i> {$txt_btn_excluir}</a></li>
+                                                      {/if}
+                                                      {if $status_btn_detalhamento == true}
+                                                          <li><a href="javascript:void(0);"  data-placement="left" param_id="{$i.id}" class="btn_detalhamento"><i class="{$class_icone_detalhamento}"></i> {$txt_btn_detalhamento}</a></li>
+                                                      {/if}
+                                                      {if $status_btn_ativar == true}
+                                                          {if $i.status_id == 1}
+                                                              <li><a href="javascript:void(0);"  data-placement="left" param_id="{$i.id}" param_url="{$action_ativar}&s=1" class="btn_ativar"><i class="{$class_icone_desativar}"></i> {$txt_btn_desativar}</a></li>
+                                                          {/if}
+                                                          {if $i.status_id == 2}
+                                                              <li><a href="javascript:void(0);"  data-placement="left" param_id="{$i.id}" param_url="{$action_ativar}&s=2" class="btn_ativar"><i class="{$class_icone_ativar}"></i> {$txt_btn_ativar}</a></li>
+                                                          {/if}
+                                                      {/if}
+                                                  </ul>
+                                                </div>
+
+
+                                            </td>
+                                        {/if}
+
+                                        <!-- MONTO O CONTEÚDO -->
+                                        {include file="modulos/geral/includes/listagens/listagens_$pagina_ativa.phtml"}
+
+                                    </tr>
+
+                                    {/foreach}
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+
+                        <!-- RODADE -->
+                        {if $total_reg > 0}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="area-margin-tabela">
+
+                                <!-- TOTAL DE REGISTROS -->
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 p-b-10">
+                                    {if $status_area_paginacao == true}
+                                    <div class="paginacao pull-left">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-btn">
+                                                    {if $qtd_paginas > $page}
+                                                    {if $page == 1}
+                                                    <a href="javascript:void(0);" class="btn-default btn disabled" type="button" title="Página Anterior" data-title="tooltip" id="{$param_out_list}btn_anterior_pag2" disabled><i class="fa fa-chevron-left"></i> Anterior</a>
+                                                    {else}
+                                                    <a href="javascript:void(0);" class="btn-default btn load-elements" type="button" title="Página Anterior" data-title="tooltip" id="{$param_out_list}btn_anterior_pag2"><i class="fa fa-chevron-left"></i> Anterior</a>
+                                                    {/if}
+                                                    {else}
+                                                    {if $page == 1}
+                                                    <a href="javascript:void(0);" class="btn-default btn  disabled" type="button" title="Página Anterior" data-title="tooltip" id="{$param_out_list}btn_anterior_pa2g" disabled><i class="fa fa-chevron-left"></i> Anterior</a>
+                                                    {else}
+                                                    <a href="javascript:void(0);" class="btn-default btn load-elements" type="button" title="Página Anterior" data-title="tooltip" id="{$param_out_list}btn_anterior_pag2"><i class="fa fa-chevron-left"></i> Anterior</a>
+                                                    {/if}
+                                                    {/if}
+                                                </div>
+                                                <input title="Ir para página" data-title="tooltip" class="form-control text-center numeros" type="text" name="{$param_out_list}ir_pagina" id="{$param_out_list}ir_pagina2" value="{$page}">
+                                                <div class="input-group-btn">
+                                                    {if $qtd_paginas > $page}
+                                                    <a href="javascript:void(0);" class="btn-default btn load-elements" type="button" title="Próxima Página" data-title="tooltip" id="{$param_out_list}btn_proxima_pag2">Próximo <i class="fa fa-chevron-right"></i></a>
+                                                    {else}
+                                                    <a href="javascript:void(0);" class="btn-default btn  disabled" type="button" title="Próxima Página" data-title="tooltip" id="{$param_out_list}btn_proxima_pag2" disabled>Próximo <i class="fa fa-chevron-right"></i></a>
+                                                    {/if}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {/if}
+
+                                </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    {if $status_area_total_registros == true}
+                                    <select id="{$param_out_list}total_registros_pp2" name="{$param_out_list}total_registros_pp2" title="Total de registros por página" data-title="tooltip" class="form-control input-select-auto pull-right">
+                                        {html_options options=$option_qtd_reg_listagem selected=$qtd_reg_listagem}
+                                    </select>
+                                    {/if}
+                                </div>
+                            </div>
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

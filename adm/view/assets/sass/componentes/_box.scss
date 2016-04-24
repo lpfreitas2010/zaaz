@@ -1,0 +1,720 @@
+ @import "compass/css3";
+
+/*
+ * Component: SMALL BOX
+ * ---------------
+ */
+
+
+ .small-box {
+ 	@include border-radius(2px);
+ 	position: relative;
+ 	display: block;
+ 	margin-bottom: 25px;
+ 	@include box-shadow(rgba(black, 0.1) 0 1px 1px);
+ 	> {
+ 		.inner {
+ 			padding: 10px;
+ 		}
+ 		.small-box-footer {
+ 			position: relative;
+ 			text-align: center;
+ 			padding: 3px 0;
+ 			color: #fff;
+ 			color: rgba(255, 255, 255, 0.8);
+ 			display: block;
+ 			z-index: 10;
+ 			background: rgba(0, 0, 0, 0.1);
+ 			text-decoration: none;
+ 			&:hover {
+ 				color: #fff;
+ 				background: rgba(0, 0, 0, 0.15);
+ 			}
+ 		}
+ 	}
+ 	h3 {
+ 		font-size: 38px;
+ 		font-weight: bold;
+ 		margin: 0 0 10px 0;
+ 		white-space: nowrap;
+ 		padding: 0;
+ 		z-index: 5px;
+ 	}
+ 	p {
+ 		font-size: 15px;
+ 		z-index: 5px;
+ 		> small {
+ 			display: block;
+ 			color: #f9f9f9;
+ 			font-size: 13px;
+ 			margin-top: 5px;
+ 		}
+ 	}
+ 	.icon {
+ 	   @include transition(all 0.3s linear);
+ 		position: absolute;
+ 		top: -10px;
+ 		right: 10px;
+ 		z-index: 0;
+ 		font-size: 90px;
+ 		color: rgba(0, 0, 0, 0.15);
+ 	}
+ 	&:hover {
+ 		text-decoration: none;
+ 		color: #f9f9f9;
+ 		.icon {
+ 			font-size: 95px;
+ 		}
+ 	}
+ }
+ @media(max-width: 767px) {
+ 	.small-box {
+ 		text-align: center;
+ 		.icon {
+ 			display: none;
+ 		}
+ 		p {
+ 			font-size: 12px;
+ 		}
+ 	}
+ }
+
+ /*
+  * Component: BOX
+  * ---------------
+  */
+
+ .box {
+ 	position: relative;
+    @include border-radius(0);
+ 	background: #fff;
+ 	border-top: 1px solid #dde0e3;
+ 	margin-bottom: 25px;
+	padding-bottom: 10px;
+ 	width: 100%;
+ 	@include box-shadow(rgba(black, 0.1) 0 1px 1px );
+ 	&.box-primary {
+ 		border-top-color: #3c8dbc;
+ 	}
+ 	&.box-info {
+ 		border-top-color: #00c0ef;
+ 	}
+ 	&.box-danger {
+ 		border-top-color: #dd4b39;
+ 	}
+ 	&.box-warning {
+ 		border-top-color: #f39c12;
+ 	}
+ 	&.box-success {
+ 		border-top-color: #00a65a;
+ 	}
+ 	&.box-default {
+ 		border-top-color: #dde0e3;
+ 	}
+ 	&.collapsed-box {
+ 		.box-body {
+ 			display: none;
+ 		}
+ 		.box-footer {
+ 			display: none;
+ 		}
+ 	}
+ 	.border-right {
+ 		border-right: 1px solid #f4f4f4;
+ 	}
+ 	.border-left {
+ 		border-left: 1px solid #f4f4f4;
+ 	}
+ 	&.box-solid {
+ 		border-top: 0;
+ 		&.box-default {
+ 			border: 1px solid #d2d6de;
+ 			> .box-header {
+ 				color: #444444;
+ 				background: #d2d6de;
+ 				background-color: #d2d6de;
+ 				a {
+ 					color: #444444;
+ 				}
+ 				.btn {
+ 					color: #444444;
+ 				}
+ 			}
+ 		}
+ 		&.box-primary {
+ 			border: 1px solid #3c8dbc;
+ 			> .box-header {
+ 				color: #fff;
+ 				background: #3c8dbc;
+ 				background-color: #3c8dbc;
+ 				a {
+ 					color: #fff;
+ 				}
+ 				.btn {
+ 					color: #fff;
+ 				}
+ 			}
+ 		}
+ 		&.box-info {
+ 			border: 1px solid #00c0ef;
+ 			> .box-header {
+ 				color: #fff;
+ 				background: #00c0ef;
+ 				background-color: #00c0ef;
+ 				a {
+ 					color: #fff;
+ 				}
+ 				.btn {
+ 					color: #fff;
+ 				}
+ 			}
+ 		}
+ 		&.box-danger {
+ 			border: 1px solid #dd4b39;
+ 			> .box-header {
+ 				color: #fff;
+ 				background: #dd4b39;
+ 				background-color: #dd4b39;
+ 				a {
+ 					color: #fff;
+ 				}
+ 				.btn {
+ 					color: #fff;
+ 				}
+ 			}
+ 		}
+ 		&.box-warning {
+ 			border: 1px solid #f39c12;
+ 			> .box-header {
+ 				color: #fff;
+ 				background: #f39c12;
+ 				background-color: #f39c12;
+ 				a {
+ 					color: #fff;
+ 				}
+ 				.btn {
+ 					color: #fff;
+ 				}
+ 			}
+ 		}
+ 		&.box-success {
+ 			border: 1px solid #00a65a;
+ 			> .box-header {
+ 				color: #fff;
+ 				background: #00a65a;
+ 				background-color: #00a65a;
+ 				a {
+ 					color: #fff;
+ 				}
+ 				.btn {
+ 					color: #fff;
+ 				}
+ 			}
+ 		}
+ 		> .box-header {
+ 			.btn {
+ 				&.btn-default {
+ 					background: transparent;
+ 				}
+ 				&:hover {
+ 					background: rgba(0, 0, 0, 0.1);
+ 				}
+ 			}
+ 			a:hover {
+ 				background: rgba(0, 0, 0, 0.1);
+ 			}
+ 			> .box-tools .btn {
+ 				border: 0;
+ 				@include box-shadow(none);
+ 			}
+ 		}
+ 	}
+ 	.knob-label {
+ 		text-align: center;
+ 		color: #333;
+ 		font-weight: 100;
+ 		font-size: 12px;
+ 		margin-bottom: 0.3em;
+ 	}
+ 	> {
+ 		.overlay {
+			position: absolute;
+		 	top: 0;
+		 	left: 0;
+		 	width: 100%;
+		 	height: 100%;
+ 		}
+ 		.loading-img {
+			position: absolute;
+		 	top: 0;
+		 	left: 0;
+		 	width: 100%;
+		 	height: 100%;
+ 		}
+ 	}
+ 	.overlay {
+		z-index: 50;
+	 	background: (255, 255, 255, 0.7);
+	 	@include border-radius(0);
+ 		&.dark {
+ 			background: rgba(0, 0, 0, 0.5);
+ 		}
+ 		> .fa {
+			position: absolute;
+		 	top: 50%;
+		 	left: 50%;
+		 	margin-left: -15px;
+		 	margin-top: -15px;
+		 	color: #000;
+		 	font-size: 30px;
+ 		}
+ 	}
+ 	.nav-stacked > li {
+ 		border-bottom: 1px solid #f4f4f4;
+ 		margin: 0;
+ 		&:last-of-type {
+ 			border-bottom: none;
+ 		}
+ 	}
+ 	&.height-control .box-body {
+ 		max-height: 300px;
+ 		overflow: auto;
+ 	}
+ 	&.box-solid[class*='bg'] > .box-header {
+ 		color: #fff;
+ 	}
+ 	.box-group > .box {
+ 		margin-bottom: 5px;
+ 	}
+ }
+ .overlay-wrapper {
+ 	> {
+ 		.overlay {
+			position: absolute;
+		 	top: 0;
+		 	left: 0;
+		 	width: 100%;
+		 	height: 100%;
+ 		}
+ 		.loading-img {
+			position: absolute;
+		 	top: 0;
+		 	left: 0;
+		 	width: 100%;
+		 	height: 100%;
+ 		}
+ 	}
+ 	.overlay {
+		z-index: 50;
+	 	background: (255, 255, 255, 0.7);
+	 	@include border-radius(0);
+ 		&.dark {
+ 			background: rgba(0, 0, 0, 0.5);
+ 		}
+ 		> .fa {
+			position: absolute;
+		 	top: 50%;
+		 	left: 50%;
+		 	margin-left: -15px;
+		 	margin-top: -15px;
+		 	color: #000;
+		 	font-size: 30px;
+ 		}
+ 	}
+ }
+ .box-header {
+ 	color: #444444;
+ 	display: block;
+ 	padding: 17px 10px 12px 20px;
+ 	position: relative;
+ 	background: #f1f2f4;
+ 	&:before {
+ 		content: " ";
+ 		display: table;
+ 	}
+ 	&:after {
+ 		content: " ";
+ 		display: table;
+ 		clear: both;
+ 	}
+ 	&.with-border {
+ 		border-bottom: 1px solid #f4f4f4;
+ 	}
+ 	> {
+ 		.fa {
+			display: inline-block;
+		 	font-size: 18px;
+		 	margin: 0;
+		 	line-height: 1;
+ 			margin-right: 5px;
+ 		}
+ 		.glyphicon {
+			display: inline-block;
+		 	font-size: 18px;
+		 	margin: 0;
+		 	line-height: 1;
+ 			margin-right: 5px;
+ 		}
+ 		.ion {
+			display: inline-block;
+		 	font-size: 18px;
+		 	margin: 0;
+		 	line-height: 1;
+ 			margin-right: 5px;
+ 		}
+ 		.box-tools {
+ 			position: absolute;
+ 			right: 20px;
+ 			top: 9px;
+ 			[data-toggle="tooltip"] {
+ 				position: relative;
+ 			}
+ 			&.pull-right .dropdown-menu {
+ 				right: 0;
+ 				left: auto;
+ 			}
+ 		}
+ 	}
+ 	.box-title {
+		display: inline-block;
+	 	font-size: 18px;
+	 	margin: 0;
+	 	line-height: 1;
+        text-transform: uppercase;
+ 	}
+ }
+ .box-body {
+ 	@include border-top-left-radius(0);
+ 	@include border-top-right-radius(0);
+ 	@include border-bottom-right-radius(3px);
+ 	@include border-bottom-left-radius(3px);
+ 	padding: 10px;
+ 	&:before {
+ 		content: " ";
+ 		display: table;
+ 	}
+ 	&:after {
+ 		content: " ";
+ 		display: table;
+ 		clear: both;
+ 	}
+ 	.fc {
+ 		margin-top: 5px;
+ 	}
+ 	.full-width-chart {
+ 		margin: -19px;
+ 	}
+ 	.box-pane {
+		@include border-top-left-radius(0);
+	 	@include border-top-right-radius(0);
+	 	@include border-bottom-right-radius(0);
+	 	@include border-bottom-left-radius(3px);
+ 	}
+ 	.box-pane-right {
+		@include border-top-left-radius(0);
+	 	@include border-top-right-radius(0);
+	 	@include border-bottom-right-radius(3px);
+	 	@include border-bottom-left-radius(0);
+ 	}
+ 	> .table {
+ 		margin-bottom: 0;
+ 	}
+ 	&.no-padding .full-width-chart {
+ 		margin: -9px;
+ 	}
+ }
+ .box-footer {
+	 @include border-top-left-radius(0);
+	 @include border-top-right-radius(0);
+	 @include border-bottom-right-radius(3px);
+	 @include border-bottom-left-radius(3px);
+ 	border-top: 1px solid #f4f4f4;
+ 	padding: 15px 10px 20px;
+ 	background-color: #fff;
+ 	&:before {
+ 		content: " ";
+ 		display: table;
+ 	}
+ 	&:after {
+ 		content: " ";
+ 		display: table;
+ 		clear: both;
+ 	}
+ }
+ .btn-box-tool {
+ 	padding: 5px;
+ 	font-size: 12px;
+ 	background: transparent;
+ 	color: #97a0b3;
+ 	&:hover {
+ 		color: #606c84;
+ 	}
+ 	&.btn:active {
+ 		@include box-shadow(none);
+ 		box-shadow: none;
+ 	}
+ }
+ .chart-legend {
+ 	margin: 10px 0;
+ }
+ @media(max-width: 991px) {
+ 	.chart-legend > li {
+ 		float: left;
+ 		margin-right: 10px;
+ 	}
+ }
+ .box-comments {
+ 	background: #f7f7f7;
+ 	.box-comment {
+ 		padding: 8px 0;
+ 		border-bottom: 1px solid #eee;
+ 		&:before {
+ 			content: " ";
+ 			display: table;
+ 		}
+ 		&:after {
+ 			content: " ";
+ 			display: table;
+ 			clear: both;
+ 		}
+ 		&:last-of-type {
+ 			border-bottom: 0;
+ 		}
+ 		&:first-of-type {
+ 			padding-top: 0;
+ 		}
+ 		img {
+ 			float: left;
+ 		}
+ 	}
+ 	.comment-text {
+ 		margin-left: 40px;
+ 		color: #555;
+ 	}
+ 	.username {
+ 		color: #444444;
+ 		display: block;
+ 		font-weight: 600;
+ 	}
+ 	.text-muted {
+ 		font-weight: 400;
+ 		font-size: 12px;
+ 	}
+ }
+ .todo-list {
+ 	margin: 0;
+ 	padding: 0;
+ 	list-style: none;
+ 	overflow: auto;
+ 	> li {
+ 		@include border-radius(2px);
+ 		padding: 10px;
+ 		background: #f4f4f4;
+ 		margin-bottom: 2px;
+ 		border-left: 2px solid #e6e7e8;
+ 		color: #444444;
+ 		&:last-of-type {
+ 			margin-bottom: 0;
+ 		}
+ 		> input[type='checkbox'] {
+ 			margin: 0 10px 0 5px;
+ 		}
+ 		.text {
+ 			display: inline-block;
+ 			margin-left: 5px;
+ 			font-weight: 600;
+ 		}
+ 		.label {
+ 			margin-left: 10px;
+ 			font-size: 9px;
+ 		}
+ 		.tools {
+ 			display: none;
+ 			float: right;
+ 			color: #dd4b39;
+ 			> {
+ 				.fa,
+				.glyphicon,
+				.ion{
+ 					margin-right: 5px;
+ 					cursor: pointer;
+ 				}
+ 			}
+ 		}
+ 		&.done {
+ 			color: #999;
+ 			.text {
+ 				text-decoration: line-through;
+ 				font-weight: 500;
+ 			}
+ 			.label {
+ 				background: #d2d6de !important;
+ 			}
+ 		}
+ 		&:hover .tools {
+ 			display: inline-block;
+ 		}
+ 	}
+ 	.danger {
+ 		border-left-color: #dd4b39;
+ 	}
+ 	.warning {
+ 		border-left-color: #f39c12;
+ 	}
+ 	.info {
+ 		border-left-color: #00c0ef;
+ 	}
+ 	.success {
+ 		border-left-color: #00a65a;
+ 	}
+ 	.primary {
+ 		border-left-color: #3c8dbc;
+ 	}
+ 	.handle {
+ 		display: inline-block;
+ 		cursor: move;
+ 		margin: 0 5px;
+ 	}
+ }
+ .chat {
+ 	padding: 5px 20px 5px 10px;
+ 	.item {
+ 		margin-bottom: 10px;
+ 		&:before {
+ 			content: " ";
+ 			display: table;
+ 		}
+ 		&:after {
+ 			content: " ";
+ 			display: table;
+ 			clear: both;
+ 		}
+ 		> img {
+ 			width: 40px;
+ 			height: 40px;
+ 			border: 2px solid transparent;
+ 			@include border-radius(50%);
+ 		}
+ 		> {
+ 			.online {
+ 				border: 2px solid #00a65a;
+ 			}
+ 			.offline {
+ 				border: 2px solid #dd4b39;
+ 			}
+ 			.message {
+ 				margin-left: 55px;
+ 				margin-top: -40px;
+ 				> .name {
+ 					display: block;
+ 					font-weight: 600;
+ 				}
+ 			}
+ 			.attachment {
+ 				@include border-radius(3px);
+ 				border-radius: 3px;
+ 				background: #f4f4f4;
+ 				margin-left: 65px;
+ 				margin-right: 15px;
+ 				padding: 10px;
+ 				> h4 {
+ 					margin: 0 0 5px 0;
+ 					font-weight: 600;
+ 					font-size: 14px;
+ 				}
+ 				> p {
+					font-weight: 600;
+					font-size: 13px;
+					font-style: italic;
+					margin: 0;
+ 				}
+ 				&:before {
+ 					content: " ";
+ 					display: table;
+ 				}
+ 				&:after {
+ 					content: " ";
+ 					display: table;
+ 					clear: both;
+ 				}
+ 				> .filename {
+					font-weight: 600;
+					font-size: 13px;
+					font-style: italic;
+					margin: 0;
+ 				}
+ 			}
+ 		}
+ 	}
+ }
+ .box-input {
+ 	max-width: 200px;
+ }
+ .collapsed-box .box-header.with-border {
+ 	border-bottom: none;
+ }
+ .open .btn-box-tool {
+ 	color: #606c84;
+ }
+ .no-header .box-body {
+ 	@include border-top-right-radius(3px);
+ 	@include border-top-left-radius(3px);
+ }
+ .modal .panel-body {
+ 	color: #444444;
+ }
+
+
+ .box-listagem {
+ 	.box-header {
+ 		color: #444;
+ 		display: block;
+ 		padding: 5px 0 0;
+ 		position: relative;
+ 		background: #f1f2f4;
+ 		border-bottom: 1px solid #e5e8ed;
+ 	}
+ 	.box-body {
+ 		//Instead of the line below you could use @include border-top-left-radius($radius)
+ 		border-top-left-radius: 0;
+ 		//Instead of the line below you could use @include border-top-right-radius($radius)
+ 		border-top-right-radius: 0;
+ 		//Instead of the line below you could use @include border-bottom-right-radius($radius)
+ 		border-bottom-right-radius: 0;
+ 		//Instead of the line below you could use @include border-bottom-left-radius($radius)
+ 		border-bottom-left-radius: 0;
+ 		padding: 0 10px 10px;
+ 	}
+ 	.box-content-title {
+ 		padding-left: 15px;
+ 	}
+ 	.box-title {
+ 		font-size: 18px;
+ 		font-weight: normal;
+ 		color: #444444;
+ 	}
+ }
+ .area-descricao {
+ 	margin-top: -10px;
+ 	margin-bottom: 10px;
+ }
+ .subtitulo-margin_top {
+ 	margin-top: 15px;
+ }
+ @media(max-width: 795px) {
+ 	.subtitulo-margin_top {
+ 		float: left;
+ 		width: 100%;
+ 	}
+ }
+ .subtitulo {
+ 	font-size: 16px;
+ 	font-weight: 500;
+ 	margin-top: 8px;
+ 	color: #87949a;
+ 	text-transform: uppercase;
+ }
+ .divider-sutitulo {
+ 	border-bottom: #c7d2d7 1px solid;
+ 	margin-bottom: 7px;
+ }

@@ -1,0 +1,133 @@
+{strip}
+
+<!-- ****************************************************************************************************************************** -->
+<!-- ****************************************************************************************************************************** -->
+<!-- EXPORTAR PARA PDF -->
+{if $op_exibicao == 'exportar'}
+
+<!-- ARRAY -->
+<div class="row col-md-12 area-array-detalho">
+	<div class="col-md-12">
+		<h3>{$titulo|upper} - <span style="font-size:14px;font-weight:normal;">Gerado em {$smarty.now|date_format:"%d/%m/%Y - %H:%M:%S"}</span></h3>
+		<hr />
+		<!-- ID E DATAS -->
+		{include file="modulos/geral/detalho/includes/content_header.phtml"}
+
+		<!-- Profile Image -->
+		<div class="box-body box-profile">
+			{if $array[0].img_perfil == true}
+			<img class="profile-user-img img-responsive img-circle" src="{$path_raiz}files/perfil/p/{$array[0].img_perfil}" >
+			{else}
+			<img class="profile-user-img img-responsive img-circle" src="{$path_raiz}adm/view/assets/img/avatar/avatar_h.jpg" >
+			{/if}
+			<h3 class="profile-username ">{$array[0].nome}</h3>
+			<p class="text-muted ">Reportado por ID {$array[0].adm_usuario_id}</p>
+		</div>
+		<!-- /.box -->
+		<div class="box-body ">
+
+			<h4><i class="fa fa-clock-o">&#xf017;</i> <strong>Reportado {$array[0].criado|date_format:"tempo"} - {if $array[0].status_id == 1 }<i class="fa fa-check"></i> Visto{else}<i class="fa fa-remove"></i> Não Visto{/if} </strong><hr></h4>
+			<div class="col-pdf-12 ">
+				<strong><i class="fa ffa-bug">&#xf188;</i> {$array[0].tipo} - </strong> {$array[0].area}
+			</div>
+			<div class="col-pdf-12">
+				<strong><i class="fa fa-envelope">&#xf0e0;</i> Mensagem:</strong> <p>{$array[0].mensagem}</p> <hr>
+			</div>
+			<div class="col-pdf-12 ">
+				<strong><i class="fa fa-paperclip">&#xf0c6;</i> Anexo </strong>
+			</div>
+			{if $array[0].anexo == 'true'}
+			<div class="col-pdf-12 ">
+				{foreach $array2 as $i}
+
+				<img class="img-responsive center-cropped img-anexo-pdf " src="{$path_raiz}files/admin/feedback/{$i.url_imagem}" />
+
+				{/foreach}
+			</div>
+			{/if}
+		</div>
+	</div>
+</div>
+
+{/if}
+
+<!-- ****************************************************************************************************************************** -->
+<!-- ****************************************************************************************************************************** -->
+
+<!-- EXIBIR NA TELA -->
+{if $op_exibicao == 'exibir'}
+
+<!-- TITULO -->
+{include file="modulos/geral/detalho/includes/header.phtml" imprimir="false"}
+
+<!-- ARRAY -->
+<div class="box-body">
+	<div id="area-imprimir" class="area-array-detalho">
+		<div class="col-md-12">
+			<!-- ID E DATAS -->
+			{include file="modulos/geral/detalho/includes/content_header.phtml"}
+			<div class="col-md-3">
+				<!-- Profile Image -->
+				<div class="box-body box-profile">
+					{if $array[0].img_perfil == true}
+					<img class="profile-user-img img-responsive img-circle center-cropped" src="{$path_raiz}files/perfil_usuario/p/{$array[0].img_perfil}" >
+					{else}
+					<img class="profile-user-img img-responsive img-circle center-cropped" src="{$path_raiz}adm/view/assets/img/avatar/avatar_h.jpg" >
+					{/if}
+					<h3 class="profile-username text-center">{$array[0].nome}</h3>
+					<p class="text-muted text-center">Reportado por ID {$array[0].adm_usuario_id}</p>
+				</div>
+				<!-- /.box-body -->
+
+				<!-- /.box -->
+			</div>
+			<div class="col-md-9">
+				<div class="box-body">
+					<ul class="timeline">
+						<!-- timeline time label -->
+						<li class="time-label">
+							<span class="{if $array[0].status_id == 1 }bg-green{else}bg-orange{/if}">
+								<i class="fa fa-clock-o"></i> Reportado {$array[0].criado|date_format:"tempo"} - {if $array[0].status_id == 1 }<i class="fa fa-check"></i> Visto{else}<i class="fa fa-remove"></i> Não Visto{/if}
+							</span>
+						</li>
+						<!-- /.timeline-label -->
+						<!-- timeline item -->
+						<li>
+							<i class="fa fa-bug bg-green"></i>
+							<div class="timeline-item">
+								<h3 class="timeline-header"><strong>{$array[0].tipo} - </strong> {$array[0].area} </h3>
+							</div>
+						</li>
+						<li>
+							<i class="fa fa-envelope bg-blue"></i>
+							<div class="timeline-item">
+								<div class="timeline-body">
+									{$array[0].mensagem}
+								</div>
+							</div>
+						</li>
+						{if $array[0].anexo == 'true'}
+						<li>
+							<i class="fa fa-paperclip bg-purple"></i>
+							<div class="timeline-item">
+								{foreach $array2 as $i}
+								<div class="col-md-3">
+									<a href="{$path_raiz}files/admin/feedback/{$i.url_imagem}" data-lightbox="roadtrip" title="Abrir imagem">
+										<img class="img-responsive center-cropped img-anexo" src="{$path_raiz}files/admin/feedback/{$i.url_imagem}" />
+									</a>
+								</div>
+								{/foreach}
+							</div>
+						</li>
+						{/if}
+					</ul>
+				</div>
+			</div>
+			<!-- /.box -->
+
+		</div>
+	</div>
+</div>
+
+
+{/if}

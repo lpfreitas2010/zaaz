@@ -1,0 +1,45 @@
+ @import "compass/css3";
+
+ /*
+  * Component: ui-autocomplete
+  * ---------------
+  */
+
+ #ui-id-1{
+     position: fixed !important;
+ }
+ .ui-autocomplete {
+ 	position: absolute;;
+ 	z-index: 900;
+ 	cursor: default;
+ 	padding: 0;
+ 	margin-top: 2px;
+ 	list-style: none;
+ 	background-color: #ffffff;
+ 	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+ 	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+ 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+ 	max-height: 300px;
+    width: 420px !important;
+ 	overflow-y: auto;
+ 	overflow-x: hidden;
+ }
+ .ui-autocomplete > li {
+ 	padding: 11px 20px;
+ 	cursor: pointer;
+ }
+ .ui-autocomplete > li.ui-state-focus a{
+ 	color: #FFF !important;
+ }
+ .ui-autocomplete > li.ui-state-focus {
+ 	background-color: #4481cd;
+ }
+ .ui-helper-hidden-accessible {
+ 	display: none;
+ }
+ * html .ui-autocomplete {
+ 	height: 120px;
+ }
+ .ui-autocomplete .highlight {
+ 	font-weight: bold;
+ }

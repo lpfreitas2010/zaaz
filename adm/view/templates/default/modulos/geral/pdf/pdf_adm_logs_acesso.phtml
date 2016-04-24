@@ -1,0 +1,53 @@
+{strip}
+
+    <!-- TITULO -->
+    {include file="modulos/geral/pdf/includes/header.phtml"}
+
+    <!-- ARRAY -->
+    {foreach $array as $i}
+
+        <!-- ID, DATA E HORA -->
+        {include file="modulos/geral/pdf/includes/content_header.phtml"}
+
+        <!-- OUTROS CAMPOS -->
+        {foreach $campos as $i2}
+
+            <!-- Usuario -->
+            {if $i2 == 'usuario'}
+                {if $i.nome != ""} <strong>Usuario:</strong> {$i.nome} {/if}
+            {/if}
+
+			<!-- ACAO -->
+            {if $i2 == 'acao'}
+                {if $i.acao != ""} - <strong>Ação:</strong> {$i.acao}{/if}
+            {/if}
+
+
+			<!-- IP -->
+            {if $i2 == 'ip'}
+                {if $i.IP != ""} - <strong>IP:</strong> {$i.IP} {/if}
+            {/if}
+
+			<!-- SO -->
+            {if $i2 == 'so'}
+                {if $i.SO != ""} - <strong>SO:</strong> {$i.SO} <br>{/if}
+            {/if}
+
+			<!-- Navegador -->
+            {if $i2 == 'navegador'}
+                {if $i.navegador != ""} <strong>Navegador:</strong> {$i.navegador} {/if}
+            {/if}
+
+			<!-- IDIOMA -->
+            {if $i2 == 'idioma'}
+                {if $i.idioma != ""} - <strong>Idioma:</strong> {$i.idioma} {/if}
+            {/if}
+
+
+        {/foreach}
+
+        <br />
+        <br />
+        <hr />
+
+    {/foreach}

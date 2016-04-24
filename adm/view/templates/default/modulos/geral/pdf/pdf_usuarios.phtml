@@ -1,0 +1,223 @@
+{strip}
+
+<!-- TITULO -->
+{include file="modulos/geral/pdf/includes/header.phtml"}
+<div class="box-body ">
+	<!-- ARRAY -->
+	{foreach $array as $i}
+
+	<!-- ID, DATA E HORA -->
+	{include file="modulos/geral/pdf/includes/content_header.phtml"}
+
+	<!-- OUTROS CAMPOS -->
+	{foreach $campos as $i2}
+
+	<!-- STATUS -->
+	{if $i2 == 'status'}
+	{if $i.status != ""}
+	<div class="col-pdf-12 ">
+		<strong>Status: </strong> {$i.status}
+	</div>
+	{/if}
+	{/if}
+	<!-- NOME -->
+	{if $i2 == 'nome'}
+	{if $i.nome != ""}
+	<div class="col-pdf-4 ">
+		<strong>Usuario:</strong> {$i.nome}
+	</div>
+	{/if}
+	{/if}
+	<!-- SEXO -->
+	{if $i2 == 'sexo'}
+	{if $i.sexo != ""}
+	<div class="col-pdf-3 ">
+		<strong>Sexo:</strong> {$i.sexo}
+	</div>
+	{/if}
+	{/if}
+	<!-- DATA DE NASCIMENTO -->
+	{if $i2 == 'data_nascimento'}
+	{if $i.data_nascimento != "" }
+	<div class="col-pdf-5 ">
+		<strong>Data de nascimento:</strong> {$i.data_nascimento|date_format:"%d/%m/%Y"}
+	</div>
+	{/if}
+	{/if}
+	<!-- NIVEL -->
+	{if $i2 == 'nivel'}
+
+	<div class="col-pdf-4 ">
+		<strong>Cargo:</strong> {$i.nivel}
+	</div>
+
+	{/if}
+	<!-- TELEFONE -->
+	{if $i2 == 'telefone'}
+	{if $i.telefone != ""}
+	<div class="col-pdf-4">
+		<strong>telefone:</strong> {$i.telefone}
+	</div>
+	{/if}
+	{/if}
+	<!-- TELEFONE2 -->
+	{if $i2 == 'telefone2'}
+	{if $i.telefone2 != ""}
+	<div class="col-pdf-4">
+		<strong>telefone 2:</strong> {$i.telefone2}
+	</div>
+	{/if}
+	{/if}
+	<!-- EMAIL -->
+	{if $i2 == 'email'}
+	{if $i.email != ""}
+	<div class="col-pdf-6">
+		<strong>E-mail:</strong> {$i.email}
+	</div>
+	{/if}
+	{/if}
+	<!-- EMAIL2 -->
+	{if $i2 == 'email2'}
+	{if $i.email2 != ""}
+	<div class="col-pdf-6">
+		<strong>E-mail:</strong> {$i.email2}
+	</div>
+	{/if}
+	{/if}
+	<!-- USERNAME -->
+	{if $i2 == 'username'}
+	<div class="col-pdf-12">
+		<strong><i class="fa fa-key">&#xf084;</i> Dados de Acesso</strong>
+	</div>
+	{if $i.username != ""}
+	<div class="col-pdf-6">
+		<strong>Username:</strong> {$i.username}
+	</div>
+	{/if}
+	{/if}
+	<!-- USEREMAIL -->
+	{if $i2 == 'useremail'}
+	{if $i.useremail != ""}
+	<div class="col-pdf-6">
+		<strong>E-mail de acesso:</strong> {$i.useremail}
+	</div>
+	{/if}
+	{/if}
+	<!-- USERTELEFONE -->
+	{if $i2 == 'usertelefone'}
+	{if $i.usertelefone != ""}
+	<div class="col-pdf-6">
+		<strong>Telefone de acesso:</strong> {$i.usertelefone}
+	</div>
+	{/if}
+	{/if}
+	<!-- LOGRADOURO -->
+	{if $i2 == 'logradouro'}
+	<div class="col-pdf-12">
+		<i class="fa fa-map-marker">&#xf041;</i> <strong>Endereço </strong>
+	</div>
+	{if $i.logradouro != ""}
+	<div class="col-pdf-4">
+		<strong>Rua:</strong> {$i.logradouro}
+	</div>
+	{/if}
+	{/if}
+	<!-- NUMERO -->
+	{if $i2 == 'numero'}
+	{if $i.numeros != ""}
+	<div class="col-pdf-4 ">
+		<strong>Numero:</strong> {$i.numero}
+	</div>
+	{/if}
+	{/if}
+	<!-- COMPLEMENTO -->
+	{if $i2 == 'complemento'}
+	{if $i.complemento != ""}
+	<div class="col-pdf-4">
+		<strong>Complemento:</strong> {$i.complemento}
+	</div>
+	{/if}
+	{/if}
+	<!-- BAIRRO -->
+	{if $i2 == 'bairro'}
+	{if $i.bairro != ""}
+	<div class="col-pdf-4 ">
+		<strong>Bairro:</strong> {$i.bairro}
+	</div>
+	{/if}
+	{/if}
+	<!-- CEP -->
+	{if $i2 == 'CEP'}
+	{if $i.CEP != ""}
+	<div class="col-pdf-4">
+		<strong>CEP:</strong> {$i.CEP}
+	</div>
+	{/if}
+	{/if}
+	<!-- ESTADO -->
+	{if $i2 == 'estado'}
+	{if $i.estado != ""}
+	<div class="col-pdf-4">
+		<strong>Estado:</strong> {$i.estado}
+	</div>
+	{/if}
+	{/if}
+	<!-- CIDADE -->
+	{if $i2 == 'cidade'}
+	{if $i.cidade != ""}
+	<div class="col-pdf-4 ">
+		<strong>Cidade:</strong> {$i.cidade}
+	</div>
+	{/if}
+	{/if}
+	<!-- ASSINATURA DE EMAIL -->
+	{if $i2 == 'assinatura_email'}
+	<div class="col-pdf-12">
+		<i class="fa fa-map-marker">&#xf15c;</i> <strong>Outros Campos </strong>
+	</div>
+	{if $i.assinatura_email != ""}
+	<div class="col-pdf-12">
+		{$i.assinatura_email}
+	</div>
+	{/if}
+	{/if}
+
+	{if $i2 == 'ultimo_acesso'}
+	<div class="col-pdf-12"><i class="fa fa-desktop">&#xf108;</i> <strong>Ultimos acessos </strong></div>
+	{/if}
+	<!-- ULTIMO ACESSO -->
+	{if $i2 == 'ultimo_acesso'}
+	{if $i.ultimo_acesso != ""}
+	<div class="col-pdf-6 ">
+		<strong>Ultimo Acesso: </strong> {$i.ultimo_acesso|date_format:"%d/%m/%Y ás %H:%M:%S"}
+	</div>
+	{/if}
+
+	{/if}
+	<!-- ULTIMA MUDANCA DE USERNAME -->
+	{if $i2 == 'ultima_mod_username'}
+	{if $i.ultima_mod_username != ""}
+	<div class="col-pdf-6 ">
+		<strong>Mudança username: </strong> {$i.ultima_mod_username|date_format:"%d/%m/%Y ás %H:%M:%S"}
+	</div>
+	{/if}
+	{/if}
+	<!-- ULTIMA MUDUNCA DE SENHA -->
+	{if $i2 == 'ultima_mod_senha'}
+	{if $i.ultima_mod_senha != ""}
+	<div class="col-pdf-6">
+		<strong>Mudança senha: </strong> {$i.ultima_mod_senha|date_format:"%d/%m/%Y ás %H:%M:%S"}
+	</div>
+	{/if}
+	{/if}
+
+
+
+	{/foreach}
+
+	<br />
+	<br />
+	<hr />
+
+	{/foreach}
+</div>

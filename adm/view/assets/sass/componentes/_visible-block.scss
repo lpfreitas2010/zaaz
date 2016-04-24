@@ -1,0 +1,37 @@
+ @import "compass/css3";
+
+ /*
+ *
+ * Classes auxiliares para esconder bloco apartir de determinado tamanho de tela
+ *
+ */
+
+ @media(min-width: 1200px) {
+	.visible-lg-block {
+		display: block !important;
+	}
+	.visible-lg-inline {
+		display: inline !important;
+	}
+	.visible-lg-inline-block {
+		display: inline-block !important;
+	}
+	.hidden-lg {
+		display: none !important;
+	}
+}
+@media(max-width: 767px) {
+	.hidden-xs {
+		display: none !important;
+	}
+}
+@media(min-width: 768px) and(max-width: 991px) {
+	.hidden-sm {
+		display: none !important;
+	}
+}
+@media(min-width: 992px) and(max-width: 1199px) {
+	.hidden-md {
+		display: none !important;
+	}
+}

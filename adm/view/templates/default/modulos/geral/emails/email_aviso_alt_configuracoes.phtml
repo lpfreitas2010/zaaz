@@ -1,0 +1,17 @@
+{strip}
+
+<div style="font-family:arial">
+<h3>Olá,</h3>
+
+<p>
+
+    As configurações do sistema <strong> {$nome_empresa} </strong>foram alteradas Hoje dia <strong> {$smarty.now|date_format: "%d/%m/%Y"} ás {$smarty.now|date_format: "%H:%M:%S"}.</strong> <br /><br />
+
+    <strong>Sistema operacional:</strong> {$so} <br />
+    <strong>Navegador:</strong>	{$navegador} <br />
+    <strong>Endereço IP:</strong> {$ip} <br /><br />
+
+</p>
+
+{$assinatura_email}
+</div>

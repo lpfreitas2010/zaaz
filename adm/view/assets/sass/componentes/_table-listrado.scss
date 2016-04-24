@@ -1,0 +1,23 @@
+ @import "compass/css3";
+
+/*
+ * Component: Table
+ * ----------------
+ */
+
+ tbody .selected_row {
+ 	background-color: rgba(25, 111, 194, 0.2) !important;
+ 	background: rgba(25, 111, 194, 0.2) !important;
+ }
+ thead tr {
+ 	background-color: #485962;
+ 	cursor: default;
+ 	color: #fff;
+ }
+ tr {
+ 	cursor: default;
+ }
+ .hover_acoes_td td {
+ 	border-bottom: #e0e0e0 1px solid !important;
+    border-right: 1px solid #F1F1F1;
+ }

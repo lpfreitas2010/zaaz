@@ -1,0 +1,70 @@
+{strip}
+
+    <!-- TITULO -->
+    {include file="modulos/geral/pdf/includes/header.phtml"}
+
+    <!-- ARRAY -->
+    {foreach $array as $i}
+
+        <!-- ID, DATA E HORA -->
+        {include file="modulos/geral/pdf/includes/content_header.phtml"}
+
+        <!-- OUTROS CAMPOS -->
+        {foreach $campos as $i2}
+
+            <!-- IP -->
+            {if $i2 == 'ip'}
+                {if $i.IP != ""} <strong>IP:</strong> {$i.IP} <br>{/if}
+            {/if}
+
+            <!-- SO -->
+            {if $i2 == 'so'}
+                {if $i.SO != ""} <strong>SO:</strong> {$i.SO} <br>{/if}
+            {/if}
+
+            <!-- Navegador -->
+            {if $i2 == 'navegador'}
+                {if $i.navegador != ""} <strong>NAVEGADOR:</strong> {$i.navegador} <br>{/if}
+            {/if}
+
+            <!-- IDIOMA -->
+            {if $i2 == 'idioma'}
+                {if $i.idioma != ""} <strong>IDIOMA:</strong> {$i.idioma} <br>{/if}
+            {/if}
+
+            <!-- Usuario -->
+            {if $i2 == 'usuario'}
+                {if $i.nome != ""} <strong>USUÁRIO:</strong> {$i.nome} <br>{/if}
+            {/if}
+
+			<!-- EMAIL DE -->
+            {if $i2 == 'email_de'}
+                {if $i.email_re != ""} <strong>DE:</strong> {$i.email_re} <br>{/if}
+            {/if}
+
+            <!-- EMAIL PARA -->
+            {if $i2 == 'email_para'}
+                {if $i.email != ""} <strong>PARA:</strong> {$i.email} <br>{/if}
+            {/if}
+
+            <!-- STATUS -->
+            {if $i2 == 'status'}
+                {if $i.status != ""} <strong>STATUS:</strong> {$i.status} <br>{/if}
+            {/if}
+
+            <!-- MENSAGEM -->
+            {if $i2 == 'mensagem'}
+                {if $i.mensagem != ""} {$i.mensagem} <br>{/if}
+            {/if}
+
+
+
+
+        {/foreach}
+
+        <br />
+        <br />
+        <hr />
+        <hr />
+
+    {/foreach}

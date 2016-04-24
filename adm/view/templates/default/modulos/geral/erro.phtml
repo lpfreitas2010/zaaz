@@ -1,0 +1,31 @@
+{strip}
+{include file="modulos/geral/includes/head.phtml" loader="false"}
+
+<!-- FUNDO -->
+<div id="bg">
+    {if $img_fundo_login == ""}
+        <img src="{$path}/assets/img/fundo1.jpg" class="bg">
+    {else}
+        <img src="{$path_raiz2}files/admin/{$img_fundo_login}" class="bg">
+    {/if}
+</div>
+
+<!-- AREA GERAL -->
+<div class="login-box ">
+
+    <!-- TITULO -->
+    <div class="login-logo">
+        <a href="{$path_raiz}"><b>{$nome_logo_admin}</b></a>
+    </div>
+
+    <!-- MENSAGEM -->
+    <div class="animated flipInX">
+        <div class="login-box-body">
+            <h1 class="text-center animated bounceInUp page-erro_title"><i class="fa fa-cog fa-spin"></i>oops!</h1>
+            <h3 class="text-center">{$mensagem_erro}</h3>
+            <br />
+            <a href="{$path_raiz}{$pag_voltar}" type="button" class="btn btn-block btn-primary"><i class="fa fa-arrow-left"></i> VOLTAR</a>
+        </div>
+    </div>
+
+</div>

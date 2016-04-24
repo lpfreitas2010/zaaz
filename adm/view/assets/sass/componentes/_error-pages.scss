@@ -1,0 +1,63 @@
+ @import "compass/css3";
+
+/*
+ * Page: 400 and 500 error pages
+ * ------------------------------
+ */
+
+.error-page {
+	width: 600px;
+	margin: 20px auto 0 auto;
+	> {
+		.headline {
+			float: left;
+			font-size: 100px;
+			font-weight: 300;
+		}
+		.error-content {
+			margin-left: 190px;
+			display: block;
+			> h3 {
+				font-weight: 300;
+				font-size: 25px;
+			}
+		}
+	}
+}
+@media(max-width: 991px) {
+	.error-page {
+		width: 100%;
+		> {
+			.headline {
+				float: none;
+				text-align: center;
+			}
+			.error-content {
+				margin-left: 0;
+				> h3 {
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+
+.page-error {
+	position: relative;
+	margin-top: 482px;
+	margin-left: 98px;
+	.text-error h2 {
+		color: #fff;
+		font-size: 46px;
+		font-weight: bolder;
+		//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
+	}
+}
+
+
+.page-erro_title{
+	font-weight: bold;
+	font-size: 45px;
+}

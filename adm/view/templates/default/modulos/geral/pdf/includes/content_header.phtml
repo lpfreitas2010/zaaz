@@ -1,0 +1,7 @@
+{strip}
+
+<strong>ID {$i.id} - Cadastrado {$i.criado|date_format:"%d/%m/%Y"} ás {$i.criado|date_format:"%H:%M:%S"}
+{if $i.modificado != "0000-00-00 00:00:00"}
+- Editado {$i.modificado|date_format:"%d/%m/%Y"} ás {$i.modificado|date_format:"%H:%M:%S"}
+{/if}</strong>
+<br /><br />

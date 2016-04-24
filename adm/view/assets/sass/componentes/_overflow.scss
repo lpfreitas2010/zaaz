@@ -1,0 +1,19 @@
+ @import "compass/css3";
+
+/*
+ * Component: OVERFLOW
+ * ---------------
+ */
+ .over-240{
+ 	overflow-y: auto;
+ 	max-height: 240px;
+ }
+ .over-325{
+ 	overflow-y: auto;
+ 	max-height: 325px;
+ }
+
+ .over-text-linha {
+ 	white-space: nowrap !important;
+ 	overflow: hidden !important;
+ }

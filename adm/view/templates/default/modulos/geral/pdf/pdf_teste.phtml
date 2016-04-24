@@ -1,0 +1,28 @@
+{strip}
+
+    <!-- TITULO -->
+    {include file="modulos/geral/pdf/includes/header.phtml"}
+
+    <!-- ARRAY -->
+    {foreach $array as $i}
+
+        <!-- ID, DATA E HORA -->
+        {include file="modulos/geral/pdf/includes/content_header.phtml"}
+
+        <!-- OUTROS CAMPOS -->
+        {foreach $campos as $i2}
+
+            <!-- APP -->
+            {if $i2 == 'condicao_name'}
+                {if $i.name_banco != ""} Aplicação: {$i.name_banco} {/if}
+            {/if}
+
+
+
+        {/foreach}
+
+        <br />
+        <br />
+        <hr />
+
+    {/foreach}

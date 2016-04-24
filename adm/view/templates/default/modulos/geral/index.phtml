@@ -1,0 +1,88 @@
+{strip}
+{include file="modulos/geral/includes/head.phtml" pagina_include="index"}
+
+    <!-- IMAGEM DE FUNDO -->
+    <div id="bg">
+        {if $img_fundo_login == ""}
+            <img src="{$path}/assets/img/fundo1.jpg" class="bg">
+        {else}
+            <img src="{$path_raiz2}files/admin/{$img_fundo_login}" class="bg">
+        {/if}
+    </div>
+
+    <!-- AREA GERAL -->
+    <div class="login-box ">
+
+        <!-- TITULO -->
+        <div class="login-logo">
+            <a href="{$path_raiz}"><b>{$nome_logo_admin}</b></a>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="lc-block toggled animated bounceInDown" id="l-login">
+            <div class="login-box-body">
+                <p class="login-box-msg"> Digite seus dados de acesso</p>
+                <form name="form-login" id="form-login" action="javascript:void(0);" url="{$action_usuario_controller}" method="post">
+                    <input type="hidden" name="cmd" id="cmd" value="{$cmd_login}">
+                    <input type="hidden" name="form-login_js_control" id="form-login_js_control" value="">
+                    <div class="form-group pad-icon-left  has-feedback remove-error-input" id="input_error_username">
+                        <input tabindex=1 type="text" data-title="tooltip" data-placement="bottom" title="Digite o Usuário, E-mail ou Telefone de acesso" class="form-control group-erros-login" placeholder="Usuario, Email ou Telefone" maxlength="150" autocomplete="off" name="username" id="username">
+                        <span class="glyphicon glyphicon-user form-control-feedback-left"></span>
+                        <span id="icon_error_username" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true"></span>
+                    </div>
+					<label id="msg_erro_username"  class="control-label msg_erro_form" for="inputError"></label>
+                    <div class="form-group has-feedback pad-icon-left remove-error-input" id="input_error_senha">
+                        <input tabindex=2 data-title="tooltip" data-placement="bottom" title="Digite a Senha de acesso" type="password" class="form-control group-erros-login" placeholder="Senha"  name="senha" id="senha">
+                        <span class="glyphicon glyphicon-lock form-control-feedback-left"></span>
+                        <span id="icon_error_senha" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true"></span>
+                    </div>
+					<label id="msg_erro_senha" class="control-label msg_erro_form" for="inputError"></label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button tabindex=3 name="button-enviar-login" id="button-enviar-login" class="btn btn-primary btn-block btn-flat ">  ENTRAR</button>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="login-navigation">
+                                <li tabindex=4 data-block="#l-forget-password" ><i class="fa fa-lock"></i> Recuperar meus dados de acesso.</li><br>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="resul_erro_login"></div>
+                    <div id="resul_sucesso_login"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- ESQUECI DADOS DE ACESSO -->
+        <div class="lc-block animated bounceInDown" id="l-forget-password">
+            <div class="login-box-body">
+                <p class="login-box-msg">  Recuperar meus dados de acesso.</p>
+                <form name="form-esqueci_senha" id="form-esqueci_senha" action="javascript:void(0);" url="{$action_usuario_controller}" method="post">
+                    <input type="hidden" name="cmd" id="cmd" value="{$cmd_esqueci_senha}">
+                    <input type="hidden" name="form-esqueci_senha_js_control" id="form-esqueci_senha_js_control" value="">
+                    <div class="form-group has-feedback pad-icon-left remove-error-input" id="input_error_username_esqueci_senha">
+                        <input tabindex=1 type="text" data-title="tooltip" data-placement="bottom" title="Digite o Usuário, E-mail ou Telefone de acesso" class="form-control input-mask" placeholder="Usuario, Email ou Telefone" name="username_esqueci_senha" id="username_esqueci_senha">
+                        <span class="glyphicon glyphicon-user form-control-feedback-left"></span>
+                        <span id="icon_error_username_esqueci_senha" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true"></span>
+                    </div>
+                    <label id="msg_erro_username_esqueci_senha" class="control-label msg_erro_form" for="inputError"></label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button tabindex=2 class="btn btn-primary btn-block btn-flat " id="button_esqueci" name="button_esqueci"> RECUPERAR DADOS</button>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="login-navigation">
+                                <li tabindex=3 data-block="#l-login" ><i class="fa fa-sign-out fadeInDown"></i> Voltar para a entrada.</li><br>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="resul_erro_esqueci_senha"></div>
+                    <div id="resul_sucesso_esqueci_senha"></div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+{include file="modulos/geral/includes/footer.phtml" pagina_include="index"}

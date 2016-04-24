@@ -1,0 +1,69 @@
+{strip}
+
+    <!-- TITULO -->
+    {include file="modulos/geral/pdf/includes/header.phtml"}
+
+    <!-- ARRAY -->
+    {foreach $array as $i}
+
+        <!-- ID, DATA E HORA -->
+        {include file="modulos/geral/pdf/includes/content_header.phtml"}
+
+        <!-- OUTROS CAMPOS -->
+        {foreach $campos as $i2}
+
+            <!-- IP -->
+            {if $i2 == 'ip'}
+                {if $i.IP != ""} <strong>IP:</strong> {$i.IP} <br>{/if}
+            {/if}
+
+            <!-- SO -->
+            {if $i2 == 'so'}
+                {if $i.SO != ""} <strong>SO:</strong> {$i.SO} <br>{/if}
+            {/if}
+
+            <!-- Navegador -->
+            {if $i2 == 'navegador'}
+                {if $i.navegador != ""} <strong>NAVEGADOR:</strong> {$i.navegador} <br>{/if}
+            {/if}
+
+            <!-- IDIOMA -->
+            {if $i2 == 'idioma'}
+                {if $i.idioma != ""} <strong>IDIOMA:</strong> {$i.idioma} <br>{/if}
+            {/if}
+
+            <!-- Usuario -->
+            {if $i2 == 'usuario'}
+                {if $i.nome != ""} <strong>USUÁRIO:</strong> {$i.nome} <br>{/if}
+            {/if}
+
+			<!-- id sms -->
+            {if $i2 == 'id_sms'}
+                {if $i.id_sms != ""} <strong>ID SMS:</strong> {$i.id_sms} <br>{/if}
+            {/if}
+
+            <!-- TELEFONE -->
+            {if $i2 == 'telefone'}
+                {if $i.telefone != ""} <strong>TELEFONE:</strong> {$i.telefone} <br>{/if}
+            {/if}
+
+            <!-- STATUS -->
+            {if $i2 == 'status'}
+                {if $i.status != ""} <strong>STATUS:</strong> {$i.status} <br>{/if}
+            {/if}
+
+            <!-- MENSAGEM -->
+            {if $i2 == 'mensagem'}
+                {if $i.mensagem != ""} <strong>MENSAGEM:</strong> <br /> {$i.mensagem} <br>{/if}
+            {/if}
+
+
+
+
+        {/foreach}
+
+        <br />
+        <br />
+        <hr />
+
+    {/foreach}

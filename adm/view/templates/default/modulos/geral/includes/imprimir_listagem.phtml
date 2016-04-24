@@ -1,0 +1,33 @@
+{strip}
+
+<!-- TITULO -->
+<h1 style="text-align:left;"> {$titulo|upper}</h1>
+<p style="text-align:left;">
+    Gerado em: <strong>{$smarty.now|date_format:"%d/%m/%Y - %H:%M:%S"}</strong> - {$total_registros} Registro(s)
+    <br />
+    Ordenado por: <strong> {foreach $order_by as $i} {$i|upper}, {/foreach} </strong>
+    {if $count_group_by >= 1} <br /> Agrupado por: <strong>{foreach $group_by as $i} {$i|upper}, {/foreach}</strong> {/if}
+    {if $query_pesquisa != ""} <br /> Pesquisa ativa: <strong> {$query_pesquisa} </strong> {/if}
+</p>
+<br />
+
+<table>
+    <thead>
+        <tr role="row">
+            {foreach $campos as $i}
+                <th style="width:auto;padding:10px;background:#e2e1e9;text-align:left;">{$i|upper}</th>
+            {/foreach}
+        </tr>
+    </thead>
+    <tbody>
+        {foreach $array as $i}
+         {cycle values='#ececec,#fff' assign=CellCSS}
+        <tr>
+            {foreach $campos as $i2}
+                <td style="padding:12px;background:{$CellCSS}">{$i.$i2}</td>
+            {/foreach}
+        </tr>
+        {/foreach}
+
+    </tbody>
+</table>

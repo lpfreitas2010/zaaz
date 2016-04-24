@@ -1,0 +1,21 @@
+{strip}
+
+<div style="font-family:arial">
+<h3>Olá {$nome|upper},</h3>
+
+<p>
+
+    Sua senha de acesso ao sistema <strong> {$nome_empresa} </strong>foi redefinida Hoje dia <strong> {$smarty.now|date_format: "%d/%m/%Y"} ás {$smarty.now|date_format: "%H:%M:%S"}.</strong> <br /><br />
+
+    <strong>Sistema operacional:</strong> {$so} <br />
+    <strong>Navegador:</strong>	{$navegador} <br />
+    <strong>Endereço IP:</strong> {$ip} <br /><br />
+
+    Se você fez isso, você pode desconsiderar este e-mail com segurança. <br />
+    Se você não fez isso, altere sua senha.</a> <br />
+<br /><br />
+
+</p>
+
+{$assinatura_email}
+</div>

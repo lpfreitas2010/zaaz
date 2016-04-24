@@ -1,0 +1,106 @@
+ @import "compass/css3";
+
+/*
+ * Plugin: Full Calendar
+ * ---------------------
+ */
+
+ .fc-button {
+	background: #f4f4f4;
+	background-image: none;
+	color: #444;
+	border-color: #ddd;
+	border-bottom-color: #ddd;
+	&:hover {
+		background-color: #e9e9e9;
+	}
+	&:active {
+		background-color: #e9e9e9;
+	}
+	&.hover {
+		background-color: #e9e9e9;
+	}
+}
+.fc-header-right {
+	padding-right: 10px;
+}
+.fc-header-left {
+	padding-left: 10px;
+}
+.fc-widget-header {
+	background: #fafafa;
+	&:first-of-type {
+		border-left: 0;
+		border-right: 0;
+	}
+	&:last-of-type {
+		border-right: 0;
+	}
+}
+.fc-grid {
+	width: 100%;
+	border: 0;
+}
+.fc-widget-content {
+	&:first-of-type {
+		border-left: 0;
+		border-right: 0;
+	}
+	&:last-of-type {
+		border-right: 0;
+	}
+}
+.fc-toolbar {
+	padding: 10px;
+	margin: 0;
+}
+.fc-day-number {
+	font-size: 20px;
+	font-weight: 300;
+	padding-right: 10px;
+}
+.fc-color-picker {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	> li {
+		float: left;
+		font-size: 30px;
+		margin-right: 5px;
+		line-height: 30px;
+		.fa {
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: transform linear 0.3s;
+			&:hover {
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: rotate(30deg);
+			}
+		}
+	}
+}
+#add-new-event {
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all linear 0.3s;
+}
+.external-event {
+	padding: 5px 10px;
+	font-weight: bold;
+	margin-bottom: 4px;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0;
+	cursor: move;
+	&:hover {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.2);
+	}
+}
+.fc-header-title h2 {
+	font-size: 15px;
+	line-height: 1.6em;
+	color: #666;
+	margin-left: 10px;
+}

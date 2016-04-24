@@ -1,0 +1,310 @@
+{strip}
+{include file="modulos/geral/includes/head.phtml"}
+{include file="modulos/geral/includes/header.phtml"}
+{include file="modulos/geral/includes/sidebar.phtml"}
+
+<!-- ========================================================================================================================================== -->
+<!-- ========================================================================================================================================== -->
+
+<!-- ÁREA MENU FIXO MODAL -->
+{if $param_modal_add != ""}
+  <div class="col-md-12 area-header-modal-">
+    <div class="row">
+      <div class="pull-left">
+        <h4> <i class="{$class_icone_novo}"></i> {$titulo_pagina_novo} </h4>
+      </div>
+      <div class="pull-right area-header-modal-btn-">
+        {foreach $btns_opcoes_acoes_forms_modal as $i}
+           {if $i.btn_status == true}
+               {if $i.btn_texto != ""}
+                   <a href="{$i.btn_href}" data-title="tooltip" data-placement="bottom" target="{$i.btn_target}" title="{$i.btn_title}" id="{$i.btn_id}" class="{$i.btn_class}" {$i.btn_outros}><i class="{$i.btn_class_icon}"></i> {$i.btn_texto}</a>
+               {/if}
+           {/if}
+        {/foreach}
+      </div>
+    </div>
+  </div>
+{/if}
+
+<!-- PARAMETROS GERAIS DO JS -->
+<div class="params" logoff="{$path_logoff}" autocomplete="{$action_autocomplete}" combobox="{$action_combobox}" changcombobox="{$action_changcombobox}" set_editar="{$action_set_editar}" monto_campos_form="{$action_monto_campos_form}" outros_js="{$action_outros_js}" foco_campo_add_edd="{$foco_campo_form_add_edd}" action_list_arquivos="{$action_list_arquivos}" action_excluir_arquivo="{$action_excluir_arquivo}" status_detalho="{$status_btn_detalhamento}" status_menu_lateral="{$status_menu_lateral}" action_grafico="{$action_grafico}" action_funcao_aberta="{$action_funcao_aberta}" param_modal_add="{if $param_modal_add != ""}{$param_modal_add}{/if}"></div>
+
+<!-- ÁREA MENU FIXO -->
+<section class="content-header-action f-action scroll {if $param_modal_add != ""}{$param_modal_add}{/if}">
+<div class="col-md-12">
+
+      <!-- AREA COM BTNS DE AÇÕES -->
+      {if $area_listagem_geral == true}
+      <div id="area_btns_acoes" class="{if $area_btns_status_acoes == false} hidden_area{/if} ">
+
+          <!-- BTNS DE AÇÕES -->
+          <div class="action-botoes-primario hidden_area area_btns_acoes remove_area_responsive show_area_responsive"> <!-- hidden-sm hidden-xs -->
+            {foreach $btns_opcoes_acoes as $i}
+                {if $i.btn_status == true}
+                    <a href="{$i.btn_href}" target="{$i.btn_target}" title="{$i.btn_title}" id="{$i.btn_id}" class="{$i.btn_class}" {$i.btn_outros}><i class="{$i.btn_class_icon}"></i> {$i.btn_texto}</a>
+                {/if}
+            {/foreach}
+          </div>
+
+          <!-- BTNS DE AÇÕES RESPONSIVO -->
+          <div class="action-botoes-segundario hidden_area area_btns_acoes show_area_responsive1"> <!-- hidden-lg hidden-md -->
+            {foreach $btns_opcoes_acoes as $i}
+               {if $i.btn_status == true}
+                    <a href="{$i.btn_href}" target="{$i.btn_target}" title="{$i.btn_title}" id="{$i.btn_id}" class="{$i.btn_class}" {$i.btn_outros}><i class="{$i.btn_class_icon}"></i> </a>
+               {/if}
+            {/foreach}
+          </div>
+
+      </div>
+      {/if}
+
+      <!-- BTNS DE SALVAR E CANCELAS -->
+      <div id="area_btns_status_acoes_forms" class=" action-botoes{if $area_btns_status_acoes_forms == false} hidden_area{/if}">
+          <div id="area_btns_acoes_form_mob" class="hidden_area remove_area_responsive show_area_responsive"> <!-- hidden-sm hidden-xs -->
+              {foreach $btns_opcoes_acoes_forms as $i}
+                  {if $i.btn_status == true}
+                      <button target="{$i.btn_target}" title="{$i.btn_title}" id="{$i.btn_id}" class="{$i.btn_class}" {$i.btn_outros}><i class="{$i.btn_class_icon}"></i> {$i.btn_texto}</button>
+                  {/if}
+              {/foreach}
+          </div>
+
+          <!-- BTNS DE SALVAR E CANCELAR RESPONSIVO -->
+          <div id="area_btns_acoes_form_mob1" class="hidden_area show_area_responsive1"> <!-- hidden-lg hidden-md -->
+             {foreach $btns_opcoes_acoes_forms as $i}
+                {if $i.btn_status == true}
+                    {if $i.btn_id == 'btn_salvar_form'}
+                        <a href="{$i.btn_href}" target="{$i.btn_target}" title="{$i.btn_title}" id="{$i.btn_id}" class="{$i.btn_class}" {$i.btn_outros}><i class="{$i.btn_class_icon}"></i> {$i.btn_texto}</a>
+                    {else}
+                        <a href="{$i.btn_href}" target="{$i.btn_target}" title="{$i.btn_title}" id="{$i.btn_id}" class="{$i.btn_class}" {$i.btn_outros}><i class="{$i.btn_class_icon}"></i> </a>
+                    {/if}
+                {/if}
+             {/foreach}
+          </div>
+      </div>
+
+  </div>
+</section>
+
+<!-- ========================================================================================================================================== -->
+<!-- ========================================================================================================================================== -->
+
+<div class="content-wrapper">
+
+  <!-- ÁREA LISTAGEM -->
+  {if $area_listagem_geral == true}
+  <div id="area_listagem" class="margin-area-listagem {if $area_listagem == false}hidden_area{/if}">
+
+        <!-- GERAR IMPRIMIR -->
+        <section id="area_imprimir" class="animated content p-t-25 p-b-0 area_boxes_pers{if $area_imprimir_status == false} hidden_area{/if}">
+            <div class="box box-default p-b-0">
+              <!-- FORM -->
+              <form id="form_imprimir" name="form_imprimir" class="" action="{$param_caminho}{$action_controller}" method="post" target="_blank">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="{$class_icone_imprimir}"></i> {$txt_btn_imprimir}</h3>
+                    <div class="box-tools">
+                    </div>
+                </div>
+
+                    <!-- CMD -->
+                    <input type="hidden" name="cmd" value="{$cmd_exportar_imprimir}">
+                    <input type="hidden" name="tipo" value="imprimir">
+
+                    <!-- INCLUDE DO FORM -->
+                    <div class="box-body">
+                      {include file="modulos/geral/includes/forms/form_impimir_$pagina_ativa.phtml"}
+
+                      <div class="pull-left p-t-10 p-b-20 p-l-10">
+                          <button type="submit" class="btn btn-primary m-r-5" id="btn_form_imprimir" title="{$txt_btn_imprimir}" data-title="tooltip" data-placement="bottom" ><i class="{$class_icone_imprimir}"></i> {$txt_btn_imprimir} </button>
+                          <a href="javascript:void(0);" class="mostra_area btn btn-default" hide_area=".area_boxes_pers" title="Fechar" data-title="tooltip" data-placement="bottom"><i class="fa fa-remove"></i> Fechar</a>
+                      </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- GERAR PDF -->
+        <section id="area_exp_pdf" class="animated content p-t-25 p-b-0 area_boxes_pers{if $area_pdf_status == false} hidden_area{/if}">
+            <div class="box box-default p-b-0">
+              <!-- FORM -->
+              <form id="form_exp_pdf" name="form_exp_pdf" class="" action="{$param_caminho}{$action_controller}" method="post" target="_blank">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="{$class_icone_exp_pdf}"></i> Gerar {$txt_btn_pdf}</h3>
+                    <div class="box-tools">
+
+                    </div>
+                </div>
+
+
+                    <!-- CMD -->
+                    <input type="hidden" name="cmd" value="{$cmd_exportar_imprimir}">
+                    <input type="hidden" name="tipo" value="pdf">
+
+                    <!-- INCLUDE DO FORM -->
+                    <div class="box-body">
+                      {include file="modulos/geral/includes/forms/form_pdf_$pagina_ativa.phtml"}
+
+                      <div class="pull-left p-t-10 p-b-20 p-l-10">
+                          <button class="btn btn-primary m-r-5" type="submit" id="btn_form_exp_pdf" title="Gerar {$txt_btn_pdf}" data-title="tooltip" data-placement="bottom" ><i class="{$class_icone_exp_pdf}"></i> Gerar {$txt_btn_pdf} </button>
+                          <a href="javascript:void(0);" class="mostra_area btn btn-default" hide_area=".area_boxes_pers" title="Fechar" data-title="tooltip" data-placement="bottom"><i class="fa fa-remove"></i> Fechar</a>
+                      </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+        <!-- GERAR EXCEL -->
+        <section id="area_exp_csv" class="animated content p-t-25 p-b-0 area_boxes_pers{if $area_csv_status == false} hidden_area{/if}">
+            <div class="box box-default p-b-0">
+              <!-- FORM -->
+              <form id="form_exp_csv" name="form_exp_csv" class="" action="{$param_caminho}{$action_controller}" method="post" target="_blank">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="{$class_icone_exp_csv}"></i> Gerar {$txt_btn_csv}</h3>
+                    <div class="box-tools">
+            						<span class="titulo-detalho-esq hidden_area remove_area_responsive show_area_responsive">
+              							<button type="submit" class="btn-link" id="btn_form_exp_csv" title="Gerar {$txt_btn_csv}" data-title="tooltip" data-placement="bottom" ><i class="{$class_icone_exp_csv}"></i> Gerar {$txt_btn_csv} </button>
+              							<a href="javascript:void(0);" class="mostra_area btn btn-default" hide_area=".area_boxes_pers" title="Fechar" data-title="tooltip" data-placement="bottom"><i class="fa fa-remove"></i> Fechar</a>
+            						</span>
+                        <span class="titulo-detalho-esq hidden_area show_area_responsive1">
+                            <button type="submit" class="btn-link" id="btn_form_exp_csv" title="Gerar {$txt_btn_csv}" data-title="tooltip" data-placement="bottom" ><i class="{$class_icone_exp_csv}"></i>  </button>
+                            <a href="javascript:void(0);" class="mostra_area btn btn-default" hide_area=".area_boxes_pers" title="Fechar" data-title="tooltip" data-placement="bottom"><i class="fa fa-remove"></i> </a>
+                        </span>
+                    </div>
+                </div>
+
+                    <!-- CMD -->
+                    <input type="hidden" name="cmd" value="{$param_caminho}{$cmd_exportar_imprimir}">
+                    <input type="hidden" name="tipo" value="csv">
+
+                    <!-- INCLUDE DO FORM -->
+                    <div class="box-body">
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+        <!-- DETALHO -->
+        {if $status_btn_detalhamento == true}
+        <section id="area_detalho" class="animated content p-t-25 p-b-0 area_boxes_pers{if $area_detalho_status == false} hidden_area{/if}">
+            <div class="box box-default p-b-0">
+                <div url="{$action_detalhamento}" id="detalho_conteudo" param_id="{$id_detalho}"><h4 class="box-body"><i class="fa fa-refresh fa-pulse fa-fw margin-bottom"></i> Carregando </h4></div>
+            </div>
+        </section>
+        {/if}
+
+        <!-- TITULO E CAMINHO -->
+        <section id="titulo-caminho-listagem" class="content-header hidden_area">
+            <ol class="breadcrumb">
+              <li><a href="{$path_raiz}" title="Voltar para página inicial"><i class=""></i> Inicio</a></li>
+              <li class="active active_breadcrumb"><i class="{$class_icone_listagem}"></i> {$titulo_pagina_listagem}</li>
+            </ol>
+        </section>
+
+        <!-- OUTROS INCLUDES -->
+        <div class="">
+        {foreach $outros_includes as $i}
+           {include file="modulos/geral/{$i.include}" col="{$i.col}" height="{$i.height}" tipo_grafico="{$i.tipo_grafico}" status_area="{$i.status_area}"}
+        {/foreach}
+        </div>
+
+        <!-- LISTAGEM -->
+        <div url="{$action_listagem}" id="listagem"><h3 class="box-body text-center"><i class="fa fa-refresh fa-pulse fa-fw margin-bottom"></i> Carregando</h3></div>
+
+        <!-- OUTRAS LISTAGENS -->
+        {foreach $outras_listagens as $i}
+           <div url="{$i.url}" id="{$i.parametro}listagem"></div>
+        {/foreach}
+
+ </div>
+ {/if}
+
+<!-- ========================================================================================================================================== -->
+<!-- ========================================================================================================================================== -->
+
+  <!-- ÁREA FORMULÁRIO -->
+  <div id="area_formulario" class="margin-area-formulario {if $area_formulario == false}hidden_area{/if}">
+
+    <!-- TITULO -->
+    {if $form_campo_id == ""}
+        <section id="area-adicionar" class="m-t-10 content-header {if $param_modal_add != ""}{$param_modal_add}{/if}">
+          <ol class="breadcrumb">
+            <li><a  href="{$path_raiz}" title="Voltar para página inicial"><i class=""></i> Inicio</a></li>
+            {if $area_listagem_geral == true}
+                <li><a href="javascript:void(0);" title="Voltar para a listagem de {$titulo_pagina_plural}" class="mostra_area limpo_form_add_edd" hide_area="#area_formulario" hide_area2="#area_btns_status_acoes_forms" show_area="#area_listagem" show_area2="#area_btns_acoes"><i class="{$class_icone_listagem}"></i> {$titulo_pagina_listagem}</a></li>
+            {/if}
+            <li class="active active_breadcrumb"><i class="{$class_icone_novo}"></i>{$titulo_pagina_novo}</li>
+          </ol>
+        </section>
+    {else}
+        <section id="area-editar1" class="m-t-10 content-header">
+          <ol class="breadcrumb">
+            <li><a  href="{$path_raiz}" title="Voltar para página inicial"><i class=""></i> Inicio</a></li>
+            {if $area_listagem_geral == true}
+                <li><a href="javascript:void(0);" title="Voltar para a listagem de {$titulo_pagina_plural}" class="mostra_area limpo_form_add_edd" hide_area="#area_formulario" hide_area2="#area_btns_status_acoes_forms" show_area="#area_listagem" show_area2="#area_btns_acoes"><i class="{$class_icone_listagem}"></i> {$titulo_pagina_listagem}</a></li>
+            {/if}
+            <li class="active active_breadcrumb"><i class="{$class_icone_editar}"></i>{$titulo_pagina_editar}</li>
+          </ol>
+        </section>
+    {/if}
+    <section id="area-editar" class="m-t-10 content-header hidden_area">
+      <ol class="breadcrumb">
+        <li><a href="{$path_raiz}" title="Voltar para página inicial"><i class=""></i> Inicio</a></li>
+        {if $area_listagem_geral == true}
+            <li><a href="javascript:void(0);" title="Voltar para a listagem de {$titulo_pagina_plural}" class="mostra_area limpo_form_add_edd" hide_area="#area_formulario" hide_area2="#area_btns_status_acoes_forms" show_area="#area_listagem" show_area2="#area_btns_acoes"><i class="{$class_icone_listagem}"></i> {$titulo_pagina_listagem}</a></li>
+        {/if}
+        <li class="active active_breadcrumb"><i class="{$class_icone_editar}"></i>{$titulo_pagina_editar}</li>
+      </ol>
+    </section>
+
+    <!-- INCLUDE DO FORM -->
+    <form id="form_add_edd" name="form_add_edd" class="" url="{$action_controller}" action="javascript:void(0);" method="post">
+      <section class="content ">
+
+          <input type="submit" class="hidden_area">
+
+          <!-- HIDDEN COM O ID -->
+          {if $form_campo_id != ""}
+              <input type="hidden" name="id" id="id" value="{$form_campo_id}">
+          {else}
+              <input type="hidden" name="id" id="id" value="">
+          {/if}
+
+          <!-- CMD CONTROLLER -->
+          <input type="hidden" name="cmd" id="cmd" value="{$cmd_add_edd}">
+
+          <!-- OPÇÃO DE SALVAR -->
+          <input type="hidden" name="op_salvar" id="op_salvar" value="">
+
+          <!-- MOSTRO MENSAGENS DE ERRO INLINE -->
+          <div id="erros_inline_n"></div>
+
+          <!-- OUTRAS INFORMAÇÕES -->
+          <div id="info_form_editar"></div>
+
+          <!-- INCLUDE DO FORM -->
+          {include file="modulos/geral/includes/forms/form_$pagina_ativa.phtml"}
+
+
+      </section>
+    </form>
+
+
+  </div>
+</div>
+<!-- ========================================================================================================================================== -->
+<!-- ========================================================================================================================================== -->
+
+{include file="modulos/geral/includes/feedback.phtml"}
+{include file="modulos/geral/includes/footer.phtml" param_pagina="geral"}

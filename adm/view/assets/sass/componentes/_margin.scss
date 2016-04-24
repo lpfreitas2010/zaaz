@@ -1,0 +1,24 @@
+ @import "compass/css3";
+
+ /*
+ * Generate Margin Class
+ * margin, margin-top, margin-bottom, margin-left, margin-right
+ */
+
+ $i: 0;
+ $im: !important;
+ @while $i <= 50 {
+   .m-#{$i}   {margin: 1px * $i  $im;}
+   .m-t-#{$i} { margin-top: 1px * $i  $im; }
+   .m-b-#{$i} { margin-bottom: 1px * $i  $im; }
+   .m-l-#{$i} { margin-left: 1px * $i  $im; }
+   .m-r-#{$i} { margin-right: 1px * $i  $im; }
+   $i: $i + 5;
+ }
+
+.margin-bottom-area-header-tabela{
+	padding-bottom: 10px;
+}
+.margin-top-area-header-tabela{
+	padding-top: 10px;
+}

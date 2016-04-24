@@ -1,0 +1,316 @@
+{strip}
+
+<aside id="menu-lateral" class="sidebar-toggle-dois main-sidebar-fixo">
+  <section class="sidebar-toggle-tres sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel m-t-5" title="{$nome_usuario_ativo}">
+      <div class="pull-left image">
+          {if $foto_perfil == ""}
+              <img src="{$path}/assets/img/avatar/avatar_h.jpg" alt="{$nome_usuario_ativo}" width="25" height="25" class="img-circle m-r-5 center-cropped">
+          {else}
+              <img src="{$path_raiz2}files/perfil_usuario/p/{$foto_perfil}" alt="{$nome_usuario_ativo}" width="25" height="25" class="img-circle m-r-5 center-cropped">
+          {/if}
+      </div>
+      <div class="pull-left info">
+        <p>{$nome_usuario_ativo|truncate:17:"...":true} </p>
+        <i class="fa fa-circle text-success"></i> Online
+      </div>
+    </div>
+
+    <!-- sidebar menu:  -->
+    <ul class="sidebar-menu">
+      <li class="header">MENU</li>
+
+        <!-- FOR MONTO AS OPÇÕES -->
+        {foreach $restricoes_sistema as $i}
+
+
+
+            {if $i.adm_usuario_modulo_id == 1}
+                  {if $i.adm_usuario_permissoes_acoes_id == 17 && $i.opcoes == 0}
+                       {assign var="modulo1_status" value="false"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 18 && $i.opcoes == 1}
+                       {assign var="modulos_acoes_default" value="<li><a href='{$path_raiz}modulos_acoes_default'><i class='fa fa-list-alt'></i> Restrições</a></li>"}
+                       {assign var="modulos_acoes_default2" value="<li title='Restrições Não Permitidas'><a href='{$path_raiz}modulos_acoes_default/busca/Status: Não Permitido'><i class='fa fa-remove'></i> Restrições Não Permitidas </a></li>"}
+                       {assign var="modulos_acoes_default1" value="<li title='Restrições Permitidas'><a href='{$path_raiz}modulos_acoes_default/busca/Status: Permitido'><i class='fa fa-check'></i> Restrições Permitidas </a></li>"}
+                       {assign var="modulos_acoes" value="<li><a href='{$path_raiz}modulos_acoes'><i class='fa fa-lock'></i> Restrições Ações</a></li>"}
+                       {assign var="modulos_" value="<li><a href='{$path_raiz}modulos'><i class='fa fa-list-alt'></i> Módulos</a></li>"}
+                       {assign var="status" value="<li><a href='{$path_raiz}status'><i class='fa fa-list-alt'></i> Status</a></li>"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 1 && $i.opcoes == 1}
+                      {assign var="novo_modulo" value="<li><a href='{$path_raiz}modulos/novo'><i class='fa fa-plus'></i> Novo Módulo</a></li>"}
+                      {assign var="novo_status" value="<li><a href='{$path_raiz}status/novo'><i class='fa fa-plus'></i> Novo Status</a></li>"}
+                      {assign var="backup" value="<li title='Backup de imagens, documentos, logs e dados do banco de dados'><a href='{$path_raiz}backup/novo'><i class='fa fa-download'></i> Backup</a></li>"}
+                      {assign var="cache" value="<li title='Cache do Sistema'><a href='{$path_raiz}cache/novo'><i class='fa fa-archive'></i> Cache do Sistema</a></li>"}
+
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 2 && $i.opcoes == 0}
+                       {assign var="modulo1_status_ed" value="false"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 1 && $i.opcoes == 0}
+                       {assign var="modulo1_status_ad" value="false"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 2 && $i.opcoes == 1}
+                        {assign var="adm_configs" value="<li title='Configurações do Administrativo'><a href='{$path_raiz}adm_configuracoes/editar/1'><i class='fa fa-cog'></i> Configs Admin</a></li>"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 19 && $i.opcoes == 0}
+                       {assign var="modulo1_grafico_status" value="false"}
+                  {/if}
+            {/if}
+
+
+
+            {if $i.adm_usuario_modulo_id == 2}
+                  {if $i.adm_usuario_permissoes_acoes_id == 18 && $i.opcoes == 0}
+                       {assign var="modulo2_status" value="false"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 18 && $i.opcoes == 1}
+                       {assign var="usuarios" value="<li><a href='{$path_raiz}usuarios'><i class='fa fa-list-alt'></i> Usuários</a></li>"}
+                       {assign var="usuarios1" value="<li><a href='{$path_raiz}usuarios/busca/Status: Ativo'><i class='fa fa-check'></i> Usuários Ativos {if $total_registros_menu.adm_usuario != 0}({$total_registros_menu.adm_usuario}){/if}</a></li>"}
+                       {assign var="usuarios2" value="<li><a href='{$path_raiz}usuarios/busca/Status: Inativo'><i class='fa fa-remove'></i> Usuários Inátivos {if $total_registros_menu.adm_usuario2 != 0}({$total_registros_menu.adm_usuario2}){/if} </a></li>"}
+                       {assign var="cargos" value="<li><a href='{$path_raiz}adm_usuario_nivel'><i class='fa fa-list-alt'></i> Cargos</a></li>"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 1 && $i.opcoes == 1}
+                      {assign var="novo_usuario" value="<li><a href='{$path_raiz}usuarios/novo'><i class='fa fa-plus'></i> Novo Usuário</a></li>"}
+                      {assign var="novo_cargo" value="<li><a href='{$path_raiz}adm_usuario_nivel/novo'><i class='fa fa-plus'></i> Novo Cargo</a></li>"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 19 && $i.opcoes == 0}
+                       {assign var="modulo2_grafico_status" value="false"}
+                  {/if}
+            {/if}
+
+
+
+            {if $i.adm_usuario_modulo_id == 3}
+                  {if $i.adm_usuario_permissoes_acoes_id == 17 && $i.opcoes == 0}
+                       {assign var="modulo3_status" value="false"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 18 && $i.opcoes == 1}
+                       {assign var="adm_logs_acesso" value="<li title='Logs de Acesso dos Usuários'><a href='{$path_raiz}adm_logs_acesso'><i class='fa fa-list-alt'></i> Logs de Acesso dos Usuários</a></li>"}
+                       {assign var="adm_logs" value="<li><a href='{$path_raiz}adm_logs'><i class='fa fa-list-alt'></i> Logs dos Usuários</a></li>"}
+                       {assign var="adm_emails_enviados" value="<li><a href='{$path_raiz}adm_emails_enviados'><i class='fa fa-envelope'></i> E-mails Enviados </a></li>"}
+                       {assign var="adm_sms_enviados" value="<li><a href='{$path_raiz}adm_sms_enviados'><i class='fa fa-mobile-phone fa-lg'></i> SMS Enviados</a></li>"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 19 && $i.opcoes == 0}
+                       {assign var="modulo3_grafico_status" value="false"}
+                  {/if}
+            {/if}
+
+
+
+            {if $i.adm_usuario_modulo_id == 4}
+                  {if $i.adm_usuario_permissoes_acoes_id == 17 && $i.opcoes == 0}
+                       {assign var="modulo4_status" value="false"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 18 && $i.opcoes == 1}
+                       {assign var="adm_usuario_online" value="<li><a href='{$path_raiz}adm_usuario_online'><i class='fa fa-circle'></i> Usuários Online {if $total_registros_menu.adm_usuario_online != 0}({$total_registros_menu.adm_usuario_online}){/if}</a></li>"}
+                       {assign var="site_usuario_online" value="<li><a href='{$path_raiz}site_usuario_online'><i class='fa fa-circle'></i> Usuários Online </a></li>"}
+                  {/if}
+            {/if}
+
+
+
+            {if $i.adm_usuario_modulo_id == 5}
+                  {if $i.adm_usuario_permissoes_acoes_id == 17 && $i.opcoes == 0}
+                       {assign var="modulo5_status" value="false"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 18 && $i.opcoes == 1}
+                       {assign var="adm_restricoes" value="<li title='Restrições dos Usuários'><a href='{$path_raiz}adm_restricoes'><i class='fa fa-list-alt'></i> Restrições </a></li>"}
+                       {assign var="adm_restricoes1" value="<li title='Restrições Permitidass'><a href='{$path_raiz}adm_restricoes/busca/Status: Permitido'><i class='fa fa-check'></i> Restrições Permitidas</a></li>"}
+                       {assign var="adm_restricoes2" value="<li title='Restrições Não Permitidas'><a href='{$path_raiz}adm_restricoes/busca/Status: Não Permitido'><i class='fa fa-remove'></i> Restrições Não Permitidas</a></li>"}
+                  {/if}
+            {/if}
+
+
+
+            {if $i.adm_usuario_modulo_id == 6}
+                  {if $i.adm_usuario_permissoes_acoes_id == 17 && $i.opcoes == 0}
+                       {assign var="modulo6_status" value="false"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 18 && $i.opcoes == 1}
+                       {assign var="notificacoes" value="<li title='Notificações de todos os usuários'><a href='{$path_raiz}notificacoes'><i class='fa fa-bell'></i> Notificações {if $total_registros_menu.adm_usuario_notificaoes != 0}({$total_registros_menu.adm_usuario_notificaoes}){/if}</a></li>"}
+                       {assign var="notificacoes1" value="<li title='Notificações Lidas'><a href='{$path_raiz}notificacoes/busca/Status: Lido'><i class='fa fa-check'></i> Notif. Lidas {if $total_registros_menu.adm_usuario_notificaoes3 != 0}({$total_registros_menu.adm_usuario_notificaoes3}){/if}</a></li>"}
+                       {assign var="notificacoes2" value="<li title='Notificações Não Lidas'><a href='{$path_raiz}notificacoes/busca/Status: Não Lido'><i class='fa fa-remove'></i> Notif. Não Lidas {if $total_registros_menu.adm_usuario_notificaoes4 != 0}({$total_registros_menu.adm_usuario_notificaoes4}){/if}</a></li>"}
+                       {assign var="notificacoes3" value="<li title='Minhas Notificações'><a href='{$path_raiz}notificacoes/busca/Minhas Notificações'><i class='fa fa-bell'></i> Minhas Notif. {if $total_registros_menu.adm_usuario_notificaoes2 != 0}({$total_registros_menu.adm_usuario_notificaoes2}){/if} </a></li>"}
+                       {assign var="adm_feedback" value="<li title='Feedback do Sistema'><a href='{$path_raiz}adm_feedback'><i class='fa fa-bug'></i> FeedBacks {if $total_registros_menu.adm_feedback != 0}({$total_registros_menu.adm_feedback}){/if}</a></li>"}
+                       {assign var="adm_feedback2" value="<li title='Meus Feedback do Sistema'><a href='{$path_raiz}adm_feedback'><i class='fa fa-bug'></i> Meus FeedBacks</a></li>"}
+                  {/if}
+                  {if $i.adm_usuario_permissoes_acoes_id == 1 && $i.opcoes == 1}
+                      {assign var="novo_notificacao" value="<li><a href='{$path_raiz}notifcacoes/novo'><i class='fa fa-plus'></i> Nova Notificação</a></li>"}
+                  {/if}
+            {/if}
+
+
+        {/foreach}
+
+
+<!-- MONTAGEM =============================================================================================================================
+========================================================================================================================================= -->
+
+        <!-- ============================================================== -->
+        <!-- COMUNIQUE UM ERRO -->
+        <li class=" treeview">
+            <a href="#" class="mostra_area" show_area=".area_feedback" focus="feedback_area" data-hover="dropdown">
+                <i class="fa fa-bug"></i> <span>Comunique um erro</span>
+            </a>
+        </li>
+
+        <!-- ============================================================== -->
+        <!-- CONFIGS ADMIN -->
+        <li class=" treeview">
+        <a href="#" data-hover="dropdown">
+            <i class="fa fa-pencil-square-o"></i> <span>Meus Dados</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+            <ul class="treeview-menu dropdown">
+                <li><a href="{$path_atual}usuarios/editar/{$id_usuario_ativo}"> <i class="fa fa-pencil-square-o"></i> Alterar Meus Dados</a></li>
+                {if $cargo_id == 1 || $cargo_id == 2 || $cargo_id == 3}
+                    <li class=" treeview">
+                        <a href="#" data-hover="dropdown">
+                            <i class="fa fa-bell"></i> <span> Notificações {if $total_registros_menu.adm_usuario_notificaoes != 0}({$total_registros_menu.adm_usuario_notificaoes}){/if} </span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu dropdown">
+                            {$notificacoes}
+                            {$notificacoes3}
+                            {$notificacoes1}
+                            {$notificacoes2}
+                        </ul>
+                    </li>
+                    {else}
+                        {$notificacoes3}
+                        {$adm_feedback2}
+                    {/if}
+                <li><a class="link" href="javascript:void(0);" link="{$path_logoff}" title="Finalizar a Sessão (Alt+L)"><i class="fa fa-power-off"></i> Sair</a></li>
+            </ul>
+            </li>
+
+
+        <!-- ============================================================== -->
+        <!-- CONFIGS ADMIN -->
+        {if $modulo6_status == false || $modulo1_status == false || $modulo1_status_ed == false || $modulo1_status_ad == false}
+            <li class=" treeview">
+            <a href="#" data-hover="dropdown">
+                <i class="fa fa-cog"></i> <span>Configurações</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu dropdown">
+                {if $modulo1_status_ed == false}
+                    {$adm_configs}
+                {/if}
+                {if $modulo1_status_ad == false}
+                    {$backup}
+                {/if}
+                {if $modulo1_status_ad == false}
+                    {$cache}
+                {/if}
+                {if $modulo6_status == false}
+                    {$adm_feedback}
+                {/if}
+                {if $modulo1_status == false}
+                    <li class=" treeview">
+                        <a href="#" data-hover="dropdown">
+                            <i class="fa fa-list-alt"></i> <span>Status</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu dropdown">
+                            {$status}
+                            {$novo_status}
+                        </ul>
+                    </li>
+                {/if}
+            </ul>
+            </li>
+        {/if}
+
+
+        <!-- ============================================================== -->
+        <!-- RESTRIÇÕES - MODULO DESENVOLVEDOR -->
+        {if $modulo1_status == false}
+            <li class=" treeview">
+            <a href="#" data-hover="dropdown">
+                <i class="fa fa-lock"></i> <span>Restrições </span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu dropdown">
+                {if $modulo1_status == false}
+                    <li class=" treeview">
+                        <a href="#" data-hover="dropdown">
+                            <i class="fa fa-lock"></i> <span>Módulos</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu dropdown">
+                            {$modulos_}
+                            {$novo_modulo}
+                        </ul>
+                    </li>
+                {/if}
+                {$modulos_acoes}
+                {if $modulo1_status == false}
+                    <li class=" treeview">
+                        <a href="#" data-hover="dropdown">
+                            <i class="fa fa-lock"></i> <span>Restrições Padrão</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu dropdown">
+                            {$modulos_acoes_default}
+                            {$modulos_acoes_default1}
+                            {$modulos_acoes_default2}
+                        </ul>
+                    </li>
+                {/if}
+            </ul>
+            </li>
+        {/if}
+
+        <!-- ============================================================== -->
+        <!-- USUÁRIOS - MODULO USUARIOS - MODULO LOGS - MODULO USUARIOS ONLINE -->
+        {if $modulo2_status == false || $modulo3_status == false || $modulo4_status == false || $modulo5_status == false }
+            <li class=" treeview">
+            <a href="#" data-hover="dropdown">
+                <i class="fa fa-user"></i> <span>Usuários </span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu dropdown">
+                {if $modulo2_status == false}
+                    <li class=" treeview">
+                        <a href="#" data-hover="dropdown">
+                            <i class="fa fa-user"></i> <span>Usuários</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu dropdown">
+                            {$usuarios}
+                            {$novo_usuario}
+                            {$usuarios1}
+                            {$usuarios2}
+                        </ul>
+                    </li>
+                {/if}
+                {if $modulo2_status == false}
+                    <li class=" treeview">
+                        <a href="#" data-hover="dropdown">
+                            <i class="fa fa-user"></i> <span>Cargos</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu dropdown">
+                            {$cargos}
+                            {$novo_cargo}
+                        </ul>
+                    </li>
+                {/if}
+                {if $modulo5_status == false}
+                    <li class=" treeview">
+                        <a title="Restrições dos Usuários" href="#" data-hover="dropdown">
+                            <i class="fa fa-lock"></i> <span>Restrições Usuários</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu dropdown">
+                            {$adm_restricoes}
+                            {$adm_restricoes1}
+                            {$adm_restricoes2}
+                        </ul>
+                    </li>
+                {/if}
+                {$adm_usuario_online}
+                {$adm_emails_enviados}
+                {$adm_sms_enviados}
+                {$adm_logs}
+                {$adm_logs_acesso}
+            </ul>
+            </li>
+        {/if}
+
+
+    </ul>
+  </section>
+</aside>

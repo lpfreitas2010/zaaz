@@ -1,0 +1,81 @@
+ @import "compass";
+ @import "compass/css3";
+/*
+ * Component: alert
+ * ----------------
+ */
+
+.alert {
+	@include border-radius(0);
+	h4 {
+		font-weight: 600;
+	}
+	.icon {
+		margin-right: 10px;
+	}
+	.close {
+		color: #000;
+		opacity: 0.2;
+		font-size: 25px;
+		filter: alpha(opacity=20);
+		&:hover {
+			opacity: 0.5;
+			filter: alpha(opacity=50);
+		}
+	}
+	a {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+.alert-success {
+	color: #fff !important;
+	background-color: #00a65a !important;
+	border-color: #008d4c !important;
+}
+.alert-danger {
+	color: #fff !important;
+	background-color: #dd4b39 !important;
+	border-color: #d73925 !important;
+}
+.alert-error {
+	color: #fff !important;
+	background-color: #dd4b39 !important;
+	border-color: #d73925 !important;
+}
+.alert-warning {
+	color: #fff !important;
+	background-color: #f39c12 !important;
+	border-color: #e08e0b !important;
+}
+.alert-info {
+	color: #fff !important;
+	background-color: #00c0ef !important;
+	border-color: #00acd6 !important;
+}
+
+
+/* Texto justificado no alert sucesso e error*/
+.alert-texto{
+  text-align: left;
+  font-size: 18px;
+  max-width: 400px;
+  a{
+    text-decoration: none;
+    color:#FFF !important;
+  }
+
+}
+
+
+
+@media (max-width: 700px){
+	.alert-texto{
+		top: 0px !important;
+		right: 0px !important;
+		max-width: none !important;
+	}
+	.alert .close {
+	    font-size: 29px;
+	}
+}

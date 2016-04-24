@@ -1,0 +1,1285 @@
+ @import "compass/css3";
+/*
+ * Component: Button
+ * -----------------
+ */
+
+
+ //@extend-elements
+ //original selectors
+ //.btn-app >.fa, .btn-app >.glyphicon, .btn-app >.ion
+ %extend_1 {
+ 	font-size: 20px;
+ 	font-size: 1.25rem;
+ 	display: block;
+ }
+
+ //original selectors
+ //.btn-adn:hover, .btn-adn:focus, .btn-adn.focus, .btn-adn:active, .btn-adn.active, .open >.dropdown-toggle.btn-adn
+ %extend_2 {
+ 	color: #ffffff;
+ 	background-color: #ce563f;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-bitbucket:hover, .btn-bitbucket:focus, .btn-bitbucket.focus, .btn-bitbucket:active, .btn-bitbucket.active, .open >.dropdown-toggle.btn-bitbucket
+ %extend_3 {
+ 	color: #ffffff;
+ 	background-color: #163758;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-dropbox:hover, .btn-dropbox:focus, .btn-dropbox.focus, .btn-dropbox:active, .btn-dropbox.active, .open >.dropdown-toggle.btn-dropbox
+ %extend_4 {
+ 	color: #ffffff;
+ 	background-color: #0d6aad;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-facebook:hover, .btn-facebook:focus, .btn-facebook.focus, .btn-facebook:active, .btn-facebook.active, .open >.dropdown-toggle.btn-facebook
+ %extend_5 {
+ 	color: #ffffff;
+ 	background-color: #2d4373;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-flickr:hover, .btn-flickr:focus, .btn-flickr.focus, .btn-flickr:active, .btn-flickr.active, .open >.dropdown-toggle.btn-flickr
+ %extend_6 {
+ 	color: #ffffff;
+ 	background-color: #cc006a;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-foursquare:hover, .btn-foursquare:focus, .btn-foursquare.focus, .btn-foursquare:active, .btn-foursquare.active, .open >.dropdown-toggle.btn-foursquare
+ %extend_7 {
+ 	color: #ffffff;
+ 	background-color: #f71752;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-github:hover, .btn-github:focus, .btn-github.focus, .btn-github:active, .btn-github.active, .open >.dropdown-toggle.btn-github
+ %extend_8 {
+ 	color: #ffffff;
+ 	background-color: #2b2b2b;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-google:hover, .btn-google:focus, .btn-google.focus, .btn-google:active, .btn-google.active, .open >.dropdown-toggle.btn-google
+ %extend_9 {
+ 	color: #ffffff;
+ 	background-color: #c23321;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-instagram:hover, .btn-instagram:focus, .btn-instagram.focus, .btn-instagram:active, .btn-instagram.active, .open >.dropdown-toggle.btn-instagram
+ %extend_10 {
+ 	color: #ffffff;
+ 	background-color: #305777;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-linkedin:hover, .btn-linkedin:focus, .btn-linkedin.focus, .btn-linkedin:active, .btn-linkedin.active, .open >.dropdown-toggle.btn-linkedin
+ %extend_11 {
+ 	color: #ffffff;
+ 	background-color: #005983;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-microsoft:hover, .btn-microsoft:focus, .btn-microsoft.focus, .btn-microsoft:active, .btn-microsoft.active, .open >.dropdown-toggle.btn-microsoft
+ %extend_12 {
+ 	color: #ffffff;
+ 	background-color: #125acd;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-openid:hover, .btn-openid:focus, .btn-openid.focus, .btn-openid:active, .btn-openid.active, .open >.dropdown-toggle.btn-openid
+ %extend_13 {
+ 	color: #ffffff;
+ 	background-color: #da7908;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-pinterest:hover, .btn-pinterest:focus, .btn-pinterest.focus, .btn-pinterest:active, .btn-pinterest.active, .open >.dropdown-toggle.btn-pinterest
+ %extend_14 {
+ 	color: #ffffff;
+ 	background-color: #9f191f;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-reddit:hover, .btn-reddit:focus, .btn-reddit.focus, .btn-reddit:active, .btn-reddit.active, .open >.dropdown-toggle.btn-reddit
+ %extend_15 {
+ 	color: #000000;
+ 	background-color: #bcddff;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-soundcloud:hover, .btn-soundcloud:focus, .btn-soundcloud.focus, .btn-soundcloud:active, .btn-soundcloud.active, .open >.dropdown-toggle.btn-soundcloud
+ %extend_16 {
+ 	color: #ffffff;
+ 	background-color: #cc4400;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-tumblr:hover, .btn-tumblr:focus, .btn-tumblr.focus, .btn-tumblr:active, .btn-tumblr.active, .open >.dropdown-toggle.btn-tumblr
+ %extend_17 {
+ 	color: #ffffff;
+ 	background-color: #1c2d3f;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-twitter:hover, .btn-twitter:focus, .btn-twitter.focus, .btn-twitter:active, .btn-twitter.active, .open >.dropdown-toggle.btn-twitter
+ %extend_18 {
+ 	color: #ffffff;
+ 	background-color: #2795e9;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-vimeo:hover, .btn-vimeo:focus, .btn-vimeo.focus, .btn-vimeo:active, .btn-vimeo.active, .open >.dropdown-toggle.btn-vimeo
+ %extend_19 {
+ 	color: #ffffff;
+ 	background-color: #1295bf;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-vk:hover, .btn-vk:focus, .btn-vk.focus, .btn-vk:active, .btn-vk.active, .open >.dropdown-toggle.btn-vk
+ %extend_20 {
+ 	color: #ffffff;
+ 	background-color: #466482;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-yahoo:hover, .btn-yahoo:focus, .btn-yahoo.focus, .btn-yahoo:active, .btn-yahoo.active, .open >.dropdown-toggle.btn-yahoo
+ %extend_21 {
+ 	color: #ffffff;
+ 	background-color: #500a6f;
+ 	border-color: rgba(0, 0, 0, 0);
+ }
+
+ //original selectors
+ //.btn-sl, .btn-group-sl >.btn
+ %extend_22 {
+ 	padding: 2px 10px;
+ 	font-size: 13px;
+ 	line-height: 1.5;
+ }
+
+ //original selectors
+ //.btn-sm, .btn-group-sm >.btn
+ %extend_23 {
+ 	padding: 5px 10px;
+ 	font-size: 13px;
+ 	line-height: 1.5;
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 0;
+ }
+
+
+ .btn {
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 0;
+ 	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 	box-shadow: none;
+ 	border: 1px solid transparent;
+ 	&.uppercase {
+ 		text-transform: uppercase;
+ 	}
+ 	&.btn-flat {
+ 		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 		border-radius: 0;
+ 		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 		box-shadow: none;
+ 		border-width: 1px;
+ 	}
+ 	&:active {
+ 		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+ 	}
+ 	&:focus {
+ 		outline: none;
+ 	}
+ 	&.btn-file {
+ 		position: relative;
+ 		overflow: hidden;
+ 		> input[type='file'] {
+ 			position: absolute;
+ 			top: 0;
+ 			right: 0;
+ 			min-width: 100%;
+ 			min-height: 100%;
+ 			font-size: 100px;
+ 			font-size: 6.25rem;
+ 			text-align: right;
+ 			opacity: 0;
+ 			filter: alpha(opacity=0);
+ 			outline: none;
+ 			background: white;
+ 			cursor: inherit;
+ 			display: block;
+ 		}
+ 	}
+ }
+ .btn-default {
+ 	background-color: #f4f4f4;
+ 	color: #444;
+ 	border-color: #ddd;
+ 	&:hover {
+ 		background-color: #e7e7e7;
+ 	}
+ 	&:active {
+ 		background-color: #e7e7e7;
+ 	}
+ 	&.hover {
+ 		background-color: #e7e7e7;
+ 	}
+ }
+ .btn-default2 {
+ 	background: none;
+ 	color: white;
+ 	border-color: none;
+ 	&:hover {
+ 		background-color: #333131;
+ 		color: white;
+ 		border-color: #333131;
+ 	}
+ 	&:focus {
+ 		background-color: #333131;
+ 		color: white;
+ 		border-color: #333131;
+ 	}
+ 	&:active {
+ 		background-color: #333131;
+ 		color: white;
+ 		border-color: #333131;
+ 	}
+ 	&.hover {
+ 		background-color: #333131;
+ 		color: white;
+ 		border-color: #333131;
+ 	}
+ }
+ .btn-primary {
+ 	background-color: #3c8dbc;
+ 	border-color: #367fa9;
+ 	&:hover {
+ 		background-color: #367fa9;
+ 	}
+ 	&:active {
+ 		background-color: #367fa9;
+ 	}
+ 	&.hover {
+ 		background-color: #367fa9;
+ 	}
+ }
+ .btn-success {
+ 	background-color: #00a65a;
+ 	border-color: #008d4c;
+ 	display: inital;
+ 	&:hover {
+ 		background-color: #008d4c;
+ 	}
+ 	&:active {
+ 		background-color: #008d4c;
+ 	}
+ 	&.hover {
+ 		background-color: #008d4c;
+ 	}
+ }
+ .btn-info {
+ 	background-color: #00c0ef;
+ 	border-color: #00acd6;
+ 	&:hover {
+ 		background-color: #00acd6;
+ 	}
+ 	&:active {
+ 		background-color: #00acd6;
+ 	}
+ 	&.hover {
+ 		background-color: #00acd6;
+ 	}
+ }
+ .btn-danger {
+ 	background-color: #dd4b39;
+ 	border-color: #d73925;
+ 	&:hover {
+ 		background-color: #d73925;
+ 	}
+ 	&:active {
+ 		background-color: #d73925;
+ 	}
+ 	&.hover {
+ 		background-color: #d73925;
+ 	}
+ }
+ .btn-warning {
+ 	background-color: #f39c12;
+ 	border-color: #e08e0b;
+ 	&:hover {
+ 		background-color: #e08e0b;
+ 	}
+ 	&:active {
+ 		background-color: #e08e0b;
+ 	}
+ 	&.hover {
+ 		background-color: #e08e0b;
+ 	}
+ }
+ .btn-outline {
+ 	border: 1px solid  white;
+ 	background: transparent;
+ 	color: white;
+ 	&:hover {
+ 		color: rgba(255, 255, 255, 0);
+ 		border-color: rgba(255, 255, 255, 0);
+ 	}
+ 	&:focus {
+ 		color: rgba(255, 255, 255, 0);
+ 		border-color: rgba(255, 255, 255, 0);
+ 	}
+ 	&:active {
+ 		color: rgba(255, 255, 255, 0);
+ 		border-color: rgba(255, 255, 255, 0);
+ 	}
+ }
+ .btn-link {
+ 	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 	box-shadow: none;
+ }
+ .btn-app {
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 0;
+ 	position: relative;
+ 	padding: 15px 5px;
+ 	margin: 0 0 10px 10px;
+ 	min-width: 80px;
+ 	height: 60px;
+ 	text-align: center;
+ 	color: #666;
+ 	border: 1px solid #ddd;
+ 	background-color: #f4f4f4;
+ 	font-size: 12px;
+ 	font-size: 0.75rem;
+ 	> {
+ 		.fa {
+ 			@extend %extend_1;
+ 		}
+ 		.glyphicon {
+ 			@extend %extend_1;
+ 		}
+ 		.ion {
+ 			@extend %extend_1;
+ 		}
+ 		.badge {
+ 			position: absolute;
+ 			top: -3px;
+ 			right: -10px;
+ 			font-size: 10px;
+ 			font-weight: 400;
+ 		}
+ 	}
+ 	&:hover {
+ 		background: #f4f4f4;
+ 		color: #444;
+ 		border-color: #aaa;
+ 	}
+ 	&:active {
+ 		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+ 	}
+ 	&:focus {
+ 		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+ 	}
+ }
+ .btn-adn {
+ 	color: #ffffff;
+ 	background-color: #d87a68;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_2;
+ 	}
+ 	&:focus {
+ 		@extend %extend_2;
+ 	}
+ 	&.focus {
+ 		@extend %extend_2;
+ 	}
+ 	&:active {
+ 		@extend %extend_2;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_2;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #d87a68;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-bitbucket {
+ 	color: #ffffff;
+ 	background-color: #205081;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_3;
+ 	}
+ 	&:focus {
+ 		@extend %extend_3;
+ 	}
+ 	&.focus {
+ 		@extend %extend_3;
+ 	}
+ 	&:active {
+ 		@extend %extend_3;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_3;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #205081;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-dropbox {
+ 	color: #ffffff;
+ 	background-color: #1087dd;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_4;
+ 	}
+ 	&:focus {
+ 		@extend %extend_4;
+ 	}
+ 	&.focus {
+ 		@extend %extend_4;
+ 	}
+ 	&:active {
+ 		@extend %extend_4;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_4;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #1087dd;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-facebook {
+ 	color: #ffffff;
+ 	background-color: #3b5998;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_5;
+ 	}
+ 	&:focus {
+ 		@extend %extend_5;
+ 	}
+ 	&.focus {
+ 		@extend %extend_5;
+ 	}
+ 	&:active {
+ 		@extend %extend_5;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_5;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #3b5998;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-flickr {
+ 	color: #ffffff;
+ 	background-color: #ff0084;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_6;
+ 	}
+ 	&:focus {
+ 		@extend %extend_6;
+ 	}
+ 	&.focus {
+ 		@extend %extend_6;
+ 	}
+ 	&:active {
+ 		@extend %extend_6;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_6;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #ff0084;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-foursquare {
+ 	color: #ffffff;
+ 	background-color: #f94877;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_7;
+ 	}
+ 	&:focus {
+ 		@extend %extend_7;
+ 	}
+ 	&.focus {
+ 		@extend %extend_7;
+ 	}
+ 	&:active {
+ 		@extend %extend_7;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_7;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #f94877;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-github {
+ 	color: #ffffff;
+ 	background-color: #444444;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_8;
+ 	}
+ 	&:focus {
+ 		@extend %extend_8;
+ 	}
+ 	&.focus {
+ 		@extend %extend_8;
+ 	}
+ 	&:active {
+ 		@extend %extend_8;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_8;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #444444;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-google {
+ 	color: #ffffff;
+ 	background-color: #dd4b39;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_9;
+ 	}
+ 	&:focus {
+ 		@extend %extend_9;
+ 	}
+ 	&.focus {
+ 		@extend %extend_9;
+ 	}
+ 	&:active {
+ 		@extend %extend_9;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_9;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #dd4b39;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-instagram {
+ 	color: #ffffff;
+ 	background-color: #3f729b;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_10;
+ 	}
+ 	&:focus {
+ 		@extend %extend_10;
+ 	}
+ 	&.focus {
+ 		@extend %extend_10;
+ 	}
+ 	&:active {
+ 		@extend %extend_10;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_10;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #3f729b;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-linkedin {
+ 	color: #ffffff;
+ 	background-color: #007bb6;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_11;
+ 	}
+ 	&:focus {
+ 		@extend %extend_11;
+ 	}
+ 	&.focus {
+ 		@extend %extend_11;
+ 	}
+ 	&:active {
+ 		@extend %extend_11;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_11;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #007bb6;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-microsoft {
+ 	color: #ffffff;
+ 	background-color: #2672ec;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_12;
+ 	}
+ 	&:focus {
+ 		@extend %extend_12;
+ 	}
+ 	&.focus {
+ 		@extend %extend_12;
+ 	}
+ 	&:active {
+ 		@extend %extend_12;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_12;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #2672ec;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-openid {
+ 	color: #ffffff;
+ 	background-color: #f7931e;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_13;
+ 	}
+ 	&:focus {
+ 		@extend %extend_13;
+ 	}
+ 	&.focus {
+ 		@extend %extend_13;
+ 	}
+ 	&:active {
+ 		@extend %extend_13;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_13;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #f7931e;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-pinterest {
+ 	color: #ffffff;
+ 	background-color: #cb2027;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_14;
+ 	}
+ 	&:focus {
+ 		@extend %extend_14;
+ 	}
+ 	&.focus {
+ 		@extend %extend_14;
+ 	}
+ 	&:active {
+ 		@extend %extend_14;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_14;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #cb2027;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-reddit {
+ 	color: #000000;
+ 	background-color: #eff7ff;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_15;
+ 	}
+ 	&:focus {
+ 		@extend %extend_15;
+ 	}
+ 	&.focus {
+ 		@extend %extend_15;
+ 	}
+ 	&:active {
+ 		@extend %extend_15;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_15;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #eff7ff;
+ 		background-color: #000000;
+ 	}
+ }
+ .btn-soundcloud {
+ 	color: #ffffff;
+ 	background-color: #ff5500;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_16;
+ 	}
+ 	&:focus {
+ 		@extend %extend_16;
+ 	}
+ 	&.focus {
+ 		@extend %extend_16;
+ 	}
+ 	&:active {
+ 		@extend %extend_16;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_16;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #ff5500;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-tumblr {
+ 	color: #ffffff;
+ 	background-color: #2c4762;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_17;
+ 	}
+ 	&:focus {
+ 		@extend %extend_17;
+ 	}
+ 	&.focus {
+ 		@extend %extend_17;
+ 	}
+ 	&:active {
+ 		@extend %extend_17;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_17;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #2c4762;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-twitter {
+ 	color: #ffffff;
+ 	background-color: #55acee;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_18;
+ 	}
+ 	&:focus {
+ 		@extend %extend_18;
+ 	}
+ 	&.focus {
+ 		@extend %extend_18;
+ 	}
+ 	&:active {
+ 		@extend %extend_18;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_18;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #55acee;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-vimeo {
+ 	color: #ffffff;
+ 	background-color: #1ab7ea;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_19;
+ 	}
+ 	&:focus {
+ 		@extend %extend_19;
+ 	}
+ 	&.focus {
+ 		@extend %extend_19;
+ 	}
+ 	&:active {
+ 		@extend %extend_19;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_19;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #1ab7ea;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-vk {
+ 	color: #ffffff;
+ 	background-color: #587ea3;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_20;
+ 	}
+ 	&:focus {
+ 		@extend %extend_20;
+ 	}
+ 	&.focus {
+ 		@extend %extend_20;
+ 	}
+ 	&:active {
+ 		@extend %extend_20;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_20;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #587ea3;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-yahoo {
+ 	color: #ffffff;
+ 	background-color: #720e9e;
+ 	border-color: rgba(0, 0, 0, 0);
+ 	&:hover {
+ 		@extend %extend_21;
+ 	}
+ 	&:focus {
+ 		@extend %extend_21;
+ 	}
+ 	&.focus {
+ 		@extend %extend_21;
+ 	}
+ 	&:active {
+ 		@extend %extend_21;
+ 		background-image: none;
+ 	}
+ 	&.active {
+ 		@extend %extend_21;
+ 		background-image: none;
+ 	}
+ 	.badge {
+ 		color: #720e9e;
+ 		background-color: #ffffff;
+ 	}
+ }
+ .btn-social {
+ 	position: relative;
+ 	padding-left: 44px;
+ 	text-align: left;
+ 	white-space: nowrap;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	&.btn-lg {
+ 		padding-left: 61px;
+ 		> :first-child {
+ 			line-height: 45px;
+ 			width: 45px;
+ 			font-size: 1.8em;
+ 		}
+ 	}
+ 	&.btn-sm {
+ 		padding-left: 38px;
+ 		> :first-child {
+ 			line-height: 28px;
+ 			width: 28px;
+ 			font-size: 1.4em;
+ 		}
+ 	}
+ 	&.btn-xs {
+ 		padding-left: 30px;
+ 		> :first-child {
+ 			line-height: 20px;
+ 			width: 20px;
+ 			font-size: 1.2em;
+ 		}
+ 	}
+ 	> :first-child {
+ 		position: absolute;
+ 		left: 0;
+ 		top: 0;
+ 		bottom: 0;
+ 		width: 32px;
+ 		line-height: 34px;
+ 		font-size: 1.6em;
+ 		text-align: center;
+ 		border-right: 1px solid rgba(0, 0, 0, 0);
+ 	}
+ }
+ .btn-social-icon {
+ 	position: relative;
+ 	padding-left: 44px;
+ 	text-align: left;
+ 	white-space: nowrap;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	height: 34px;
+ 	width: 34px;
+ 	padding: 0;
+ 	&.btn-lg {
+ 		padding-left: 61px;
+ 		height: 45px;
+ 		width: 45px;
+ 		padding-left: 0;
+ 		padding-right: 0;
+ 		> :first-child {
+ 			line-height: 45px;
+ 			width: 45px;
+ 			font-size: 1.8em;
+ 		}
+ 	}
+ 	&.btn-sm {
+ 		padding-left: 38px;
+ 		height: 30px;
+ 		width: 30px;
+ 		padding-left: 0;
+ 		padding-right: 0;
+ 		> :first-child {
+ 			line-height: 28px;
+ 			width: 28px;
+ 			font-size: 1.4em;
+ 		}
+ 	}
+ 	&.btn-xs {
+ 		padding-left: 30px;
+ 		height: 22px;
+ 		width: 22px;
+ 		padding-left: 0;
+ 		padding-right: 0;
+ 		> :first-child {
+ 			line-height: 20px;
+ 			width: 20px;
+ 			font-size: 1.2em;
+ 		}
+ 	}
+ 	> :first-child {
+ 		position: absolute;
+ 		left: 0;
+ 		top: 0;
+ 		bottom: 0;
+ 		width: 32px;
+ 		line-height: 34px;
+ 		font-size: 1.6em;
+ 		border-right: 1px solid rgba(0, 0, 0, 0);
+ 		border: none;
+ 		text-align: center;
+ 		width: 100%;
+ 	}
+ }
+ .btn-dois {
+ 	float: left;
+ 	margin-right: 4px;
+ 	padding: 4px 10px;
+ 	margin-bottom: 0;
+ 	font-size: 15px;
+ 	font-weight: normal;
+ 	line-height: 1.42857143;
+ 	text-align: center;
+ 	white-space: nowrap;
+ 	vertical-align: middle;
+ 	touch-action: manipulation;
+ 	cursor: pointer;
+ 	//Instead of the line below you could use @include user-select($select)
+ 	user-select: none;
+ 	background-image: none;
+ 	border: 1px solid transparent;
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 0;
+ }
+ .btn-sl {
+ 	@extend %extend_22;
+ }
+ .btn-sm {
+ 	@extend %extend_23;
+ }
+ .btn-large {
+ 	padding: 3px 30px;
+ }
+ .btn-transparente {
+ 	background-color: transparent;
+ 	color: #fff;
+ 	border: none;
+ 	&:hover {
+ 		background: rgba(100,100,100,1);
+ 		color: #fff;
+ 	}
+ 	a {
+ 		&:visited {
+ 			background: rgba(100,100,100,0.50);
+ 			color: #fff !important;
+ 		}
+ 		&:active {
+ 			background: rgba(100,100,100,0.50);
+ 			color: #fff !important;
+ 		}
+ 		&:focus {
+ 			background: rgba(100,100,100,0.50);
+ 			color: #fff !important;
+ 		}
+ 	}
+ }
+ .btn[class*='bg-']:hover {
+ 	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 	box-shadow: inset 0 0 100px rgba(0, 0, 0, 0);
+ }
+ .open > .dropdown-toggle {
+ 	&.btn-adn {
+ 		@extend %extend_2;
+ 		background-image: none;
+ 	}
+ 	&.btn-bitbucket {
+ 		@extend %extend_3;
+ 		background-image: none;
+ 	}
+ 	&.btn-dropbox {
+ 		@extend %extend_4;
+ 		background-image: none;
+ 	}
+ 	&.btn-facebook {
+ 		@extend %extend_5;
+ 		background-image: none;
+ 	}
+ 	&.btn-flickr {
+ 		@extend %extend_6;
+ 		background-image: none;
+ 	}
+ 	&.btn-foursquare {
+ 		@extend %extend_7;
+ 		background-image: none;
+ 	}
+ 	&.btn-github {
+ 		@extend %extend_8;
+ 		background-image: none;
+ 	}
+ 	&.btn-google {
+ 		@extend %extend_9;
+ 		background-image: none;
+ 	}
+ 	&.btn-instagram {
+ 		@extend %extend_10;
+ 		background-image: none;
+ 	}
+ 	&.btn-linkedin {
+ 		@extend %extend_11;
+ 		background-image: none;
+ 	}
+ 	&.btn-microsoft {
+ 		@extend %extend_12;
+ 		background-image: none;
+ 	}
+ 	&.btn-openid {
+ 		@extend %extend_13;
+ 		background-image: none;
+ 	}
+ 	&.btn-pinterest {
+ 		@extend %extend_14;
+ 		background-image: none;
+ 	}
+ 	&.btn-reddit {
+ 		@extend %extend_15;
+ 		background-image: none;
+ 	}
+ 	&.btn-soundcloud {
+ 		@extend %extend_16;
+ 		background-image: none;
+ 	}
+ 	&.btn-tumblr {
+ 		@extend %extend_17;
+ 		background-image: none;
+ 	}
+ 	&.btn-twitter {
+ 		@extend %extend_18;
+ 		background-image: none;
+ 	}
+ 	&.btn-vimeo {
+ 		@extend %extend_19;
+ 		background-image: none;
+ 	}
+ 	&.btn-vk {
+ 		@extend %extend_20;
+ 		background-image: none;
+ 	}
+ 	&.btn-yahoo {
+ 		@extend %extend_21;
+ 		background-image: none;
+ 	}
+ }
+ .btn-group-sl > .btn {
+ 	@extend %extend_22;
+ }
+ .btn-group-sm > .btn {
+ 	@extend %extend_23;
+ }
+
+
+ .btn-resp2 {
+     padding: 6px 12px;
+ 	padding-left: 5px !important;
+     margin-bottom: 0;
+     font-size: 14px;
+     font-weight: 400;
+     line-height: 1.42857143;
+     text-align: center;
+     white-space: nowrap;
+     -ms-touch-action: manipulation;
+     touch-action: manipulation;
+     cursor: pointer;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     border: 1px solid transparent;
+     border-radius: 4px;
+ }
+
+
+ .action-botoes-primario{
+ 	float: left;
+ 	width: 100%;
+ }
+ .action-botoes-segundario{
+ 	padding-top: 0px;
+ 	float: left;
+ 	width: 100%;
+ }
+
+ .action-botoes {
+ 	width: auto;
+ 	position: relative;
+
+ }
+
+ .action-botoes-footer > .btn-default {
+ 	background-color: #FFFFFF;
+     color: #444;
+     border-color: #ddd;
+ }
+ .action-botoes-footer > .btn-default:hover {
+ 	background-color: #ddd;
+ }
+ .action-botoes-footer{
+ 	width: auto;
+ 	position: relative;
+ 	float: right;
+ 	padding-top: 13px;
+     margin-right: 7px;
+ }
+
+ .btns_acoes_listagem{
+ 	color: #545555;
+ 	padding: 0px;
+ 	text-align: left;
+ }
+
+ .btn_detalhamento{
+ 	cursor: pointer;
+ }
+ .btn_editar, .btn_ativar, .link{
+ 	cursor: pointer;
+ }
+
+ #btn_enviarlogin{
+ 	color: #000 !important;
+ }
+
+
+ #btn_pesquisa_avancada{
+ 	color: #fff !important;
+ }
+
+ .btn-pesquisa-avancada > .btn-default {
+     background-color: #ffffff;
+     color: #444;
+     border-color: #ddd;
+ }
+ .btn-pesquisa-avancada > .btn-default:hover {
+     background-color: #ddd;
+     color: #444;
+     border-color: #ddd;
+ }
+ .btn-filtro {
+ 	background-color: #f4f4f4;
+     color: #444;
+     border-color: #ddd;
+ }
+ .btn-filtro:focus,
+ .btn-filtro:active,
+ .btn-filtro:hover {
+     background-color: #e7e7e7;
+ }
+
+ .btn-link {
+     color: #000;
+ }
+ .btn-link:hover {
+     text-decoration: none;
+ }
+ .btn-transparente:hover{
+     background: rgba(0, 0, 0, 0.5) !important;
+ }

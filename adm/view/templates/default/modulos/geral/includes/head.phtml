@@ -1,0 +1,66 @@
+{strip}
+
+<!-- HEADER GERAL -->
+{if $pagina_include == ""}
+    <!DOCTYPE html>
+    <html class="animated fadeIn">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="author" content="{$autor}">
+            <meta name="description" content="{$description}">
+            <meta name="keywords" content="{$keyword}">
+
+            {if $url_erro2 != "" && $pagina_ativa != "main"}
+            <noscript><meta http-equiv="Refresh" content="0; url={$path_raiz}{$url_erro2}"></noscript>
+            {/if}
+
+            <title>{$title_pagina} {$title_empresa} </title>
+
+            <!-- CSS -->
+            {foreach $css as $i}
+            <link id="link_css" rel="stylesheet" href="{$path}{$i}.css">
+            {/foreach}
+            </head>
+            {if $loader == ""}
+            <div class="fakeloader hidden-md hidden-lg"><div class="fl spinner7" style="position: fixed; left: 40%; top: 50%;z-index:9999"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
+            <div class="fakeloader hidden-sm hidden-xs"><div class="fl spinner7" style="position: fixed; left: 47%; top: 50%;z-index:9999"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
+            {/if}
+        <body class="hold-transition sidebar-mini">
+      <div class="wrapper">
+{/if}
+
+<div action_notificacoes_popup="{$action_notificacoes_popup}" action_notificacoes="{$action_notificacoes}" action_notificacao_lida="{$action_notificacao_lida}" action_pesq_geral="{$action_pesq_geral}" action_autocomplete_pesq_geral="{$action_autoco_pesq_geral}" id="param_javascript" ></div>
+
+<!-- HEADER INDEX -->
+{if $pagina_include == "index"}
+    <!DOCTYPE html>
+    <html class="animated fadeIn">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="author" content="{$autor}">
+            <meta name="description" content="{$description}">
+            <meta name="keywords" content="{$keyword}">
+
+            {if $url_erro2 != ""}
+            <noscript><meta http-equiv="Refresh" content="0; url={$path_raiz}{$url_erro2}"></noscript>
+            {/if}
+
+            <title>{$title_pagina} {$title_empresa} </title>
+
+            <!-- CSS -->
+            {foreach $css as $i}
+            <link id="link_css" rel="stylesheet" href="{$path}{$i}.css">
+            {/foreach}
+
+
+            </head>
+            {if $loader == ""}
+            <div class="fakeloader hidden-md hidden-lg"><div class="fl spinner7" style="position: fixed; left: 40%; top: 50%;z-index:9999"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
+            <div class="fakeloader hidden-sm hidden-xs"><div class="fl spinner7" style="position: fixed; left: 47%; top: 50%;z-index:9999"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></div></div>
+            {/if}
+        <body class="hold-transition login-page">
+{/if}

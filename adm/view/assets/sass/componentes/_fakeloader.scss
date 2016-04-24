@@ -1,0 +1,10 @@
+ @import "compass/css3";
+
+/*
+*
+*  fakeloader loading geral
+*
+*/
+.fakeloader{
+	position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 999; background-color: rgba(34, 45, 50, 0.8);
+}

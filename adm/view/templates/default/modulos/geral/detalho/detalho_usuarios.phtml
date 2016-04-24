@@ -1,0 +1,288 @@
+{strip}
+
+<!-- ****************************************************************************************************************************** -->
+<!-- ****************************************************************************************************************************** -->
+<!-- EXPORTAR PARA PDF -->
+{if $op_exibicao == 'exportar'}
+
+<!-- ARRAY -->
+<div class="row col-md-12 area-array-detalho">
+	<div class="col-md-12">
+		<h3>{$titulo|upper} - <span style="font-size:14px;font-weight:normal;">Gerado em {$smarty.now|date_format:"%d/%m/%Y - %H:%M:%S"}</span></h3>
+		<hr />
+		<!-- ID E DATAS -->
+		{include file="modulos/geral/detalho/includes/content_header.phtml"}
+
+		<div class="box-body box-profile">
+			{if $array[0].img_perfil == true}
+			<img class="profile-user-img img-responsive img-circle center-cropped" src="{$path_raiz}files/perfil_usuario/p/{$array[0].img_perfil}" >
+			{else}
+			<img class="profile-user-img img-responsive img-circle center-cropped" src="{$path_raiz}adm/view/assets/img/avatar/avatar_h.jpg" >
+			{/if}
+			<h3 class=" text-center">{$array[0].nome}</h3>
+			<p class="text-muted text-center"><i class="fa fa-circle {if $array[0].status_id == 1 }text-success{else}text-danger{/if}"></i> {$array[0].status}</p>
+			<p class="text-muted text-center"><strong>Email: </strong>{$array[0].useremail}</p>
+			<p class="text-muted text-center"><strong>Último acesso: </strong>{$array[0].ultimo_acesso|date_format:"%d/%m/%Y ás %H:%M:%S"}</p>
+		</div>
+
+		<div class="box-body ">
+
+			<h4><i class="fa fa-book">&#xf007;</i> <strong>Informações básicas </strong><hr></h4>
+			<div class="col-pdf-4 ">
+				<strong>Usuário:</strong> {$array[0].nome}
+			</div>
+			<div class="col-pdf-4 ">
+				<strong>Sexo:</strong> {$array[0].sexo}
+			</div>
+			<div class="col-pdf-4 ">
+				<strong>Data de nascimento:</strong> {$array[0].data_nascimento|date_format:"%d/%m/%Y"}
+			</div>
+			<div class="col-pdf-4 ">
+				<strong>Cargo:</strong> {$array[0].nivel}
+			</div>
+			<div class="col-pdf-4">
+				<strong>telefone:</strong> {$array[0].telefone}
+			</div>
+			<div class="col-pdf-4">
+				<strong>telefone 2:</strong> {$array[0].telefone2}
+			</div>
+			<div class="col-pdf-4">
+				<strong>E-mail:</strong> {$array[0].telefone}
+			</div>
+			<div class="col-pdf-4">
+				<strong>E-mail:</strong> {$array[0].telefone2}
+			</div>
+			<div class="col-pdf-12">
+				<h4><i class="fa fa-key">&#xf084;</i> <strong>Dados de Acesso </strong><hr></h4>
+			</div>
+			<div class="col-pdf-6">
+				<strong>Username:</strong> {$array[0].username}
+			</div>
+			<div class="col-pdf-6">
+				<strong>E-mail de acesso:</strong> {$array[0].useremail}
+			</div>
+			<div class="col-pdf-4">
+				<strong>Telefone de acesso:</strong> {$array[0].usertelefone}
+			</div>
+
+			<div class="col-pdf-12">
+				<h4><i class="fa fa-map-marker">&#xf041;</i> <strong>Endereço </strong><hr></h4>
+			</div>
+			<div class="col-pdf-4">
+				<strong>Rua:</strong> {$array[0].logradouro}
+			</div>
+			<div class="col-pdf-4 ">
+				<strong>Numero:</strong> {$array[0].numero}
+			</div>
+			<div class="col-pdf-4">
+				<strong>Complemento:</strong> {$array[0].complemento}
+			</div>
+			<div class="col-pdf-4 ">
+				<strong>Bairro:</strong> {$array[0].bairro}
+			</div>
+			<div class="col-pdf-4">
+				<strong>CEP:</strong> {$array[0].CEP}
+			</div>
+			<div class="col-pdf-4">
+				<strong>Estado:</strong> {$array[0].estado}
+			</div>
+			<div class="col-pdf-4 ">
+				<strong>Cidade:</strong> {$array[0].cidade}
+			</div>
+			<div class="col-pdf-12">
+				<h4><i class="fa fa-map-marker">&#xf15c;</i> <strong>Outros Campos </strong><hr></h4>
+			</div>
+			<div class="col-pdf-12">
+				{$array[0].assinatura_email}
+			</div>
+
+			<!-- RESTRIÇÕES -->
+			<div class="col-md-12 col-pdf-12">
+				<h3><i class="fa fa-lock margin-r-5">&#xf023;</i> Permissões</h3>
+				<hr>
+				<div class="campo_texto_detalho col-md-12 col-pdf-12">
+					{$restricoes}
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{/if}
+
+<!-- ****************************************************************************************************************************** -->
+<!-- ****************************************************************************************************************************** -->
+<!-- EXIBIR NA TELA -->
+{if $op_exibicao == 'exibir'}
+
+<!-- TITULO -->
+{include file="modulos/geral/detalho/includes/header.phtml" imprimir="false"}
+
+<!-- ARRAY -->
+<div class="box-body">
+	<div id="area-imprimir" class="area-array-detalho">
+		<div class="col-md-12">
+			<!-- ID E DATAS -->
+			{include file="modulos/geral/detalho/includes/content_header.phtml"}
+			<div class="col-md-12 row">
+				<div class="col-md-3 row">
+					<div class="box-profile">
+						{if $array[0].img_perfil == true}
+						<img class="profile-user-img img-responsive img-circle center-cropped" src="{$path_raiz}files/perfil_usuario/p/{$array[0].img_perfil}" >
+						{else}
+						<img class="profile-user-img img-responsive img-circle center-cropped" src="{$path_raiz}adm/view/assets/img/avatar/avatar_h.jpg" >
+						{/if}
+						<h3 class="profile-username text-center">{$array[0].nome|upper}</h3>
+						<br />
+					</div>
+				</div>
+				<div class="col-md-9 col-sm-12 col-xs-12 p-b-15 row">
+
+						<a href="{$path_atual}adm_logs/busca/ID Usuário: {$id}" class="btn btn-primary menu-profile"><b> <i class="fa fa-list-alt"></i> Relatório de Logs</b></a>
+
+						<a href="{$path_atual}adm_logs_acesso/busca/ID Usuário: {$id}" class="btn btn-primary  menu-profile"><b><i class="fa fa-list-alt"></i> Relatório de Logs de Acesso</b></a>
+
+						<a href="{$path_atual}adm_restricoes/busca/ID Usuário: {$id}" class="btn btn-primary menu-profile"><b><i class="fa fa-lock"></i> Restrições de Acesso</b></a>
+
+				</div>
+				<div class="col-md-9 col-sm-12 col-xs-12 p-b-15">
+						<p class="text-muted "><strong>Status:</strong> <strong> {if $array[0].status_id == 1 }<i class="fa fa-check text-success"></i> <span class="text-success"> {$array[0].status} </span> {/if} {if $array[0].status_id == 2} <i class="fa fa-remove text-danger"></i> <span class="text-danger"> {$array[0].status} </span>{/if}</strong>  </p>
+						<p class="text-muted "><strong>E-mail: </strong>{$array[0].useremail}</p>
+						<p class="text-muted "><strong>Último login: </strong>{$array[0].ultimo_acesso|date_format:"tempo"}</p>
+						<p class="text-muted "><strong>Última mudança de senha: </strong>{$array[0].ultima_mod_senha|date_format:"tempo"}</p>
+						<p class="text-muted "><strong>Última mudança de username: </strong>{$array[0].ultima_mod_username|date_format:"tempo"}</p>
+				</div>
+			</div>
+			<div class="col-md-12 row">
+				<!-- DADOS PESSOAIS -->
+				<div class="col-md-12 row">
+					<h3><i class="fa fa-list margin-r-5"></i> Dados Pessoais </h3>
+					<hr>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Usuário:</strong> {$array[0].nome}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Sexo:</strong> {$array[0].sexo}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Data de nascimento:</strong> {$array[0].data_nascimento|date_format:"%d/%m/%Y"} <strong>({$array[0].data_nascimento|date_format:"idade"} anos)</strong>
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Cargo:</strong> {$array[0].nivel}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Telefone:</strong>
+						{if $array[0].telefone == ""} Não informado
+						{else} {$array[0].telefone} {/if}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Telefone 2:</strong>
+						{if $array[0].telefone2 == ""} Não informado
+						{else} {$array[0].telefone2} {/if}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>E-mail:</strong>
+						{if $array[0].email == ""} Não informado
+						{else} {$array[0].email} {/if}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>E-mail 2:</strong>
+						{if $array[0].email2 == ""} Não informado
+						{else} {$array[0].email2} {/if}
+					</div>
+				</div>
+				<!-- DADOS DE ACESSO -->
+				<div class="col-md-12 row m-t-20">
+					<h3><i class="fa fa-lock margin-r-5"></i>  Dados de Acesso </h3>
+					<hr>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Username:</strong> {$array[0].username}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>E-mail de acesso:</strong> {$array[0].useremail}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Telefone de acesso:</strong>
+						{if $array[0].usertelefone == ""} Não informado
+						{else} {$array[0].usertelefone} {/if}
+					</div>
+				</div>
+				<!-- ENDERECO -->
+				<div class="col-md-12 row m-t-20">
+					<h3><i class="fa fa-map margin-r-5"></i> Endereço</h3>
+					<hr>
+
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Rua:</strong>
+						{if $array[0].logradouro == ""} Não informado
+						{else} {$array[0].logradouro} {/if}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Numero:</strong>
+						{if $array[0].numero == ""} Não informado
+						{else} {$array[0].numero} {/if}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Complemento:</strong>
+						{if $array[0].complemento == ""} Não informado
+						{else} {$array[0].complemento} {/if}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>Bairro:</strong>
+						{if $array[0].bairro == ""} Não informado
+						{else} {$array[0].bairro} {/if}
+					</div>
+					<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+						<strong>CEP:</strong>
+						{if $array[0].CEP == ""} Não informado
+						{else} {$array[0].CEP} {/if}
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12">
+								<strong>Estado:</strong>
+								{if $array[0].estado == ""} Não informado
+								{else} {$array[0].estado} {/if}
+							</div>
+							<div class="campo_texto_detalho col-md-4 col-sm-12 col-xs-12 ">
+								<strong>Cidade:</strong>
+								{if $array[0].cidade == ""} Não informado
+								{else} {$array[0].cidade} {/if}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- OUTROS CAMPOS -->
+				<div class="col-md-12 row m-t-20">
+					<h3><i class="fa fa-list margin-r-5"></i> Outros Campos</h3>
+					<hr>
+					<div class="campo_texto_detalho col-md-12 col-sm-12 col-xs-12">
+						<strong>Assinatura de E-mail:</strong>
+					</div>
+					<div class="campo_texto_detalho col-md-12 col-sm-12 col-xs-12">
+						{if $array[0].assinatura_email == ""}
+						Não informado
+						{else}
+						{$array[0].assinatura_email}
+						{/if}
+					</div>
+				</div>
+
+				<!-- RESTRIÇÕES -->
+				<div class="col-md-12 row m-t-20">
+					<h3><i class="fa fa-lock margin-r-5"></i> Restrições</h3>
+					<hr>
+					<div class="campo_texto_detalho col-md-12 col-sm-12 col-xs-12">
+						{$restricoes}
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+{/if}

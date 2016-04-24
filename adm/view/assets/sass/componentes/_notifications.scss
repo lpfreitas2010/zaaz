@@ -1,0 +1,70 @@
+ @import "compass/css3";
+
+/*
+ * Component: NOTIFICATIONS
+ * ----------------
+ */
+ .notifications-menu li{
+ 	text-align: center;
+ 	font-weight: bold;
+ }
+ .notifications-menu2 li {
+ 	border-bottom: 3px solid #e3e8ee;
+ 	text-align: left;
+ 	font-weight: normal;
+ 	white-space: normal !important;
+ 	/*font-style: italic;*/
+ 	font-size: 13px;
+ 	/*padding-top: 5px;*/
+ }
+ .notifications-menu2 li strong{
+ 	font-weight: 500;
+ }
+ .notifications-menu a:hover {
+ 	background: none !important;
+ }
+ .notificacao-inativa{
+ 	background: #fff !important;
+ }
+ .menu-not-esq{
+ 	font-size: 11px;
+ 	float: right;
+ 	padding-top: 12px !important;
+ 	padding-bottom: 3px !important;
+ }
+ .menu-not-esq li a:hover{
+ 	color: #fff !important;
+ }
+ .notifications-menu > .dropdown-menu > li .menu > li > a {
+     white-space: normal !important;
+ }
+ .label-not-tam{
+ 	font-size: 13px !important;
+ }
+
+ .notifications-menu li a:hover{
+ 	background: none;
+ }
+ .notifications-menu-title {
+ 	background: #eeeeee !important;
+ }
+ .notifications-menu-title a{
+ 	color: #464646 !important;
+ }
+ .notifications-menu-title a:hover{
+ 	background: none;
+ }
+ .notifications-menu-title li:hover{
+ 	background: none;
+ }
+ .caixa-notificacoes{
+ 	border: 1px solid #bdbdbd;
+ }
+ @media (max-width: 700px){
+ 	.notifications-menu-title a{
+ 		color: #464646 !important;
+ 	}
+ 	.caixa-notificacoes{
+ 		border: 1px solid #bdbdbd !important;
+ 	}
+ }

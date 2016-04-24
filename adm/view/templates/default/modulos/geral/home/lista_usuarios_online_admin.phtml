@@ -1,0 +1,38 @@
+{strip}
+
+<div class="{$col}">
+    <div class="box box-success box-solid">
+
+        <div class="box-header with-border">
+          <h3 title="{$total_registros_adm[0].total_usuarios_online_admin} Usuários Online" class="box-title"><span class="over-text-linha"><i class="fa fa-user"></i> {$total_registros_adm[0].total_usuarios_online_admin} Usuários Online </span></h3>
+        </div>
+
+        <div class="box-body padding-box-home">
+          <ul class="products-list product-list-in-box over-240">
+
+            {foreach $listagem_usuarios_online_admin as $i}
+                <a href="{$path_atual}usuarios/busca/{$i.nome}"><li class="item">
+                  <div class="product-img">
+                      {if $i.img_perfil == ""}
+                          <img src="{$path}/assets/img/avatar/avatar_h.jpg" alt="{$nome_usuario_ativo}" width="30" height="30" class="img-circle m-r-5 center-cropped">
+                      {else}
+                          <img src="{$path_raiz2}files/perfil_usuario/p/{$i.img_perfil}" alt="{$i.nome}" width="30" height="30" class="img-circle m-r-5 center-cropped">
+                      {/if}
+                  </div>
+                  <div class="product-info">
+                    <a href="{$path_atual}usuarios/busca/{$i.nome}" class="product-title">{$i.nome|upper}
+                        <span class="product-description">
+                          <i class="fa fa-circle text-success"></i> Online
+                        </span>
+                  </div>
+              </li><a/>
+            {/foreach}
+
+          </ul>
+        </div>
+
+        <div class="box-footer text-center">
+          <a title="Ver todos os usuários on-line" href="{$path_atual}adm_usuario_online" class="">Todos os Usuários <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>

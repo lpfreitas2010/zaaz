@@ -1,0 +1,22 @@
+ @import "compass/css3";
+ /*
+ * Generate Padding Class
+ * padding, padding-top, padding-bottom, padding-left, padding-rights
+ */
+
+ $i: 0;
+ $im: !important;
+ @while $i <= 50 {
+   .p-#{$i}    {padding: 1px * $i $im;}
+   .p-t-#{$i} { padding-top: 1px * $i $im; }
+   .p-b-#{$i} { padding-bottom: 1px * $i $im; }
+   .p-l-#{$i} { padding-left: 1px * $i $im; }
+   .p-r-#{$i} { padding-right: 1px * $i $im; }
+   $i: $i + 5;
+ }
+
+
+
+.padding-box-home{
+	padding-top: 15px !important;
+}

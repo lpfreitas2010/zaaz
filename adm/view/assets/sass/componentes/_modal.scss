@@ -1,0 +1,68 @@
+ @import "compass/css3";
+
+/*
+ * Component: modal
+ * ----------------
+ */
+
+
+
+.modal {
+	background: rgba(0, 0, 0, 0.3);
+}
+.modal-content {
+	@include border-radius(0);
+	@include box-shadow(0 2px 3px rgba(0, 0, 0, 0.125));
+	border: 0;
+}
+@media(min-width: 768px) {
+	.modal-content {
+	@include box-shadow(0 2px 3px rgba(0, 0, 0, 0.125));
+	}
+}
+.modal-header {
+	border-bottom-color: #f4f4f4;
+}
+.modal-footer {
+	border-top-color: #f4f4f4;
+}
+.modal-primary {
+	.modal-header {
+		border-color: #307095;
+	}
+	.modal-footer {
+		border-color: #307095;
+	}
+}
+.modal-warning {
+	.modal-header {
+		border-color: #c87f0a;
+	}
+	.modal-footer {
+		border-color: #c87f0a;
+	}
+}
+.modal-info {
+	.modal-header {
+		border-color: #0097bc;
+	}
+	.modal-footer {
+		border-color: #0097bc;
+	}
+}
+.modal-success {
+	.modal-header {
+		border-color: #00733e;
+	}
+	.modal-footer {
+		border-color: #00733e;
+	}
+}
+.modal-danger {
+	.modal-header {
+		border-color: #c23321;
+	}
+	.modal-footer {
+		border-color: #c23321;
+	}
+}

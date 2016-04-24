@@ -1,0 +1,169 @@
+ @import "compass/css3";
+
+ /*
+  * Component: Progress Bar
+  * -----------------------
+  */
+
+  //colors
+
+
+.progress {
+	@include box-shadow(none);
+	@include border-radius(1px);
+	.progress-bar {
+		@include border-radius(1px);
+	}
+	&.sm {
+		height: 10px;
+		@include border-radius(1px);
+		.progress-bar {
+			@include border-radius(1px);
+		}
+	}
+	&.xs {
+		height: 7px;
+		@include border-radius(1px);
+		.progress-bar {
+			@include border-radius(1px);
+		}
+	}
+	&.xxs {
+		height: 3px;
+		@include border-radius(1px);
+		.progress-bar {
+			@include border-radius(1px);
+		}
+	}
+	&.vertical {
+		position: relative;
+		width: 30px;
+		height: 200px;
+		display: inline-block;
+		margin-right: 10px;
+		&.sm {
+			width: 20px;
+		}
+		&.progress-sm {
+			width: 20px;
+		}
+		&.xs {
+			width: 10px;
+		}
+		&.progress-xs {
+			width: 10px;
+		}
+		&.xxs {
+			width: 3px;
+		}
+		&.progress-xxs {
+			width: 3px;
+		}
+		> .progress-bar {
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+		}
+	}
+	> .progress-bar {
+		@include box-shadow(none);
+		@include border-radius(1px);
+		.progress-bar {
+			@include border-radius(1px);
+		}
+	}
+}
+.progress-sm {
+	height: 10px;
+	@include border-radius(1px);
+	.progress-bar {
+		@include border-radius(1px);
+	}
+}
+.progress-xs {
+	height: 7px;
+	@include border-radius(1px);
+	.progress-bar {
+		@include border-radius(1px);
+	}
+}
+.progress-xxs {
+	height: 3px;
+	@include border-radius(1px);
+	.progress-bar {
+		@include border-radius(1px);
+	}
+}
+.progress-group {
+	.progress-text {
+		font-weight: 600;
+	}
+	.progress-number {
+		float: right;
+	}
+}
+.progress-bar-light-blue {
+	background-color: #3c8dbc;
+}
+.progress-bar-primary {
+	background-color: #3c8dbc;
+}
+.progress-striped {
+	.progress-bar-light-blue {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-primary {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-green {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-success {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-aqua {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-info {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-yellow {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-warning {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-red {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+	.progress-bar-danger {
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	}
+}
+.progress-bar-green {
+	background-color: #00a65a;
+}
+.progress-bar-success {
+	background-color: #00a65a;
+}
+.progress-bar-aqua {
+	background-color: #00c0ef;
+}
+.progress-bar-info {
+	background-color: #00c0ef;
+}
+.progress-bar-yellow {
+	background-color: #f39c12;
+}
+.progress-bar-warning {
+	background-color: #f39c12;
+}
+.progress-bar-red {
+	background-color: #dd4b39;
+}
+.progress-bar-danger {
+	background-color: #dd4b39;
+}
+.table tr > td .progress {
+	margin: 0;
+}

@@ -1,0 +1,53 @@
+{strip}
+
+<!-- TITULO -->
+{include file="modulos/geral/imprimir/includes/header.phtml"}
+
+<table>
+
+    <!-- HEADER TABELA -->
+    {include file="modulos/geral/imprimir/includes/content_header.phtml"}
+
+    <tbody>
+        {foreach $array as $i}
+         {cycle values='#ececec,#fff' assign=CellCSS}
+        <tr>
+            <!-- OUTROS CAMPOS -->
+            {foreach $campos as $i2}
+
+
+                {if $i2 == 'id'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.id}</td>
+                {/if}
+                {if $i2 == 'usuario'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.nome}</td>
+                {/if}
+                {if $i2 == 'ip'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.IP}</td>
+                {/if}
+                {if $i2 == 'so'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.SO}</td>
+                {/if}
+                {if $i2 == 'navegador'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.navegador}</td>
+                {/if}
+                {if $i2 == 'idioma'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.idioma}</td>
+                {/if}
+				{if $i2 == 'hora'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.hora|date_format:"%d/%m/%Y"} ás {$i.hora|date_format:"%H:%M:%S"}</td>
+                {/if}
+                {if $i2 == 'criado'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.criado|date_format:"%d/%m/%Y"} ás {$i.criado|date_format:"%H:%M:%S"}</td>
+                {/if}
+
+
+
+
+
+            {/foreach}
+        </tr>
+        {/foreach}
+
+    </tbody>
+</table>

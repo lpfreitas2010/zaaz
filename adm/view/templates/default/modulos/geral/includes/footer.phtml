@@ -1,0 +1,84 @@
+{strip}
+
+    <!-- MOSTRO SOMENTE NAS PÁGINAS INTERNAS -->
+    {if $pagina_include == ""}
+    <footer class="main-footer {if $param_modal_add != ""}{$param_modal_add}{/if}">
+        <div class="pull-right hidden-xs">
+            <b>Versão</b> {$versao}
+        </div>
+        <strong>Copyright &copy; <a href="http://{$endereco_site}" target="_blank">{$title_empresa}</a>.</strong> Todos os direitos reservados
+    </footer>
+    {/if}
+
+    </div><!-- ./wrapper -->
+
+    <!-- BLOCO GERAL -->
+    {if $pagina_include == "" || $pagina_include == "index"}
+
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+    <div class="ie-warning">
+    <div class="page-error">
+    <div class="col-md-7 text-center">
+    <div class="text-error">
+    <h1>OPS!</h1>
+    <p>Você está usando uma versão desatualizada do Internet Explorer, baixe a nova versão <br/> ou use qualquer um dos seguintes navegadores da Web para acessar nosso site.</p>
+    <h3>Desculpe pela inconveniência!</h3>
+    <ul class="iew-download">
+    <li>
+    <a href="http://www.google.com/chrome/">
+    <img src="{$path}/assets/img/browsers/chrome.png" alt="chrome">
+    <div>Chrome</div>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.mozilla.org/en-US/firefox/new/">
+    <img src="{$path}/assets/img/browsers/firefox.png" alt="firefox">
+    <div>Firefox</div>
+    </a>
+    </li>
+    <li>
+    <a href="http://www.opera.com">
+    <img src="{$path}/assets/img/browsers/opera.png" alt="opera">
+    <div>Opera</div>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.apple.com/safari/">
+    <img src="{$path}/assets/img/browsers/safari.png" alt="apple">
+    <div>Safari</div>
+    </a>
+    </li>
+    <li>
+    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+    <img src="{$path}/assets/img/browsers/ie.png" alt="internet-explorer">
+    <div>IE (New)</div>
+    </a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-5">
+    <img src="{$path}/assets/img/404.png" alt="" >
+    </div>
+    </div>
+    </div>
+    <![endif]-->
+    </body>
+
+    <!-- JS -->
+    <script type="text/javascript">var path = '{$path}';
+        var path_raiz = '{$path_raiz}';
+        {if $param_pagina == ""}
+            var pagina = '{$pagina_ativa}';
+        {else}
+            var pagina = '{$param_pagina}';
+        {/if}
+        var modo_sistema   = '{$modo_sistema}';
+        var modulos   = '{$modulos}';
+        var language  = '{$language_adm}';
+    </script>
+    <script data-main="{$path}/assets/js/main" src="{$path}/assets/js/libs/inc/requirejs/require.min.js"></script>
+</html>
+
+    {/if}

@@ -1,0 +1,8 @@
+
+files/
+libs/logs/
+adm/view/assets/.sass-cache/
+adm/view/templates/default/cache/
+adm/view/templates/default/modulos/geral/includes/forms
+adm/view/templates/default/modulos/geral/includes/listagens
+web/view/templates/default/cache/

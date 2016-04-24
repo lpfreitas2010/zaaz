@@ -1,0 +1,355 @@
+
+	//
+	// Load core variables and mixis
+	// --------------------------------------------------
+	@import "compass";
+	@import "compass/css3";
+	@import "componentes/variables";
+
+
+	/* ESTILOS GERAIS */
+	a:hover{
+		color: darken($cor_principal, 10%);
+	}
+    .btn-box-tool:hover {
+        color: darken($cor_principal, 10%);
+    }
+
+
+	/* BARRA PRINCIPAL */
+	.main-header .navbar {
+		background-color: $cor_principal;
+	}
+	.main-header .navbar .nav > li > a {
+		color: $cor_principal_a;
+	}
+	.main-header .navbar .nav > li > a:hover,
+	.main-header .navbar .nav > li > a:active,
+	.main-header .navbar .nav > li > a:focus,
+	.main-header .navbar .nav .open > a,
+	.main-header .navbar .nav .open > a:hover,
+	.main-header .navbar .nav .open > a:focus,
+	.main-header .navbar .nav > .active > a {
+		background: rgba(0, 0, 0, 0.1);
+		color: $cor_principal_a;
+	}
+	.main-header .navbar .sidebar-toggle {
+		color: $cor_principal_a;
+	}
+	.main-header .navbar .sidebar-toggle:hover {
+		background: rgba(0, 0, 0, 0.1);
+		color: $cor_principal_a;
+	}
+	.main-header .navbar .sidebar-toggle {
+		color: $cor_principal_a;
+	}
+	.main-header .navbar .sidebar-toggle:hover {
+		background-color: darken($cor_principal, 10%);
+	}
+	.main-header .logo {
+		background-color: darken($cor_principal, 10%);
+		color: $cor_principal_a;
+		border-bottom: 0 solid transparent;
+	}
+	.main-header .logo:hover {
+		background-color: darken($cor_principal, 20%);
+	}
+	.layout-top-nav .main-header > .logo {
+		background-color: $cor_principal;
+		color: #ffffff;
+		border-bottom: 0 solid transparent;
+	}
+	.layout-top-nav .main-header > .logo:hover {
+		background-color: darken($cor_principal, 5%);
+	}
+	.main-header li.user-header {
+		background-color: $cor_principal;
+	}
+	.content-header {
+		background: transparent;
+	}
+
+
+	/* MENU DROPDWON */
+	.btn-primary:hover,
+	.btn-primary:active,
+	.open>.dropdown-toggle.btn-primary:focus,
+	.open>.dropdown-toggle.btn-primary:hover {
+		color: $cor_principal_a;
+		background-color: darken($cor_principal, 5%);
+		border-color: darken($cor_principal, 8%);
+	}
+	.dropdown-menu>li>a:hover {
+		color: $cor_principal_a;
+		background-color: $cor_principal;
+	}
+	.hover_acoes{
+		color: $cor_principal_a !important;
+		background: $cor_principal;
+	}
+	@media (max-width: 767px) {
+		.main-header .navbar .dropdown-menu li.divider {
+			background-color: #eee;
+		}
+		.main-header .navbar .dropdown-menu li a:hover {
+			color: $cor_principal_a;
+		}
+	}
+
+
+	/* MENU LATERAL */
+	.wrapper,
+	.main-sidebar,
+	.left-side {
+		background-color: $cor_menu_lateral1;
+	}
+	.user-panel > .info,
+	.user-panel > .info > a {
+		color: #fff;
+	}
+	.sidebar-menu > li.header {
+		color: $cor_menu_lateral_a;
+		background: $cor_menu_lateral1;
+	}
+	.sidebar-menu > li > a {
+		border-left: 3px solid transparent;
+	}
+	.sidebar-menu > li:hover > a,
+	.sidebar-menu > li.active > a {
+		color: $cor_principal_a;
+		background: $cor_menu_lateral_a_hover;
+		border-left-color: $cor_principal;
+	}
+	.sidebar-menu > li > .treeview-menu {
+		margin: 0 1px;
+		background: darken($cor_menu_lateral_geral, 5%);
+	}
+	.sidebar a {
+		color: $cor_menu_lateral_a_geral;
+	}
+	.sidebar a:hover {
+		text-decoration: none;
+	}
+	.treeview-menu > li > a {
+		color: $cor_menu_lateral_li_a;
+	}
+	.treeview-menu > li.active > a,
+	.treeview-menu > li > a:hover {
+		color: $cor_principal_a_hover;
+	}
+	.sidebar-form {
+		border-radius: 3px;
+		border: 1px solid $cor_menu_lateral_geral;
+		margin: 10px 10px;
+	}
+	.sidebar-form input[type="text"],
+	.sidebar-form .btn {
+		box-shadow: none;
+		background-color: $cor_menu_lateral_geral;
+		border: 1px solid transparent;
+		height: 35px;
+		-webkit-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+	}
+	.sidebar-form input[type="text"] {
+		color: #666;
+		border-top-left-radius: 2px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 2px;
+	}
+	.sidebar-form input[type="text"]:focus,
+	.sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+		background-color: #fff;
+		color: #666;
+	}
+	.sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+		border-left-color: #fff;
+	}
+	.sidebar-form .btn {
+		color: #999;
+		border-top-left-radius: 0;
+		border-top-right-radius: 2px;
+		border-bottom-right-radius: 2px;
+		border-bottom-left-radius: 0;
+	}
+	.f-action {
+        background: $cor_menu_lateral_geral;
+        background: rgba($cor_menu_lateral_geral, 0.9);
+	}
+	#menu-lateral {
+	    background: $cor_menu_lateral_geral;
+	}
+	.sidebar-menu .treeview-menu .treeview-menu {
+	    background: $cor_menu_lateral_geral;
+	}
+
+
+	/* BOTÕES */
+	.btn-primary {
+		background-color: $cor_principal;
+   		border-color: darken($cor_principal,2%);
+	   &:hover {
+		   background-color: darken($cor_principal,10%) !important;
+   		   border-color: darken($cor_principal,12%) !important;
+	   }
+	   &:active {
+		   background-color: darken($cor_principal,10%) !important;
+   		   border-color: darken($cor_principal,12%) !important;
+	   }
+	   &:visited {
+		   background-color: darken($cor_principal,10%) !important;
+   		   border-color: darken($cor_principal,12%) !important;
+	   }
+	   &:focus {
+		  background-color: darken($cor_principal,10%) !important;
+		  border-color: darken($cor_principal,12%) !important;
+	  }
+	}
+	.btn-transparente:active, .btn-transparente:focus{
+		color: lighten($cor_principal,20%) !important;
+	}
+
+
+	/* AUTO COMPLETE*/
+	.ui-autocomplete > li.ui-state-focus a{
+	   color: $cor_principal_a !important;
+	}
+	.ui-autocomplete > li.ui-state-focus {
+	   background-color: lighten($cor_principal,5%);
+	   color: $cor_principal_a !important;
+	}
+	.ui-autocomplete > li.ui-state-focus .highlight{
+	   background-color: lighten($cor_principal,5%);
+	   color: $cor_principal_a !important;
+	}
+	.ui-autocomplete .highlight {
+	   font-weight: bold;
+	   background-color: none !important;
+	   color: lighten($cor_principal,2%);
+	}
+
+
+
+	/* TABELA */
+	tbody .selected_row {
+	   background: lighten($cor_principal2,30%) !important;
+	   color: darken($cor_principal,18%) !important;
+	}
+	thead tr {
+	   background-color: $cor_titulo_tabela;
+	   cursor: default;
+	   color: #fff;
+	}
+	.td_escuro{
+	   background: darken($cor_principal, 28%);
+	}
+	.table-hover {
+	  > tbody > tr:hover {
+	    background-color: lighten($cor_principal2,35%) !important;
+	  }
+	}
+
+
+	/* FOOTER */
+	.main-footer a{
+	    color: darken($cor_principal,10%);
+	}
+
+
+	/* DATATIMEPICKER */
+	.bootstrap-datetimepicker-widget table {
+ 		td {
+ 			&.active {
+ 				background-color: $cor_principal;
+ 				color: $cor_principal_a;
+ 				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+ 				&:hover {
+ 					background-color: $cor_principal;
+ 					color: $cor_principal_a;
+ 					text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+ 				}
+ 				&.today:before {
+ 					border-bottom-color: #fff;
+ 				}
+ 			}
+ 			span {
+ 				&.active {
+ 					background-color: $cor_principal;
+ 					color: $cor_principal_a;
+ 				}
+ 			}
+ 		}
+ 		thead tr:first-child th {
+ 			cursor: pointer;
+ 			&:hover {
+ 				background: darken($cor_titulo_tabela,10%);
+ 				color: #FFF;
+ 			}
+ 		}
+ 	}
+
+
+	/* BOXES */
+	.box.box-solid.box-primary>.box-header {
+	    color: $cor_principal_a;
+	    background: $cor_principal;
+	}
+	.box.box-solid.box-primary {
+	    border: 1px solid $cor_principal;
+	}
+
+
+    /* INPUT TEXT ICON */
+    .form-control-feedback-left2 {
+        color: desaturate($cor_titulo_tabela,35%);
+    }
+
+
+    /* MENU DE NOTIFICAÇÕES */
+    .notifications-menu-title{
+       background: darken($cor_principal,10%) !important;
+    }
+    .notifications-menu-title a{
+       color: $cor_principal_a !important;
+    }
+
+
+	/* BARRA DE PESQUISA GERAL*/
+	.btn-pesq-geral, .btn-fechar-pesq-geral{
+		background: lighten($cor_principal,7%);
+		color: $cor_principal_a;
+	}
+	.btn-pesq-geral:focus, .btn-fechar-pesq-geral:focus{
+		background: darken($cor_principal,10%);
+		color: $cor_principal_a;
+	}
+	.btn-pesq-geral:hover, .btn-fechar-pesq-geral:hover{
+		background: darken($cor_principal,10%);
+		color: $cor_principal_a;
+	}
+	.input-pesq-geral, .input-pesq-geral2{
+		background: lighten($cor_principal,7%);
+		color: $cor_principal_a;
+	}
+	.input-pesq-geral2:hover, .input-pesq-geral2:focus{
+		color: $cor_principal_a;
+		background: lighten($cor_principal,8%);
+	}
+	.input-pesq-geral:hover{
+		background: darken($cor_principal,10%);
+		color: $cor_principal_a;
+	}
+	.input-pesq-geral:focus{
+		background: darken($cor_principal,10%);
+		color: $cor_principal_a;
+	}
+
+
+	/* FORMS */
+	.form-control {
+	   &:focus{
+		   border-color: $cor_principal;
+	   }
+	}

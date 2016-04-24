@@ -1,0 +1,92 @@
+ @import "compass/css3";
+
+ /*
+  * Component: Dropdown menus
+  * -------------------------
+  */
+
+
+  .text-uppercase{
+  	text-transform: uppercase;
+  }
+  .text-lowercase{
+  	text-transform: lowercase;
+  }
+  .text-capitalize{
+  	text-transform: capitalize;
+  }
+
+
+
+  .font-media{
+  	font-size: 17px;
+  }
+
+  .titulo-detalho-esq{
+  	font-size: 14px;
+  	font-weight: normal;
+  	margin-top: -4px;
+  	float: right;
+  }
+  .titulo-detalho-esq a{
+  	font-size: 14px !important;
+  	padding-left: 15px;
+  	/*padding-top: 22px !important;*/
+  	color: #444444;
+  }
+  .titulo-detalho-esq2{
+  	font-size: 14px;
+  	font-weight: normal;
+  	margin-top: 4px;
+  	float: right;
+  }
+  .titulo-detalho-esq2 a{
+  	font-size: 14px !important;
+  	padding-left: 15px;
+  	padding-top: 22px !important;
+  	color: #444444;
+  }
+
+  .titulo-divide{
+  	text-transform: uppercase;
+  	margin-top: 20px;
+  	width: 100%;
+  	line-height: 30px;
+  }
+
+  .font-maior-box-totais{
+  	font-size: 17px !important;
+
+  }
+  .font-maior-box-totais span{
+  	font-size: 25px !important;
+  	font-weight: bold;
+  	margin-right: 5px;
+  }
+
+  .titulo-caminho-listagem{
+  	width: 100%;
+  	float: left;
+  	margin-bottom: -15px;
+  }
+
+  .font-g-dest-widgets{
+  	font-size: 16px;
+  }
+
+
+  .remove-strong{
+  	font-weight: normal !important;
+  }
+
+  #texto_paginacao h5 {
+      line-height: 20px;
+  }
+
+
+  .text-cinza{
+  	color: #7e7e7e;
+  }
+  .font-size-m {
+      font-size: 15px !important;
+  }

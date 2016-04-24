@@ -1,0 +1,283 @@
+/*
+* Zaas framework
+*
+* Licensed
+*/
+
+//
+// Load core variables and mixis
+// --------------------------------------------------
+@import "compass";
+@import "compass/css3";
+@import "componentes/variables";
+
+html{
+	font-size: 62.5%; /* Sets up the Base 10 stuff */
+}
+body {
+  min-height: 100%;
+}
+
+.layout-boxed html,
+.layout-boxed body {
+  height: 100%;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $font-family-base;
+  font-weight: 400;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Layout */
+.wrapper {
+	min-height: 100%;
+	position: static;
+	overflow: hidden;
+	&:before {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+.layout-boxed .wrapper {
+	max-width: 1250px;
+	margin: 0 auto;
+	min-height: 100%;
+	@include box-shadow(inset, 0, 0, 8px, rgba(0, 0, 0, 0.5));
+	position: relative;
+}
+.layout-boxed {
+  background: url('../img/boxed-bg.jpg') repeat fixed;
+}
+
+/*
+ * Content Wrapper - contains the main content
+ * ```.right-side has been deprecated as of v2.0.0 in favor of .content-wrapper  ```
+ */
+ .content-wrapper,
+ .right-side,
+ .main-footer {
+   -webkit-transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+   -moz-transition: -moz-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+   -o-transition: -o-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+   transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+   margin-left: 230px;
+   z-index: 820;
+ }
+ .layout-top-nav .content-wrapper,
+ .layout-top-nav .right-side,
+ .layout-top-nav .main-footer {
+   margin-left: 0;
+ }
+ @media (max-width: 767px) {
+   .content-wrapper,
+   .right-side,
+   .main-footer {
+     margin-left: 0;
+   }
+ }
+
+ @media (min-width: 768px) {
+   .sidebar-collapse .content-wrapper,
+   .sidebar-collapse .right-side,
+   .sidebar-collapse .main-footer {
+     margin-left: 0;
+   }
+ }
+ @media (max-width: 767px) {
+   .sidebar-open .content-wrapper,
+   .sidebar-open .right-side,
+   .sidebar-open .main-footer {
+     -webkit-transform: translate(230px, 0);
+     -ms-transform: translate(230px, 0);
+     -o-transform: translate(230px, 0);
+     transform: translate(230px, 0);
+   }
+ }
+ .content-wrapper,
+ .right-side {
+   min-height: 100%;
+   background-color: #ecf0f5;
+   z-index: 800;
+   padding-top: 90px;
+ }
+ .main-footer {
+  background: $footer-color-bg;
+  padding: 15px;
+  color: $footer-color;
+  border-top: 1px solid $footer-color-border;
+ }
+
+ /* Fixed layout */
+ .fixed .main-header,
+ .fixed .main-sidebar,
+ .fixed .left-side {
+   position: fixed;
+ }
+ .fixed .main-header {
+   top: 0;
+   right: 0;
+   left: 0;
+ }
+ .fixed .content-wrapper,
+ .fixed .right-side {
+   padding-top: 50px;
+ }
+ .fixed.layout-boxed .wrapper {
+   max-width: 100%;
+ }
+ body.hold-transition .content-wrapper,
+ body.hold-transition .right-side,
+ body.hold-transition .main-footer,
+ body.hold-transition .main-sidebar,
+ body.hold-transition .left-side,
+ body.hold-transition .main-header > .navbar,
+ body.hold-transition .main-header .logo {
+   /* Fix for IE */
+   -webkit-transition: none;
+   -o-transition: none;
+   transition: none;
+ }
+ /* Content */
+ .content {
+   min-height: 250px;
+   padding: 15px;
+   margin-right: auto;
+   margin-left: auto;
+   padding-left: 15px;
+   padding-right: 15px;
+ }
+ /* H1 - H6 font */
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ .h1,
+ .h2,
+ .h3,
+ .h4,
+ .h5,
+ .h6 {
+   font-family: $font-family-base;
+ }
+
+ /* General Links */
+ a {
+   color: $link-color;
+ }
+ a:hover,
+ a:active,
+ a:focus {
+   outline: none;
+   text-decoration: none;
+   color: $link-color-hover;
+ }
+
+ /* Page Header */
+ .page-header {
+   margin: 10px 0 20px 0;
+   font-size: 22px;
+ }
+ .page-header > small {
+   color: #666;
+   display: block;
+   margin-top: 5px;
+ }
+
+
+ /*coloca margim entre o icone e o texto da notificacoes*/
+ span.fa{
+ 	margin-right: 8px;
+ }
+ /*coloca margim entre o icone e o texto*/
+ i.fa {
+ 	margin-right: 3px;
+ 	margin-left: 3px;
+ }
+
+
+ .pesquisar {
+ 	padding-top: 15px;
+ 	height: 75px;
+ }
+
+ @media (max-width: 440px) {
+ 	#texto_paginacao{
+ 		width: 100%;
+ 		margin-right: -7px;
+ 	}
+ 	.label-paginas {
+ 		display: inherit;
+ 		text-align: left;
+ 		padding-top: 8px;
+ 	}
+ 	.label-registros {
+ 		padding-bottom: 35px;
+ 	}
+ }
+
+ /*
+  * Component: Main Headerfs
+  * ----------------------
+  */
+@import "componentes/margin";
+@import "componentes/padding";
+@import "componentes/main-header";
+@import "componentes/sidebar-menu";
+@import "componentes/dropdown";
+@import "componentes/form";
+@import "componentes/progress";
+@import "componentes/box";
+@import "componentes/infobox";
+@import "componentes/timeline";
+@import "componentes/button";
+@import "componentes/callout";
+@import "componentes/alert";
+@import "componentes/pagination";
+@import "componentes/products-list";
+@import "componentes/table";
+@import "componentes/table-listrado";
+@import "componentes/label";
+@import "componentes/direct-chat";
+@import "componentes/users-list";
+@import "componentes/carousel";
+@import "componentes/modal";
+@import "componentes/widget";
+@import "componentes/lockscreen";
+@import "componentes/login";
+@import "componentes/error-pages";
+@import "componentes/error";
+@import "componentes/invoice";
+@import "componentes/profile";
+@import "componentes/print";
+@import "componentes/tooltip";
+@import "componentes/visible-block";
+@import "componentes/bg-full-scren";
+@import "componentes/slimScroll";
+@import "componentes/overflow";
+@import "componentes/text";
+@import "componentes/ordenacao";
+@import "componentes/galeria";
+@import "componentes/ui-autocomplete";
+@import "componentes/datetimepicker";
+@import "componentes/pesquisa-avancada";
+@import "componentes/notifications";
+@import "componentes/lolibox";
+@import "componentes/miscellaneous";
+
+
+//@import "componentes/mailbox";s
+//@import "componentes/calendar";
+//@import "componentes/select2";s
+//@import "componentes/nav";
+//@import "componentes/fakeloader";
+//@import "componentes/daterangepicker";

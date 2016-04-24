@@ -1,0 +1,125 @@
+ @import "compass/css3";
+/*
+ * Misc: print
+ * -----------
+ */
+
+
+
+@media print {
+	.no-print {
+		display: none!important;
+	}
+	.main-sidebar {
+		display: none!important;
+	}
+	.left-side {
+		display: none!important;
+	}
+	.main-header {
+		display: none!important;
+	}
+	.content-header {
+		display: none!important;
+	}
+	.content-wrapper {
+		margin-left: 0!important;
+		min-height: 0!important;
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: translate(0, 0) !important;
+	}
+	.right-side {
+		margin-left: 0!important;
+		min-height: 0!important;
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: translate(0, 0) !important;
+	}
+	.main-footer {
+		margin-left: 0!important;
+		min-height: 0!important;
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: translate(0, 0) !important;
+	}
+	.fixed {
+		.content-wrapper {
+			padding-top: 0!important;
+		}
+		.right-side {
+			padding-top: 0!important;
+		}
+	}
+	.invoice {
+		width: 100%;
+		border: 0;
+		margin: 0;
+		padding: 0;
+	}
+	.invoice-col {
+		float: left;
+		width: 33.3333333%;
+	}
+	.table-responsive {
+		overflow: auto;
+		> .table tr {
+			th {
+				white-space: normal!important;
+			}
+			td {
+				white-space: normal!important;
+			}
+		}
+	}
+}
+
+
+.visible-print {
+	display: none !important;
+}
+@media print {
+	.visible-print {
+		display: block !important;
+	}
+	.visible-print-block {
+		display: block !important;
+	}
+	.visible-print-inline {
+		display: inline !important;
+	}
+	.visible-print-inline-block {
+		display: inline-block !important;
+	}
+	.hidden-print {
+		display: none !important;
+	}
+	table.visible-print {
+		display: table;
+	}
+	tr.visible-print {
+		display: table-row !important;
+	}
+	th.visible-print {
+		display: table-cell !important;
+	}
+	td.visible-print {
+		display: table-cell !important;
+	}
+}
+.visible-print-block {
+	display: none !important;
+}
+.visible-print-inline {
+	display: none !important;
+}
+.visible-print-inline-block {
+	display: none !important;
+}
+
+
+@media print {
+	.box-profile {
+		display: none;
+	}
+	img {
+		max-width: 100%;
+	}
+}

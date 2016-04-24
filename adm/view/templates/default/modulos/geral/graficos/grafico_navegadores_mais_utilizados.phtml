@@ -1,0 +1,24 @@
+{strip}
+
+<!-- PERMISSOES DE ACESSO -->
+{if $status_area == true}
+    {if $status_area_grafico == true}
+        {assign var="status_area_g" value="true"}
+    {/if}
+{else}
+    {assign var="status_area_g" value="true"}
+{/if}
+
+<!-- GRAFICO -->
+{if $status_area_g == true}
+    <div class="{$col}">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title"> <i class="fa fa-bar-chart"></i> Navegadores utilizados </h3>
+            </div>
+            <div class="box-body">
+                <div id="grafico_1" class="col-md-12" url="{$action_grafico}&tipo=total_navegadores_logs_admin" style="height:{$height}px;" titulo="" tipo="{$tipo_grafico}"><h3 class="box-body text-center"><i class="fa fa-2x fa-refresh fa-pulse"></i> </h3></div>
+            </div>
+        </div>
+    </div>
+{/if}

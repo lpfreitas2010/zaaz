@@ -1,0 +1,102 @@
+ @import "compass/css3";
+
+/*
+ * Component: Table
+ * ----------------
+ */
+
+
+ .caixa-galeria{
+ 	width: 92px;
+     height: 80px;
+     background: #f0eaed;
+     float: left;
+     text-align: center;
+     overflow: hidden;
+     margin-right: 9px;
+     margin-bottom: 9px;
+     margin-left: 9px;
+     margin-top: 9px;
+ }
+ .caixa-galeria i{
+ 	font-size: 20px;
+ }
+ .caixa-galeria img{
+ 	width: 100%;
+ }
+ .caixa-arquivo{
+ 	padding: 8px;
+ 	background: #f0eaed;
+ 	float: left;
+ 	text-align: center;
+ 	margin: 5px;
+
+ }
+ .caixa-arquivo i{
+ 	font-size: 20px;
+ }
+ .caixa-arquivo .excluir_arquivo {
+ 	position: relative;
+ 	background: #f0eaed;
+ 	border-radius: 0;
+ 	margin-left: 3px;
+     margin-top: 0;
+ 	-webkit-box-shadow: none;
+ 	-moz-box-shadow: none;
+ 	box-shadow: none;
+ }
+ .caixa-arquivo .excluir_arquivo i{
+ 	color: #635C5C;
+ }
+ .danger-dark{
+ 	color: #4e2d26;
+ }
+ .excluir_arquivo {
+ 	position: absolute;
+ 	background: #fff;
+ 	border-radius: 50%;
+ 	margin-left: 71px;
+     margin-top: -3px;
+ 	-webkit-box-shadow: -4px 3px 18px -3px rgba(0,0,0,0.75);
+ 	-moz-box-shadow: -4px 3px 18px -3px rgba(0,0,0,0.75);
+ 	box-shadow: -4px 3px 18px -3px rgba(0,0,0,0.75);
+ }
+ .excluir_arquivo i{
+ 	color: #961710;
+ }
+ @media (max-width: 653px){
+ 	.caixa-galeria{
+ 		width: 126px;
+ 		height: 101px;
+ 	}
+ 	.excluir_arquivo {
+     margin-left: 104px;
+ 	}
+ }
+ .add-img-arq{
+ 	font-size: 13px;
+ }
+ .caixa-galeria-one{
+     float: none;
+     overflow: hidden;
+ 	margin: 5px;
+ 	margin-left: 12px;
+
+ }
+ .caixa-galeria-one i{
+ 	font-size: 20px;
+ }
+ .caixa-galeria-one img{
+ 	width: 100px;
+ 	height: auto;
+ }
+ .caixa-galeria-one .excluir_arquivo {
+ 	position: absolute;
+ 	background: #fff;
+ 	border-radius: 50%;
+ 	margin-left: 80px;
+     margin-top: -3px;
+ 	-webkit-box-shadow: -4px 3px 18px -3px rgba(0,0,0,0.75);
+ 	-moz-box-shadow: -4px 3px 18px -3px rgba(0,0,0,0.75);
+ 	box-shadow: -4px 3px 18px -3px rgba(0,0,0,0.75);
+ }

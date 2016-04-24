@@ -1,0 +1,87 @@
+body{
+	font-size: 14px
+}
+.box-body{
+	float: left;
+}
+.box-profile{
+	width: 25%;
+	float: left;
+}
+
+
+.informacoes{
+	width: 70%;
+	float: left;
+}
+.campo_texto_detalho {
+	float: left;
+	display: inline-flex;
+	padding-right: 20px;
+	padding-bottom: 15px;
+}
+
+.col-pdf-1,
+.col-pdf-2,
+.col-pdf-3,
+.col-pdf-4,
+.col-pdf-5,
+.col-pdf-6,
+.col-pdf-7,
+.col-pdf-8,
+.col-pdf-9,
+.col-pdf-10,
+.col-pdf-11,
+.col-pdf-12{
+	position: relative;
+	float: left;
+	display: inline-flex;
+	padding-bottom: 5px;
+}
+
+
+
+.col-pdf-12 {
+	width: 100%;
+}
+.col-pdf-11 {
+	width: 91.66666667%;
+}
+.col-pdf-10 {
+	width: 83.33333333%;
+}
+.col-pdf-9 {
+	width: 75%;
+}
+.col-pdf-8 {
+	width: 66.66666667%;
+}
+.col-pdf-7 {
+	width: 58.33333333%;
+}
+.col-pdf-6 {
+	width: 50%;
+}
+.col-pdf-5 {
+	width: 41.66666667%;
+}
+.col-pdf-4 {
+	width: 33.33333333%;
+}
+.col-pdf-3 {
+	width: 25%;
+}
+.col-pdf-2 {
+	width: 16.66666667%;
+}
+.col-pdf-1 {
+	width: 8.33333333%;
+}
+
+
+.img-anexo-pdf{
+	width: 210px;
+	height: auto;
+	margin-bottom: 20px;
+	margin-right: 20px;
+}

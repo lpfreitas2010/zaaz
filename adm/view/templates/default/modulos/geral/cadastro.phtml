@@ -1,0 +1,98 @@
+{strip}
+{include file="modulos/geral/includes/head.phtml" pagina_include="index"}
+
+    <!-- IMAGEM DE FUNDO -->
+    <div id="bg">
+        {if $img_fundo_login == ""}
+            <img src="{$path}/assets/img/fundo1.jpg" class="bg">
+        {else}
+            <img src="{$path_raiz2}files/admin/{$img_fundo_login}" class="bg">
+        {/if}
+    </div>
+
+    <!-- AREA GERAL -->
+    <div class="login-box ">
+
+        <!-- TITULO -->
+        <div class="login-logo">
+            <a href="{$path_raiz}"><b>{$nome_logo_admin}</b></a>
+        </div>
+
+        <!-- CAMPOS -->
+        <div class="lc-block toggled animated bounceInDown" id="l-login">
+            <div class="login-box-body">
+
+                <!-- VALIDO O TOKEN -->
+                {if $campo_valor == 1}
+                        <p class="login-box-msg"><i class="fa fa-unlock-alt"></i> Informe o código que você recebeu por E-mail ou SMS.</p>
+                        <form name="form-codigo" id="form-codigo" action="javascript:void(0);" url="{$action_usuario_controller}" method="post">
+                            <input type="hidden" name="cmd" id="cmd" value="{$cmd_codigo}">
+                            <input type="hidden" name="form-_r" id="form-_r" value="{$id_criptografado}">
+
+                            <div class="form-group has-feedback remove-error-input" id="input_error_codigo">
+                                <input tabindex=1 data-title="tooltip" data-placement="bottom" title="Digite o Código" type="text" class="form-control group-erros-login" placeholder="Digite o Código"  name="codigo" id="codigo">
+                                <span id="icon_error_codigo" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true"></span>
+                            </div>
+                            <label id="msg_erro_codigo" class="control-label msg_erro_form" for="inputError"></label>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button tabindex=2 name="button-enviar-codigo" id="button-enviar-codigo" class="btn btn-primary btn-block btn-flat "> <i class="fa fa-check"></i> VALIDAR O CÓDIGO</button>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul class="login-navigation">
+                                        <a id="reenvia_codigo" title="Reenviar o código de recuperação de sua conta." class="ajax_jquery1" href="#0" link="{$cmd_reenviar_codigo}&d={$id_criptografado}&t=1"><i class="fa fa-paper-plane-o"></i> Reenviar o Código</a>
+                                        <span class="ajax_jquery_load"></span>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                {/if}
+
+
+                <!-- ALTERO A SENHA -->
+                {if $campo_valor == 2}
+                        <p class="login-box-msg"><i class="fa fa-unlock-alt"></i> Cadastre uma senha para acesso no sistema.</p>
+                        <form name="form-alterar-senha" id="form-alterar-senha" action="javascript:void(0);" url="{$action_usuario_controller}" method="post">
+                            <input type="hidden" name="cmd" id="cmd" value="{$cmd_alterar_senha}">
+                            <input type="hidden" name="form-_r" id="form-_r" value="{$id_criptografado}">
+                            <input type="hidden" name="form-_rs" id="form-_rs" value="{$token_criptografado}">
+
+                            <div class="form-group has-feedback pad-icon-left remove-error-input">
+                                <input disabled type="text" class="form-control group-erros-login" value="{$nome}">
+                                <span class="glyphicon glyphicon-user form-control-feedback-left"></span>
+                            </div>
+                            <div class="form-group has-feedback pad-icon-left remove-error-input">
+                                <input disabled type="text" class="form-control group-erros-login" value="{$useremail}">
+                                <span class="glyphicon glyphicon-user form-control-feedback-left"></span>
+                            </div>
+
+                            <div class="form-group has-feedback pad-icon-left remove-error-input" id="input_error_senha">
+                                <input tabindex=1 data-title="tooltip" data-placement="bottom" title="Digite a Senha" type="password" class="form-control group-erros-login" placeholder="Digite a Senha"  name="senha" id="senha">
+                                <span class="glyphicon glyphicon-lock form-control-feedback-left"></span>
+                                <span id="icon_error_senha" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true"></span>
+                            </div>
+                            <label id="msg_erro_senha" class="control-label msg_erro_form" for="inputError"></label>
+
+                            <div class="form-group has-feedback pad-icon-left remove-error-input" id="input_error_conf_senha">
+                                <input tabindex=2 data-title="tooltip" data-placement="bottom" title="Confirme a Senha" type="password" class="form-control group-erros-login" placeholder="Confirme a Senha"  name="conf_senha" id="conf_senha">
+                                <span class="glyphicon glyphicon-lock form-control-feedback-left"></span>
+                                <span id="icon_error_conf_senha" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true"></span>
+                            </div>
+        					<label id="msg_erro_conf_senha" class="control-label msg_erro_form" for="inputError"></label>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button tabindex=3 name="button-enviar-alterar-senha" id="button-enviar-alterar-senha" class="btn btn-primary btn-block btn-flat "> <i class="fa fa-check"></i> CADASTRAR SENHA</button>
+                                </div>
+                            </div>
+                        </form>
+                {/if}
+
+
+            </div>
+        </div>
+
+    </div>
+
+{include file="modulos/geral/includes/footer.phtml" pagina_include="index"}

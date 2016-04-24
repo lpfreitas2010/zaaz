@@ -1,0 +1,37 @@
+ @import "compass/css3";
+
+/*
+ * Component: Users List
+ * ---------------------
+ */
+
+ .users-list-name {
+ 	display: block;
+ 	font-weight: 600;
+ 	color: #444;
+ 	overflow: hidden;
+ 	white-space: nowrap;
+ 	text-overflow: ellipsis;
+ }
+ .users-list-date {
+ 	display: block;
+ 	color: #999;
+ 	font-size: 12px;
+ }
+ .users-list > li {
+ 	width: 25%;
+ 	float: left;
+ 	padding: 10px;
+ 	text-align: center;
+ 	img {
+ 		@include border-radius(50%);
+ 		max-width: 100%;
+ 		height: auto;
+ 	}
+ 	> a:hover {
+ 		color: #999;
+ 		.users-list-name {
+ 			color: #999;
+ 		}
+ 	}
+ }

@@ -1,0 +1,12 @@
+//
+// Variables
+// --------------------------------------------------
+
+//== Colors
+//
+$primary-color: #3c8dbc !default;
+$primary-darker:   lighten($primary-color, 13.5%) !default; // #222
+$primary-dark:     lighten($primary-color, 20%) !default;   // #333
+$primary:          lighten($primary-color, 33.5%) !default; // #555
+$primary-light:    lighten($primary-color, 46.7%) !default; // #777
+$primary-lighter:  lighten($primary-color, 93.5%) !default; // #eee

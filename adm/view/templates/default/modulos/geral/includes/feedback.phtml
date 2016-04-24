@@ -1,0 +1,83 @@
+{strip}
+
+
+<!-- INCLUDE DO FORM -->
+<form id="form_feedback_" name="form_feedback_" url="{$action_controller_feedback}" action="javascript:void(0);" method="post">
+      <input type="submit" class="hidden_area">
+
+      <!-- CMD CONTROLLER -->
+      <input type="hidden" name="cmd" id="cmd" value="{$cmd_add_feedback}">
+
+      <!-- MONTO ÁREAS -->
+      <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 area_feedback hidden_area">
+        <div class="box box-primary box-solid">
+                <div class="box-header with-border area_feedback_titulo">
+                    <div class='row'>
+                        <h3 class="box-title col-md-12"><i class="fa fa-bug"></i> Comunique um erro <a href="#" class="mostra_area pull-right" hide_area=".area_feedback"><i class="fa fa-times"></i> </a></h3>
+
+                    </div>
+                </div>
+                <div class="box-body">
+
+                        <!-- AREA -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_feedback_area">
+                                <label for="feedback_area">* Área</label>
+                                <select data-title="tooltip" data-placement="top" name="feedback_area" class="form-control" id="feedback_area" title="" data-original-title="Selecione a Área">
+                                    <option value="select" selected="">Selecione</option><optgroup label="----------"></optgroup>
+                                    <option value="Painel Administrativo">Painel Administrativo</option>
+                                    <option value="Site">Site</option>
+                                </select>
+                                <span id="icon_error_feedback_area" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_feedback_area" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- TIPO -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_feedback_tipo">
+                                <label for="feedback_tipo">* Tipo</label>
+                                <select data-title="tooltip" data-placement="top" name="feedback_tipo" class="form-control" id="feedback_tipo" title="" data-original-title="Selecione o Tipo">
+                                    <option value="select" selected="">Selecione</option><optgroup label="----------"></optgroup>
+                                    <option value="Erro">Erro</option>
+                                    <option value="Sugestão de Melhoria">Sugestão de Melhoria</option>
+                                    <option value="Nova Funcionalidade">Nova Funcionalidade</option>
+                                </select>
+                                <span id="icon_error_feedback_tipo" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_feedback_tipo" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- ANEXO -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_feedback_url_imagem">
+                                <label for="feedback_url_imagem"><i class="fa fa-paperclip"></i> Anexar Imagens </label>
+                                <input data-title="tooltip" data-placement="top" type="file" name="feedback_url_imagem[]" multiple class="form-control " id="feedback_url_imagem" placeholder="" title="" value="" data-original-title="Selecione as imagens">
+                                <span id="icon_error_feedback_url_imagem" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_feedback_url_imagem" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- MENSAGEM -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_feedback_mensagem">
+                                <label for="feedback_mensagem">* Mensagem</label>
+                                <textarea data-title="tooltip" data-placement="top" title="Escreva a mensagem" name="feedback_mensagem" class="form-control " id="feedback_mensagem" placeholder="" title="" rows="5"></textarea>
+                                <span id="icon_error_feedback_mensagem" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_feedback_mensagem" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- BTN DE SALVAR -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <a href="javascript:void(0);" class="btn btn-success btn-fla btn_salvar_feedback"><i class="fa fa-paper-plane"></i> Enviar Mensagem </a>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+</form>

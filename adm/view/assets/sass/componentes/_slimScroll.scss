@@ -1,0 +1,38 @@
+ @import "compass/css3";
+
+/*
+ * Component: SMALL BOX
+ * ---------------
+ */
+
+ /* SlimSroll sidebar qundo meno de 767px de tela*/
+
+ @media (max-width: 767px){
+ 	.sidebar,   .slimScrollDiv,  .main-sidebar-fixo {
+ 		display: none;
+ 	}
+ 	.f-action {
+ 		z-index: 700;
+ 		position: fixed;
+ 		top: 35px;
+ 		height: 42px;
+ 		background: #222d32;
+ 		padding-left: 1px;
+ 		    padding-top: 5px;
+ 	}
+ 	.sidebar-open .sidebar, .sidebar-open .slimScrollDiv, .sidebar-open .main-sidebar-fixo {
+ 		display:  inline;
+ 	}
+ 	.sidebar-open .main-sidebar-fixo{
+ 		position: absolute;
+ 	}
+ 	.sidebar-open .f-action {
+ 		z-index: 700;
+ 		position: fixed;
+ 		top: 35px;
+ 		height: 42px;
+ 		background: #222d32;
+ 		padding-left: 230px;
+ 	}
+
+ }

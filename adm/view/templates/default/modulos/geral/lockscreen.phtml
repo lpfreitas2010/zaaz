@@ -1,0 +1,66 @@
+{strip}
+{include file="modulos/geral/includes/head.phtml" pagina_include="index"}
+
+<!-- FUNDO -->
+<div id="bg">
+    {if $img_fundo_login == ""}
+        <img src="{$path}/assets/img/fundo1.jpg" class="bg">
+    {else}
+        <img src="{$path_raiz2}files/admin/{$img_fundo_login}" class="bg">
+    {/if}
+</div>
+
+<!-- AREA -->
+<div class="lockscreen">
+    <div class="lockscreen-wrapper">
+
+        <!-- TITULO -->
+        <div class="lockscreen-logo">
+            <a href="{$path_raiz}"><b>{$nome_logo_admin}</b></a>
+        </div>
+        <div class="animated bounceInDown">
+        <div class="lockscreen-name">{$nome}</div>
+
+        <!-- START LOCK SCREEN ITEM -->
+        <div class="lockscreen-item">
+            <div class="lockscreen-image">
+                {if $img_perfil == ""}
+                    <img src="{$path}/assets/img/avatar/avatar_h.jpg"  alt="{$i.nome}">
+                {else}
+                    <img src="{$path_raiz2}files/perfil_usuario/p/{$img_perfil}"  alt="{$i.nome}">
+                {/if}
+            </div>
+
+            <!-- FORM -->
+            <form name="form-login" id="form-login" class="lockscreen-credentials" action="javascript:void();" url="{$action_usuario_controller}" method="post">
+                <input type="hidden" name="cmd" id="cmd" value="{$cmd_login}">
+                <input type="hidden" name="form-login_js_control" id="form-login_js_control" value="">
+                <div class="fg-line remove-error-input" id="input_error_username">
+                    <input type="hidden" class="form-control group-erros-login" maxlength="150" value="{$email}" autocomplete="off" name="username" id="username">
+                    <div id="msg_erro_username" class="msg_erro_form c-red text-left"></div>
+                </div>
+                <div class="input-group remove-error-input" id="input_error_senha">
+                    <input tabindex=1 type="password" class="form-control group-erros-login" placeholder="Digite sua Senha" data-placement="bottom" data-title="tooltip" title="Digite a Senha de acesso" name="senha" id="senha">
+                    <div id="btn_enviarlogin" class="input-group-btn">
+                        <button tabindex=2 class="btn" name="button-enviar-login" id="button-enviar-login" data-title="tooltip" title="Entrar"><i class="fa fa-arrow-right text-muted"></i></button>
+                    </div>
+                    <label id="" class=""></label>
+                </div>
+                <div id="msg_erro_senha" class="control-label msg_erro_form" for="inputError"></div>
+                <span class="class_loading_login"></span>
+                <div id="resul_erro_login"></div>
+                <div id="resul_sucesso_login"></div>
+            </form>
+        </div>
+
+        <!-- OUTRAS OPÇÕES -->
+        <div class="text-center">
+
+            <br />
+            <a tabindex=3 class="link_lockscreen" href="{$path_raiz}"><i class="fa fa-sign-in"></i> Entrar como um usuário diferente</a> <br /><a tabindex=4 href="javascript:void(0);" link="{$cmd_clear_logoff}" class="m-t-10 link link_lockscreen"><i class="fa fa-minus-circle"></i> Remover meu usuário</a>
+        </div>
+    </div>
+    </div>
+</div>
+
+{include file="modulos/geral/includes/footer.phtml" pagina_include="index"}

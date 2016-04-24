@@ -1,0 +1,77 @@
+{strip}
+
+    <div class="{$col}">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-edit"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text p-t-30"><a title="Alterar Meus Dados" href="{$path_raiz}usuarios/editar/{$id_usuario_ativo}"><strong><i class="fa fa-edit"></i> Alterar Meus Dados </strong></a></span>
+            </div>
+          </div>
+    </div>
+
+    <div class="{$col}">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-bug"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text p-t-30"><a title="Comunique um erro" href="#0" class="mostra_area" show_area=".area_feedback" focus="feedback_area"><strong><i class="fa fa-bug"></i> Comunique um Erro </strong></a></span>
+            </div>
+          </div>
+    </div>
+
+    <div class="{$col}">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-bell"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text p-t-15"><a title="Notificações de todos os usuários" href="{$path_raiz}notificacoes"><strong><i class="fa fa-bell"></i> Notificações </strong></a></span>
+                <span class="info-box-text p-t-5"><a title="Minhas Notificações" href="{$path_raiz}notificacoes/busca/Minhas Notificações"><strong><i class="fa fa-bell"></i> Minhas Notificações </strong></a></span>
+            </div>
+          </div>
+    </div>
+
+    {if $status_listagem_mod2 == true}
+        <div class="{$col}">
+              <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text p-t-15"><a title="Usuários Admin" href="{$path_raiz}usuarios"><strong><i class="fa fa-list-alt"></i> Usuários Admin </strong></a></span>
+                  <span class="info-box-text p-t-5"><a title="Novo Usuário" href="{$path_raiz}usuarios/novo"><strong><i class="fa fa-plus"></i> Novo Usuário </strong></a></span>
+                </div>
+              </div>
+        </div>
+    {/if}
+
+    {if $status_listagem_mod2 == true}
+        <div class="{$col}">
+              <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text p-t-15"><a title="Cargos Admin" href="{$path_raiz}adm_usuario_nivel"><strong><i class="fa fa-list-alt"></i> Cargos Admin </strong></a></span>
+                  <span class="info-box-text p-t-5"><a title="Novo Cargo" href="{$path_raiz}adm_usuario_nivel/novo"><strong><i class="fa fa-plus"></i> Novo Cargo </strong></a></span>
+                </div>
+              </div>
+        </div>
+    {/if}
+
+    {if $status_listagem_mod3 == true}
+        <div class="{$col}">
+              <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-list-alt"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text p-t-15"><a title="Logs Admin" href="{$path_raiz}adm_logs"><strong><i class="fa fa-list-alt"></i> Logs Admin </strong></a></span>
+                  <span class="info-box-text p-t-5"><a title="Logs de Acesso Admin" href="{$path_raiz}adm_logs_acesso"><strong><i class="fa fa-sign-in"></i> Logs de Acesso Admin </strong></a></span>
+                </div>
+              </div>
+        </div>
+    {/if}
+
+    {if $status_listagem_mod3 == true}
+        <div class="{$col}">
+              <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-list-alt"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text p-t-15"><a title="SMS Enviados Admin" href="{$path_raiz}adm_sms_enviados"><strong><i class="fa fa-mobile fa-lg"></i> SMS Enviados Admin </strong></a></span>
+                  <span class="info-box-text p-t-5"><a title="E-mails Enviados Admin" href="{$path_raiz}adm_emails_enviados"><strong><i class="fa fa-envelope"></i> E-mail Enviados Admin </strong></a></span>
+                </div>
+              </div>
+        </div>
+    {/if}

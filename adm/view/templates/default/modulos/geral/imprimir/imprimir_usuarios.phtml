@@ -1,0 +1,99 @@
+{strip}
+
+<!-- TITULO -->
+{include file="modulos/geral/imprimir/includes/header.phtml"}
+
+<table>
+
+    <!-- HEADER TABELA -->
+    {include file="modulos/geral/imprimir/includes/content_header.phtml"}
+
+    <tbody>
+        {foreach $array as $i}
+         {cycle values='#ececec,#fff' assign=CellCSS}
+        <tr>
+            <!-- OUTROS CAMPOS -->
+            {foreach $campos as $i2}
+
+
+                {if $i2 == 'id'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.id}</td>
+                {/if}
+                {if $i2 == 'criado'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.criado|date_format:"%d/%m/%Y"} ás {$i.criado|date_format:"%H:%M:%S"}</td>
+                {/if}
+				{if $i2 == 'status'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.status}</td>
+				{/if}
+				{if $i2 == 'nome'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.nome}</td>
+				{/if}
+				{if $i2 == 'sexo'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.sexo}</td>
+				{/if}
+				{if $i2 == 'data_nascimento'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.data_nascimento|date_format:"%d/%m/%Y"}</td>
+				{/if}
+				{if $i2 == 'nivel'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.nivel}</td>
+				{/if}
+				{if $i2 == 'telefone'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.telefone}</td>
+				{/if}
+				{if $i2 == 'telefone2'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.telefone2}</td>
+				{/if}
+				{if $i2 == 'email'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.email}</td>
+				{/if}
+				{if $i2 == 'email2'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.email2}</td>
+				{/if}
+				{if $i2 == 'username'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.username}</td>
+				{/if}
+				{if $i2 == 'useremail'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.useremail}</td>
+				{/if}
+				{if $i2 == 'usertelefone'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.usertelefone}</td>
+				{/if}
+				{if $i2 == 'logradouro'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.logradouro}</td>
+				{/if}
+				{if $i2 == 'numero'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.numero}</td>
+				{/if}
+				{if $i2 == 'complemento'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.complemento}</td>
+				{/if}
+				{if $i2 == 'bairro'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.bairro}</td>
+				{/if}
+				{if $i2 == 'CEP'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.CEP}</td>
+				{/if}
+				{if $i2 == 'estado'}
+					<td style="padding:12px;background:{$CellCSS}">{$i.estado}</td>
+				{/if}
+				{if $i2 == 'cidade'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.cidade}</td>
+                {/if}
+				{if $i2 == 'ultimo_acesso'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.ultimo_acesso}</td>
+                {/if}
+				{if $i2 == 'ultima_mod_username'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.ultima_mod_username}</td>
+                {/if}
+				{if $i2 == 'ultima_mod_senha'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.ultima_mod_senha}</td>
+                {/if}
+				{if $i2 == 'assinatura_email'}
+                    <td style="padding:12px;background:{$CellCSS}">{$i.assinatura_email}</td>
+                {/if}
+            {/foreach}
+        </tr>
+        {/foreach}
+
+    </tbody>
+</table>

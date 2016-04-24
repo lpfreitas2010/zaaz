@@ -1,0 +1,109 @@
+{strip}
+
+<!-- ****************************************************************************************************************************** -->
+<!-- ****************************************************************************************************************************** -->
+    <!-- EXPORTAR PARA PDF -->
+    {if $op_exibicao == 'exportar'}
+
+        <!-- ARRAY -->
+        <div class="row col-md-12 area-array-detalho">
+            <div class="col-md-12">
+                <h3>{$titulo|upper} - <span style="font-size:14px;font-weight:normal;">Gerado em {$smarty.now|date_format:"%d/%m/%Y - %H:%M:%S"}</span></h3>
+                <hr />
+                <!-- ID E DATAS -->
+                {include file="modulos/geral/detalho/includes/content_header.phtml"}
+
+                <br><br> <strong>IP: </strong> {$array[0].IP}
+                <br> <strong>SISTEMA OPERACIONAL: </strong>{$array[0].SO}
+                <br> <strong>NAVEGADOR: </strong>{$array[0].navegador}
+                <br> <strong>IDIOMA: </strong>{$array[0].idioma}
+                <br> <strong>USUÁRIO: </strong>{$array[0].nome}
+                <br><strong>STATUS: </strong> {$array[0].status}
+                <br><strong>DE: </strong>{$array[0].email_re}
+                <br><strong>PARA: </strong>{$array[0].email}
+                <br><br>{$array[0].mensagem}
+
+
+            </div>
+        </div>
+
+    {/if}
+
+<!-- ****************************************************************************************************************************** -->
+<!-- ****************************************************************************************************************************** -->
+    <!-- EXIBIR NA TELA -->
+    {if $op_exibicao == 'exibir'}
+
+        <!-- TITULO -->
+        {include file="modulos/geral/detalho/includes/header.phtml" imprimir="false"}
+
+        <!-- ARRAY -->
+		<div class="box-body">
+            <div id="area-imprimir" class="area-array-detalho">
+                <div class="col-md-12">
+                    <!-- ID E DATAS -->
+                    {include file="modulos/geral/detalho/includes/content_header.phtml"}
+
+
+                    <!-- USUARIO -->
+                    <div class="col-md-3">
+                            <div class="box-body box-profile">
+                                {if $array[0].img_perfil == true}
+                                <img class="profile-user-img img-responsive img-circle center-cropped" src="{$path_raiz}files/perfil_usuario/p/{$array[0].img_perfil}" >
+                                {else}
+                                <img class="profile-user-img img-responsive img-circle center-cropped" src="{$path_raiz}adm/view/assets/img/avatar/avatar_h.jpg" >
+                                {/if}
+                                <h3 class="profile-username text-center">{$array[0].nome}</h3>
+                            </div>
+                    </div>
+
+                    <div class="col-md-9">
+                            <div class="box-body">
+                                <ul class="timeline">
+                                    <!-- timeline time label -->
+                                    <li class="time-label">
+                                        <span class="{if $array[0].status == 'Enviado' }bg-green{else}bg-red{/if}">
+                                            <i class="fa fa-clock-o"></i> Cadastrado {$array[0].criado|date_format:"tempo"} - {if $array[0].status == 'Enviado' } <i class="fa fa-check"></i> {else} <i class="fa fa-remove"></i> {/if} {if $array[0].status != ""} {$array[0].status} {/if}
+                                        </span>
+                                    </li>
+                                    <!-- /.timeline-label -->
+                                    <!-- timeline item -->
+                                    <li>
+                                        <i class="fa fa-cog bg-teal"></i>
+                                        <div class="timeline-item">
+                                            <h3 class="timeline-header"><strong>IP:</strong> {$array[0].IP} - <strong>SISTEMA OPERACIONAL:</strong> {$array[0].SO} </h3>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <h3 class="timeline-header"> <strong>NAVEGADOR:</strong> {$array[0].navegador} - <strong>IDIOMA:</strong> {$array[0].idioma} </h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope-o fa-3x bg-purple"></i>
+                                        <div class="timeline-item">
+                                            <h3 class="timeline-header"> <strong>DE:</strong> {$array[0].email_re}  </h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope-o fa-3x bg-purple"></i>
+                                        <div class="timeline-item">
+                                            <h3 class="timeline-header"> <strong>PARA:</strong> {$array[0].email}  </h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope bg-blue"></i>
+                                        <div class="timeline-item">
+                                            <div class="timeline-body">
+                                                {$array[0].mensagem}
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    {/if}

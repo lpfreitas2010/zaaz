@@ -1,0 +1,43 @@
+{strip}
+
+<!-- ****************************************************************************************************************************** -->
+<!-- ****************************************************************************************************************************** -->
+    <!-- EXPORTAR PARA PDF -->
+    {if $op_exibicao == 'exportar'}
+
+        <!-- ARRAY -->
+        <div class="row col-md-12 area-array-detalho">
+            <div class="col-md-12">
+                <h3>{$titulo|upper} - <span style="font-size:14px;font-weight:normal;">Gerado em {$smarty.now|date_format:"%d/%m/%Y - %H:%M:%S"}</span></h3>
+                <hr />
+                <!-- ID E DATAS -->
+                {include file="modulos/geral/detalho/includes/content_header.phtml"}
+
+
+            </div>
+        </div>
+
+    {/if}
+
+<!-- ****************************************************************************************************************************** -->
+<!-- ****************************************************************************************************************************** -->
+    <!-- EXIBIR NA TELA -->
+    {if $op_exibicao == 'exibir'}
+
+        <!-- TITULO -->
+        {include file="modulos/geral/detalho/includes/header.phtml"}
+
+        <!-- ARRAY -->
+		<div class="box-body">
+            <div id="area-imprimir" class="area-array-detalho">
+                <div class="col-md-12">
+                    <!-- ID E DATAS -->
+                    {include file="modulos/geral/detalho/includes/content_header.phtml"}
+
+
+                </div>
+            </div>
+        </div>
+
+
+    {/if}

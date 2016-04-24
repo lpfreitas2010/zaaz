@@ -1,0 +1,79 @@
+ @import "compass/css3";
+
+/*
+ * Pesquisa avancada
+ * ----------------
+ */
+
+ .btn-pesquisa-avancada{
+ 	margin-bottom: 15px;
+ }
+ @media (max-width: 991px){
+ 	.btn-pesquisa-avancada{
+ 		margin-top: 15px;
+ 		margin-right: 27px;
+ 	}
+ }
+ /* Background da pesquisa avancada*/
+ .pesquisa_avancada {
+ 	background: #E8E8E8;
+ }
+
+
+ /* Background da pesquisa avancada*/
+ .pesquisa_avancada {
+ 	position: relative;
+ 	border-radius: none;
+ 	background: transparente;
+ 	border: 0;
+ 	margin-bottom: 0;
+ 	width: 100%;
+ 	box-shadow: none ;
+ 	margin-bottom:2px;
+ 	padding-bottom: 0;
+ }
+
+ .pesquisa_avancada .box-header {
+ 	color: #444;
+ 	display: block;
+ 	padding: 10px 20px 10px 20px;
+ 	position: relative;
+ 	background: #f1f2f4;
+ 	border-bottom: none;
+ 	height: 45px;
+ }
+ .pesquisa_avancada .box-body {
+ 	border-top-left-radius: 0;
+ 	border-top-right-radius: 0;
+ 	border-bottom-right-radius: 0;
+ 	border-bottom-left-radius: 0;
+ 	padding: 35px 37px 25px 37px;
+ 	background: #fff;
+ }
+ .area-pesquisa-i{
+ 	padding: 35px 10px 25px 10px !important;
+ }
+
+ .footer-pesquisa-avancada{
+ 	float: left;
+     background-color: #F5F7FB;
+     left: -8px;
+     padding-top: 2px;
+     padding-bottom: 18px;
+ 	margin-bottom: -25px;
+ 	margin-top: 12px;
+ 	width: 100%;
+ }
+
+
+ .box-tools-right-pesq-avan a{
+ 	font-size: 14px !important;
+ 	padding-left: 15px;
+ 	color: #444444;
+ }
+
+ .pesquisa_avancada > .box-header > .box-tools {
+ 	position: absolute;
+ 	right: 20px;
+ 	top: 12px;
+ }

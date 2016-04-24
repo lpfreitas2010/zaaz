@@ -1,0 +1,8 @@
+{strip}
+
+<strong>
+ID {$array[0].id} - <i class="fa fa-calendar-o"></i> Cadastrado {$array[0].criado|date_format:"tempo"} ás {$array[0].criado|date_format:"%H:%M:%S"}
+{if $array[0].modificado != "0000-00-00 00:00:00"} - <i class="fa fa-clock-o"></i> Editado {$array[0].modificado|date_format:"tempo"} ás {$array[0].modificado|date_format:"%H:%M:%S"}
+{/if}
+</strong>
+<hr />

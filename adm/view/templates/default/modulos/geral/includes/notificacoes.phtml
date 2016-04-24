@@ -1,0 +1,26 @@
+{strip}
+
+
+
+    <a title="{if $total_registros == 1} {$total_registros} Notificação {else} {$total_registros} Notificações {/if}" href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-bell icon-not-p"></i>
+        <!--<span class="label label-warning label-not-tam">{$total_registros}</span>-->
+        {if $total_registros >= 1}
+            {$total_registros}
+        {/if}
+    </a>
+    <ul class="dropdown-menu caixa-notificacoes">
+        <li class="header notifications-menu-title"><a title="Visualizar todas as notificações"  href="{$path_raiz}notificacoes"> <strong><i class="fa fa-bell"></i> {if $total_registros == 1} {$total_registros} NOTIFICAÇÃO {else} {$total_registros} NOTIFICAÇÕES {/if} </strong></a></li>
+        <li>
+            <ul class="menu notifications-menu2">
+                {foreach $array as $i}
+                    {if $i.status_id == 2}
+                        <li param_id="{$i.id}" link="{$path_raiz}{$i.url_destino}" class="not_lida"><a href="javascript:void(0);"> <strong><i style="font-size:20px;" class="{$i.class_icon}"></i> {$i.mensagem}</strong> <br /> <span class="menu-not-esq"><i class="fa fa-clock-o"></i> {$i.criado|date_format:"tempo"} ás {$i.criado|date_format:"%H:%M:%S"} <i title="Notificação não lida" style="font-size:17px;" class="fa fa-minus-circle text-warning"></i></span> </a></li>
+                    {else}
+                        <li param_id="{$i.id}" class="not_lida" link="{$path_raiz}{$i.url_destino}"><a class="notificacao-inativa" href="javascript:void(0);"> <strong><i style="font-size:20px;" class="{$i.class_icon}"></i> {$i.mensagem} </strong><br /> <span class="menu-not-esq"><i class="fa fa-clock-o"></i> {$i.criado|date_format:"tempo"} ás {$i.criado|date_format:"%H:%M:%S"} <i title="Notificação lida" style="font-size:17px;" class="fa fa-check-circle text-success"></i></span> </a></li>
+                    {/if}
+                {foreachelse}
+                    <li><a href="#" title="Nenhuma Notificação foi encontrada!"> <i class="fa fa-ban"></i> Nenhuma Notificação foi encontrada!</a></li>
+                {/foreach}
+            </ul>
+    </ul>

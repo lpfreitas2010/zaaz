@@ -1,0 +1,40 @@
+ @import "compass/css3";
+
+/*
+ * Component: error
+ * ----------------
+ */
+
+ .msg_erro_form{
+ display: none;
+ }
+ .remove-error-input{
+ 	margin-bottom: 18px !important;
+ }
+ .area-error-inputt{
+ 	height: auto;
+ 	position: absolute;
+ 	margin-top: -10px;
+ 	background: #de3214 !important;
+ 	color:#FFF !important;
+ 	padding: 7px;
+ 	padding-left: 10px;
+ 	padding-right: 10px;
+ 	z-index: 800;
+ 	float: left;
+ 	max-width: 400px;
+
+ }
+ .area-error-inputt:before{
+ 	content: '';
+ 	position: absolute;
+ 	width: 0;
+ 	height: 0;
+ 	border-top: 8px solid transparent;
+ 	border-bottom: 8px solid #de3214;
+ 	border-left: 8px solid transparent;
+     border-right: 8px solid transparent;
+ 	bottom: 100%;
+ 	left: 50%;
+ 	margin-left: -15px; 
+ }

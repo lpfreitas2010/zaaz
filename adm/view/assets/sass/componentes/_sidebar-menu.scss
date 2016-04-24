@@ -1,0 +1,395 @@
+ @import "compass/css3";
+
+/*
+ * Component: Sidebar
+ * ------------------
+ */
+
+.main-sidebar,
+.left-side {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-top: 50px;
+	min-height: 100%;
+	width: 230px;
+	z-index: 810;
+	@include transition(transform 0.3s ease-in-out, width 0.3s ease-in-out);
+}
+@media(max-width: 767px) {
+	.main-sidebar,
+	.left-side {
+		padding-top: 100px;
+		@include translate(-230px, 0);
+
+	}
+
+	.sidebar-open {
+		.main-sidebar,
+		.left-side {
+			@include translate(0, 0);
+
+		}
+	}
+}
+@media(min-width: 768px) {
+	.sidebar-collapse {
+		.main-sidebar,
+		.left-side {
+			@include translate(-230px, 0);
+		}
+	}
+}
+.sidebar {
+	padding-bottom: 10px;
+}
+.user-panel {
+	position: relative;
+	width: 100%;
+	padding: 0 10px 10px;
+	overflow: hidden;
+	&:before {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+	> {
+		.info {
+			padding: 5px 5px 5px 15px;
+			line-height: 1;
+			position: absolute;
+			left: 55px;
+			> p {
+				font-weight: 600;
+				margin-bottom: 9px;
+			}
+			> a {
+				text-decoration: none;
+				padding-right: 5px;
+				margin-top: 3px;
+				font-size: 11px;
+				> {
+					.fa {
+						margin-right: 3px;
+					}
+					.ion {
+						margin-right: 3px;
+					}
+					.glyphicon {
+						margin-right: 3px;
+					}
+				}
+			}
+		}
+		.image > img {
+			width: 100%;
+			max-width: 45px;
+			height: 45px;
+		}
+	}
+}
+.sidebar-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	> li {
+		position: relative;
+		margin: 0;
+		padding: 0;
+        font-size: 15px;
+		> a {
+			padding: 12px 5px 12px 15px;
+			display: block;
+			> {
+				.fa {
+					width: 20px;
+				}
+				.glyphicon {
+					width: 20px;
+				}
+				.ion {
+					width: 20px;
+				}
+			}
+		}
+		.label {
+			margin-top: 3px;
+			margin-right: 5px;
+		}
+		.badge {
+			margin-top: 3px;
+			margin-right: 5px;
+		}
+	}
+	li {
+		&.header {
+			padding: 10px 25px 10px 15px;
+			font-size: 12px;
+
+		}
+		&.active {
+			> a > .fa-angle-left {
+				@include rotate(-90deg);
+			}
+			> .treeview-menu {
+				display: block;
+			}
+		}
+		> a > .fa-angle-left {
+			width: auto;
+			height: auto;
+			padding: 0;
+			margin-right: 10px;
+			margin-top: 3px;
+		}
+	}
+	.treeview-menu {
+		display: none;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		padding-left: 5px;
+		.treeview-menu {
+			padding-left: 10px;
+		}
+		> li {
+			margin: 0;
+			> a {
+				padding: 5px 5px 5px 15px;
+				display: block;
+				font-size: 14px;
+				> {
+					.fa {
+						width: 20px;
+					}
+					.glyphicon {
+						width: 20px;
+					}
+					.ion {
+						width: 20px;
+					}
+					.fa-angle-left {
+						width: auto;
+					}
+					.fa-angle-down {
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}
+.sidebar-form input:focus {
+	border-color: transparent;
+}
+
+
+/*
+ * Component: Sidebar Mini
+ */
+
+
+
+@media(min-width: 768px) {
+	.sidebar-mini.sidebar-collapse {
+		.content-wrapper,
+		.right-side,
+		.main-footer {
+			margin-left: 50px!important;
+			z-index: 710;
+		}
+
+		.main-sidebar {
+			@include translate(0, 0);
+			width: 50px!important;
+			z-index: 710;
+			.user-panel > .info {
+				display: none!important;
+			}
+		}
+		.sidebar-menu {
+			> li {
+				position: relative;
+				width: 50px;
+				> a {
+					margin-right: 0;
+					> span {
+					   @include border-top-right-radius(4px);
+						display: none!important;
+					}
+					> .pull-right {
+						display: none!important;
+					}
+				}
+				&:hover {
+					> a > span {
+						top: 0;
+						margin-left: -3px;
+						padding: 12px 5px 12px 20px;
+						background-color: inherit;
+						&:not(.pull-right) {
+							display: block!important;
+							position: absolute;
+							width: 250px;
+							left: 50px;
+						}
+					}
+					> .treeview-menu {
+						display: block!important;
+						position: absolute;
+						width: 250px;
+						left: 50px;
+						top: 44px;
+						margin-left: 0;
+					}
+				}
+				&:not(.treeview) > a > span {
+				    @include border-bottom-right-radius(4px);
+				}
+				> .treeview-menu {
+					padding-top: 5px;
+					padding-bottom: 5px;
+					@include border-bottom-right-radius(4px);
+					display: none!important;
+				}
+			}
+			li.header {
+				display: none!important;
+			}
+		}
+		.sidebar-form {
+			display: none!important;
+		}
+		.main-header {
+			.logo {
+				width: 50px;
+				> {
+					.logo-mini {
+						display: block;
+						margin-left: -15px;
+						margin-right: -15px;
+						font-size: 18px;
+					}
+					.logo-lg {
+						display: none;
+					}
+				}
+			}
+			.navbar {
+				margin-left: 50px;
+			}
+		}
+	}
+}
+.sidebar-menu {
+	white-space: nowrap;
+	overflow: hidden;
+	&:hover {
+		overflow: visible;
+	}
+	> li.header {
+		white-space: nowrap;
+		overflow: hidden;
+		overflow: hidden;
+		text-overflow: clip;
+	}
+	li > a {
+		position: relative;
+		> .pull-right {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			margin-top: -7px;
+		}
+	}
+}
+.sidebar-form {
+	overflow: hidden;
+	text-overflow: clip;
+}
+.main-sidebar .user-panel {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* Classe fixar sidebar*/
+.f-sidebar{
+	position:fixed;
+}
+
+/* Sidebar*/
+.main-sidebar-fixo {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding-top: 50px;
+	min-height: 100%;
+	width: 230px;
+	z-index: 710;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	-moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	-o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+
+
+.sidebar-menu .treeview-menu > li {
+    margin: 0px;
+    padding: 4px 0;
+}
+
+.sidebar-menu .treeview-menu > li > a {
+    display: block;
+    font-size: 14px;
+	overflow: hidden;
+    width: 194px;
+}
+
+.sidebar-menu .treeview-menu > .treeview > a {
+	/*background: #1e282c;
+	border-left: 3px solid #3c8dbc;*/
+	width: 100%;
+}
+
+#menu-lateral {
+    background: #222D33;
+}
+
+
+.sidebar-collapse ul.dropdown-menu.dropdown-side {
+	background: #222D32;
+	position: absolute;
+	left: 43px;
+	border-color: #222D32;
+	border-radius: 0px;
+	width: 230px;
+	top: 30px;
+	/*-webkit-box-shadow: -2px 6px 21px -2px rgba(255,255,255,1);
+	-moz-box-shadow: -2px 6px 21px -2px rgba(255,255,255,1);
+	box-shadow: -2px 6px 21px -2px rgba(255,255,255,1);*/
+	z-index: 9999;
+}
+
+.sidebar-menu .treeview-menu .treeview-menu {
+    padding-left: 10px;
+    background: #1c272d;
+	margin-left: -5px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+.sidebar-menu li.active > .treeview-menu {
+    padding-bottom: 7px;
+	padding-top: 7px;
+}
+
+
+.sidebar-collapse .user-panel > .image > img {
+    width: 100%;
+    max-width: 30px;
+	height: 30px;
+}

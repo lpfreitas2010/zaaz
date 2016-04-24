@@ -1,0 +1,50 @@
+{strip}
+
+    <!-- TITULO -->
+    {include file="modulos/geral/pdf/includes/header.phtml"}
+
+    <!-- ARRAY -->
+    {foreach $array as $i}
+
+        <!-- ID, DATA E HORA -->
+        {include file="modulos/geral/pdf/includes/content_header.phtml"}
+
+        <!-- OUTROS CAMPOS -->
+        {foreach $campos as $i2}
+
+            <!-- USUARIO -->
+            {if $i2 == 'usuario'}
+                {if $i.nome != ""} <strong>{$i.nome}</strong> <br /> {/if}
+            {/if}
+
+            <!-- STATUS -->
+            {if $i2 == 'status'}
+                <strong>Status:</strong> {$i.status}
+            {/if}
+
+            <!-- ÁREA -->
+            {if $i2 == 'area'}
+                {if $i.area != ""} <strong>Área:</strong> {$i.area} - {/if}
+            {/if}
+
+            <!-- TIPO -->
+            {if $i2 == 'tipo'}
+                {if $i.tipo != ""} <strong>Tipo:</strong> {$i.tipo} <br />{/if}
+            {/if}
+
+            <!-- MENSAGEM -->
+            {if $i2 == 'mensagem'}
+                {if $i.mensagem != ""} <strong>Mensagem:</strong> {$i.mensagem} <br />{/if}
+            {/if}
+
+
+
+
+
+        {/foreach}
+
+        <br />
+        <br />
+        <hr />
+
+    {/foreach}

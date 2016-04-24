@@ -1,0 +1,33 @@
+
+
+    //## PRIMARY.
+    $primary:         #3c8dbc !default;
+    $primary-darker:  darken($primary, 10%) !default;
+    $primary-dark:    darken($primary, 25%)  !default;
+    $primary-light:   lighten($primary, 10%) !default;
+    $primary-lighter: lighten($primary, 25%) !default;
+    $gray:         #444 !default;
+    $gray-darker:  darken($gray, 10%) !default;
+    $gray-dark:    darken($gray, 25%)  !default;
+    $gray-light:   lighten($gray, 10%) !default;
+    $gray-lighter: lighten($gray, 25%) !default;
+
+    //** Background color for `<body>`.
+    $body-bg: #fff !default;
+
+    //## MAIN FOOTER.
+    $footer-color:        #444;
+    $footer-color-bg:     #dcdedf;
+    $footer-color-border: #d2d6de;
+
+    /* General Links */
+    $link-color:                  #393939;
+    $link-color-hover:            $primary;
+    $cor_focus_inputs:            #d2d6de;
+    $cor_background_focus_inputs: #fff;
+
+    //== Typography
+    $icon-font:                   fontAwesome;
+    $font-family-source-sans-pro: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+    $font-family-Helvetica:       "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+    $font-family-base:            $font-family-source-sans-pro !default;

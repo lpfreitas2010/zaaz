@@ -1,0 +1,46 @@
+ @import "compass/css3";
+
+/*
+ * Component: Callout
+ * ------------------
+ */
+
+
+.callout {
+	@include border-radius(3px);
+	margin: 0 0 20px 0;
+	padding: 25px 25px 25px 20px;
+	border-left: 5px solid #eee;
+
+	a {
+		color: #fff;
+		&:hover {
+			color: #eee;
+		}
+	}
+	h4 {
+		margin-top: 0;
+		font-weight: 600;
+	}
+	code {
+		background-color: #fff;
+	}
+	.highlight {
+		background-color: #fff;
+	}
+	&.callout-danger {
+		border-color: #c23321;
+	}
+	&.callout-warning {
+		border-color: #c87f0a;
+	}
+	&.callout-info {
+		border-color: #8dd2e3;
+	}
+	&.callout-success {
+		border-color: #00733e;
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
+}

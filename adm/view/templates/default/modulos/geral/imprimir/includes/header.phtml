@@ -1,0 +1,11 @@
+{strip}
+
+<h1 style="text-align:left;"> {$titulo|upper}</h1>
+<p style="text-align:left;">
+    Gerado em: <strong>{$smarty.now|date_format:"%d/%m/%Y - %H:%M:%S"}</strong> - {$total_registros} Registro(s)
+    <br />
+    Ordenado por: <strong> {foreach $order_by as $i}{if count($order_by) > 1}{$i|upper}, {else} {$i|upper} {/if} {/foreach} </strong>
+    {if count($group_by) > 1} <br /> Agrupado por: <strong>{foreach $group_by as $i}{if count($group_by) > 1}{$i|upper}, {else} {$i|upper} {/if}{/foreach} </strong> {/if}
+    {if $query_pesquisa != ""} <br /> Pesquisa ativa: <strong> {$query_pesquisa} </strong> {/if}
+</p>
+<br />

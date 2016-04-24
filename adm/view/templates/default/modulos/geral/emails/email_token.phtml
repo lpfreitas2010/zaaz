@@ -1,0 +1,24 @@
+{strip}
+
+<div style="font-family:arial">
+<h3>Olá {$nome|upper},</h3>
+
+<p>
+
+{if $tipo == '1'}
+<strong style="font-size:18px;">{$token_}</strong> é o seu código de recuperação da sua conta <strong>{$nome_empresa}</strong>. <br />
+<br />Seu username é: <strong>{$useremail}</strong> <br />
+{/if}
+
+{if $tipo == '2'}
+    Recupere sua conta de acesso ao sistema <strong>{$nome_empresa}.</strong> <br />
+    Clique no botão abaixo para recuperar a sua conta. <br />
+    <br />
+    <a style="background-color:#0b8682;color:#FFF;padding:8px;text-decoration:none;font-size:16px;" href="http://{$site}{$path_raiz}cadastro/{$id}/{$token}"> Recuperar minha conta </a>
+{/if}
+
+</p>
+<br />
+
+{$assinatura_email}
+</div>

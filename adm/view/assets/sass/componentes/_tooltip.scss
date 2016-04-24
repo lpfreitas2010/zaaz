@@ -1,0 +1,133 @@
+ @import "compass/css3";
+
+ /*
+ *
+ *  Formatacao dos tooltip
+ *
+ */
+
+.tooltip {
+	position: absolute;
+	z-index: 99999;
+	display: block;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: left;
+	text-align: start;
+	text-decoration: none;
+	//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: none;
+	text-transform: none;
+	letter-spacing: normal;
+	//Instead of the line below you could use @include word-break($value)
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+	white-space: normal;
+	line-break: auto;
+	&.in {
+		filter: alpha(opacity=100);
+		opacity: 1;
+	}
+	&.top {
+		padding: 5px 0;
+		margin-top: -3px;
+		.tooltip-arrow {
+			bottom: -3px;
+			left: 50%;
+			margin-left: -5px;
+			border-width: 8px 8px 0;
+			border-top-color: #fff;
+		}
+	}
+	&.right {
+		padding: 0 5px;
+		margin-left: 3px;
+		.tooltip-arrow {
+			top: 50%;
+			left: 0;
+			margin-top: -5px;
+			border-width: 8px 8px 8px 0;
+			border-right-color: #fff;
+		}
+	}
+	&.bottom {
+		padding: 5px 0;
+		margin-top: 8px;
+		.tooltip-arrow {
+			top: -3px;
+			left: 50%;
+			margin-left: -5px;
+			border-width: 0 8px 8px;
+			border-bottom-color: #fff;
+		}
+	}
+	&.left {
+		padding: 0 5px;
+		margin-left: -3px;
+		.tooltip-arrow {
+			top: 50%;
+			right: 0;
+			margin-top: -5px;
+			border-width: 8px 0 8px 8px;
+			border-left-color: #fff;
+		}
+	}
+	&.top-left .tooltip-arrow {
+		right: 5px;
+		bottom: 0;
+		margin-bottom: -5px;
+		border-width: 8px 8px 0;
+		border-top-color: #fff;
+	}
+	&.top-right .tooltip-arrow {
+		bottom: 0;
+		left: 5px;
+		margin-bottom: -5px;
+		border-width: 8px 8px 0;
+		border-top-color: #fff;
+	}
+	&.bottom-left .tooltip-arrow {
+		top: 0;
+		right: 5px;
+		margin-top: -5px;
+		border-width: 0 5px 5px;
+		border-bottom-color: #fff;
+	}
+	&.bottom-right .tooltip-arrow {
+		top: 0;
+		left: 5px;
+		margin-top: -5px;
+		border-width: 0 5px 5px;
+		border-bottom-color: #fff;
+	}
+}
+.tooltip-inner {
+	max-width: 200px;
+	color: #636359;
+	text-align: center;
+	background-color: #fff;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 4px;
+	line-break: auto;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	-webkit-box-shadow: 1px 1px 8px 0px rgba(50, 50, 50, 0.63);
+-moz-box-shadow:    1px 1px 8px 0px rgba(50, 50, 50, 0.63);
+box-shadow:         1px 1px 8px 0px rgba(50, 50, 50, 0.63);
+}
+.tooltip-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}

@@ -1,0 +1,39 @@
+{strip}
+
+<div class="{$col}">
+    <div class="box box-warning box-solid">
+
+        <div class="box-header with-border">
+          <h3 class="box-title"><i class="fa fa-bell"></i> {$total_registros_adm[0].total_notificacoes_admin} Notificações Não Lidas</h3>
+        </div>
+
+        <div class="box-body padding-box-home">
+          <ul class="products-list product-list-in-box over-325">
+
+            {foreach $listagem_notificacoes_admin as $i}
+                <a href="{$path_atual}{$i.url_destino}"><li class="item">
+                  <div class="product-img">
+                      {if $i.img_perfil == ""}
+                          <img src="{$path}/assets/img/avatar/avatar_h.jpg" alt="{$nome_usuario_ativo}" width="30" height="30" class="img-circle m-r-5 center-cropped">
+                      {else}
+                          <img src="{$path_raiz2}files/perfil_usuario/p/{$i.img_perfil}" alt="{$i.nome}" width="30" height="30" class="img-circle m-r-5 center-cropped">
+                      {/if}
+                  </div>
+                  <div class="product-info">
+                    <a href="{$path_atual}{$i.url_destino}" class="product-title">{$i.nome|upper}
+                        <span class="label label-default2 pull-right remove-strong"><i class="fa fa-clock-o"></i> {$i.criado|date_format:"tempo"}</span>
+                        <span title="{$i.mensagem}" class="product-description remove-strong">
+                          {$i.mensagem}
+                        </span>
+                  </div>
+              </li><a/>
+            {/foreach}
+
+          </ul>
+        </div>
+
+        <div class="box-footer text-center">
+            <a title="Ver todos as notificações" href="{$path_atual}notificacoes">Todas as Notificações <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>

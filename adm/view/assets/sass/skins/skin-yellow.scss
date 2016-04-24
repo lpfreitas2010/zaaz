@@ -1,0 +1,22 @@
+
+
+	//
+	//GERAL
+	$cor_principal_a:          #FFF;
+	$cor_principal:            #d1a111; /*#3c8dbc*/ // Cor primária
+	$cor_principal2:           #bfa86d; /*#3c8dbc*/ // Usado no hover da listagem da tabela
+
+	//TABELA
+	$cor_titulo_tabela:        #857c69; /*#485962*/ // Cor do thead da tabela
+
+	//MENU LATERAL
+	$cor_principal_a_hover:    #c1a663; /*#3c8dbc*/ // Cor primária
+	$cor_menu_lateral1:        #2d271b; /*#222d32*/ // Cor de fundo do <ul> menu lateral
+	$cor_menu_lateral_a:       #7a7353; /*#4b646f*/ // Cor fonte link menu lateral
+	$cor_menu_lateral_a_hover: #393625; /*#1e282c*/ // Cor de fundo do hover menu lateral
+	$cor_menu_lateral_a_geral: #cfcbb9; /*#b8c7ce*/ // Cor de fundo do <ul> 2 menu lateral
+	$cor_menu_lateral_li_a:    #d9d5c5; /*#8aa4af*/ // Cor do <li> do menu lateral
+	$cor_menu_lateral_geral:   #171711; /*#374850*/ // Cor de fundo geral do menu lateral
+
+	//IMPORTO SKIN PADRÃO
+	@import "skins";
