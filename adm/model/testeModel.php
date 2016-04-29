@@ -85,7 +85,7 @@
 				if($conf_personalizada == false){
 					$array_pesq[] = $this->return_where_like($tabela.'.campo',$query_pesquisa);
 					$where = $this->return_params_mont($array_pesq,'OR',true);
-					//$where = $where2.' '.$where; //where default
+					//$where = $where2.' ('.$where.')'; //where default
 				}
 
 				//SETO O WHERE
@@ -101,7 +101,7 @@
 				$array_pesq1[] = $this->return_where_data($tabela.'.'.$query_pesquisa_avancada['periodo_tipo_data'],$funcoes->conv_datahora($query_pesquisa_avancada['periodo_data_de'],'Y-m-d'),$funcoes->conv_datahora($query_pesquisa_avancada['periodo_data_ate'],'Y-m-d'));
 				//$array_pesq1[] = $this->return_where_like($tabela.'.campo',$query_pesquisa_avancada['name_campo']);
 				$where = $this->return_params_mont($array_pesq1,'AND',true);
-				//$where = $where2.' '.$where; //where default
+				//$where = $where2.' ('.$where.')'; //where default
 
 				//SETO O WHERE
 				$this->setWhere($where);

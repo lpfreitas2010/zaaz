@@ -51,6 +51,10 @@
             $interface['array']           = $array1; //ARRAY
             $interface['campos']          = $campos_selecionados; //CAMPOS SELECIONADOS
             $interface['titulo']          = $this->nome_pagina_plural; //TITULO
+            $interface['path']            = $this->core->get_config('path_template_comp_' . $this->dir_app.'_apps'); //Diretório raiz até assets
+            $interface['path_raiz']       = $this->core->get_config('dir_raiz_http').'/'; //Diretório raiz
+            $interface['path_atual']      = $this->core->get_config('dir_raiz_http').$this->dir_app."/";
+            $interface['id_cargo']        = $_SESSION[$this->dir_app.'_id_cargo'];
 
             //SETO OS DADOS
             $view->seto_dados_array($interface);

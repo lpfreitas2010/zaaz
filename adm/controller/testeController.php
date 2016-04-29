@@ -107,7 +107,7 @@ class testeController {
 
 			//===========================================================
 			//PARAMETROS GERAIS ****-
-			$this->adm_usuario_modulo_id         = 1; //Id do módulo
+			$this->adm_usuario_modulo_id         = -1; //Id do módulo
             $this->url_pagina                    = "teste"; //Url da página
             $this->nome_pagina_singular          = "Teste"; // Nome da página singular
             $this->nome_pagina_plural            = "Testes"; // Nome da página plural
@@ -125,11 +125,11 @@ class testeController {
 			//===========================================================
 			//STATUS DE BTNS DE AÇÕES GERAL ****-
 			$this->btns_acoes['status_menu_lateral']      = true; // Status do menu aberto ou fechado [true ou false]
-			$this->btns_acoes['status_btn_editar']        = true; // Status do btn de editar [true or false]
-			$this->btns_acoes['status_btn_excluir']       = true; // Status do btn de excluir [true or false]
+			$this->btns_acoes['status_btn_editar']        = false; // Status do btn de editar [true or false]
+			$this->btns_acoes['status_btn_excluir']       = false; // Status do btn de excluir [true or false]
 			$this->btns_acoes['status_btn_detalhamento']  = false; // Status do btn de detalhamento [true or false]
 			$this->btns_acoes['status_btn_ativar']        = false; // Status do btn de ativar [true or false]
-			$this->btns_acoes['status_btn_novo']          = true; // Status de btn de cadastro [true or false]
+			$this->btns_acoes['status_btn_novo']          = false; // Status de btn de cadastro [true or false]
 			$this->btns_acoes['status_btn_atualizar']     = true; // Status de btn de atualizar [true or false]
 			$this->btns_acoes['status_imprimir']          = false; // Status de btn de imprimir [true or false]
 			$this->btns_acoes['status_exportar_pdf']      = false; // Status de btn de exportar para pdf [true or false]

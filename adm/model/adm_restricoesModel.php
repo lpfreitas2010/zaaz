@@ -94,10 +94,12 @@
 				if($query_pesquisa == 'Status: Permitido'){
 					$where = $this->return_where_char($tabela.'.opcoes','=',1);
 					$conf_personalizada = true;
+					$where = '('.$where_1.') AND ('.$where.')'; //where default
 				}
 				if($query_pesquisa == 'Status: Não Permitido'){
 					$where = " {$tabela}.opcoes = 0 ";
 					$conf_personalizada = true;
+					$where = '('.$where_1.') AND ('.$where.')'; //where default
 				}
 				$param1         = 'ID Usuário: '; // parametro personalizado
 			    $status_param1  = $funcoes->localizo_string($query_pesquisa, $param1);
@@ -105,6 +107,7 @@
 			    if($status_param1 !== false){
 			        $where = $this->return_where_int($tabela.'.adm_usuario_id','=',$query_pesquisa);
 			        $conf_personalizada = true;
+					$where = '('.$where_1.') AND ('.$where.')'; //where default
 			    }
 
 				//PESQUISA SIMPLES
@@ -114,6 +117,7 @@
 					$array_pesq[] = $this->return_where_like('adm_usuario_modulo.modulo',$query_pesquisa);
 					$array_pesq[] = $this->return_where_like('adm_usuario_permissoes_acoes.acoes',$query_pesquisa);
 					$where = $this->return_params_mont($array_pesq,'OR',true);
+					$where = '('.$where_1.') AND ('.$where.')'; //where default
 				}
 
 				//SETO O WHERE
@@ -132,6 +136,7 @@
 				$array_pesq1[] = $this->return_where_int($tabela.'.adm_usuario_permissoes_acoes_id','=',$query_pesquisa_avancada['pesq_avanc_acoes']);
 				$array_pesq1[] = $this->return_where_int($tabela.'.opcoes','=',$query_pesquisa_avancada['pesq_avanc_status']);
 				$where = $this->return_params_mont($array_pesq1,'AND',true);
+				$where = '('.$where_1.') AND ('.$where.')'; //where default
 
 				//SETO O WHERE
 				$this->setWhere($where);
