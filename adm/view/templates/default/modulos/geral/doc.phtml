@@ -1,0 +1,146 @@
+{strip}
+{include file="modulos/geral/includes/head.phtml"}
+{include file="modulos/geral/includes/header.phtml"}
+{include file="modulos/geral/includes/sidebar.phtml"}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<div class="row">
+
+
+
+    <!-- SAUDACAO -->
+    <div style="margin-top:-40px;" class="col-md-12">
+        <section class="content-header">
+              <h1>
+                 <i class="fa fa-code"></i> DOCUMENTAÇÃO
+              </h1>
+              <div class="border-bottom-solid"></div>
+        </section>
+    </div>
+    <section>
+        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 p-l-25 p-r-25 p-b-25">
+
+            <!-- MENU -->
+            <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12 m-t-15 m-b-15">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                        CORE
+                    </a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area=".area_introducao"><i class="fa fa-file-text-o"></i> Introdução</a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#core_configuracoes"><i class="fa fa-cog"></i> Configurações</a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#view"><i class="fa fa-eye"></i> View </a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#banco_dados"><i class="fa fa-database"></i> Bancos de dados</a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#funcoes_gerais"><i class="fa fa-code"></i> Funções Gerais</a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#validacoes"><i class="fa fa-code"></i> Funções de Validação</a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#uploads"><i class="fa fa-upload"></i> Upload de Arquivos</a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#email"><i class="fa fa-envelope"></i> Disparo de E-mails</a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#sms"><i class="fa fa-phone"></i> Disparo de SMS</a>
+                    <a href="#0" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#logs"><i class="fa fa-list-alt"></i> Logs do Sistema </a>
+                </div>
+
+                <div class="list-group">
+                    <a href="#0" class="list-group-item active">
+                        ADMINISTRATIVO
+                    </a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#introducao_adm"><i class="fa fa-file-text-o"></i> Introdução</a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#variaveis"><i class="fa fa-code"></i> Variáveis</a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#actions"><i class="fa fa-code"></i> Actions</a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#exemplos"><i class="fa fa-code"></i> Exemplos</a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#formularios"><i class="fa fa-wpforms"></i> Formulários</a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#listagens"><i class="fa fa-list"></i> Listagem</a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#notificacoes"><i class="fa fa-comment"></i> Sistema de Notificações</a>
+                    <a href="#" class="list-group-item active">
+                        FUNÇÕES JS E CSS
+                    </a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#classes_css"><i class="fa fa-code"></i> Classes CSS</a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#funcoes_js"><i class="fa fa-code"></i> Funções JS</a>
+                    <a href="#" class="list-group-item active">
+                        ICONES CSS
+                    </a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#fontawesome"><i class="fa fa-heart"></i> Font Awesome</a>
+                    <a href="#" class="list-group-item mostra_area" hide_area=".area-doc" show_area="#glyphicons"><i class="glyphicon glyphicon-star"></i> Glyphicons</a>
+                </div>
+            </div>
+
+
+            <!-- CONTEUDO -->
+            <div class="col-lg-10 col-md-10 col-xs-12 col-sm-12 m-t-15">
+
+
+                <!-- INTRODUÇÃO -->
+                {include file="modulos/geral/doc/core_introducao.phtml" id="introducao" texto="<i class='fa fa-file-text-o'></i> Introdução"}
+
+                <!-- VALIDAÇÕES -->
+                {include file="modulos/geral/doc/validacoes.phtml" id="validacoes" texto="<i class='fa fa-code'></i> Funções de Validação"}
+
+                <!-- BANCO DE DADOS -->
+                {include file="modulos/geral/doc/banco_dados.phtml" id="banco_dados" texto="<i class='fa fa-database'></i> Banco de Dados"}
+
+                <!-- FUNCOES GERAIS -->
+                {include file="modulos/geral/doc/funcoes_gerais.phtml" id="funcoes_gerais" texto="<i class='fa fa-code'></i> Funções Gerais"}
+
+                <!-- UPLOAD DE ARQUIVOS -->
+                {include file="modulos/geral/doc/upload.phtml" id="uploads" texto="<i class='fa fa-upload'></i> Upload de Arquivos"}
+
+                <!-- LOGS DO SISTEMA -->
+                {include file="modulos/geral/doc/logs.phtml" id="logs" texto="<i class='fa fa-list-alt'></i> Logs do Sistema"}
+
+                <!-- DISPARO DE E-MAILS -->
+                {include file="modulos/geral/doc/email.phtml" id="email" texto="<i class='fa fa-envelope'></i> Disparo de E-mails"}
+
+                <!-- SMS -->
+                {include file="modulos/geral/doc/sms.phtml" id="sms" texto="<i class='fa fa-phone'></i> Disparo de SMS"}
+
+                <!-- VIEW -->
+                {include file="modulos/geral/doc/view.phtml" id="view" texto="<i class='fa fa-eye'></i> View"}
+
+                <!-- CONFIGURAÇÕES -->
+                {include file="modulos/geral/doc/core_configuracoes.phtml" id="core_configuracoes" texto="<i class='fa fa-cog'></i> Configurações"}
+
+                <!-- FUNÇÕES JS -->
+                {include file="modulos/geral/doc/funcoes_js.phtml" id="funcoes_js" texto="<i class='fa fa-code'></i> Funções JS"}
+
+                <!-- CLASSES CSS -->
+                {include file="modulos/geral/doc/classes_css.phtml" id="classes_css" texto="<i class='fa fa-code'></i> Classes CSS"}
+
+                <!-- glyphicon CSS -->
+                {include file="modulos/geral/doc/glyphicon.phtml" id="glyphicons" texto="<i class='glyphicon glyphicon-star'></i> Glyphicons"}
+
+                <!-- font Awesome CSS -->
+                {include file="modulos/geral/doc/font_awesome.phtml" id="fontawesome" texto="<i class='fa fa-heart'></i> Font Awesome"}
+
+                <!-- NOTIFICAÇÕES -->
+                {include file="modulos/geral/doc/notificacoes.phtml" id="notificacoes" texto="<i class='fa fa-comment'></i> Sistema de Notificações"}
+
+                <!-- FORMULARIOS -->
+                {include file="modulos/geral/doc/formularios.phtml" id="formularios" texto="<i class='fa fa-wpforms'></i> Formulários"}
+
+                <!-- LISTAGENS -->
+                {include file="modulos/geral/doc/listagem.phtml" id="listagens" texto="<i class='fa fa-list'></i> Listagem"}
+
+                <!-- INTRODUÇÃO ADM -->
+                {include file="modulos/geral/doc/introducao_adm.phtml" id="introducao_adm" texto="<i class='fa fa-file-text-o'></i> Introdução"}
+
+                <!-- ACTIONS -->
+                {include file="modulos/geral/doc/actions_adm.phtml" id="actions" texto="<i class='fa fa-code'></i> Actions"}
+
+                <!-- VARIAVEIS -->
+                {include file="modulos/geral/doc/variaveis_adm.phtml" id="variaveis" texto="<i class='fa fa-code'></i> Variáveis"}
+
+                <!-- EXEMPLOS -->
+                {include file="modulos/geral/doc/exemplos.phtml" id="exemplos" texto="<i class='fa fa-code'></i> Exemplos"}
+
+            </div>
+
+
+
+
+        </div>
+    </section>
+</div>
+</div>
+<!-- /.content-wrapper -->
+
+{include file="modulos/geral/includes/feedback.phtml"}
+{include file="modulos/geral/includes/footer.phtml"}

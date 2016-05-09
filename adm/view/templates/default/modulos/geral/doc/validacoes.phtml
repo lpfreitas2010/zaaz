@@ -1,0 +1,168 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Core</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+          <p class="f-s-16">
+              Funções de validações de campos de formulários.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16">
+              - Helper responsável: <code>/libs/helpers/funcoesHelper.php</code>
+          </p>
+
+          <hr />
+
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Recebo os dados via GET ou POST</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>Recebo os dados via GET ou POST</strong>
+
+//RECEBO OS DADOS
+(string) $campo = $this->funcoes->anti_injection($_POST['name']); //(string) (int) (double) ...
+(string) $campo = $this->funcoes->anti_injection($_POST['textareaname'],'html'); //recebo campo html
+
+//TRAVO O VALOR R$ REAL MOEDA
+(int) $campo = $this->funcoes->substituo_strings('.','',$campo); //tiro o . e insiro nada
+(int) $campo = $this->funcoes->substituo_strings(',','.',$campo); //tiro a , e insiro o .
+
+//TRATO CAMPO MULTIPLE
+$campo = array_values($campo); //reordeno array
+
+//CONVERTO STRING PARA MAIUSCULO E MINUSCULO
+$campo = $this->funcoes->conv_string($campo,2);</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Funções de validação</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>Funções de validação do formulário</strong>
+
+//EXEMPLO ENCADEADO
+$this->funcoes->set('NOME CAMPO',"name_form", $valor)->is_required()->min_length(2)->max_length(250);
+
+->is_required()  //Campo obrigatório
+->min_length(2)  //Minimo de caracteres
+->max_length(250)  //Maximo de caracteres
+->between_length(1, 10)  //O campo deve conter entre <b>%s</b> e <b>%s</b> caracter(es)
+->min_value($value, $inclusive = false)  //O valor do campo deve ser maior que o valor
+->max_value($value, $inclusive = false)  //O valor do campo deve ser menor que o valor
+->between_values($min_value, $max_value)  //O valor do campo <b>%s</b> deve estar entre <b>%s</b> e <b>%s</b>
+->is_email($param = null)  //O email <b>%s</b> não é válido
+->is_url()  //A URL <b>%s</b> não é válida
+->is_slug()  //<b>%s</b> não é um slug
+->is_num()  //O valor <b>%s</b> não é numérico
+->is_integer()  //O valor <b>%s</b> não é inteiro
+->is_float()  //O valor <b>%s</b> não é float
+->is_string()  //O valor <b>%s</b> não é String
+->is_boolean()  //O valor <b>%s</b> não é booleano
+->is_obj()  //A variável <b>%s</b> não é um objeto
+->is_instance_of($class)  //<b>%s</b> não é uma instância de <b>%s</b>
+->is_arr()  //A variável <b>%s</b> não é um array
+->is_directory()  //<b>%s</b> não é um diretório válido
+->is_equals($value, $identical = false)  //O valor do campo <b>%s</b> deve ser igual à <b>%s</b>
+->is_not_equals($value, $identical = false)  //O valor do campo <b>%s</b> não deve ser igual à <b>%s</b>
+->is_cpf()  //O valor <b>%s</b> não é um CPF válido
+->is_cnpj()  //O valor <b>%s</b> não é um CNPJ válido
+->contains($values, $separator = false)  //O campo <b>%s</b> só aceita um do(s) seguinte(s) valore(s): [<b>%s</b>]
+->not_contains($values, $separator = false)  //O campo <b>%s</b> não aceita o(s) seguinte(s) valore(s): [<b>%s</b>]
+->is_lowercase()  //O campo <b>%s</b> só aceita caracteres minúsculos
+->is_uppercase()  //O campo <b>%s</b> só aceita caracteres maiúsculos
+->is_multiple($value)  //O valor <b>%s</b> não é múltiplo de <b>%s</b>
+->is_positive($inclusive = false)  //O campo <b>%s</b> só aceita valores positivos
+->is_negative($inclusive = false)  //O campo <b>%s</b> só aceita valores negativos
+->is_date()  //A data <b>%s</b> não é válida
+->is_maioridade($idade_a)  //Você deve ter mais de <b>%s anos</b> para participar
+->is_alpha($additional = '')  //O campo <b>%s</b> só aceita caracteres alfabéticos
+->is_alpha_num($additional = '')  //O campo <b>%s</b> só aceita caracteres alfanuméricos
+->no_whitespaces()  //O campo <b>%s</b> não aceita espaços em branco
+->is_time_hm($param = null)  //O tempo <b>%s</b> não é válido
+->is_time_hms($param = null)  //O tempo <b>%s</b> não é válido
+->is_password_num_let()  //A Senha deve ter Números e Letras
+->is_IP()  //O IP <b>%s</b> não é válido
+->is_telefone($inclusive = false)  //Número de telefone <b>%s</b> inválido
+->is_CEP($correios = null)  //O CEP <b>%s</b> não é válido
+->is_captcha_google($recaptcha_secret) //Valido captcha google
+->is_unique($param)  //Este(a) <b>%s</b> já esta cadastrado(a) no banco de dados
+->is_date_validate_past($date)  //A data <b>%s</b> deve ser maior que a data atual
+->is_required_upload()  //Selecione o(s) arquivo(s) do(a) <b>%s</b>
+->is_compare_campo($param,$descricao2)  //O valor do campo <b>%s</b> deve ser igual ao do campo <b>%s</b>
+
+//VERIFICO SE CAMPO JA FOI CADASTRADO (ADICIONAR TABELA ATUAL)
+if($this->model->retorn_campo_editar('campo_banco', $campo) == $tipo){
+$unique = true;
+}
+$this->funcoes->set('Campo tal',"campo_html_id", $campo)->is_required()->min_length(2)->max_length(250)->is_unique($unique);
+
+//VERIFICO SE CAMPO JA FOI CADASTRADO (EDITAR TABELA ATUAL)
+if($this->model->retorn_campo_editar_val_id('campo_banco') != $campo){
+if($this->model->retorn_campo_editar('campo_banco', $campo) == $campo){  $unique = true;  }
+$this->funcoes->set('Campo tal',"campo_html_id", $campo)->is_required()->is_unique($unique);
+}else{
+$this->funcoes->set('Campo tal',"campo_html_id", $campo)->is_required();
+}
+
+//VERIFICO SE CAMPO JA FOI CADASTRADO (EDITAR OUTRA TABELA DO BANCO)
+$this->model->setCampos('tabela_retorn_campo_editar','adm_usuario_auth');
+$this->model->setCampos('tabela_retorn_campo_editar_val_id','adm_usuario_auth');
+$this->model->setCampos('campo_id_retorn_campo_editar_val_id','adm_usuario_id');
+if($this->model->retorn_campo_editar_val_id('username') != $username){
+if($this->model->retorn_campo_editar('username', $username) == $username){
+$username_unique = true;
+}
+$this->funcoes->set('Username',"username", $username)->is_required()->is_unique($username_unique);
+}else{
+$this->funcoes->set('Username',"username", $username)->is_required();
+}
+
+//MOSTRO MENSAGEM DE ERROS NA LINHA DO INPUT
+if(count($this->funcoes->get_errors())>=1){
+echo json_encode($this->funcoes->get_errors());
+exit;
+}</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Seto os dados no Model</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>Seto os dados no model</strong>
+
+$this->model->setCampos('name',$valor);
+$this->model->setCampos('name',$this->funcoes->conv_datahora($valor,'Y-m-d')); //converto data para americano
+$this->model->setCampos('name',$this->funcoes->conv_datahora($valor,'H:i')); //converto h:i:s para h:i</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Mostro Mensagem de Sucesso ou Erro</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>Mensagem de Erro ou Sucesso com (retorno em JSON)</strong> <br />
+<br />
+//MOSTRO MENSAGEM DE SUCESSO<br />
+$this->funcoes->set_array(null,'sucesso','MENSAGEM DE SUCESSO') //Mensagem<br />
+->set_array(null,'id',$ult_id) //Retorno ID<br />
+->set_array(null,'limpo_campo','true'); //Limpo campos<br />
+echo json_encode($this->funcoes->get_array()); //Mostro na tela<br />
+<br />
+//MOSTRO MENSAGEM DE ERRO<br />
+$this->funcoes->set_array(null,'erro','MENSAGEM DE ERRO'); //Mensagem<br />
+echo json_encode($this->funcoes->get_array()); //Mostro na tela<br />
+<br />
+//PEGO MENSAGEM DA ÁREA DE MENSAGENS<br />
+$this->core->get_msg_array('erro_inserir',"{literal}{$variavel}{/literal}"); //config > mensagens > default.php</pre>
+
+
+      </div>
+</div>

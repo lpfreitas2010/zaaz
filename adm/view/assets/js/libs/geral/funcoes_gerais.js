@@ -1329,7 +1329,7 @@ define(['jquery'], function ($) {
                     if(errorMessage == ""){
                         errorMessage = "<b>Erro de carregamento de script!</b><br /> Recarregue a página e tente novamente. ";
                     }
-                    mostrar_error_geral(jqXHR, textStatus, errorMessage);
+                    //mostrar_error_geral(jqXHR, textStatus, errorMessage);
                     loading_geral('hide', campo_load, img);
                 }
             });

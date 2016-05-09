@@ -1,0 +1,223 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Core</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+
+          <p class="f-s-16">
+              Camada de aplicação responsável pela exibição do layout na tela.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16 line-height-m">
+              - Plugin de controle do template: <code>Smarty PHP</code> - <a href="http://www.smarty.net/docsv2/pt_BR/" target="_blank"><strong>Documentação Smarty PHP <i class="fa fa-external-link-square"></i></strong> </a> <br />
+              - Helper responsável: <code>/libs/helpers/viewHelper.php</code>
+          </p>
+
+          <hr />
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Instancio a Classe</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>INSTANCIO A CLASSE</strong>
+
+$this->core->includeView();
+$view = new view($this->dir_app);</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Modo de Uso da View</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>SETO VARIÁVEL NA VIEW</strong>
+
+//SETO VALORES
+$view->seto_dados('nome_variavel','valor');
+$view->seto_dados('nome_variavel2','valor2');
+
+//CARREGO INTERFACE
+$view->monto_view('caminho_do_arquivo_view.phtml');</pre>
+
+<pre>
+<strong>SETO VALORES DE ARRAY NA VIEW</strong>
+
+//SETO VALORES
+$array['nome_variavel']  = 'valor'; //seto valor
+$array['nome_variavel2'] = 'valor2'; //seto valor
+$view->seto_dados_array($array);
+
+//CARREGO INTERFACE
+$view->monto_view('caminho_do_arquivo_view.phtml');</pre>
+
+<pre>
+<strong>PEGO UMA VIEW PARA USAR NO CONTROLLER</strong>
+
+$conteudo_view = $view->retorno_template_php('caminho_do_arquivo_view.phtml');</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Urls Amigáveis</span> <code> Usar no Controller action: view </code></h3>
+
+<pre>
+<strong>Urls Amigáveis</strong>
+
+//Insira este código abaixo do include da view_1.php
+
+//Pego a posição 0 - Exemplo: contatos/id/2
+$resultado = $url[0]; //resultado: id
+
+//Pego a posição 1 - Exemplo: contatos/id/2
+$resultado = $url[1]; //resultado: 2</pre>
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Funções do Smarty PHP</span> <code> Usar na View </code></h3>
+
+<pre>{literal}
+<strong>Variáveis</strong>
+
+{$nome_variavel}
+
+Resultado: Valor da variável{/literal}</pre>
+
+<pre>{literal}
+<strong>Comando Foreach</strong>
+
+{foreach $array as $i}
+{$i.campo_banco} {$i.campo_banco2}
+{/foreach}{/literal}</pre>
+
+<pre>{literal}
+<strong>Comando If Else</strong>
+
+{if $variavel == 1}
+conteudo 1
+{else}
+conteudo 2
+{/if}{/literal}</pre>
+
+<pre>{literal}
+<strong>Include de arquivos</strong>
+
+{include file="diretorio/nome_arquivo.phtml"}{/literal}</pre>
+
+<pre>{literal}
+<strong>Tag Strip - Remove todos os espaços do html reduzindo o tamanho do arquivo. </strong>
+
+{strip}
+
+Resultado: BlaBlaBla{/literal}</pre>
+
+<pre>{literal}
+<strong>Tag literal - Permite a escrita de blocos de códigos javascript e outros</strong>
+
+{literal} bloco de codigo javascript {/literal}
+{/literal}</pre>
+
+<pre>{literal}
+<strong>Função que mostra a idade através de uma data</strong>
+
+{$variavel|date_format:"idade"}
+
+Resultado: 28
+{/literal}</pre>
+
+<pre>{literal}
+<strong>Função que converte DATA</strong>
+
+{$variavel|date_format:"%d/%m/%Y"}
+
+Resultado: 00/00/0000 {/literal}</pre>
+
+<pre>{literal}
+<strong>Função que converte Hora</strong>
+
+{$variavel|date_format:"%H:%M:%S"}
+
+Resultado: 00:00:00 {/literal}</pre>
+
+<pre>{literal}
+<strong>Função que mostra o Tempo de uma data e hora</strong>
+
+{$variavel|date_format:"tempo"}
+
+Resultado: Há 1 minuto atrás{/literal}</pre>
+
+<pre>{literal}
+<strong>Função que mostra o Dia da semana por extenso de uma data</strong>
+
+{$variavel|date_format:"dia_semana"}
+
+Resultado: Segunda-feira {/literal}</pre>
+
+<pre>{literal}
+<strong>Função que mostra o mês de uma data</strong>
+
+{$variavel|date_format:"mes"}
+
+Resultado: Janeiro{/literal}</pre>
+
+<pre>{literal}
+<strong>Função que mostra uma data completa</strong>
+
+{$variavel|date_format:"data_extenso"}
+
+Resultado: 13 de Janeiro de 2015{/literal}</pre>
+
+<pre>{literal}
+<strong>Função que mostra se o dia de uma data é hoje</strong>
+
+{$variavel|date_format:"dia_semana_hoje"}
+
+Resultado: Hoje{/literal}</pre>
+
+<pre>{literal}
+<strong>Converte uma String para maiuscula</strong>
+
+{$variavel|upper}
+
+Resultado: TESTE DE TESTE {/literal} </pre>
+
+<pre>{literal}
+<strong>Converte uma String para minusculo</strong>
+
+{$variavel|lower}
+
+Resultado: teste de teste {/literal}</pre>
+
+<pre>{literal}
+<strong>Converte uma String para maiusculo e minusculo</strong>
+
+{$variavel|capitalize}
+
+Resultado: Teste de Teste {/literal}</pre>
+
+<pre>{literal}
+<strong>Quebra a linha de uma string</strong>
+
+{$variavel|nl2br} {/literal}</pre>
+
+<pre>{literal}
+<strong>Formato número moeda R$</strong>
+
+{$variavel|number_format:2:",":"."}
+
+Resultado: 10,50  {/literal}</pre>
+
+<pre>{literal}
+<strong>Encurto o texto de uma string</strong>
+
+{$variavel|truncate:30:" ...":true}
+
+Resultado: bla bla bla ... {/literal} </pre>
+
+
+      </div>
+</div>

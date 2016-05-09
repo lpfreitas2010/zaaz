@@ -1,0 +1,147 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Administrativo</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+<hr />
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Variáveis Globais</span> <code> Usar no controller ou model </code></h3>
+
+<pre>
+<strong>Variáveis Globais</strong>
+
+//VARIAVEL QUE CONTROLA A SESSÃO DO ADMINISTRATIVO (TRUE OR FALSE)
+$_SESSION['adm_auth_status'];
+
+//ID DO USUÁRIO LOGADO NO SISTEMA
+$_SESSION['adm_id_user'];
+
+//NOME DO USUÁRIO LOGADO NO SISTEMA
+$_SESSION['adm_nome_user'];
+
+//EMAIL DO USUÁRIO LOGADO NO SISTEMA
+$_SESSION['adm_email_user'];
+
+//IMAGEM DE PERFIL DO USUÁRIO LOGADO NO SISTEMA
+$_SESSION['adm_foto_perfil'];
+
+//CARGO (TIPO) DO USUÁRIO LOGADO NO SISTEMA
+$_SESSION['adm_id_cargo'];
+
+//AGENCIA DO USUÁRIO LOGADO NO SISTEMA
+$_SESSION['adm_id_matriz'];</pre>
+
+<hr />
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Variáveis Globais</span> <code> Usar na view </code></h3>
+
+<pre>
+<strong>Variáveis Globais da View</strong> {literal}
+
+//Endereço do site (empresa) do rodapé
+{$endereco_site}
+
+//Empresa que desenvolveu
+{$title_empresa_desenvolvido}
+
+//Endereço do site do desenvolvedor
+{$endereco_site_desen}
+
+//Versão da aplicação
+{$versao}
+
+//Ano de desenvolvimento da aplicação
+{$ano_desenvolvimento}
+
+//Title da Página
+{$title_empresa}
+
+//Autores da página
+{$autor}
+
+//description da página
+{$description}
+
+//Keywords da página
+{$keyword}
+
+//Array com as páginas da aplicação
+{$paginas}
+
+//Titulo geral da pagina
+{$nome_logo_admin}
+
+//Nome do arquivo da imagem de fundo utilizada nas páginas de login, erro e outras
+{$img_fundo_login}
+
+//Modo do sistema (Produção ou Modo de desenvolvimento)
+{$modo_sistema}
+
+<strong>Controle do usuário</strong>
+
+//Id do cargo do usuário ativo no sistema
+{$cargo_id}
+
+//Id do usuário ativo no sistema
+{$id_usuario_ativo}
+
+//Array com as restrições do usuário logado
+{$restricoes_sistema}
+
+<strong>Diretórios</strong>
+
+//Diretório raiz até assets
+{$path}
+
+//Diretório raiz até a pasta de aplicação
+{$path_raiz}
+
+//Diretório raiz
+{$path_raiz2}
+
+//Página inicial da aplicação
+{$url_index}
+
+//Pagina de erro (pagina não encontrada)
+{$url_erro2}
+
+<strong>Actions gerais</strong>
+
+//Controller de inserção de um feedback
+{$action_controller_feedback}
+
+//Action de inserção de um feedback
+{$cmd_add_feedback}
+
+//Action da pesquisa geral
+{$action_pesq_geral}
+
+//Action da pesquisa geral
+{$action_autoco_pesq_geral}
+
+//Action de listagem de notificações
+{$action_notificacoes}
+
+//Action de notificação lida
+{$action_notificacao_lida}
+
+//Action de listagens de notificações popup
+{$action_notificacoes_popup}
+
+//Action de logoff do administrativo
+{$path_logoff}
+
+{/literal}</pre>
+
+
+
+
+      </div>
+</div>

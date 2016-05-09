@@ -1,0 +1,163 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Administrativo</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+          <hr />
+
+          <h3 class="p-t-20">FUNCIONALIDADES DO ADMINISTRATIVO <strong>GERAL:</strong></h3>
+          <p class="f-s-18 line-height-g">
+  - Possibilidade de realizar login no sistema por username, telefone ou email;<br />
+  - Ao errar a senha por mais de três vezes o usuário receberá um sms e um e-mail avisando da atividade suspeita em sua conta;<br />
+  - Ao errar a senha por mais de seis vezes o usuário será forçado a alterar sua senha de acesso;<br />
+  - Ao clicar no link esqueci meus dados de acesso o usuário será redirecionado a uma página onde ele deverá informar o username, telefone ou o e-mail cadastrados no sistema, ao digitar as informações ele será redirecionado a uma outra página que solicitara um código, este código será enviado sms e no e-mail do usuário. Assim que ele digitar o código ele será direcionado a página onde ele podera cadastrar uma nova senha.<br />
+  - Ao digitar uma url que não existe o usuário será redirecionado para uma página de erro e a página que ele tentou acessar ficara grava nos logs do sistema;<br />
+  - Área para o usuário comunicar um erro no sistema, assim que o usuário comunica um erro todos os usuários do cargo desenvolvedor receberão e-mail e uma notificação sobre o feedback do usuário;<br />
+  - Área com as notificações do sistema, ao clicar em uma notificação ela será marcada como lida e será redirecionada para a página relacionada aquela notificação. O Usuário tem também a opção de ver todas as suas notificações em uma listagem com a possibilidade de alterar o status desta notificação através da listagem;<br />
+  - Na página inicial como padrão temos as seguintes informações: Links úteis, sms enviados e e-mails enviados no dia, semana e mês, listagem com os usuários on-line, listagem com as notificações não lidas, gráficos: navegadores utilizados, so utilizados, páginas acessadas, acessos dos usuários e login e logoff;<br />
+  - Página inicial e Menu lateral as opções são carregados de acordo com as restrições que os usuários tem no sistema;<br />
+  - Ao sair do sistema o usuário será redirecionado a página de tela de bloqueio onde para que ele possa retornar ao sistema basta ele digitar sua senha; <br />
+</p>
+
+  <hr />
+
+ <h3 class="p-t-20">FUNCIONALIDADES DO ADMINISTRATIVO <strong>CONFIGURAÇÕES:</strong></h3>
+ <p class="f-s-18 line-height-g">
+ - <code>Menu Status</code> - Temos os status do sistema; <br />
+ - <code>Menu Configs Admin</code> - Temos as configurações do painel administrativo, configurações de envio de email, assinatura geral do email, configurações de envio de sms, configuração do tema do administrativo e outros; <br />
+ - <code>Menu Backup</code> - Realiza o backup do banco de dados, pasta de logs, pasta de arquivos e imagens; <br />
+ - <code>Menu Cache do Sistema</code> - Opção de excluir o cache do sistema, logs em txt do sistema; <br />
+ - <code>Listagem com os feedbacks do sistema</code>; <br />
+
+</p>
+
+  <hr />
+
+<h3 class="p-t-20">FUNCIONALIDADES DO ADMINISTRATIVO <strong>USUÁRIOS E RESTRIÇÕES:</strong></h3>
+<p class="f-s-18 line-height-g">
+- <code>Menu Módulos</code> - Módulos do sistema de restrições; <br />
+- <code>Menu Restrições Ações</code> - Ações do sistema de restrições; <br />
+- <code>Menu Restrições Default</code> - Ações default que podem ser realizadas em cada módulo; <br />
+- <code>Usuários</code> - Gerencio os usuários do sistema. <br />
+- <code>Usuários</code> - Ao inativar um usuário do sistema ele automaticamente será deslogado do sistema; <br />
+- <code>Usuários</code> - Ao cadastar um usuário no sistema ele receberá um e-mail e um sms com o link para finalizar o cadastro; <br />
+- <code>Usuários</code> - Opção avançada: Botão forçar alteração da senha, ao clicar neste botão o usuário será obrigado a alterar sua senha de acesso no sistema; <br />
+- <code>Usuários</code> - Opção avançada: Botão Reenviar link para ativação, ao clicar neste botão o usuário recebera um SMS e um e-mail com o link para finalizar seu cadastro; <br />
+- <code>Cargos</code> - Listagem dos cargos dos usuários. Os cargos desenvolvedor e administrador são padrão e não podem ser excluidos e nem alterados no sistema; <br />
+- <code>Restrições Usuários</code> - Defino quais módulos e quais ações cada usuário tem acesso no sistema; <br />
+- <code>Usuários online</code> - Listagem com todos os usuários online no sistema, opção de deslogar um usuário do sistema; <br />
+- <code>E-mails enviados</code> - Listagem com todos os e-mails enviados pelo sistema; <br />
+- <code>SMS enviados</code> - Listagem com todos os SMS enviados pelo sistema; <br />
+- <code>Logs dos Usuários</code> - Listagem com os logs do sistema; <br />
+ - <code>Logs de Acesso dos Usuários</code> - Listagem com os logs de acesso do sistema; <br />
+</p>
+
+          <hr />
+
+          <h3 class="p-t-20">AÇÕES GERAIS DO ADMINISTRATIVO <strong>GERAL:</strong></h3>
+          <p class="f-s-18 line-height-g">
+  <code>Geral</code> - Criptografia nos parametros do controller; <br />
+  <code>Geral</code> - Menu lateral com a possibilidade de deixar ele aberto ou fechado; <br />
+  <code>Geral</code> - Layout responsivo; <br />
+  <code>Geral</code> - Lightbox em imagens do form e da listagem; <br />
+  </p>
+
+    <hr />
+
+  <h3 class="p-t-20">AÇÕES GERAIS DO ADMINISTRATIVO <strong>LISTAGEM:</strong></h3>
+  <p class="f-s-18 line-height-g">
+  <code>Listagem</code> - Listagem de registros do banco de dados; <br />
+  <code>Listagem</code> - Possibilidade de ter mais de 1 lista de listagem por página; <br />
+  <code>Listagem</code> - Pesquisa simples; <br />
+  <code>Listagem</code> - Filtro para pesquisa simples; <br />
+  <code>Listagem</code> - Pesquisa Avançada; <br />
+  <code>Listagem</code> - Ordenar registros da tabela com mais de 1 parametro; <br />
+  <code>Listagem</code> - Agrupar registros da tabela com mais de 1 parametro; <br />
+  <code>Listagem</code> - Escolher a quantidade de registros da tela; <br />
+  <code>Listagem</code> - Paginação dos registros; <br />
+  <code>Listagem</code> - Ir para uma página especifica; <br />
+  <code>Listagem</code> - Opção de checkar uma linha ou todas as linhas da tabela e executar uma ação; <br />
+  </p>
+
+  <hr />
+
+  <h3 class="p-t-20">AÇÕES GERAIS DO ADMINISTRATIVO <strong>AÇÕES:</strong></h3>
+  <p class="f-s-18 line-height-g">
+  <code>Ações</code> - Acesso direto pela url a área do conteúdo detalhado <code>(/detalho/id)</code>; <br />
+  <code>Ações</code> - Acesso direto pela url a área da pesquisa avançada <code>(/pesquisa_avancada)</code>; <br />
+  <code>Ações</code> - Acesso direto pela url a área de adicionar um registro <code>(/novo)</code>; <br />
+  <code>Ações</code> - Acesso direto pela url a área de editar registro <code>(/editar/id)</code>; <br />
+  <code>Ações</code> - Acesso direto pela url a área de busca registro <code>(/busca/algooo)</code>; <br />
+  <code>Ações</code> - Conteúdo detalhado de um registro da tabela; <br />
+  <code>Ações</code> - Excluir um registro do banco de dados; <br />
+  <code>Ações</code> - Adicionar um registro no banco de dados; <br />
+  <code>Ações</code> - Editar um registro no banco de dados; <br />
+  <code>Ações </code>- Ativar ou Desativar um registro do banco de dados; <br />
+  <code>Ações</code> - Montagem dos formulários automatizadas; <br />
+  <code>Ações</code> - Montagem das listagens de registros automatizadas; <br />
+  <code>Campo form</code> - Listagem de arquivos upados com opção de exclusão; <br />
+  <code>Campo form</code> - 3 Opções para salvar (Salvar e editar, Salvar e Novo e Salvar e Fechar); <br />
+          </p>
+
+          <hr />
+
+          <h3 class="p-t-20">USUÁRIOS DO SISTEMA</h3>
+          <p class="f-s-18 line-height-g">
+              O sistema foi dividido por <strong>Cargos</strong> (Tipos de Usuários) - <code>3 cargos padrões</code>: <br />
+              <code>1) Desenvolvedor</code> - Tem acesso total ao sistema; <br />
+              <code>2) Administrador</code> - Tem acesso a todas as áreas do sistema menos as áreas do desenvolvedor, pode cadastrar, alterar dados pessoais e de permissões de usuários; <br />
+              <code>3) Gerente</code> - Tem acesso a todas as áreas do sistema menos as áreas do desenvolvedor e do administrador, pode cadastrar, alterar dados pessoais e de permissões de usuários de cargos acima do seu;
+          </p>
+
+
+<hr />
+
+    <h3 class="p-t-20">MÓDULOS E AÇÕES DO SISTEMA</h3>
+    <p class="f-s-18 line-height-g">
+        O sistema foi dividido em <code>módulos e ações</code>. Cada módulo possui sua ações e cada ação pode ser permitada ou não.<br />
+        <code><strong>MÓDULOS PADRÕES</strong></code>: <br />
+        <code>1) Desenvolvedor</code> - Página: Status, Módulos, Restrições ações, Restrições default, Backup, Cache do Sistema e Configs Admin, Feedback <br />
+        <code>2) Admin Usuários</code> - Página: Usuários e Cargos <br />
+        <code>3) Admin Usuários Logs</code> - Página: Logs e Logs de acesso, E-mails enviados, SMS enviados <br />
+        <code>4) Admin Usuários online</code> - Página: Admin usuários online e Site usuários online <br />
+        <code>5) Admin Usuários Restrições</code> - Página: Restrições Usuários <br />
+        <code>6) Padrão Admin</code> - Página: Notificações<br />
+        <code><strong>AÇÕES PADRÕES</strong></code>: <br />
+        <code>1) INSERIR</code> - Insiro um registro <br />
+        <code>2) EDITAR</code> - Edito um registro<br />
+        <code>3) EXCLUIR</code> - Excluo um registro <br />
+        <code>4) DETALHAMENTO</code> - Mostro todas as informações de um registro<br />
+        <code>5) ATIVAR</code> - Ativo ou Desativo um registro<br />
+        <code>6) EXPORTAR PDF</code> - Exporto para PDF a listagem de registros<br />
+        <code>7) EXPORTAR CSV</code> - Exporto para CSV a listagem de registros <br />
+        <code>8) EXPORTAR EXCEL</code> - Exporto para EXCEL a listagem de registros<br />
+        <code>9) IMPRIMIR</code> - Gero uma listagem para impressão<br />
+        <code>10) PESQUISA </code> - Pesquisa simples<br />
+        <code>11) PESQUISA AVANÇADA</code> - Pesquisa Avançada <br />
+        <code>12) ORDENAR</code> - Ordenar registros<br />
+        <code>13) AGRUPAR</code> - Agrupar registros<br />
+        <code>14) ÁREA PÁGINAÇÃO </code> - Mostro a área de paginação<br />
+        <code>15) ÁREA TOTAL DE REGISTROS</code> - Mostro a área com o total de registros<br />
+        <code>16) EXCLUIR TUDO</code> - Excluo todos os registros<br />
+        <code>17) INTERFACE</code> - Padrão<br />
+        <code>18) LISTAGEM</code> - Listagem de registros <br />
+        <code>19) GRÁFICO</code> - Gero um gráfico<br />
+    </p>
+
+    <hr />
+
+        <h3 class="p-t-20">ACTIONS DO CORE - <code>Actions de controle do coreController.php</code></h3>
+        <p class="f-s-18 line-height-g">
+            <code>core_agendador()</code> - FUNÇÃO QUE EXECUTA FUNÇÕES NO AGENDADOR (CRON)<br />
+            <code>core_action_geral()</code> - FUNÇÃO QUE EXECUTA FUNÇÕES GERAIS A CADA CARREGAMENTO DE PÁGINA DO SISTEMA<br />
+            <code>core_action_login()</code> - FUNÇÃO QUE EXECUTA FUNÇÕES NO LOGIN DO SISTEMA<br />
+        </p>
+
+
+      </div>
+</div>

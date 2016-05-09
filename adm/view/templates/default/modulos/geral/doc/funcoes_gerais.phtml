@@ -1,0 +1,222 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Core</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+          <p class="f-s-16">
+              Funções de tratatemento de strings, data, hora, Criptografia, Mensagens e outras.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16">
+              - Helper responsável: <code>funcoesHelper.php</code>.
+          </p>
+
+           <hr />
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Pastas e Diretórios</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>Pasta da aplicação atual</strong>
+
+$this->dir_app; //Valor ex: adm
+</pre>
+
+<pre>
+<strong>CAMINHO ATÉ A PASTA ATUAL</strong>
+
+$this->core->get_config('dir_raiz_http').$this->dir_app."/";</pre>
+
+<pre>
+<strong>PEGO O CMD CONTROLLER DE UMA PÁGINA</strong>
+
+$string = $this->config_apps->getCmds_controller('core',1);</pre>
+
+<pre>
+<strong>MONTO O CAMINHO COMPLETO COM O CMD CONTROLLER DA PÁGINA</strong>
+
+$this->funcoes->monto_path_controller_comp($this->dir_app, $this->url_pagina,$this->config_apps->getCmds_controller('core',1));</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Funções de Data e Hora</span> <code> Usar no Controller </code></h3>
+
+
+<pre>
+<strong>CONVERTO DATA OU HORA </strong>
+
+$nova_data = $this->funcoes->conv_datahora($data,'Y-m-d');</pre>
+
+<pre>
+<strong>RETORNO TEMPO DE UMA DATA E HORA (EX: Há 2 minutos atrás)</strong>
+
+$data = $this->funcoes->retorno_tempo_post($data);</pre>
+
+<pre>
+<strong>RETORNO DATA ATUAL - EX: Boa tarde! Segunda-feira, 10 Março de 2015 </strong>
+
+$data_extenso = $this->funcoes->retorno_data_saudacao();</pre>
+
+<pre>
+<strong>RETORNO DATA ESCRITO EX: Segunda-feira, 10 de Março de 2015 </strong>
+
+$data_escrita = $this->funcoes->retorno_data_por_extenso('05-02-2016'); //data ou '' = data atual</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Gerador de Sequências Númericas</span> <code> Usar no Controller</code></h3>
+
+
+<pre>
+<strong>GERO UMA SEQUENCIA DE NÚMEROS E LETRAS ALTERNADOS </strong>
+
+$token = $this->funcoes->gero_token();</pre>
+
+<pre>
+<strong>GERO UMA SENHA ALEATÓRIA </strong>
+
+$senha = $this->funcoes->gero_senha($tamanho = 8, $maiusculas = true, $numeros = true, $simbolos = false);</pre>
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Criptografia</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>CRIPTOGRAFO UMA STRING </strong>
+
+$string = $this->funcoes->mycrypt($string); </pre>
+
+<pre>
+<strong>DESCRIPTOGRAFO UMA STRING </strong>
+
+$string = $this->funcoes->decrypt($string);</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Trato Strings</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>SUBSTITUO PALAVRAS DE UMA STRING POR OUTRA </strong>
+
+$string = $this->funcoes->substituo_strings($procuro,$substituo,$string_original); </pre>
+
+<pre>
+<strong>PROCURO PALAVRA EM UMA STRING </strong>
+
+$string = $this->funcoes->localizo_string($string, $procuro);</pre>
+
+<pre>
+<strong>RETIRO UMA POSIÇÃO INFORMADA DO ARRAY </strong>
+
+$array = $this->funcoes->array_retira_a_posicao_informada ($array, $pos);</pre>
+
+<pre>
+<strong>FUNÇÃO ANTI INJECTION</strong>
+
+$string = $this->funcoes->anti_injection($sql,$param = null); // param html</pre>
+
+<pre>
+<strong>TEXTO ENCURTADO</strong>
+
+$string = $this->funcoes->encurtarTexto($texto,$tamPermitido);</pre>
+
+<pre>
+<strong>CONVERTO STRING PARA MAIUSCULO, MINUSCULO OU MAIUSCULO E MINUSCULO</strong>
+
+$string = $this->funcoes->conv_string($term, $tp); //$tp 0 = minusculo | 1 = maiusculo | 2 = maiusculo e minusculo</pre>
+
+<pre>
+<strong>TRATO O VALOR R$ REAL MOEDA (USAR NO CONTROLLER)</strong>
+
+(int) $valor = $this->funcoes->substituo_strings('.','',$valor);
+(int) $valor = $this->funcoes->substituo_strings(',','.',$valor);</pre>
+
+<pre>
+<strong>TRATO O VALOR R$ REAL MOEDA (MOSTRAR NA TELA)</strong>
+
+$valor = number_format($valor, 2, ',', '.');</pre>
+
+<pre>
+<strong>TRATO O CAMPO MULTIPLE</strong>
+
+$select_multi = array_values($select_multi); //reordeno array </pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Mostro Mensagem de Sucesso ou Erro</span> <code>Usar no Controller</code></h3>
+
+<pre>
+<strong>Mensagem de Erro ou Sucesso com (retorno em JSON)</strong>
+
+//MOSTRO MENSAGEM DE SUCESSO
+$this->funcoes->set_array(null,'sucesso','MENSAGEM DE SUCESSO') //Mensagem
+->set_array(null,'id',$ult_id) //Retorno ID
+->set_array(null,'limpo_campo','true'); //Limpo campos
+echo json_encode($this->funcoes->get_array()); //Mostro na tela
+
+//MOSTRO MENSAGEM DE ERRO
+$this->funcoes->set_array(null,'erro','MENSAGEM DE ERRO'); //Mensagem
+echo json_encode($this->funcoes->get_array()); //Mostro na tela</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase"> Outros</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>CRIO ARQUIVO PHTML </strong>
+
+$this->funcoes->crio_arquivo_phtml($caminho,$texto); </pre>
+
+<pre>
+<strong>PEGO MENSAGEM DA ÁREA DE MENSAGENS</strong> <br /><br />
+
+$this->core->get_msg_array('erro_inserir',"{$variavel}"); //config > mensagens > default.php </pre>
+
+<pre>
+<strong>VERIFICO SE PODE EXCLUIR (ADMINISTRATIVO)</strong>
+
+$this->model->setCampos('campo_tabela',"");
+$this->model->setCampos('campo_coluna',"");
+$this->model->setCampos('campo_inner_join',"");
+$this->model->setCampos('campo_where',"");
+$exec_ = $this->model->select_simples_retorna_true_false();
+$this->model->getLimpoCampos();</pre>
+
+<pre>
+<strong>EXCLUIR ARQUIVO DO SERVIDOR (ADMINISTRATIVO)</strong>
+
+$this->model->setCampos('campo_tabela',"");
+$this->model->setCampos('campo_coluna',"url_imagem");
+$this->model->setCampos('campo_coluna2',"id");
+$this->model->setCampos('campo_inner_join',"");
+$this->model->setCampos('campo_where',"");
+$url_exclusao = $this->model->select_simples_retorna_array();
+$this->model->getLimpoCampos();
+if(!empty($url_exclusao)){
+    for ($i=0; $i < count($url_exclusao) ; $i++) {
+
+        //EXCLUO DO SERVIDOR
+        unlink($this->core->get_config('dir_files_comp')."/perfil/p/".$url_exclusao[$i]['url_imagem']);
+        unlink($this->core->get_config('dir_files_comp')."/perfil/m/".$url_exclusao[$i]['url_imagem']);
+        unlink($this->core->get_config('dir_files_comp')."/perfil/g/".$url_exclusao[$i]['url_imagem']);
+
+        /*//EXLUO DA TABELA
+        $this->model->setCampos('campo_tabela',"");
+        $this->model->setCampos('campo_id',"id");
+        $this->model->setId($url_exclusao[$i]['id'])
+        $this->model->excluir_geral();*/
+    }
+}</pre>
+
+
+
+
+      </div>
+</div>

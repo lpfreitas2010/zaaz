@@ -90,30 +90,31 @@
 		//CARREGO INTERFACE DA PÁGINA
 		function view($parametro){
 
-			//CORE CONTROLLER
-			$this->core->includeControllerView('core',$this->dir_app);
-			$controller_geral = new coreController(); //Extendo dados do controller geral
+			//===========================================================
+			//CONFIGURAÇÕES GERAIS
+			//$status_auth            = false; // Carrego código de autenticação [ True or false ]
+			//$parm_auth_status       = false; // Parametro permitido ou não [ True or false ]
+			//$indice_pagina_red_auth = 0; // Indice do array da página que sera redirecionado
+			//$status_tempo_sessao    = false; // Carrego código de tempo de sessão [ True or false ]
+			//$status_cookies_page    = false; // Carrego código que grava o cookie da página acessada [ True or false ]
+			//$carrego_parametros     = false; // Carrego parametros [ True or false ]
 
-			//INSTANCIO
-			$this->core->includeView();
-			$view = new view($this->dir_app);
+			//===========================================================
+			//PÁGINA ATIVA E MÓDULO ATIVO
+			$interface['pagina_ativa'] = 'main';
+			$interface['modulos']      = $this->config_apps->get_config('modulos',0);
 
-			//URL AMIGAVEL
-			$parte1 = str_replace("?", "", $this->core->get_config('par_url_htacess'));
-			$parte2 = str_replace($parte1, "", $parte1 . "/" . $_SERVER['QUERY_STRING']);
-			$url = explode("/", $parte2);
-			array_shift($url);
+			//===========================================================
+			//CARREGA CSS DAS PAGINAS
+			$interface['css'] = array(
+				$this->config_apps->get_config('animate'),
+			);
 
-			//=================================================================
-			//=================================================================
+			//===========================================================
+			//INCLUDE DE VIEW, CARREGO AS CONFIGURAÇÕES GERAIS
+			require $this->core->includeControllerInclude("view_1", $this->dir_app);
 
-			//PÁGINA ATIVA
-			$view->seto_dados("pagina_ativa", 'main');
-
-			//============================================================================================
-			//INFORMAÇÕES DA PÁGINA
-			//============================================================================================
-
+			//===========================================================
 			//RECEBO PARAMETROS ( GET )
 			if ($this->core->get_config('status_url_amigavel') == true) { //Url amigavel
 				if (!empty($url[1])) {
@@ -146,23 +147,11 @@
 				}
 			}
 
-			//CARREGA CSS DAS PAGINAS
-			$css = array(
-				$this->config_apps->get_config('animate'),
-			);
-			$view->seto_dados("css", $css);
-
 
 			//============================================================================================
-			//INCLUDES PADRÃO
-			//============================================================================================
-
-			//INCLUDE GERAL
-			require $this->core->includeControllerInclude("core", $this->dir_app);
-
 			//MONTO A VIEW
+			$view->seto_dados_array($interface);
 			$view->monto_view('modulos/'.$this->config_apps->get_config('modulos',0).'/'.$parametro . ".phtml");
-
 
 		}
 		//====================================================================================================================================

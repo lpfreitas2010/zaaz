@@ -1,0 +1,393 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Administrativo</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+
+          <p class="f-s-16">
+             Monto a listagem geral da página, cabeçalho, monto as colunas da tabela e formato os dados que são exibidos.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16 line-height-m">
+              - Helper responsável: <code>/libs/helpers/mont_htmlHelper.php</code>
+          </p>
+
+          <hr />
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Instancio Classe</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>INSTANCIO MONT_HTML HELPER</strong>
+
+$this->core->includeHelper('mont_html');
+$mont_html = new mont_htmlHelper();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Monto as opções do filtro de pesquisa</span> <code> Usar no Controller action: monto_conteudo_html_pagina</code></h3>
+
+<pre>
+<strong>MONTO O MENU DE FILTROS DE PESQUISA </strong>
+
+// Parametro: listagem
+
+$this->funcoes->set_array(1,'btn_status',true);
+$this->funcoes->set_array(1,'btn_texto','Filtro de teste');
+$this->funcoes->set_array(1,'btn_href','javascript:void(0);');
+$this->funcoes->set_array(1,'btn_target','');
+$this->funcoes->set_array(1,'btn_title','');
+$this->funcoes->set_array(1,'btn_id','');
+$this->funcoes->set_array(1,'btn_class','btn_param_pesquisa_focus'); // (btn_param_pesquisa) = seto e submeto a pesquisa - (btn_param_pesquisa_focus) = seto o valor e foco -
+$this->funcoes->set_array(1,'btn_class_icon','');
+$this->funcoes->set_array(1,'btn_outros','param_pesquisa="ID: "');
+//$this->funcoes->set_array(1,'class_divider','divider'); // divider
+$filtros = $this->funcoes->get_array(); </pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Monto as opções de ordenação</span> <code> Usar no Controller action: monto_conteudo_html_pagina</code></h3>
+
+<pre>
+<strong>MONTO OS OPTION DE ORDENAR </strong>
+
+// Parametro: listagem
+
+$this->funcoes->set_array(0,'value',"ID CRESCENTE");
+$this->funcoes->set_array(1,'value',"ID DECRESCENTE");
+$this->funcoes->set_array(2,'value',"separator"); //separator
+$this->funcoes->set_array(3,'value',"DATA CADASTRO CRESCENTE");
+$this->funcoes->set_array(4,'value',"DATA CADASTRO DECRESCENTE");
+$this->funcoes->set_array(5,'value',"separator"); //separator
+$this->funcoes->set_array(6,'value',"DATA MODIFICADO CRESCENTE");
+$this->funcoes->set_array(7,'value',"DATA MODIFICADO DECRESCENTE");
+$option_ordenar = $this->funcoes->get_array();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Monto as opções de agrupamento</span> <code> Usar no Controller action: monto_conteudo_html_pagina</code></h3>
+
+<pre><strong>MONTO OS OPTION DE AGRUPAR </strong>
+
+// Parametro: listagem
+
+$this->funcoes->set_array(null,'name_campo_bd','Campo');
+$option_agrupar = $this->funcoes->get_array();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Monto o Cabeçalho da Tabela</span> <code> Usar no Controller action: monto_conteudo_html_pagina</code></h3>
+
+<pre>
+<strong>MONTO O HEADER DA TABELA</strong>
+
+// Parametro: listagem
+
+$this->funcoes->set_array(0,'th_titulo','ID');                           // Descrição
+$this->funcoes->set_array(0,'th_class','text-center col-md-2 col-lg-1'); // Classes CSS
+$this->funcoes->set_array(0,'th_outros','');                             // Outros Parametros
+$this->funcoes->set_array(1,'th_titulo','');                             // Descrição
+$this->funcoes->set_array(1,'th_class',' col-md-4 col-lg-3');            // Classes CSS
+$this->funcoes->set_array(1,'th_outros','');                             // Outros Parametros
+$header_tabela = $this->funcoes->get_array();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Monto o conteúdo da tabela</span> <code> Usar no Controller action: monto_conteudo_html_pagina</code></h3>
+
+<pre>
+<strong>MOSTRAR NA TELA UM CAMPO DO BANCO DE DADOS</strong>
+
+[bd:campo_banco_dados]
+</pre>
+
+<pre>
+<strong>MOSTRAR NA TELA O VALOR DE UMA VARIAVEL DO SMARTY</strong>
+
+[sm:variavel]
+</pre>
+
+<pre>
+<strong>FILTRO DE DATA</strong>
+
+$mont_html->set_array(0,'tipo',"data");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$data = $mont_html->filtros_smarty();
+
+Resultado:
+00/00/0000
+</pre>
+
+<pre>
+<strong>FILTRO DE HORA</strong>
+
+$mont_html->set_array(0,'tipo',"hora");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$hora = $mont_html->filtros_smarty();
+
+Resultado:
+00:00:00
+</pre>
+
+<pre>
+<strong>FILTRO DE HORA E MIN</strong>
+
+$mont_html->set_array(0,'tipo',"hora_min");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$hora_min = $mont_html->filtros_smarty();
+
+Resultado:
+00:00
+</pre>
+
+<pre>
+<strong>FILTRO DE DATA E HORA</strong>
+
+$mont_html->set_array(0,'tipo',"data_hora");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$data_hora = $mont_html->filtros_smarty();
+
+Resultado:
+00/00/0000 - 00:00:00
+</pre>
+
+<pre>
+<strong>FILTRO QUE MOSTRA A IDADE DE UMA DATA</strong>
+
+$mont_html->set_array(0,'tipo',"idade");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$idade = $mont_html->filtros_smarty();
+
+Resultado:
+25
+</pre>
+
+<pre>
+<strong>FILTRO QUE MOSTRA O DIA DA SEMANA POR EXTENSO</strong>
+
+$mont_html->set_array(0,'tipo',"dia_semana");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$dia_semana = $mont_html->filtros_smarty();
+
+Resultado:
+Segunda-feira
+</pre>
+
+<pre>
+<strong>FILTRO QUE MOSTRA O DIA DA SEMANA É HOJE</strong>
+
+$mont_html->set_array(0,'tipo',"dia_semana_hoje");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$dia_semana_hoje = $mont_html->filtros_smarty();
+
+Resultado:
+Hoje
+</pre>
+
+<pre>
+<strong>FILTRO QUE MOSTRA O MES DE UMA DATA POR EXTENSO</strong>
+
+$mont_html->set_array(0,'tipo',"mes");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$mes = $mont_html->filtros_smarty();
+
+Resultado:
+Janeiro
+</pre>
+
+<pre>
+<strong>FILTRO QUE MOSTRA UMA DATA POR EXTENSO</strong>
+
+$mont_html->set_array(0,'tipo',"data_extenso");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$data_extenso = $mont_html->filtros_smarty();
+
+Resultado:
+Segunda-feira, 01 de Janeiro de 2016
+</pre>
+
+<pre>
+<strong>FILTRO QUE MOSTRA O TEMPO PASSADO DE UMA DATA</strong>
+
+$mont_html->set_array(0,'tipo',"tempo");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$tempo = $mont_html->filtros_smarty();
+
+Resultado:
+Há 2 minutos atrás
+</pre>
+
+<pre>
+<strong>FILTRO QUE MOSTRA O TEMPO PASSADO DE UMA DATA COM A HORA</strong>
+
+$mont_html->set_array(0,'tipo',"tempo_hora");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$tempo_hora = $mont_html->filtros_smarty();
+
+Resultado:
+Há 2 minutos atrás - 00:00:00
+</pre>
+
+<pre>
+<strong>FILTRO QUE ENCURTA UM TEXTO</strong>
+
+$mont_html->set_array(0,'tipo',"enc_texto");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',"30"); // valor numérico do tamanho do texto
+$texto_enc = $mont_html->filtros_smarty();
+
+Resultado:
+Teste de tes...
+</pre>
+
+<pre>
+<strong>FILTRO QUE DEIXA O TEXTO EM MAIUSCULO</strong>
+
+$mont_html->set_array(0,'tipo',"maiusculo");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$maiusculo = $mont_html->filtros_smarty();
+
+Resultado:
+TESTE DE TESTE
+</pre>
+
+<pre>
+<strong>FILTRO QUE DEIXA O TEXTO EM MINUSCULO</strong>
+
+$mont_html->set_array(0,'tipo',"minusculo");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$minusculo = $mont_html->filtros_smarty();
+
+Resultado:
+teste de teste
+</pre>
+
+<pre>
+<strong>FILTRO QUE DEIXA O TEXTO EM MAIUSCULO E MINUSCULO</strong>
+
+$mont_html->set_array(0,'tipo',"maiusc_minusc");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$mai_minusculo = $mont_html->filtros_smarty();
+
+Resultado:
+Teste De Teste
+</pre>
+
+<pre>
+<strong>FILTRO QUE FORMATA NUMERO REAL R$</strong>
+
+$mont_html->set_array(0,'tipo',"format_num");
+$mont_html->set_array(0,'campo',"[bd:campo_banco_dados]"); // campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'valor_enc_texto',""); // valor numérico do tamanho do texto
+$valor = $mont_html->filtros_smarty();
+
+Resultado:
+10,50
+</pre>
+
+<pre>
+<strong>CONDIÇÕES IF ELSE SMARTY</strong>
+
+$mont_html->set_array(0,'condicoes'," [bd:campo_banco_dados] == 'valor' "); // condições do if - aceita campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'cod_if'," Resposta 1 "); // código do bloco if - aceita campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'cod_else'," Resposta 2 "); // código do bloco else se tiver - aceita campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$resultado = $mont_html->if_else_smarty();</pre>
+
+<pre>
+<strong>MONTO O HTML TEXTO</strong>
+
+$mont_html->set_array(0,'texto',"[bd:campo_banco_dados]"); // texto, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'class_icone',""); // classe do icone - Font Awesome Icons
+$texto = $mont_html->monto_html_texto();</pre>
+
+<pre>
+<strong>MONTO HTML DE UMA IMAGEM</strong>
+
+$mont_html->set_array(0,'src',""); // $this->core->get_config('dir_raiz_http').'files/'; texto, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'alt',""); // texto, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'class',"");
+$mont_html->set_array(0,'width',""); // valor numérico do tamanho do da imagem
+$mont_html->set_array(0,'height',""); // valor numérico do tamanho do da imagem
+$mont_html->set_array(0,'lightbox',false); // lightbox true ou false
+$imagem = $mont_html->monto_html_img();</pre>
+
+<pre>
+<strong>MONTO HTML DE UM LINK</strong>
+
+$mont_html->set_array(0,'texto',""); // texto, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'title',""); // texto, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'href',""); // href do link, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'target',""); // _blank
+$mont_html->set_array(0,'class',""); // classes do link
+$mont_html->set_array(0,'class_icone',""); // classe do icone - Font Awesome Icons
+$mont_html->set_array(0,'outros',''); // outros parametros do link
+$link = $mont_html->monto_html_link();</pre>
+
+<pre>
+<strong>MONTO HTML DE UM LABEL COLORIDO</strong>
+
+$mont_html->set_array(0,'texto',""); // texto, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'class',""); // classe do label - label-primary, label-success, label-info, label-warning, label-danger
+$mont_html->set_array(0,'class_icone',""); // classe do icone - Font Awesome Icons
+$label = $mont_html->monto_html_label_color();</pre>
+
+<pre>
+<strong>AÇÃO DE LINHA DA TABELA</strong>
+
+$mont_html->set_array(0,'status',true); // Status da ação true or false
+$mont_html->set_array(0,'class',""); // Tipo: btn_ativar_desativar, btn_detalhamento, btn_editar, url ou livre
+$mont_html->set_array(0,'url',""); // url de redirecionamento $this->core->get_config('dir_raiz_http').$this->dir_app."/"
+$mont_html->set_array(0,'outros',"");
+$mont_html->set_array(0,'campo_ativar',""); //outros campos ativar e desativar
+$mont_html->set_array(0,'status_btn_detalhamento',$this->btns_acoes['status_btn_detalhamento']); // Status ação detalhamento true or false
+$mont_html->set_array(0,'status_btn_editar',$this->btns_acoes['status_btn_editar']); // Status ação editar true or false
+$mont_html->set_array(0,'status_btn_ativar',$this->btns_acoes['status_btn_ativar']); // Status ação ativar e desativar true or false
+$mont_html->set_array(0,'url_btn_ativar',$this->cmds['action_ativar']); // Action do btn ativar
+$acao_linha = $mont_html->acao_linha_smarty();
+
+//MONTAR CMD DO CONTROLLER - AÇÃO LINHA DA TABELA (cmd_funcao_aberta) COM PARAMETROS LIVRES ** Coloque os parametros em (outros) e coloque a classe (funcao_aberta) que chama o controller
+// param="&id=1&...." title_msg="Favoritar" title_text="Marcar como favorito!"</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Montagem das áreas da listagem</span> <code> Usar no Controller action: monto_conteudo_html_pagina</code></h3>
+
+<pre>
+<strong>MONTO ÁREA DE LISTAGEM</strong>{literal}
+
+// Parametro: listagem
+
+$mont_html->set_array(0,'td'," [bd:id] ");                     // Coluna montada ****** texto, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(0,'class'," {$acao_linha['class']}");    // Classes
+$mont_html->set_array(0,'outros'," {$acao_linha['outros']}");  // Outros Parametros
+$mont_html->set_array(1,'td'," {$data_hora} ");                // Coluna montada ****** texto, campo do banco [bd:campo] ou variavel smarty [sm:variavel]
+$mont_html->set_array(1,'class'," {$acao_linha['class']}");    // Classes
+$mont_html->set_array(1,'outros'," {$acao_linha['outros']}");  // Outros Parametros
+$conteudo_td_montado = $mont_html->monto_html_td();{/literal}</pre>
+
+
+
+      </div>
+</div>

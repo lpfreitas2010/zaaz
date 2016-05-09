@@ -1,0 +1,12 @@
+ @import "compass/css3";
+
+ /*
+ * Generate Font-size
+ */
+
+ $i: 0;
+ $im: !important;
+ @while $i <= 35 {
+   .f-s-#{$i}   {font-size: 1px * $i  $im;}
+   $i: $i + 2;
+ }

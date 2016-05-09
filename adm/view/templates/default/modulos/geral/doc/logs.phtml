@@ -1,0 +1,73 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Core</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+
+          <p class="f-s-16">
+              Gravo os logs gerais do sistema, logs de acesso no administrativo, logs de e-mails enviados e logs de SMS enviados.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16 line-height-m">
+              - Gravo logs: <code>Sistema, Acesso, SMS e E-mails</code> <br />
+              - Helper responsável: <code>/libs/helpers/logsHelper.php</code>
+          </p>
+
+          <hr />
+
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Logs gerais</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>GRAVO LOG GERAL DO SISTEMA</strong>
+
+$this->logs->setApp($this->dir_app) //Pasta da aplicação
+->setUrl($_SERVER['SERVER_NAME'].$_SERVER ['REQUEST_URI']) //Url de acesso
+->setPagina(end(explode("/", $_SERVER['PHP_SELF']))) //Pagina de acesso
+->setMensagem('Mensagem') //Mensagem
+->gravo_log(); //Gravo log</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Logs de Acesso</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>GRAVO LOG DE ACESSO</strong>
+
+$this->logs->setApp($this->dir_app) //Pasta da aplicação
+->setMensagem('Login') //Mensagem
+->gravo_log_acesso(); //Gravo log</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Logs de SMS Enviados</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>GRAVO LOG DE SMS ENVIADO</strong>
+
+$this->logs->setApp($this->dir_app) //Pasta da aplicação
+->setId_sms('')->setTelefone('')->setStatus('')->setMensagem('')->gravo_log_sms_enviado();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Logs de e-mails Enviados</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>GRAVO LOG DE EMAIL ENVIADO</strong>
+
+$this->logs->setApp($this->dir_app)
+->setEmail_re('')->setEmail('') //E-mail Remetene - E-mail destinatario
+->setStatus('Enviado')->setMensagem('')->gravo_log_email_enviado();</pre>
+
+
+      </div>
+</div>

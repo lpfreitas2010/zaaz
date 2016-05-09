@@ -1,0 +1,93 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Core</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+
+          <p class="f-s-16">
+              Disparo mensagens de SMS e gravo os logs de envio.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16 line-height-m">
+              - Gateway de disparo: <code>Zenvia</code> - <a href="http://www.zenvia.com.br/desenvolvedores/" target="_blank"><strong>Documentação Zenvia <i class="fa fa-external-link-square"></i> </strong></a> <br />
+              - Helper responsável: <code>/libs/helpers/smsHelper.php</code>
+          </p>
+
+          <hr />
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Instancio classe</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>INSTANCIO SMS</strong>
+
+$this->core->includeHelper('sms');
+$sms = new smsHelper();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Pego e Seto as informações de SMS</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>Pego as configurações de SMS e seto os valores no helper.</strong>
+
+//PEGO AS CONFIGURAÇÕES DO BANCO DE DADOS
+$this->core->includeControllerView('core',$this->dir_app); //Incluo arquivo coreController.php
+$controller_geral = new coreController();
+$configs_admin = $controller_geral->retorno_configs_admin();
+
+//DADOS DO BANCO DE DADOS
+$username_zenvia    = $configs_admin[0]['sms_username'];
+$senha_zenvia       = $configs_admin[0]['sms_senha'];
+$nome_empresa       = $configs_admin[0]['sms_nome'];
+$telefone_principal = $configs_admin[0]['telefone_principal'];
+
+//SETO OS DADOS NO HELPER
+$sms->setUsername($username_zenvia);
+$sms->setSenha($senha_zenvia);</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Monto conteúdo do SMS</span> <code> Usar no Controller </code></h3>
+
+<pre>
+{literal}
+<strong>MONTO CONTEÚDO DO SMS</strong>
+
+$telefone         = $sms->trato_num_telefone($telefone); //Trato número de telefone com a nova regra do 9
+$id               = $sms->gero_id(); //Gero id aleatório de controle
+$mensagem         = "Mensagem ..."; //Mensagem da SMS
+$msg_list        .= "55{$telefone};{$mensagem};{$id}"."\n"; //Monto query
+$disparo          = true; //Variavel de controle
+$mensagem_array[] = $mensagem; //Gravo em array a mensagem
+$telefone_array[] = $telefone; //Gravo em array o telefone
+$id_array[]       = $sms->gero_id(); //Gravo em array o id{/literal}</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Envio o SMS</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>ENVIO SMS</strong>
+
+if($disparo == true){
+$sms->setMensagem($msg_list); //seto mensagem no helper
+$return = $sms->envia_sms(); //envio sms
+
+//GRAVO LOG SMS ARRAY
+for ($i=0; $i <count($id_array) ; $i++) {
+$this->logs->setApp($this->dir_app) //Pasta da aplicação
+->setId_sms($id_array[$i])->setTelefone($telefone_array[$i])->setStatus($return[$i])->setMensagem($mensagem_array[$i])->gravo_log_sms_enviado();
+}
+}</pre>
+
+      </div>
+</div>

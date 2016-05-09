@@ -1,0 +1,241 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Core</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+
+          <p class="f-s-16">
+              Realiza a conexão da aplicação com o banco de dados <code>MYSQL</code>.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16 line-height-m">
+              - Tipo de Conexão: <code>PDO</code> <br />
+              - Permite múltiplas conexões <br />
+              - Banco de Dados: <code>Mysql</code> <br />
+              - Helper responsável: <code>/libs/helpers/conexao_pdoHelper.php</code>
+          </p>
+
+          <hr />
+
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Arquivo para a configuração do banco de dados:</span> <code>/libs/core/config.php</code></h3>
+
+<pre>
+<strong class="text-uppercase m-b-10">CONFIGURAÇÃO DO BANCO DE DADOS </strong>
+
+$conexoes_bd = array(
+
+//CONEXÃO LOCAL
+'local' => array('host_db'     => 'localhost', // Host
+    'user_db'      => '', // Usuário
+    'password_db'  => '', // Senha
+    'database_db'  => '', // Banco de Dados
+    'msg_error_db' => true, // Mensagens de Erro do Banco de dados [ true or false ]
+    'logs_bd_txt'  => true, // Gravo logs de erro do banco de dados em txt [ true or false ]
+    ),
+
+//CONEXÃO PRODUÇÃO
+'default' => array('host_db'      => 'servidor', // Host
+       'user_db'      => '', // Usuário
+       'password_db'  => '', // Senha
+       'database_db'  => '', // Banco de Dados
+       'msg_error_db' => true, // Mensagens de Erro do Banco de dados [ true or false ]
+       'logs_bd_txt'  => true, // Gravo logs de erro do banco de dados em txt [ true or false ]
+     )
+
+//NOVA CONEXÃO A OUTRO BANCO DE ADOS
+'nova_conexao' => array('host_db' => 'servidor', // Host
+    'user_db'         => '', // Usuário
+    'password_db'     => '', // Senha
+    'database_db'     => '', // Banco de Dados
+    'msg_error_db'    => true, // Mensagens de Erro do Banco de dados [ true or false ]
+    'logs_bd_txt'     => true, // Gravo logs de erro do banco de dados em txt [ true or false ]
+  )
+);</pre>
+
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Usar outra conexão do banco de dados </span> <code> Usar no Model</code></h3>
+
+<pre>
+<strong class="text-uppercase m-b-10">USAR OUTRA CONEXÃO DO BANCO DE DADOS</strong>
+
+//Insira este campo antes do campo $this->setTable('tabela')
+
+$this->setConexoes('nova_conexao'); //Utilizo outro banco de dados</pre>
+
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Comandos SQL: <strong>Insert, Read, Update e Delete (CRUD)</strong> </span> <code> Usar no Model</code></h3>
+
+<pre>
+<strong class="text-uppercase m-b-10">INSERÇÃO DE DADOS (CREATE)</strong>
+
+$this->setTable('tabela'); //Tabela
+$this->setColuna('campo')->setColuna('campo2'); //Colunas
+$this->setValue('valor')->setValue('valor1'); //Valores
+$this->Create(); //Executo comando
+$this->limpo_campos(); //Limpo campos
+$this->get_last_id(); //Pego o ID que acabou de ser inserido</pre>
+
+<pre>
+<strong>LEITURA DE DADOS (READ, SELECT)</strong>
+
+$this->setTable('tabela'); //Tabela
+$this->setColuna('campo')->setColuna('campo2'); //Colunas ('nome coluna') ou todos os campos (*)
+$this->setInner(); // INNER JOIN ...
+$this->setWhere(); // id = 1 ...
+$this->setGroup(); // id ...
+$this->setOrder(); // nome ASC ...
+$this->setLimit(); // 1,0 ...
+$exec = $this->Read(); //Executo comando
+$this->limpo_campos(); //Limpo campos
+for($i=0;$i < count($exec); $i++ ) {
+$array[] = $exec[$i];
+}</pre>
+
+<pre>
+<strong>LEITURA DE DADOS LIVRE (READ, SELECT)</strong>
+
+$exec = $this->Read('SELECT * FROM logs'); //Executo comando
+for( $i=0; $i < count($exec); $i++ ){
+$array[] = $exec[$i];
+}</pre>
+
+<pre>
+<strong>EDIÇÃO DE DADOS (UPDATE)</strong>
+
+$this->setTable('tabela'); //Tabela
+$this->setColuna('modificado')->setColuna('outro_campo'); //Colunas
+$this->setValue('')->setValue(''); //Valores
+$this->setWhere("id = 1 "); // id = 1 ...
+$exec = $this->Update(); //Executo comando
+$this->limpo_campos(); //Limpo campos</pre>
+
+<pre>
+<strong>EXCLUSÃO DE DADOS (DELETE)</strong>
+
+$this->setTable('tabela'); //Tabela
+$this->setWhere('id = 1'); // id = 1
+$exec = $this->Delete(); //Executo comando
+$this->limpo_campos(); //Limpo campos</pre>
+
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Funções auxiliadoras do Where do READ </span> <code> Usar no Model</code></h3>
+
+<pre>
+<strong>COMPARAÇÃO DE DOIS VALORES - BETWEEN (DATAS, VALORES E OUTROS)</strong>
+
+$array_where[] = $this->return_where_data('campo_banco',$date1,$date2); //periodos de datas
+$array_where[] = $this->return_where_data('campo_banco2',$valor1,$valor2; //faixa de valores
+$where = $this->return_params_mont($array_where,'OR',true); //OR, AND ...</pre>
+
+<pre>
+<strong>CAMPO INT </strong>
+
+$array_where[] = $this->return_where_int('campo_banco',$param,$value); //$param = operadores de comparação ( = > != )
+$where = $this->return_params_mont($array_where,'OR',true); //OR, AND ...</pre>
+
+<pre>
+<strong>CAMPO DOUBLE </strong>
+
+$array_where[] = $this->return_where_double('campo_banco',$param,$value); //$param = operadores de comparação ( = > != )
+$where = $this->return_params_mont($array_where,'OR',true); //OR, AND ...</pre>
+
+<pre>
+<strong>CAMPO LIKE </strong>
+
+$array_where[] = $this->return_where_like('campo_banco',$value);
+$where = $this->return_params_mont($array_where,'OR',true); //OR, AND ...</pre>
+
+<pre>
+<strong>CAMPO CHAR </strong>
+
+$array_where[] = $this->return_where_char('campo_valor',$param,$value); //$param = operadores de comparação ( = > != )
+$where = $this->return_params_mont($array_where,'OR',true); //OR, AND ...</pre>
+
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Funções de Consultas no BD pelo controller </span> <code> Usar no Controller do Administrativo</code></h3>
+
+<pre>
+<strong>FUNÇÕES DE CONSULTAS NO BANCO DE DADOS PELO CONTROLLER (ADMINISTRATIVO)</strong>
+
+//FUNÇÃO GENÉRICA QUE RETORNA ARRAY
+$this->model->setCampos('campo_tabela',"");
+$this->model->setCampos('campo_coluna',"");
+$this->model->setCampos('campo_coluna2',""); //campo não obrigatório
+$this->model->setCampos('campo_inner_join',""); //campo não obrigatório
+$this->model->setCampos('campo_where',"");
+$array = $this->model->select_simples_retorna_array();
+
+//FUNÇÃO GENÉRICA QUE RETORNA CAMPO DA COLUNA
+$this->model->setCampos('campo_tabela',"");
+$this->model->setCampos('campo_coluna',"");
+$this->model->setCampos('campo_inner_join',""); //campo não obrigatório
+$this->model->setCampos('campo_where',"");
+$this->model->setCampos('campo_groupby',"");
+$this->model->setCampos('campo_orderby',"");
+$campo = $this->model->select_simples_retorna_array_mont();
+
+//FUNÇÃO GENÉRICA QUE RETORNA ARRAY
+$this->model->setCampos('campo_tabela',"");
+$this->model->setCampos('campo_coluna',"");
+$this->model->setCampos('campo_coluna2',"");
+$this->model->setCampos('campo_coluna3',""); //campo não obrigatório
+$this->model->setCampos('campo_inner_join',""); //campo não obrigatório
+$this->model->setCampos('campo_where',"");
+$this->model->setCampos('campo_groupby',"");
+$this->model->setCampos('campo_orderby',"");
+$array = $this->model->select_simples_retorna_array_mont_vcol();
+
+//FUNÇÃO GENÉRICA QUE RETORNA STRING PARA VERIFICAÇÃO
+$this->model->setCampos('tabela_retorn_campo_editar',""); //campo não obrigatório
+$campo = $this->model->retorn_campo_editar($campo, $valor);
+
+//FUNÇÃO GENÉRICA QUE RETORNA STRING PARA VERIFICAÇÃO PELO ID
+$this->model->setCampos('tabela_retorn_campo_editar_val_id',""); //campo não obrigatório
+$this->model->setCampos('campo_id_retorn_campo_editar_val_id',""); //campo não obrigatório
+$campo = $this->model->retorn_campo_editar_val_id($campo);
+
+//FUNÇÃO GENÉRICA QUE RETORNA TRUE OR FALSE
+$this->model->setCampos('campo_tabela',"");
+$this->model->setCampos('campo_coluna',"");
+$this->model->setCampos('campo_inner_join',""); //campo não obrigatório
+$this->model->setCampos('campo_where',"");
+$retorno = $this->model->select_simples_retorna_true_false();
+
+//FUNÇÃO GENÉRICA QUE ALTERA UM DADO
+$this->model->setCampos('campo_tabela',"");
+$this->model->setCampos('campo_coluna',"");
+$this->model->setCampos('campo_value',"");
+$this->model->setCampos('campo_id',"");
+$retorno = $this->model->update_geral();</pre>
+
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> CONDIÇÕES PERSONALIZADAS DE PESQUISA (ADMINISTRATIVO) </span> <code> Usar no Controller do Administrativo</code></h3>
+
+<pre>
+<strong>CONDIÇÕES PERSONALIZADAS DE PESQUISA (ADMINISTRATIVO) </strong>
+
+$param1         = 'id: '; // parametro personalizado
+$status_param1  = $funcoes->localizo_string($query_pesquisa, $param1);
+$query_pesquisa = $funcoes->substituo_strings($param1,'',$query_pesquisa);
+if($status_param1 !== false){
+$where = $this->return_where_int($tabela.'.id','=',$query_pesquisa);
+$conf_personalizada = true;
+}</pre>
+
+
+      </div>
+</div>

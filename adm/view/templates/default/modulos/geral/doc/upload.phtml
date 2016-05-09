@@ -1,0 +1,141 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Core</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+          <p class="f-s-16">
+              Funções de validação de imagens, arquivos doc, docx, xls, xlsx, pdf, redimensonamento de imagens em 3 tamanhos: pequeno, médio, grande e função que faz o crop em uma imagem.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16 line-height-m">
+              - Função de redimensionamento e crop: <code>WideImage</code> - <a href="http://wideimage.sourceforge.net/" target="_blank"><strong>Documentação WideImage <i class="fa fa-external-link-square"></i> </strong></a> <br />
+              - Crop de Imagens <br />
+              - Redimensiona as imagens em 3 tamanhos: <code>pequena, média e grande</code><br />
+              - Formatos de arquivos permitidos: <code>jpg, png, gif, doc, xls, docx, xlsx, pdf</code><br />
+              - Pasta dos arquivos upados: <code>/files/</code><br />
+              - Helper responsável: <code>/libs/helpers/uploadHelper.php</code> <br />
+          </p>
+
+          <hr />
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Intancio classe e recebo arquivo</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>INSTANCIO UPLOAD E RECEBO ARQUIVO</strong>
+
+$this->core->includeHelper('upload');
+$upload = new upload();
+$arquivo = $_FILES['arquivo']; //Recebo arquivo</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Validação do Arquivo</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>VALIDAÇÃO DO ARQUIVO</strong>
+
+//SETO DADOS DE UPLOAD DE ARQUIVO
+$upload->setPasta('nome_pasta')->setArquivo($arquivo)->setNome_arquivo('')->setTipo_arquivo('jpg') // jpg, gif, png, doc, xls, pdf, todos_documentos, todas_imagens, tudo
+->setTamanho(5)->setValido_dimensoes(false)->setRedimensiono(false)->setUpload_multiplo(false)
+->setWidth(0)->setHeight(0) //tamanho padrão
+->setWidth_p(0)->setHeight_p(0)->setRes_p(0) //tamanho pequeno
+->setWidth_m(0)->setHeight_m(0)->setRes_m(0) //tamanho medio
+->setWidth_g(0)->setHeight_g(0)->setRes_g(0) //tamanho grande
+->upload_file();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Retorno mensagens de erros</span> <code> Usar no Controller </code></h3>
+
+<pre>
+{literal}
+<strong>RETORNO MENSAGENS DE ERROS</strong>
+
+//ERROS DE VALIDAÇÃO GERAIS
+$array_erros = $upload->getMsg_erro();
+
+//VERIFICO SE TEM IMAGEM - UPLOAD UNICO ADICIONAR ** (RESPOSTA EM JSON)
+if (empty($arquivo['tmp_name'])) {
+$this->funcoes->set_array(null,'erro','Selecione uma imagem de ...'); // Mensagem de erro
+echo json_encode($this->funcoes->get_array());
+exit();
+}
+
+//VERIFICO SE TEM IMAGEM - UPLOAD UNICO EDITAR ** (RESPOSTA EM JSON)
+$this->model->setCampos('adm_usuario');
+if( $this->model->retorn_campo_editar_val_id('img_perfil') == ''){
+if( $this->model->retorn_campo_editar('img_perfil', '') == ''){
+if (empty($arquivo['tmp_name'])) {
+$this->funcoes->set_array(null,'erro','Selecione uma imagem de ...'); // Mensagem de erro
+echo json_encode($this->funcoes->get_array());
+exit();
+}
+}
+}
+
+//RETORNO ARRAY COM ERROS - UPLOAD UNICO EDITAR ** (RESPOSTA EM JSON)
+if (!empty($array_erros)) {
+$this->funcoes->set_array(null,'erro','Imagem de Perfil <br />'.$this->funcoes->get_errors_inline($erro_upload)); // Mensagem de erro
+echo json_encode($this->funcoes->get_array());
+exit();
+}
+
+//EXCLUO IMAGEM ANTIGA - UPLOAD UNICO EDITAR **
+if(!empty($array_erros[0])){
+$this->model->setCampos('campo_tabela',"adm_usuario");
+$this->model->setCampos('campo_coluna',"id");
+$this->model->setCampos('campo_coluna2',"img_perfil");
+$this->model->setCampos('campo_where',"id = {$id}");
+$valor = $this->model->select_simples_retorna_array_mont_vcol();
+if(count($valor) >= 1){
+for ($i=0; $i < count($valor) ; $i++) {
+unlink($this->core->get_config('dir_files_comp')."/perfil_usuario/p/".$valor[$i]['img_perfil']);
+unlink($this->core->get_config('dir_files_comp')."/perfil_usuario/m/".$valor[$i]['img_perfil']);
+unlink($this->core->get_config('dir_files_comp')."/perfil_usuario/g/".$valor[$i]['img_perfil']);
+}
+}
+$this->model->getLimpoCampos();
+} {/literal}</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Retorno nomes dos arquivos gerados</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>PEGO OS NOMES DOS ARQUIVOS GERADOS</strong>
+
+$array_uploads = $upload->getNome_arquivo_return();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Crop de Imagens</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>Crop de imagens</strong>
+
+//PEGO OS DADOS
+$x = $_POST['x1']; //left
+$y = $_POST['y1']; //top
+$w = $_POST['x2']; //width
+$h = $_POST['y2']; //height
+
+//MONTO A PASTA
+$name_img = 'imagem.jpg'; //Imagem
+$imagem_o = '/pasta/g/'. $name_img; //caminho ate a pasta da imagem
+$imagem_f = '/pasta/'.$name_img; //caminho da nova imagem cortada
+
+//CROP
+$upload->crop_imagem($imagem_o,$imagem_f,$x,$y,$w,$h)</pre>
+
+
+      </div>
+</div>

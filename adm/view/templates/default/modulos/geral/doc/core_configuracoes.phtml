@@ -1,0 +1,164 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+    <div class="panel-body">
+
+        <ol class="breadcrumb">
+          <li><a href="#">Core</a></li>
+          <li class="active">{$texto}</li>
+        </ol>
+
+<hr />
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Configuração do banco de dados, e-mail:</span> <code>/libs/core/config.php</code></h3>
+
+<pre>
+<strong class="text-uppercase m-b-10">CONFIGURAÇÃO DO BANCO DE DADOS </strong>
+
+$conexoes_bd = array(
+
+//CONEXÃO LOCAL
+'local' => array('host_db'     => 'localhost', // Host
+              'user_db'      => '', // Usuário
+              'password_db'  => '', // Senha
+              'database_db'  => '', // Banco de Dados
+              'msg_error_db' => true, // Mensagens de Erro do Banco de dados [ true or false ]
+              'logs_bd_txt'  => true, // Gravo logs de erro do banco de dados em txt [ true or false ]
+              ),
+
+//CONEXÃO PRODUÇÃO
+'default' => array('host_db'      => 'servidor', // Host
+                 'user_db'      => '', // Usuário
+                 'password_db'  => '', // Senha
+                 'database_db'  => '', // Banco de Dados
+                 'msg_error_db' => true, // Mensagens de Erro do Banco de dados [ true or false ]
+                 'logs_bd_txt'  => true, // Gravo logs de erro do banco de dados em txt [ true or false ]
+               )
+
+//NOVA CONEXÃO A OUTRO BANCO DE ADOS
+'nova_conexao' => array('host_db' => 'servidor', // Host
+              'user_db'         => '', // Usuário
+              'password_db'     => '', // Senha
+              'database_db'     => '', // Banco de Dados
+              'msg_error_db'    => true, // Mensagens de Erro do Banco de dados [ true or false ]
+              'logs_bd_txt'     => true, // Gravo logs de erro do banco de dados em txt [ true or false ]
+            )
+);</pre>
+
+<pre>
+<strong class="text-uppercase m-b-10">CONFIGURAÇÃO DE SMTP </strong>
+
+$conexoes_smtp = array(
+
+//SMTP PADRÃO
+'smtp1' => array( 'Host_smtp'               => '', // Host SMTP
+                 'Username_smtp'           => '', // E-mail SMTP
+                 'Senha_smtp'              => '', // Senha SMTP
+                 'Porta_smtp'              => '', // Porta SMTP
+                 'Tls_smtp'                => true, // Conexão autenticada [ true or false ]
+                 'Debug_smtp'              => false, // Debug [ true or false ]
+                 'status_msg_rodape_email' => true, // Mensagem no rodapé do e-mail [ true or false ]
+                 'msg_rodape_email'        => "", // Mensagem no rodapé do e-mail
+                 )
+
+ //SMTP NOVO
+ 'smtp_novo' => array( 'Host_smtp'           => '', // Host SMTP
+                   'Username_smtp'           => '', // E-mail SMTP
+                   'Senha_smtp'              => '', // Senha SMTP
+                   'Porta_smtp'              => '', // Porta SMTP
+                   'Tls_smtp'                => true, // Conexão autenticada [ true or false ]
+                   'Debug_smtp'              => false, // Debug [ true or false ]
+                   'status_msg_rodape_email' => true, // Mensagem no rodapé do e-mail [ true or false ]
+                   'msg_rodape_email'        => "", // Mensagem no rodapé do e-mail
+                   )
+
+);</pre>
+<hr />
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Configurações gerais:</span> <code>/libs/core/config.php</code></h3>
+
+<pre>
+<strong class="text-uppercase m-b-10">CONFIGURAÇÕES GERAIS DA APLICAÇÃO </strong>
+
+//CONFIGURAÇÕES GERAIS DA APLICAÇÃO
+'nome_site'                => '', // Nome do site
+'endereco_site'            => '', // Endereço do site
+'versao_app'               => '', // Versão da aplicação
+'versao_ano'               => '', // Ano da Versão da aplicação
+'autor_app'                => '', // Programadores
+'desenvolvido_por'         => '', // Empresa
+'endereco_site_desenv'     => '', // Endereço do site desenvolvedora
+'email_notificacao'        => '', // E-mail para notificação da aplicação
+'status_files'             => true, // Pasta logs [ true or false ]</pre>
+
+<pre>
+<strong class="text-uppercase m-b-10">CONFIGURAÇÕES DE SERVIDOR E PASTA RAIZ </strong>
+
+//CONFIGURAÇÕES DE SERVIDOR E PASTA RAIZ
+'servidor_ativo_comp'      => 'localhost', // Servidor Ativo de comparação
+'pasta_raiz_local'         => '/', // Diretório raiz (LOCAL)
+'pasta_raiz_servidor'      => '/', // Diretório raiz (SERVIDOR)</pre>
+
+<pre>
+<strong class="text-uppercase m-b-10">LINGUAGEM DO CORE GERAL DA APLICAÇÃO </strong>
+
+//LINGUAGEM DO CORE GERAL DA APLICAÇÃO
+'arqui_msgs_core'          => $language, // Arquivo com as mensagens gerais do framework</pre>
+
+<pre>
+<strong class="text-uppercase m-b-10">PASTAS DA APLICAÇÃO </strong>
+
+//PASTAS DA APLICAÇÃO
+'paste_apps'               => array('web','adm'), // Pasta das Aplicações
+'template_smarty_web'      => $language, // Pasta template do smarty (WEB)
+'template_smarty_adm'      => $language, // Pasta template do smarty (OUTRAS PASTAS)</pre>
+
+<pre>
+<strong class="text-uppercase m-b-10">CONFIGURAÇÕES DO GERENCIADOR DE TEMPLATES (SMARTY) </strong>
+
+//CONFIGURAÇÕES DO GERENCIADOR DE TEMPLATES (SMARTY)
+'status_debug_smarty'      => false, // Debug do smarty [ true or false ]
+'status_cache_smarty'      => false, // Cache do smarty [ true or false ]</pre>
+
+<pre>
+<strong class="text-uppercase m-b-10">TEMPO (MINUTOS) DE SESSÃO DE LOGIN </strong>
+
+//TEMPO (MINUTOS) DE SESSÃO DE LOGIN
+'tempo_sessao_web'         => 30, // Tempo em minutos máximo 24horas (WEB)
+'tempo_sessao_adm'         => 30, // Tempo em minutos 24horas (OUTRAS PASTAS)
+
+//TEMPO (MINUTOS) DE USUÁRIO ONLINE
+'tempo_usuario_online'     => 4, // Tempo em minutos (GERAL)</pre>
+
+<pre>
+<strong class="text-uppercase m-b-10">CHAVE DE CRIPTOGRAFIA </strong>
+
+//CHAVE DE CRIPTOGRAFIA
+'chave_criptografia'       => '214123fdsfasd2354123fdsa', // Chave de criptografia</pre>
+
+<pre>
+<strong class="text-uppercase m-b-10">CONFIGURAÇÕES DE ERROS </strong>
+
+//CONFIGURAÇÕES DE ERROS
+'status_erro_php_local'    => false, // Local [ true or false ]
+'status_erro_php_servidor' => false, // Servidor [ true or false ]
+'estilo_css_erro'          => 'margin:0 auto;font-family:arial;width:98%;height:auto;background:#dff151;color:#4b4b43;margin-top:10px;margin-bottom:10px;padding:20px;',</pre>
+</pre>
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Usar as informações setadas no Core</span> <code>toda a aplicação</code></h3>
+
+<pre>
+<strong class="text-uppercase m-b-10">Pegar as informações do Core </strong>
+
+//ACESSO PELO CONTROLLER
+$desenvolvido = $this->core->get_config('desenvolvido_por');</pre>
+
+
+
+
+
+      </div>
+  </div>

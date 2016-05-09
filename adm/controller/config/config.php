@@ -111,6 +111,7 @@ class config_apps_adm {
             "adm_feedback", //19
             "adm_emails_enviados",//20
             "adm_sms_enviados",//21
+            "doc",//22
 
         );
         $this->setPaginas($paginas);

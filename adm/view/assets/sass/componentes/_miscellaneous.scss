@@ -1256,3 +1256,82 @@ select[multiple], select[size] {
         text-align: left;
     }
 }
+
+pre {
+    margin: 0 0 10px;
+    margin-top: 25px;
+    padding: 20px;
+    font-size: 14px;
+    color: #8FFF00;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #000000;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+pre > strong {
+    color: #FFF;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+        font-size: 17px;
+}
+
+.line-height-m{
+    line-height: 25px;
+}
+.line-height-g{
+    line-height: 35px;
+}
+
+@media (min-width: 768px){
+    .bs-glyphicons {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .bs-glyphicons li {
+        width: 12.5%;
+        font-size: 12px;
+    }
+    .bs-glyphicons li {
+        float: left;
+        width: 25%;
+        height: 115px;
+        padding: 10px;
+        font-size: 10px;
+        line-height: 1.4;
+        text-align: center;
+        background-color: #f9f9f9;
+        border: 1px solid #fff;
+    }
+}
+.bs-glyphicons li {
+    float: left;
+    width: 25%;
+    height: 115px;
+    padding: 10px;
+    font-size: 17px;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #fff;
+}
+.bs-glyphicons {
+    margin: 0 -10px 20px;
+    overflow: hidden;
+}
+.bs-glyphicons-list {
+    padding-left: 0;
+    list-style: none;
+}
+.bs-glyphicons .glyphicon {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    float: left;
+    width: 100%;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+   background-color: #3e3e3e !important;
+   border-color: #3e3e3e !important;
+}

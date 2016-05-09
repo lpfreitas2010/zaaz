@@ -1,0 +1,274 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Administrativo</a></li>
+            <li><a href="#">Funções JS e CSS</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+
+
+
+          <hr />
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Funções Acionadas no click</span> <code> Usar na View </code></h3>
+
+<pre>
+<strong>REDIRECIONAMENTO NO CLICK</strong>
+<br /><br />
+- Classe: <b>link</b> <br />
+- Paramêtro: <b>link</b> <br /><br />
+{assign var="a" value='<a href="javascript:void();" link="http://link" class="link">link</a>'}
+{$a|@htmlspecialchars}
+<br /><br />
+<a href="javascript:void();" link="http://google.com" class="link btn btn-default">Testar</a>
+</pre>
+
+<pre>
+<strong>MOSTRO O TEXTO CARREGANDO AO CLICAR</strong>
+<br /><br />
+- Classe: <b>load-elements</b> <br /><br />
+{assign var="a1" value='<a href="http://google.com" class="load-elements">link</a>'}
+{$a1|@htmlspecialchars}
+<br /><br />
+<a href="javascript:void();" class="load-elements btn btn-default">Testar</a>
+</pre>
+
+<pre>
+<strong>SUBIR PARA O TOPO DA PÁGINA NO CLICK</strong>
+<br /><br />
+- Classe: <b>subir_topo</b> <br /><br />
+{assign var="a5" value='<a href="javascript:void();" class="subir_topo">link</a>'}
+{$a5|@htmlspecialchars}
+<br /><br />
+<a href="javascript:void();" class="subir_topo btn btn-default">Testar</a>
+</pre>
+
+<pre>
+<strong>Mostra e oculta elementos</strong>
+<br /><br />
+- Classe: <b>mostra_area</b> <br /><br />
+- Parâmetro: <b>show_area</b> <br />
+- Parâmetro: <b>show_area2</b> <br />
+- Parâmetro: <b>show_area3</b> <br />
+- Parâmetro: <b>show_area4</b> <br />
+- Parâmetro: <b>show_area5</b> <br />
+- Parâmetro: <b>hide_area</b> <br />
+- Parâmetro: <b>hide_area2</b> <br />
+- Parâmetro: <b>hide_area3</b> <br />
+- Parâmetro: <b>hide_area4</b> <br />
+- Parâmetro: <b>hide_area5</b> <br />
+- Parâmetro: <b>topo</b> <br />
+- Parâmetro: <b>focus</b> <br />
+- Parâmetro: <b>limpar_campos_form</b> <br /><br />
+
+{assign var="a5" value='<a href="javascript:void();" class="mostra_area" show_area="#area_teste">Testar</a>
+<div class="hidden_area" id="area_teste">AREA DE TESTE</div>'}
+{$a5|@htmlspecialchars}
+<br /><br />
+<a href="javascript:void();" class="mostra_area btn btn-default" show_area="#area_teste1">Testar</a>
+<div class="hidden_area m-t-20" id="area_teste1">AREA DE TESTE</div>
+</pre>
+
+<pre>
+<strong>MOSTRO UM ELEMENTO AO SELECIONAR UM VALOR DO SELECT</strong>
+<br /><br />
+- Classe: <b>select_chang_show_hide_areas select_chang_show_hide area_sh_(value do option)</b> <br /><br />
+
+{assign var="a5" value='<select class="select_chang_show_hide form-control" name="">
+    <option value="">Selecione</option>
+    <option value="selectvalor">Teste</option>
+    <option value="selectvalor2">Teste 2</option>
+</select>
+<div class="hidden_area select_chang_show_hide_areas area_sh_selectvalor m-t-15 m-b-15">ÁREA 1</div>
+<div class="hidden_area select_chang_show_hide_areas area_sh_selectvalor2 m-t-15">ÁREA 2</div>
+'}
+{$a5|@htmlspecialchars}
+<br /><br />
+<select class="select_chang_show_hide form-control" name="">
+    <option value="">Selecione</option>
+    <option value="selectvalor">Teste</option>
+    <option value="selectvalor2">Teste 2</option>
+</select>
+<div class="hidden_area select_chang_show_hide_areas area_sh_selectvalor m-t-15">ÁREA 1</div>
+<div class="hidden_area select_chang_show_hide_areas area_sh_selectvalor2 m-t-15">ÁREA 2</div></pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Funções do Campo Input Text</span> <code> Usar na View </code></h3>
+
+<pre>
+<strong>DEIXO CARACTERES CAMPO INPUT TEXT EM MAIUSCULO </strong>
+<br /><br />
+- Classe: <b>input_maiusculo</b> <br /><br />
+{assign var="a2" value='<input type="text" class="input_maiusculo form-control">'}
+{$a2|@htmlspecialchars}
+<br /><br />
+<input type="text" class="input_maiusculo form-control" value="TESTE DE TESTE">
+</pre>
+
+<pre>
+<strong>DEIXO CARACTERES CAMPO INPUT TEXT EM MINUSCULO </strong>
+<br /><br />
+- Classe: <b>input_minusculo</b> <br /><br />
+{assign var="a3" value='<input type="text" class="input_minusculo form-control">'}
+{$a3|@htmlspecialchars}
+<br /><br />
+<input type="text" class="input_minusculo form-control" value="teste de teste">
+</pre>
+
+<pre>
+<strong>BLOQUEO SUBMIT AO TECLAR ENTER NO CAMPO INPUT TEXT </strong>
+<br /><br />
+- Classe: <b>block_enter</b> <br /><br />
+{assign var="a4" value='<input type="text" class="block_enter form-control">'}
+{$a4|@htmlspecialchars}
+<br /><br />
+<input type="text" class="block_enter form-control">
+</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Funções de Máscaras do Campo Input Text</span> <code> Usar na View </code></h3>
+
+<pre>
+<strong>TRAVO CAMPO INPUT TEXT SÓ PARA NÚMEROS </strong>
+<br /><br />
+- Classe: <b>numeros</b> <br /><br />
+{assign var="a7" value='<input type="text" class="numeros form-control">'}
+{$a7|@htmlspecialchars}
+<br /><br />
+<input type="text" class="numeros form-control">
+</pre>
+
+<pre>
+<strong>MÁSCARA CAMPO INPUT TEXT DE TELEFONE </strong>
+<br /><br />
+- Classe: <b>telefone</b> <br /><br />
+{assign var="a8" value='<input type="text" class="telefone form-control">'}
+{$a8|@htmlspecialchars}
+<br /><br />
+<input type="text" class="telefone form-control">
+</pre>
+
+<pre>
+<strong>MÁSCARA CAMPO INPUT TEXT DE MOEDA </strong>
+<br /><br />
+- Classe: <b>money</b> <br />
+- Classe: <b>money2</b> <br /><br />
+{assign var="a9" value='<input type="text" class="money form-control">'}
+{$a9|@htmlspecialchars}
+<br /><br />
+<input type="text" class="money form-control">
+</pre>
+
+<pre>
+<strong>MÁSCARA CAMPO INPUT TEXT (LIVRE) </strong>
+<br /><br />
+- Classe: <b>input-mask</b> <br />
+- Paramêtro: <b>data-mask="000.000.000-00"</b> <br /><br />
+{assign var="a11" value='<input type="text" class="input-mask form-control" data-mask="000.000.000-00">'}
+{$a11|@htmlspecialchars}
+<br /><br />
+<input type="text" class="input-mask form-control" data-mask="000.000.000-00">
+</pre>
+
+<pre>
+<strong>CALENDÁRIO NO INPUT TEXT</strong>
+<br /><br />
+- Classe: <b>date-picker</b> <br /><br />
+{assign var="a10" value='<input type="text" class="date-picker form-control">'}
+{$a10|@htmlspecialchars}
+<br /><br />
+<input type="text" class="date-picker form-control">
+</pre>
+
+<pre>
+<strong>HORA NO INPUT TEXT</strong>
+<br /><br />
+- Classe: <b>time-picker</b> <br /><br />
+{assign var="a11" value='<input type="text" class="time-picker form-control">'}
+{$a11|@htmlspecialchars}
+<br /><br />
+<input type="text" class="time-picker form-control">
+</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Funções do Campo Select</span> <code> Usar na View </code></h3>
+
+<pre>
+<strong>SELECT PERSONALIZADO </strong>
+<br /><br />
+- Classe: <b>select_personalizado estatico</b> <br />
+- Classe: <b>select_personalizado dinamico</b> <br /><br />
+{assign var="a6" value='<select class="select_personalizado estatico form-control" name="">
+    <option value="">Teste</option>
+    <option value="">Teste 2</option>
+</select>
+'}
+{$a6|@htmlspecialchars}
+<div class="callout callout-info m-t-25">
+    <h4>Atenção!</h4>
+    <p>Este plugin não funciona corretamente na função de editar.</p>
+</div>
+</pre>
+
+<pre>
+<strong>SELECT MULTIPLO </strong>
+<br /><br />
+- Classe: <b>select_multiple</b> <br /><br />
+{assign var="a15" value='<select class="select_multiple form-control" name="" multiple>
+    <option value="">Teste</option>
+    <option value="">Teste 2</option>
+</select>
+'}
+{$a15|@htmlspecialchars}
+<div class="callout callout-info m-t-25">
+    <h4>Atenção!</h4>
+    <p>Este plugin não funciona corretamente na função de editar.</p>
+</div>
+</pre>
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Funções do Campo Textarea</span> <code> Usar na View </code></h3>
+
+<pre>
+<strong>EDITOR HTML COMPLETO </strong>
+<br /><br />
+- Classe: <b>editor_html_completo</b> <br /><br />
+{assign var="a12" value='<textarea class="form-control editor_html_completo"></textarea>'}
+{$a12|@htmlspecialchars}
+<br /><br />
+<textarea class="form-control editor_html_completo"></textarea>
+</pre>
+
+
+<pre>
+<strong>EDITOR HTML BÁSICO </strong>
+<br /><br />
+- Classe: <b>editor_html_basico</b> <br /><br />
+{assign var="a13" value='<textarea class="form-control editor_html_basico"></textarea>'}
+{$a13|@htmlspecialchars}
+<br /><br />
+<textarea class="form-control editor_html_basico"></textarea>
+</pre>
+
+<pre>
+<strong>EDITOR HTML INLINE </strong>
+<br /><br />
+- Classe: <b>editor_html_inline</b> <br /><br />
+{assign var="a14" value='<div class="form-control editor_html_inline"></div>'}
+{$a14|@htmlspecialchars}
+<br /><br />
+<div class="form-control editor_html_inline"></div>
+</pre>
+
+
+      </div>
+</div>

@@ -1,0 +1,503 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Administrativo</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+
+          <p class="f-s-16">
+              Montos os campos HTML de input text, input hidden, select, textarea, radio, checkbox, select dinamico, changbox dinamico, botão, mensagem informativa, área de listagem de uploads, autocomplete e seto os dados nos campos do formulário.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16 line-height-m">
+              - Helper responsável: <code>/libs/helpers/mont_htmlHelper.php</code>
+          </p>
+
+          <hr />
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Instancio Classe</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>INSTANCIO MONT_HTML HELPER</strong>
+
+$this->core->includeHelper('mont_html');
+$mont_html = new mont_htmlHelper();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Montagem dos campos do formulário</span> <code> Usar no Controller action: monto_conteudo_html_pagina</code></h3>
+
+<pre>
+<strong>MONTO CAMPO INPUT TEXT</strong>
+
+$mont_html->set_array(null,'input_class_tamanho','col-lg-3 col-md-4 col-sm-12 col-xs-12'); //col-md-1 ao col-md-12 e outras classes
+$mont_html->set_array(null,'label_for_texto','');
+$mont_html->set_array(null,'input_type','text'); //text, password
+$mont_html->set_array(null,'input_name','');
+$mont_html->set_array(null,'input_id','');
+$mont_html->set_array(null,'input_maxlength',''); //Quantidade de caracteres do campo
+$mont_html->set_array(null,'input_class',''); //[MASCARAS: (input-mask) (telefone) (money) (money2) ] [NÚMEROS use: (numeros)] [CALENDÁRIO: (date-picker) (time-picker) ]
+$mont_html->set_array(null,'input_placeholder','');
+$mont_html->set_array(null,'input_title','');
+$mont_html->set_array(null,'title_help',''); //Ajuda Tags HTML ativadas
+$mont_html->set_array(null,'input_value','');
+$mont_html->set_array(null,'input_outros',''); // [MASCARA: (data-mask="000.000.000-00")]
+$mont_html->set_array(null,'input_disabled',''); //disabled
+$mont_html->set_array(null,'icon_in_input',''); //CLASSE ICONE DENTRO DO INPUT - glyphicon icons
+$mont_html->set_array(null,'input_pagina_icon',''); //CLASSE DO ICONE DA OUTRA PÁGINA - Font Awesome Icons
+$mont_html->set_array(null,'input_pagina_title',''); //TITLE DA OUTRA PÁGINA
+$mont_html->set_array(null,'input_pagina_url',$this->core->get_config('dir_raiz_http').$this->dir_app.'/ '); //URL DA OUTRA PÁINGA
+$mont_html->set_array(null,'input_pagina_add_title','Adicionar '); //TITLE DO BTN DE ADICIONAR
+$mont_html->set_array(null,'input_pagina_add_id',' '); //ID QUE CHAMA O MODAL DE ADICIONAR
+$input_text = $mont_html->monto_html_input();
+
+Exemplo:
+<input type="text" class="form-control" value="Input Text"></pre>
+
+<pre>
+<strong>MONTO CAMPO INPUT HIDDEN</strong>
+
+$mont_html->set_array(null,'input_name','');
+$mont_html->set_array(null,'input_id','');
+$mont_html->set_array(null,'input_value','');
+$input_hidden = $mont_html->monto_html_input_hidden();</pre>
+
+<pre>
+<strong>MONTO CAMPO INPUT FILE</strong>
+
+$mont_html->set_array(null,'input_class_tamanho','col-lg-3 col-md-3 col-sm-12 col-xs-12'); //col-md-1 ao col-md-12 e outras classes
+$mont_html->set_array(null,'input_multiple',true); //true ou false
+$mont_html->set_array(null,'label_for_texto','');
+$mont_html->set_array(null,'input_name','');
+$mont_html->set_array(null,'input_id','');
+$mont_html->set_array(null,'input_class','');
+$mont_html->set_array(null,'input_placeholder','');
+$mont_html->set_array(null,'title_help','FORMATOS: <b>(jpg,png)</b> /n DIMENSÕES: <b>00 x 00px</b> /n TAMANHO: <b>Máx. 2 MB p/ arquivo</b> ');
+$mont_html->set_array(null,'input_value','');
+$mont_html->set_array(null,'input_outros','');
+$mont_html->set_array(null,'editor_img_online',true); // Editor de imagens online - true ou false
+$mont_html->set_array(null,'input_disabled',''); //disabled
+$input_file = $mont_html->monto_html_input_file();
+
+Exemplo:
+<input type="file" class="form-control" value="">
+
+<strong>MONTO ÁREA DE LISTAGEM DE ARQUIVOS UPADOS (MÁXIMO 4 ÁREAS POR PÁGINA)</strong>
+
+$mont_html->set_array(null,'status_listagem_arquivos',true); //STATUS LISTAGEM DE ARQUIVOS - true ou false
+$mont_html->set_array(null,'param_controle_list_arq','1'); //máximo 4 - 1 a 4 - incremente o valor de acordo com a qtd de área de listagens de arquivos
+$mont_html->set_array(null,'upload_multiplo',true); //UPLOAD MULTIPLO - true ou false
+$mont_html->set_array(null,'tipo_listagem_arquivos','imagem'); //TIPO - imagem ou arquivo
+$mont_html->set_array(null,'titulo_listagem_arquivos','Listagem de '); //TITULO DA LISTAGEM - imagem ou arquivo
+$mont_html->set_array(null,'icone_doc','fa fa-file-text'); //ICONE DA LISTAGEM DOCUMENTOS - Font Awesome Icons
+$mont_html->set_array(null,'icone_img','fa fa-picture-o'); //TITULO DA LISTAGEM IMAGENS - Font Awesome Icons
+$mont_html->set_array(null,'campo_input_file','teste'); //ID DO CAMPO INPUT FILE
+$mont_html->set_array(null,'url_listagem_arquivos','teste'); // PARAMETRO TIPO - LISTAGEM DE ARQUIVOS
+$listagem_arquivos = $mont_html->monto_html_list_arquivos();
+</pre>
+
+<pre>
+<strong>MONTO CAMPO INPUT CHECKBOX</strong>
+
+//MONTO VALORES DO CHECKBOX
+$this->funcoes->set_array(0,'input_id','');
+$this->funcoes->set_array(0,'input_name','');
+$this->funcoes->set_array(0,'input_class','');
+$this->funcoes->set_array(0,'input_title','');
+$this->funcoes->set_array(0,'input_value',''); //value do campo
+$this->funcoes->set_array(0,'input_checked',''); //checked ou ""
+$this->funcoes->set_array(0,'input_texto_checkbox',''); //Texto
+$valores_checkbox = $this->funcoes->get_array();
+
+//MONTO CAMPO INPUT CHECKBOX
+$mont_html->set_array(null,'input_class_tamanho','col-lg-3 col-md-3 col-sm-12 col-xs-12'); //col-md-1 ao col-md-12 e outras classes
+$mont_html->set_array(null,'input_id',''); // id da area
+$mont_html->set_array(null,'label_for_texto','');
+$mont_html->set_array(null,'input_options',$valores_checkbox);
+$input_checkbox = $mont_html->monto_html_input_checkbox();
+
+Exemplo:
+<input type="checkbox" value=""> Teste de teste</pre>
+
+<pre>
+<strong>MONTO CAMPO INPUT RADIOBOX</strong>
+
+//MONTO VALORES DO RADIOBOX
+$this->funcoes->set_array(0,'input_id','');
+$this->funcoes->set_array(0,'input_name',''); //mesmo name
+$this->funcoes->set_array(0,'input_class','');
+$this->funcoes->set_array(0,'input_title','');
+$this->funcoes->set_array(0,'input_value',''); //value do campo
+$this->funcoes->set_array(0,'input_checked',''); //checked ou ""
+$this->funcoes->set_array(0,'input_texto_radiobox',''); //Texto
+$valores_radio = $this->funcoes->get_array();
+
+//MONTO CAMPO INPUT RADIOBOX
+$mont_html->set_array(null,'input_class_tamanho','col-lg-3 col-md-3 col-sm-12 col-xs-12'); //col-md-1 ao col-md-12 e outras classes
+$mont_html->set_array(null,'input_id',''); // id da area
+$mont_html->set_array(null,'label_for_texto','');
+$mont_html->set_array(null,'input_options',$valores_radio);
+$input_radiobox = $mont_html->monto_html_input_radiobox();
+
+Exemplo:
+<input type="radio" value=""> Teste de teste
+<input type="radio" value=""> Teste de teste 2</pre>
+
+<pre>
+<strong>MONTO CAMPO INPUT RADIOBOX AREA HIDE E SHOW</strong>
+
+//MONTO VALORES DO RADIOBOX AREA HIDE E SHOW
+$this->funcoes->set_array(0,'input_id','');
+$this->funcoes->set_array(0,'input_name',''); //mesmo name
+$this->funcoes->set_array(0,'input_class','');
+$this->funcoes->set_array(0,'input_title','');
+$this->funcoes->set_array(0,'input_value',''); //value do campo
+$this->funcoes->set_array(0,'input_checked',''); //checked ou ""
+$this->funcoes->set_array(0,'input_texto_radiobox',''); //Texto
+$this->funcoes->set_array(0,'campo_show','.area_tal'); //campo que sera mostrado no click
+$valores_radio = $this->funcoes->get_array();
+
+//MONTO CAMPO INPUT RADIOBOX AREA HIDE E SHOW
+$mont_html->set_array(null,'input_class_tamanho','col-lg-3 col-md-3 col-sm-12 col-xs-12'); //col-md-1 ao col-md-12 e outras classes
+$mont_html->set_array(null,'input_id',''); // id da area
+$mont_html->set_array(null,'label_for_texto','');
+$mont_html->set_array(null,'input_options',$valores_radio);
+$input_radiobox = $mont_html->monto_html_input_radiobox_area_hide();
+
+Exemplo:
+<input type="radio" value=""> Teste de teste
+<input type="radio" value=""> Teste de teste 2</pre>
+
+<pre>
+<strong>MONTO CAMPO TEXTAREA</strong>
+
+$mont_html->set_array(null,'input_class_tamanho','col-lg-12 col-md-12 col-sm-12 col-xs-12'); //col-md-1 ao col-md-12 e outras classes
+$mont_html->set_array(null,'label_for_texto','');
+$mont_html->set_array(null,'input_name','');
+$mont_html->set_array(null,'input_id','');
+$mont_html->set_array(null,'input_class',''); //editor html = (editor_html_completo, editor_html_basico)
+$mont_html->set_array(null,'input_placeholder','');
+$mont_html->set_array(null,'input_title','');
+$mont_html->set_array(null,'title_help',''); //Ajuda Tags HTML ativadas
+$mont_html->set_array(null,'input_value','');
+$mont_html->set_array(null,'input_outros','');
+$mont_html->set_array(null,'input_disabled',''); //disabled
+$mont_html->set_array(null,'input_rows',''); //número de linhas
+$textarea = $mont_html->monto_html_textarea();
+
+Exemplo:
+<textarea class="form-control"></textarea></pre>
+
+<pre>
+<strong>MONTO CAMPO TEXTAREA INLINE (USADO COM O EDITOR HTML)</strong>
+
+$mont_html->set_array(null,'input_class_tamanho','col-lg-12 col-md-12 col-sm-12 col-xs-12'); //col-md-1 ao col-md-12 e outras classes
+$mont_html->set_array(null,'label_for_texto','');
+$mont_html->set_array(null,'input_id','');
+$mont_html->set_array(null,'input_class',''); //editor html = (editor_html_inline)
+$mont_html->set_array(null,'input_title','');
+$mont_html->set_array(null,'title_help',''); //Ajuda Tags HTML ativadas
+$mont_html->set_array(null,'input_value','');
+$mont_html->set_array(null,'input_outros','');
+$mont_html->set_array(null,'input_disabled',''); //disabled
+$textarea_inline = $mont_html->monto_html_textarea_inline();
+
+Exemplo:
+<div class="form-control editor_html_inline"></div></pre>
+
+<pre>
+<strong>MONTO CAMPO SELECT</strong>
+
+//PEGO OS VALORES DO SELECT DO BANCO DE DADOS ** não funciona o adicionar dinamicamente
+$this->model->setCampos('campo_tabela',"tabela");
+$this->model->setCampos('campo_coluna',"id");
+$this->model->setCampos('campo_coluna2',"campo");
+$this->model->setCampos('campo_where',"");
+$this->model->setCampos('campo_orderby',"campo ASC");
+$valor = $this->model->select_simples_retorna_array_mont_vcol();
+for ($i=0; $i < count($valor) ; $i++) {
+    $this->funcoes->set_array($i,'id',$valor[$i]['id'])->set_array($i,'value',$this->funcoes->conv_string($valor[$i]['campo'],2));
+}
+$valores_select = $this->funcoes->get_array();
+$this->model->getLimpoCampos();
+
+//MONTO OS VALORES SELECT ESTÁTICO
+$this->funcoes->set_array(0,'id','')->set_array(0,'value','');
+$this->funcoes->set_array(1,'id','')->set_array(1,'value','');
+$valores_select = $this->funcoes->get_array();
+
+//MONTO CAMPO SELECT
+$mont_html->set_array(null,'input_class_tamanho','col-lg-3 col-md-4 col-sm-12 col-xs-12'); //col-md-1 ao col-md-12 e outras classes
+$mont_html->set_array(null,'label_for_texto','');
+$mont_html->set_array(null,'input_text_select','Selecione o campo ');
+$mont_html->set_array(null,'input_name','');
+$mont_html->set_array(null,'input_id','');
+$mont_html->set_array(null,'input_class',''); // mostro área item selecionado: (select_chang_show_hide) - select multiple: (select_multiple) - select personalizado: (select_personalizado estatico) ou (select_personalizado dinamico)
+$mont_html->set_array(null,'input_title','');
+$mont_html->set_array(null,'title_help',''); //Ajuda Tags HTML ativadas
+$mont_html->set_array(null,'input_options',$valores_select); //Array com os valores do select
+$mont_html->set_array(null,'input_value','');
+$mont_html->set_array(null,'input_outros','');
+$mont_html->set_array(null,'input_disabled',''); //disabled
+$mont_html->set_array(null,'input_multiple',''); //SELECT MULTIPLO - multiple ou ""
+$mont_html->set_array(null,'input_pagina_title','Ir para a listagem de  '); //TITLE DO BTN DE LISTAGEM
+$mont_html->set_array(null,'input_pagina_url',$this->core->get_config('dir_raiz_http').$this->dir_app.'/  '); //URL BTN DE LISTAGEM
+$mont_html->set_array(null,'input_pagina_add_title','Adicionar '); //TITLE DO BTN DE ADICIONAR
+$mont_html->set_array(null,'input_pagina_add_id',' '); //ID QUE CHAMA O MODAL DE ADICIONAR
+$select = $mont_html->monto_html_select();
+
+Exemplo:
+<select class="form-control" name="">
+    <option value="">Valor</option>
+    <option value="">Valor2</option>
+</select></pre>
+
+<pre>
+<strong>MONTO CAMPO MODAL PARA ADICIONAR UM REGISTRO RÁPIDO</strong>
+
+//Pode ser usado no campo select ou campo input text
+
+$mont_html->set_array(null,'input_id_area',''); //Coloque o mesmo valor que foi inserido no select em input_pagina_add_id
+$mont_html->set_array(null,'url_pagina',$this->core->get_config('dir_raiz_http').$this->dir_app.'/teste'); //PARAMETRO TIPO
+$modal = $mont_html->monto_html_modal_add();</pre>
+
+<pre>
+<strong>MONTO CAMPO BOTÃO DE LINK </strong>
+
+$mont_html->set_array(null,'texto','');
+$mont_html->set_array(null,'href',''); // $this->core->get_config('dir_raiz_http').$this->dir_app."/
+$mont_html->set_array(null,'target',''); //target _blank
+$mont_html->set_array(null,'id','');
+$mont_html->set_array(null,'class','');
+$mont_html->set_array(null,'icon_class',''); // Classe icone - Font Awesome Icons
+$mont_html->set_array(null,'outros','');
+$link_btn = $mont_html->monto_html_btn_externo();
+
+Exemplo:
+<a href="#" class="btn btn-primary">Botão</a></pre>
+
+<pre>
+<strong>MONTO CAMPO COM MENSAGEM INFORMATIVA</strong>
+
+$mont_html->set_array(null,'id','');
+$mont_html->set_array(null,'class','');
+$mont_html->set_array(null,'tipo',''); //tipos: danger, info, warning, success
+$mont_html->set_array(null,'titulo','');
+$mont_html->set_array(null,'mensagem','');
+$msg_informativa = $mont_html->monto_html_mensagem_informativa();
+
+Exemplo:
+<div class="alert alert-info">Mensagem de teste.</div></pre>
+
+
+<pre>
+<strong>MONTO CAMPO COM ÁREA DE DESCRIÇÃO</strong>
+
+$mont_html->set_array(null,'area_descricao','')->set_array(null,'area_descricao_icon_class','')->set_array(null,'class',''); // Classes úteis = (subtitulo-margin_top) -Classe icone - Font Awesome Icons
+$area_descricao = $mont_html->monto_html_area_descricao();</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Montagem das áreas do formulário</span> <code> Usar no Controller action: monto_conteudo_html_pagina</code></h3>
+
+<pre>
+<strong>MONTO CAMPOS E ÁREAS (ADICIONAR E EDITAR)</strong>
+{literal}
+
+//MONTO OS CAMPOS DO FORMULÁRIO - Input text, select e outros
+
+//MONTO AS ÁREAS DO FORMULÁRIO
+$mont_html->set_array(0,'titulo','titulo da área');     // Titulo da Área
+$mont_html->set_array(0,'icone_titulo','');             // Classe icone - Font Awesome Icons
+$mont_html->set_array(0,'class_area','');               // Ocultar e mostrar uma área com um select: select_chang_show_hide_areas e area_sh_(value do option)
+$mont_html->set_array(0,'conteudo'," {$input_text} ");  //conteudo *variáveis com os campos montados ***
+$mont_html->set_array(1,'titulo','titulo da área2');    // Titulo da Área
+$mont_html->set_array(1,'icone_titulo','');             // Classe icone - Font Awesome Icons
+$mont_html->set_array(1,'class_area','');               // Ocultar e mostrar uma área com um select: select_chang_show_hide_areas e area_sh_(value do option)
+$mont_html->set_array(1,'conteudo'," {$select} ");      //conteudo *variáveis com os campos montados ***
+$conteudo_montado = $mont_html->monto_html_area_forms();{/literal}</pre>
+
+<pre>
+<strong>MONTO CAMPOS E ÁREAS (PESQUISA AVANÇADA)</strong>
+{literal}
+
+//MONTO OS CAMPOS DO FORMULÁRIO - Input text, select e outros
+
+//MONTO AS ÁREAS DO FORMULÁRIO
+$mont_html->set_array(0,'conteudo'," {$input_text} ");
+$mont_html->set_array(1,'conteudo'," {$select}  ");
+$conteudo_montado = $mont_html->monto_html_forms();{/literal}</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Montagem do campo Autocomplete</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>AUTOCOMPLETE</strong>{literal}
+
+// 1) No action: monto_campos_form_js - insira o bloco abaixo:
+
+//MONTO AUTOCOMPLETE JS
+$this->funcoes->set_array(0,'tipo','autocomplete'); // Tipo
+$this->funcoes->set_array(0,'tipo_autocomplete','teste'); // tipo autocomplete
+$this->funcoes->set_array(0,'id_autocomplete','id_campo_html'); // id do campo
+
+// 2) No action: autocomplete - monte o array com os dados do autocomplete:
+
+//MONTO ARRAY
+if($tipo == 'teste'){
+    $this->model->setCampos('campo_tabela',"tabela_banco");
+    $this->model->setCampos('campo_coluna',"campo_banco");
+    $this->model->setCampos('campo_where'," campo_banco LIKE '%{$valor}%'");
+    $this->model->setCampos('campo_groupby',"campo_banco");
+    $this->model->setCampos('campo_orderby',"campo_banco DESC");
+    $valor0 = $this->model->select_simples_retorna_array_mont();
+    if(!empty($valor0)){
+        echo json_encode($valor0);
+    }
+    $this->model->getLimpoCampos();
+}{/literal}</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Montagem do campo Combobox</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>COMBOBOX (SELECT)</strong> {literal}
+
+// 1) No action: monto_campos_form_js - insira o bloco abaixo:
+
+//MONTO COMBOBOX JS
+$this->funcoes->set_array(0,'tipo','combobox'); // Tipo
+$this->funcoes->set_array(0,'tipo_combobox','teste'); // tipo combobox
+$this->funcoes->set_array(0,'id_combobox','id_campo_html'); // id do campo
+$this->funcoes->set_array(0,'txt_plural_combobox',''); // Texto no plural
+$this->funcoes->set_array(0,'txt_sing_combobox',''); // Texto no singular
+
+// 2) No action: combobox - monte o array com os dados do combobox:
+
+//MONTO ARRAY
+if($tipo == 'teste'){
+    $this->model->setCampos('campo_tabela',"tabela_banco");
+    $this->model->setCampos('campo_coluna',"id");
+    $this->model->setCampos('campo_coluna2',"campo_banco");
+    $this->model->setCampos('campo_where',"");
+    $this->model->setCampos('campo_orderby',"campo_banco ASC");
+    $valor = $this->model->select_simples_retorna_array_mont_vcol();
+    for ($i=0; $i < count($valor) ; $i++) {
+        $array[] = array(
+            'campo1' => $valor[$i]['id'],
+            'campo2' => $valor[$i]['campo_banco'],
+        );
+    }
+    if(!empty($valor)){
+        echo json_encode($array);
+    }
+    $this->model->getLimpoCampos();
+}{/literal}</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Montagem do campo ChangBox</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>CHANGBOX (SELECT) Pego o valor de um select para carregar o outro</strong>{literal}
+
+// 1) No action: monto_campos_form_js - insira o bloco abaixo:
+
+//MONTO CHANGBOX JS
+$this->funcoes->set_array(0,'tipo','changbox'); // Tipo
+$this->funcoes->set_array(0,'tipo_changbox','cidade'); // tipo changbox
+$this->funcoes->set_array(0,'id_changbox','id_campo_html'); // id do campo
+$this->funcoes->set_array(0,'txt_plural_changbox',''); // Texto no plural
+$this->funcoes->set_array(0,'txt_sing_changbox',''); // Texto no singular
+$this->funcoes->set_array(0,'id_combobox','id_campo_html_outro_select'); // id do campo
+$this->funcoes->set_array(0,'txt_sing_combobox',''); // Texto no singular
+
+// 2) No action: changcombobox - monte o array com os dados do combobox:
+
+//MONTO ARRAY
+if($tipo == 'cidade'){
+    $this->model->setCampos('campo_tabela',"local_cidade");
+    $this->model->setCampos('campo_coluna',"id");
+    $this->model->setCampos('campo_coluna2',"{$tipo}");
+    $this->model->setCampos('campo_where'," estado_id = {$param} ");
+    $this->model->setCampos('campo_orderby',"");
+    $valor = $this->model->select_simples_retorna_array_mont_vcol();
+    for ($i=0; $i < count($valor) ; $i++) {
+        $array[] = array(
+            'campo1' => $valor[$i]['id'],
+            'campo2' => $valor[$i][$tipo],
+        );
+    }
+    if(!empty($valor)){
+        echo json_encode($array);
+    }
+    $this->model->getLimpoCampos();
+}{/literal}</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Seto os dados nos campos do formulário</span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong>Seto os dados no formulário</strong>{literal}
+
+// Usar no action: cmd_set_add_edd
+
+//CAMPO INPUT TEXT
+$this->funcoes->set_array(0,'tipo_set','input');
+$this->funcoes->set_array(0,'campo_set_form','id_campo_html');
+$this->funcoes->set_array(0,'valor_campo_set',$exec[$i]['campo_banco_dados']);
+
+//CAMPO TEXTAREA
+$this->funcoes->set_array(0,'tipo_set','textarea');
+$this->funcoes->set_array(0,'campo_set_form','id_campo_html');
+$this->funcoes->set_array(0,'valor_campo_set',$exec[$i]['campo_banco_dados']);
+
+//CAMPO CHECKBOX
+$this->funcoes->set_array(0,'tipo_set','checkbox');
+$this->funcoes->set_array(0,'campo_set_form','id_campo_html');
+$this->funcoes->set_array(0,'valor_campo_set',$exec[$i]['campo_banco_dados']);
+
+//CAMPO SELECT ESTATICO
+$this->funcoes->set_array(0,'tipo_set','select_estatico');
+$this->funcoes->set_array(0,'campo_set_form','id_campo_html');
+$this->funcoes->set_array(0,'valor_campo_set',$exec[$i]['campo_banco_dados']);
+
+//CAMPO SELECT DINAMICO
+$this->funcoes->set_array(0,'tipo_set','input');
+$this->funcoes->set_array(0,'campo_set_form','id_campo_html_id'); //insira o _id no fim
+$this->funcoes->set_array(0,'valor_campo_set',$exec[$i]['campo_banco_dados']);
+
+//CAMPO SHOW HIDE
+$this->funcoes->set_array(0,'tipo_set','show_hide');
+$this->funcoes->set_array(0,'campo_set_form','#id_campo_html'); //insira o # ou .
+$this->funcoes->set_array(0,'valor_campo_set','show'); //show ou hide
+
+//CAMPO DISABLED
+$this->funcoes->set_array(0,'tipo_set','disabled');
+$this->funcoes->set_array(0,'campo_set_form','id_campo_html');
+$this->funcoes->set_array(0,'valor_campo_set','disabled'); //disabled ou remove_disabled
+
+//CAMPO SETO VALOR COMO ATRIBUTO
+$this->funcoes->set_array(0,'tipo_set','attr_param');
+$this->funcoes->set_array(0,'campo_set_form','id_campo_html');
+$this->funcoes->set_array(0,'valor_campo_set',$exec[$i]['campo_banco_dados']);
+
+//SETO INFORMAÇÕES HTML NO EDITAR
+$this->funcoes->set_array(0,'tipo_set','info_editar');
+$this->funcoes->set_array(0,'valor_campo_set',' ID: '.$exec[$i]['id'].' ');
+{/literal}</pre>
+
+
+      </div>
+</div>

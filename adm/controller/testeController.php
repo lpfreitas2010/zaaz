@@ -330,7 +330,7 @@ class testeController {
 			//*************************************************************************************
 			//MONTO A PÁGINA DE (ADICIONAR E EDITAR)
 			//*************************************************************************************
-			$conteudo_montado = null; // Documentação da montagem dos campos na pasta /Documentos/doc.php ****-
+			$conteudo_montado = null; // ****-
 			if($param == 'campos_html_add_edd'){
 
 				//--
@@ -352,7 +352,7 @@ class testeController {
 			//*************************************************************************************
 			//MONTO A PÁGINA DE (EXPORTAR PARA PDF)
 			//*************************************************************************************
-			$conteudo_montado = null; // Documentação da montagem dos campos na pasta /Documentos/doc.php ****-
+			$conteudo_montado = null; // ****-
 			if($param == 'campos_html_exp_pdf'){
 
 				//MONTO VALORES DO CHECKBOX CAMPOS DA TABELA
@@ -392,7 +392,7 @@ class testeController {
 			//*************************************************************************************
 			//MONTO A PÁGINA DE (IMPRIMIR)
 			//*************************************************************************************
-			$conteudo_montado = null; // Documentação da montagem dos campos na pasta /Documentos/doc.php ****-
+			$conteudo_montado = null; // ****-
 			if($param == 'campos_html_imprimir'){
 
 				//MONTO VALORES DO CHECKBOX CAMPOS DA TABELA
@@ -439,7 +439,7 @@ class testeController {
 			//*************************************************************************************
 			//MONTO A PÁGINA DE (PESQUISA AVANÇADA)
 			//*************************************************************************************
-			$conteudo_montado = null; // Documentação da montagem dos campos na pasta /Documentos/doc.php ****-
+			$conteudo_montado = null; // ****-
 			if($param == 'campos_html_pesq_avancada'){
 
 				//VALORES DA PESQUISA AVANÇADA
@@ -517,7 +517,7 @@ class testeController {
 			//*************************************************************************************
 			//MONTO A PÁGINA DE (LISTAGEM)
 			//*************************************************************************************
-			$conteudo_montado = null; // Documentação da montagem dos campos na pasta /Documentos/doc.php ****-
+			$conteudo_montado = null; // ****-
 			if($param == 'listagem'){
 
 				//===========================================================
@@ -667,7 +667,7 @@ class testeController {
 		$this->autentico_usuario(); //Autentico usuário no sistema
 		//**********************************************************
 
-		//Documentação da montagem dos campos na pasta /Documentos/doc.php ****-
+		//
 
 		//MONTO JS DO COMBOBOX, AUTOCOMPLETE ...
 
@@ -1081,10 +1081,10 @@ class testeController {
 			for ($i=0; $i < $total_ids; $i++) {
 
 				//VERIFICO SE PODE EXCLUIR
-				//Documentação da montagem dos campos na pasta /Documentos/doc.php ****-
+				// ****-
 
 				//EXCLUIR ARQUIVO DO SERVIDOR
-				//Documentação da montagem dos campos na pasta /Documentos/doc.php ****-
+				// ****-
 
 				//SETO OS DADOS
 				$this->model->setId($id[$i]);

@@ -1,0 +1,101 @@
+{strip}
+
+<div class="panel panel-default area-doc hidden_area" id="{$id}">
+      <div class="panel-body">
+
+          <ol class="breadcrumb">
+            <li><a href="#">Core</a></li>
+            <li class="active">{$texto}</li>
+          </ol>
+
+          
+          <p class="f-s-16">
+              Envio e-mails, permite múltiplas conexões smtp e gravo logs de e-mails enviados.
+          </p>
+
+          <hr />
+
+          <p class="f-s-16 line-height-m">
+              - Plugin de disparo: <code>PHPmailer</code> - <a href="https://github.com/PHPMailer/PHPMailer" target="_blank"><strong>Documentação PHPmailer <i class="fa fa-external-link-square"></i></strong> </a> <br />
+              - Permite múltiplas conexões Smtp <br />
+              - Helper responsável: <code>/libs/helpers/emailHelper.php</code> <br />
+          </p>
+
+          <hr />
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">ARQUIVO PARA A CONFIGURAÇÃO DE SMTP:</span> <code>/libs/core/config.php</code></h3>
+
+<pre>
+<strong class="text-uppercase m-b-10">CONFIGURAÇÃO DE SMTP </strong>
+
+$conexoes_smtp = array(
+
+//SMTP PADRÃO
+'smtp1' => array( 'Host_smtp'               => '', // Host SMTP
+      'Username_smtp'           => '', // E-mail SMTP
+      'Senha_smtp'              => '', // Senha SMTP
+      'Porta_smtp'              => '', // Porta SMTP
+      'Tls_smtp'                => true, // Conexão autenticada [ true or false ]
+      'Debug_smtp'              => false, // Debug [ true or false ]
+      'status_msg_rodape_email' => true, // Mensagem no rodapé do e-mail [ true or false ]
+      'msg_rodape_email'        => "", // Mensagem no rodapé do e-mail
+      )
+
+//SMTP NOVO
+'smtp_novo' => array( 'Host_smtp'           => '', // Host SMTP
+        'Username_smtp'           => '', // E-mail SMTP
+        'Senha_smtp'              => '', // Senha SMTP
+        'Porta_smtp'              => '', // Porta SMTP
+        'Tls_smtp'                => true, // Conexão autenticada [ true or false ]
+        'Debug_smtp'              => false, // Debug [ true or false ]
+        'status_msg_rodape_email' => true, // Mensagem no rodapé do e-mail [ true or false ]
+        'msg_rodape_email'        => "", // Mensagem no rodapé do e-mail
+        )
+
+);</pre>
+
+
+<!-- ============ -->
+<h3 class="p-t-20"><span class="text-uppercase"> Usar outra conexão de SMTP </span> <code> Usar no Controller</code></h3>
+
+<pre>
+<strong class="text-uppercase m-b-10">USAR OUTRA CONEXÃO DE SMTP</strong>
+
+//Insira este campo antes do campo $this->email->setEmail_from();
+
+$this->email->setConexoes('smtp_novo'); //Utilizo outra conexão de smtp</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Envio E-mails</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>ENVIAR E-MAILS</strong>
+
+//MONTO O E-MAIL
+$this->email->setEmail_from(); //email remetente
+$this->email->setNome_remetente(); //nome remetente
+$this->email->setEmail_send(); //destinatario
+$this->email->setEmail_resposta(); //email resposta
+$this->email->setNome_resposta(); //nome resposta
+$this->email->setAssunto(); //Assunto
+$this->email->setConteudo(); //Conteúdo
+$this->email->setArquivo(); //Arquivo de anexo
+$exec_email = $this->email->envio_email_phpmailer(); //Envio o e-mail</pre>
+
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Logs de e-mails Enviados</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>GRAVO LOG DE EMAIL ENVIADO</strong>
+
+$this->logs->setApp($this->dir_app)
+->setEmail_re('')->setEmail('') //E-mail Remetene - E-mail destinatario
+->setStatus('Enviado')->setMensagem('')->gravo_log_email_enviado();</pre>
+
+
+      </div>
+</div>

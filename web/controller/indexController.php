@@ -86,62 +86,51 @@
 		}
 
 
-		//====================================================================================================================================
-		//====================================================================================================================================
+//====================================================================================================================================
+//====================================================================================================================================
 		//CARREGO INTERFACE DA PÁGINA
 		function view($parametro = null){
 
-			//CORE CONTROLLER
-			$this->core->includeControllerView('core',$this->dir_app);
-			$controller_geral = new coreController(); //Extendo dados do controller geral
+			//===========================================================
+			//CONFIGURAÇÕES GERAIS
+			//$status_auth            = false; // Carrego código de autenticação [ True or false ]
+			//$parm_auth_status       = false; // Parametro permitido ou não [ True or false ]
+			//$indice_pagina_red_auth = 0; // Indice do array da página que sera redirecionado
+			//$status_tempo_sessao    = false; // Carrego código de tempo de sessão [ True or false ]
+			//$status_cookies_page    = false; // Carrego código que grava o cookie da página acessada [ True or false ]
+			//$carrego_parametros     = false; // Carrego parametros [ True or false ]
 
-			//INSTANCIO
-			$this->core->includeView();
-			$view = new view($this->dir_app);
+			//===========================================================
+			//PÁGINA ATIVA E MÓDULO ATIVO
+			$interface['pagina_ativa'] = $parametro;
+			$interface['modulos']      = $this->config_apps->get_config('modulos',0);
 
-			//URL AMIGAVEL
-			$parte1 = str_replace("?", "", $this->core->get_config('par_url_htacess'));
-			$parte2 = str_replace($parte1, "", $parte1 . "/" . $_SERVER['QUERY_STRING']);
-			$url = explode("/", $parte2);
-			array_shift($url);
-
-			//=================================================================
-			//=================================================================
-
-			//============================================================================================
-			//INFORMAÇÕES DA PÁGINA
-			//============================================================================================
-
-			//PÁGINA ATIVA
-			$view->seto_dados('pagina_ativa',$parametro);
-			$view->seto_dados("modulos", $this->config_apps->get_config('modulos',0));
-
-			//INFORMAÇÕES GERAIS
-			$view->seto_dados("title_pagina", ""); //title da página
-
+			//===========================================================
 			//CARREGA CSS DAS PAGINAS
-			$css = array(
+			$interface['css'] = array(
 				$this->config_apps->get_config('animate'),
 			);
-			$view->seto_dados("css", $css);
+
+			//===========================================================
+			//INCLUDE DE VIEW, CARREGO AS CONFIGURAÇÕES GERAIS
+			require $this->core->includeControllerInclude("view_1", $this->dir_app);
+
+			//===========================================================
+        	//INFORMAÇÕES GERAIS
+        	$interface['title_pagina'] = "Página de Modelo"; //title da página
 
 			//VARIAVEIS
-			$view->seto_dados("teste", "Testando.... ");
+			$interface['teste'] = "Página de Modelo";
+
 
 			//============================================================================================
-			//INCLUDES PADRÃO
-			//============================================================================================
-
-			//INCLUDE GERAL
-			require $this->core->includeControllerInclude("core", $this->dir_app);
-
 			//MONTO A VIEW
+			$view->seto_dados_array($interface);
 			$view->monto_view('modulos/'.$this->config_apps->get_config('modulos',0).'/'.$parametro . ".phtml");
 
-
 		}
-		//====================================================================================================================================
-		//====================================================================================================================================
+//====================================================================================================================================
+//====================================================================================================================================
 
 
 		//=================================================================
