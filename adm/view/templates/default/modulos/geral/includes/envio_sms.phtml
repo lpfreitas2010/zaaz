@@ -1,0 +1,61 @@
+{strip}
+
+
+<!-- INCLUDE DO FORM -->
+<form id="form_sms" name="form_sms" url="{$action_sms_enviados}" action="javascript:void(0);" method="post">
+      <input type="submit" class="hidden_area">
+
+      <!-- CMD CONTROLLER -->
+      <input type="hidden" name="cmd" value="{$cmd_sms_enviados}">
+
+      <!-- MONTO ÁREAS -->
+      <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 area_feedback hidden_area" id="area_sms">
+        <div class="box box-primary box-solid">
+                <div class="box-header with-border area_feedback_titulo">
+                    <div class='row'>
+                        <h3 class="box-title col-md-12 f-s-24 m-b-5"><i class="glyphicon glyphicon-phone"></i> Enviar SMS <a href="#" class="mostra_area pull-right" hide_area="#area_sms"><i class="fa fa-times"></i> </a></h3>
+
+                    </div>
+                </div>
+                <div class="box-body">
+
+                        <!-- AREA -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_sms_telefones">
+                                <label for="feedback_area"><span class="f-s-16"><i class="fa fa-phone"></i> Telefones</span></label>
+                                <!--<input type="text" name="sms_telefones" id="sms_telefones" class="input_tags">-->
+                                <select class="select_multiple form-control" name="sms_telefones[]" id="sms_telefones" multiple>
+                                    {foreach $telefones_sms as $i}
+                                        <option value="{$i.telefone}">{$i.telefone}</option>
+                                    {/foreach}
+                                </select>
+                                <span id="icon_error_sms_telefones" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_sms_telefones" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+
+                        <!-- MENSAGEM -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_sms_mensagem">
+                                <label for="sms_mensagem"><span class="f-s-16"><i class="fa fa fa-commenting"></i> Mensagem</span></label>
+                                <textarea data-title="tooltip" data-placement="top" title="Escreva a mensagem" name="sms_mensagem" class="form-control " id="sms_mensagem" placeholder="" title="" rows="5"></textarea>
+                                <span id="icon_error_sms_mensagem" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_sms_mensagem" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- BTN DE SALVAR -->
+                        <div class="col-md-12 col-sm-12 col-xs-12 m-b-10 m-t-10">
+                            <div class="form-group">
+                                <a href="javascript:void(0);" class="btn btn-primary btn_salvar_sms m-r-5"><i class="fa fa-paper-plane"></i> ENVIAR SMS </a>
+                                <a href="javascript:void(0);" class="btn btn-default mostra_area" hide_area="#area_sms"><i class="fa fa-remove"></i> CANCELAR </a>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+</form>

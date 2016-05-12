@@ -114,17 +114,15 @@ class adm_sms_enviadosController {
             $this->btns_acoes['foco_campo_form'] = "testee"; // Foco campo form add e edd
 
 			//===========================================================
+			//CAMPOS DEFAULT
+			require $this->core->includeControllerInclude("carrego_parametros_0", $this->dir_app);
+
+			//===========================================================
 			//TEXTOS GERAIS ****-
-			$this->btns_acoes['txt_ativar_pret_sing']      = "Ativado"; // Texto do btn de ativar no preterito singular
-			$this->btns_acoes['txt_desativar_pret_sing']   = "Desativado"; // Texto do btn de ativar no preterito singular
-			$this->btns_acoes['txt_ativar_pret_plural']    = "Ativados"; // Texto do btn de ativar no preterito plural
-			$this->btns_acoes['txt_desativar_pret_plural'] = "Desativados"; // Texto do btn de ativar no preterito plural
-			$this->btns_acoes['txt_excluir_pret_sing']     = "Excluido"; // Texto do btn de excluir no preterito singular
-			$this->btns_acoes['txt_excluir_pret_plural']   = "Excluidos"; // Texto do btn de excluir no preterito plural
+
 
 			//===========================================================
 			//STATUS DE BTNS DE AÇÕES GERAL ****-
-			$this->btns_acoes['status_menu_lateral']      = true; // Status do menu aberto ou fechado [true ou false]
 			$this->btns_acoes['status_btn_editar']        = false; // Status do btn de editar [true or false]
 			if($_SESSION['adm_id_cargo'] == 1){
 				$this->btns_acoes['status_btn_excluir'] = true; // Status de btn excluir tudo
@@ -138,10 +136,6 @@ class adm_sms_enviadosController {
 			$this->btns_acoes['status_imprimir']          = false; // Status de btn de imprimir [true or false]
 			$this->btns_acoes['status_exportar_pdf']      = true; // Status de btn de exportar para pdf [true or false]
 			$this->btns_acoes['status_exportar_csv']      = false; // Status de btn de exportar para csv [true or false]
-			$this->btns_acoes['status_btn_salvar']        = true; // Status de btn salvar [true or false]
-			$this->btns_acoes['status_btn_fechar']        = true; // Status de btn fechar [true or false]
-			$this->btns_acoes['status_btn_salvar_fechar'] = true; // Status de btn salvar e fechar [true or false]
-			$this->btns_acoes['status_btn_salvar_novo']   = true; // Status de btn salvar e novo [true or false]
 			$this->btns_acoes['status_area_grafico']      = false; // Status area de graficos  [true or false]
 			if($_SESSION['adm_id_cargo'] == 1){
 				$this->btns_acoes['status_btn_excluir_tudo'] = true; // Status de btn excluir tudo
@@ -151,88 +145,30 @@ class adm_sms_enviadosController {
 
 			//===========================================================
 			//STATUS DE ÁREA DA LISTAGEM ****-
-			$this->btns_acoes['status_area_agrupar']           = false; // Status do group by [true or false]
-			$this->btns_acoes['status_area_ordenacao']         = true; // Status da ordenação [true or false]
-			$this->btns_acoes['status_area_paginacao']         = true; // Status de paginação [ true or false ]
-			$this->btns_acoes['status_area_total_registros']   = true; // Status de total registros [ true or false ]
-			$this->btns_acoes['status_area_pesquisa']          = true; // Status da pesquisa [true or false]
 			$this->btns_acoes['status_btn_filtros']            = true; // Status do botão de filtros [true or false]
-			$this->btns_acoes['status_acao_pesquisa_avancada'] = true; // Status da ação de pesquisa avançada [true or false]
-			$this->btns_acoes['status_col_checkbox']           = true; // Status da coluna do ckeckbox [true or false]
-			$this->btns_acoes['status_col_acoes']              = true; // Status da coluna de ações [true or false]
 
 			//===========================================================
 			//CONFIGURAÇÕES DE ÁREA DA LISTAGEM ****-
-            $this->btns_acoes['qtd_reg_listagem']     = 20; // Quantidade de registros p/ página
             $this->btns_acoes['title_campo_pesquisa'] = 'ID, Usuário,Telefone, Mensagem ou Status'; // Parametros de pesquisa
             $this->btns_acoes['ordenar_selecionado']  = array("ID DECRESCENTE"); // Value padrão do campo Odernar
             $this->btns_acoes['agrupar_selecionado']  = array(""); // Value padrão do campo Agrupar
-            $this->btns_acoes['status_limit']         = true; // Limit da tabela [ true or false ]
-            $this->btns_acoes['funcao_listagem']      = 'listagem'; // Função de listagem
             $this->btns_acoes['mensagem_informativa'] = ''; // Mensagem informativa relacionada a tabela
 
 			//===========================================================
 			//STATUS DE ÁREA DOS BOTÕES DE LISTAGEM DEFAULT
-			$this->btns_acoes['area_listagem_geral']           = true; // Status da área de listagem geral [true or false]
-			$this->btns_acoes['area_listagem']                 = true; // Status da área de listagem [true or false]
-			$this->btns_acoes['area_btns_status_acoes']        = true; // Status de área geral dos botôes de opções da listagem [true or false]
-			$this->btns_acoes['area_formulario']               = false; // Status da área do formulário [true or false]
-			$this->btns_acoes['area_btns_status_acoes_forms']  = false; // Status da área geral dos botões de opções do formulário [true or false]
+
 
 			//===========================================================
 			//TEXTO DE BTNS DE AÇÕES ****-
-			$this->btns_acoes['txt_btn_novo']          = "Novo"; // Texto do btn de novo
-			$this->btns_acoes['txt_btn_editar']        = "Editar"; // Texto do btn de editar
-			$this->btns_acoes['txt_btn_excluir']       = "Excluir"; // Texto do btn de excluir
-			$this->btns_acoes['txt_btn_detalhamento']  = "Informações"; // Texto do btn de detalhamento
-			$this->btns_acoes['txt_btn_ativar']        = "Ativar"; // Texto do btn de ativar
-			$this->btns_acoes['txt_btn_desativar']     = "Desativar"; // Texto do btn de ativar
-			$this->btns_acoes['txt_btn_atualizar']     = ""; // Texto do btn de atualizar
-			$this->btns_acoes['txt_btn_imprimir']      = ""; // Texto do btn de imprimir
-			$this->btns_acoes['txt_btn_pdf']           = ""; // Texto do btn de exportar para pdf
-			$this->btns_acoes['txt_btn_csv']           = ""; // Texto do btn de exportar para csv
-			$this->btns_acoes['txt_btn_imprimir2']     = "Imprimir"; // Texto do btn de imprimir
-			$this->btns_acoes['txt_btn_pdf2']          = "PDF"; // Texto do btn de exportar para pdf
-			$this->btns_acoes['txt_btn_csv2']          = "CSV"; // Texto do btn de exportar para csv
-			$this->btns_acoes['txt_btn_salvar']        = "Salvar"; // Texto do btn salvar [true or false]
-			$this->btns_acoes['txt_btn_fechar']        = "Fechar"; // Texto do btn fechar [true or false]
-			$this->btns_acoes['txt_btn_salvar_fechar'] = "Salvar e Fechar"; // Texto do btn salvar e fechar [true or false]
-			$this->btns_acoes['txt_btn_salvar_novo']   = "Salvar e Novo"; // Texto do btn salvar e novo [true or false]
-			$this->btns_acoes['txt_btn_excluir_tudo']  = "Excluir tudo"; // Texto do btn excluir tudo
-			$this->btns_acoes['txt_btn_novo2']         = "{$this->btns_acoes['txt_btn_novo']} {$this->nome_pagina_singular}"; // Texto do btn de novo
+
 
 			//===========================================================
 			//TITLE DE BTNS DE AÇÕES ****-
-			$this->btns_acoes['title_btn_novo']         = "{$this->btns_acoes['txt_btn_novo']} {$this->nome_pagina_singular} "; // Title do btn de novo
-			$this->btns_acoes['title_btn_editar']       = "{$this->btns_acoes['txt_btn_editar']} {$this->nome_pagina_singular}"; // Title do btn de editar
-			$this->btns_acoes['title_btn_excluir']      = "{$this->btns_acoes['txt_btn_excluir']} {$this->nome_pagina_singular}"; // Title do btn de excluir
-			$this->btns_acoes['title_btn_detalhamento'] = "{$this->btns_acoes['txt_btn_detalhamento']} de(o) {$this->nome_pagina_singular}"; // Title do btn de detalhamento
-			$this->btns_acoes['title_btn_ativar']       = "{$this->btns_acoes['txt_btn_ativar']} {$this->nome_pagina_singular}"; // Title do btn de ativar
-			$this->btns_acoes['title_btn_desativar']    = "{$this->btns_acoes['txt_btn_desativar']} {$this->nome_pagina_singular}"; // Title do btn de ativar
-			$this->btns_acoes['title_btn_atualizar']    = "Atualizar a página"; // Title do btn de atualizar
-			$this->btns_acoes['title_btn_imprimir']     = "{$this->btns_acoes['txt_btn_imprimir2']} a listagem de {$this->nome_pagina_plural}"; // Title do btn de imprimir
-			$this->btns_acoes['title_btn_pdf']          = "Exportar a listagem de {$this->nome_pagina_plural} para {$this->btns_acoes['txt_btn_pdf2']}"; // Title do btn de exportar para pdf
-			$this->btns_acoes['title_btn_csv']          = "Exportar a listagem de {$this->nome_pagina_plural} para {$this->btns_acoes['txt_btn_csv2']}"; // Title do btn de exportar para csv
-			$this->btns_acoes['title_btn_salvar']        = "Salvar {$this->nome_pagina_singular} (Alt+S)"; // Title do btn salvar [true or false]
-			$this->btns_acoes['title_btn_fechar']        = "Fechar e voltar para a listagem de {$this->nome_pagina_plural}"; // Title do btn fechar [true or false]
-			$this->btns_acoes['title_btn_salvar_fechar'] = "Salvar e voltar para a listagem de {$this->nome_pagina_plural}"; // Title do btn salvar e fechar [true or false]
-			$this->btns_acoes['title_btn_salvar_novo']   = "Salvar e inserir um novo {$this->nome_pagina_singular}"; // Title do btn salvar e novo [true or false]
-			$this->btns_acoes['title_btn_excluir_tudo']  = "Excluir todos os {$this->nome_pagina_plural}"; // Title do btn excluir tudo
+
 
 			//===========================================================
 			//CLASSE DE ICONES DE BTNS DE AÇÕES ****-
-			$this->btns_acoes['class_icone_editar']       = "fa fa-edit"; // Classe do icone editar geral
-			$this->btns_acoes['class_icone_excluir']      = "fa fa-trash-o"; // Classe do icone excluir geral
-			$this->btns_acoes['class_icone_detalhamento'] = "fa fa-list"; // Classe do icone detalho conteudo
-			$this->btns_acoes['class_icone_ativar']       = "fa fa-check-square"; // Classe do icone ativar
-			$this->btns_acoes['class_icone_desativar']    = "fa fa-check-square-o"; // Classe do icone desativar
 			$this->btns_acoes['class_icone_listagem']     = "fa fa-mobile fa-lg"; // Classe do icone da listagem
-			$this->btns_acoes['class_icone_novo']         = "fa fa-plus"; // Classe do icone novo geral
-			$this->btns_acoes['class_icone_atualizar']    = "fa fa-refresh"; // Classe do icone atualizar
-			$this->btns_acoes['class_icone_imprimir']     = "fa fa-print"; // Classe do icone imprimir
-			$this->btns_acoes['class_icone_exp_pdf']      = "fa fa-file-pdf-o"; // Classe do icone exp_pdf
-			$this->btns_acoes['class_icone_exp_csv']      = "fa fa-table"; // Classe do icone exp_csv
-			$this->btns_acoes['class_icone_excluir_tudo'] = "fa fa-trash-o"; // Classe do icone do btn excluir tudo
 
 			//===========================================================
 			//ACTION E CMDS DO CONTROLLER ****-
@@ -1719,17 +1655,104 @@ class adm_sms_enviadosController {
 		$this->autentico_usuario(); //Autentico usuário no sistema
 		//**********************************************************
 
-		//RECEBO OS DADOS
+		//===========================================================
+		//RECEBO OS DADOS ****-
+		$telefones          = $this->funcoes->anti_injection($_POST['sms_telefones']);
+		(string) $mensagem  = $this->funcoes->anti_injection($_POST['sms_mensagem']);
+		//$telefones = explode(",", $telefones);
 
-		//TRATO OS DADOS
+        //TRATO CAMPO MULTIPLE
+        $telefones = array_values($telefones); //reordeno array
+
+		//===========================================================
+		//VALIDO OS DADOS ****-
+  		$this->funcoes->set('Mensagem',"sms_mensagem", $mensagem)->is_required()->max_length(140);
+
+		//===========================================================
+		//MOSTRO MENSAGEM DE ERROS NA TELA
+		if(count($this->funcoes->get_errors())>=1){
+			echo json_encode($this->funcoes->get_errors());
+			exit;
+		}
+
+        if(count($telefones)==0){
+            $this->funcoes->set_array(null,'erro','Insira os números de Telefone!'); //Mensagem
+            echo json_encode($this->funcoes->get_array()); //Mostro na tela
+            exit;
+        }
+		//MENSAGEM DE ERRO
+		for ($i=0; $i <count($telefones) ; $i++) {
+			if(!is_numeric($telefones[$i])){
+				$this->funcoes->set_array(null,'erro','Número de telefone inválido! <br /> '.$telefones[$i].''); //Mensagem
+				echo json_encode($this->funcoes->get_array()); //Mostro na tela
+				exit;
+			}
+			if (strlen($telefones[$i]) < 10){
+				$min = 1;
+			}
+			if (strlen($telefones[$i]) > 11){
+				$max = 1;
+			}
+			if(!is_numeric($telefones[$i])){
+				$numero = 1;
+			}
+			if( ($min === 1) || ($max === 1) || ($numero === 1)){
+				$this->funcoes->set_array(null,'erro','Número de telefone inválido! <br /> '.$telefones[$i].''); //Mensagem
+				echo json_encode($this->funcoes->get_array()); //Mostro na tela
+				exit;
+			}
+		}
+
+		//===========================================================
+		//ENVIO SMS
+		//===========================================================
+
+		//INSTANCIO SMS
+		$this->core->includeHelper('sms');
+		$sms = new smsHelper();
+
+		//PEGO AS CONFIGURAÇÕES DO BANCO DE DADOS
+		$this->core->includeControllerView('core',$this->dir_app); //Incluo arquivo coreController.php
+		$controller_geral = new coreController();
+		$configs_admin = $controller_geral->retorno_configs_admin();
+
+		//DADOS DE SMS
+		$sms->setUsername($configs_admin[0]['sms_username']);
+		$sms->setSenha($configs_admin[0]['sms_senha']);
+
+		//FOR COM TELEFONES
+		$msg_list = null;
+		for ($i=0; $i <count($telefones) ; $i++) {
+				$telefone         = $sms->trato_num_telefone($telefones[$i]);
+				$id               = $sms->gero_id();
+				$mensagem         = $mensagem;
+				$msg_list        .= "55{$telefone};{$mensagem};{$id}"."\n";
+				$disparo          = true;
+				$mensagem_array[] = $mensagem; //gravo em array
+				$telefone_array[] = $telefone; //gravo em array
+				$id_array[]       = $sms->gero_id(); //gravo em array
+		}
+
+		//DISPARO SMS
+		if($disparo == true){
+			$sms->setMensagem($msg_list);
+			$return = $sms->envia_sms();
+
+			//GRAVO LOG SMS ARRAY ***
+			for ($i=0; $i <count($id_array) ; $i++) {
+				$this->logs->setApp($this->dir_app) //Pasta da aplicação
+				->setId_sms($id_array[$i])->setTelefone($telefone_array[$i])->setStatus($return[$i])->setMensagem($mensagem_array[$i])->gravo_log_sms_enviado();
+			}
+		}
 
 		//MENSAGEM DE SUCESSO
-		$this->funcoes->set_array(null,'sucesso','MENSAGEM DE SUCESSO'); // Mensagem de erro $id não é um array
+		$this->funcoes->set_array(null,'sucesso','SMS enviados com sucesso!')->set_array(null,'limpo_campo','true'); // Mensagem de erro $id não é um array
 		echo json_encode($this->funcoes->get_array());
 
-		//MENSAGEM DE ERRO
-		/*$this->funcoes->set_array(null,'erro','MENSAGEM DE ERRO'); // Mensagem de erro $id não é um array
-		echo json_encode($this->funcoes->get_array());*/
+		//GRAVO LOG
+		$this->logs->setApp($this->dir_app)->setUrl($_SERVER['SERVER_NAME'].$_SERVER ['REQUEST_URI'])->setPagina(end(explode("/", $_SERVER['PHP_SELF'])))
+		->setMensagem('SMS enviados pelo envio rápido')->gravo_log();
+		exit();
 	}
 
 

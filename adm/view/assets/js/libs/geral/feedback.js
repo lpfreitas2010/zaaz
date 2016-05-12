@@ -26,6 +26,42 @@ define(['jquery'], function ($) {
 
         //=================================================================
         //SUBMETO FORMULÁRIO JQUERY SIMPLES ( RETORNO EM JSON )
+        submeto_formulario2();
+        function submeto_formulario2(){
+            submit_form_json1(
+              "#form_sms", //id do form
+              ".btn_salvar_sms", //id do botão submit
+              "<i class=\"fa fa-refresh fa-pulse\"></i> PROCESSANDO ... ", //Texto no botão submit ao carregar
+              'false', //Auto hidden sucesso (true or false)
+              'false', //Auto hidden erro (true or false)
+              '15000', //Tempo hidden
+              'false', //autoclean somente em sucesso (true or false)
+              'false', //Subir para o topo a cada submit (true or false)
+              '', //id btn salvar e novo
+              '' //id btn salvar e fechar
+            );
+        }
+
+        //=================================================================
+        //SUBMETO FORMULÁRIO JQUERY SIMPLES ( RETORNO EM JSON )
+        submeto_formulario3();
+        function submeto_formulario3(){
+            submit_form_json1(
+              "#form_email", //id do form
+              ".btn_salvar_email", //id do botão submit
+              "<i class=\"fa fa-refresh fa-pulse\"></i> PROCESSANDO ... ", //Texto no botão submit ao carregar
+              'false', //Auto hidden sucesso (true or false)
+              'false', //Auto hidden erro (true or false)
+              '15000', //Tempo hidden
+              'false', //autoclean somente em sucesso (true or false)
+              'false', //Subir para o topo a cada submit (true or false)
+              '', //id btn salvar e novo
+              '' //id btn salvar e fechar
+            );
+        }
+
+        //=================================================================
+        //SUBMETO FORMULÁRIO JQUERY SIMPLES ( RETORNO EM JSON )
         function submit_form_json1 (
                 id_form,
                 id_submit,
@@ -179,7 +215,7 @@ define(['jquery'], function ($) {
                             }
                         }
 
-    
+
 
                         //SUBIR PARA O TOPO
                         if (subir_topo === true) {

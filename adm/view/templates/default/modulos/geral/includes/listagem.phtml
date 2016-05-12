@@ -134,7 +134,7 @@
                         {if $total_reg == 0}
                               <div class="row margin-top-area-header-tabela">
                                 <div class="col-md-12 margin-top-area-header-tabela">
-                                  <h3 class="col-md-12 col-sm-12 col-xs-12"><span class="pull-left margin-bottom"><i class="fa fa-ban"></i> {if $param_pesquisa != ""} Nenhuma informação encontrada para: <strong>{$param_pesquisa}</strong> {else} Não há informações há serem exibidas! {/if} </span>  </h3>
+                                  <h3 class="col-md-12 col-sm-12 col-xs-12"><span class="pull-left margin-bottom"><i class="fa fa-inbox f-s-32"></i> {if $param_pesquisa != ""} Nenhuma informação encontrada para: <strong>{$param_pesquisa|upper}</strong> {else} Não há informações há serem exibidas! {/if} </span>  </h3>
                                   <span class="col-md-12 col-sm-12 col-xs-12">{if $param_pesquisa != ""} <a href="javascript:void(0);" class="btn btn-primary pull-left" id="{$param_out_list}btn_limpar_filtros3"><i class="fa fa-times"></i> Limpar filtros de pesquisa</a>{/if}</span>
                                 </div>
                               </div>
@@ -211,7 +211,7 @@
 
                                               <!-- AREA DA ESQUERDA -->
                                               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 m-b-20 text-left">
-                                                {if $titulo_tabela != ""}<strong style="font-size:17px;"><i class="{$icone_titulo_tabela}"></i> {$titulo_tabela|upper}</strong> {/if}
+                                                {if $titulo_tabela != ""}<strong class="f-s-18"><i class="{$icone_titulo_tabela}"></i> {$titulo_tabela|upper}</strong> {/if}
                                                 {if $status_area_paginacao == true && $status_area_total_registros == true} <br /> {/if} {if $status_area_total_registros == true} <strong>{$total_reg}</strong> Registro(s) - {/if}
                                                 {if $status_area_paginacao == true}  Pagina <strong>{$page}</strong> de <strong>{$qtd_paginas}</strong>  {/if}
                                                 <div class="m-t-10 ">

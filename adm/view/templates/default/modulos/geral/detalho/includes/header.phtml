@@ -5,7 +5,9 @@
       <div class="box-tools pull-right">
           <span class="titulo-detalho-esq2 hidden_area remove_area_responsive show_area_responsive">
               {if $status_btn_editar == true}
-              <a href="{$path_atual}{$url_pagina}/editar/{$id}" class="btn-resp2" title="Editar" data-title="tooltip" data-placement="bottom"><i class="fa fa-pencil-square-o"></i> EDITAR</a>
+                  {if $editar == ''}
+                  <a href="{$path_atual}{$url_pagina}/editar/{$id}" class="btn-resp2" title="Editar" data-title="tooltip" data-placement="bottom"><i class="fa fa-pencil-square"></i> EDITAR</a>
+                  {/if}
               {/if}
 			  {if $pdf == ''}
               <a href="{$action_exp_pdf}&id={$id}&exp=true" class="btn-resp2" target="_blank" title="Exportar para PDF" data-title="tooltip" data-placement="bottom"><i class="fa fa-file-pdf-o"></i> EXPORTAR PDF</a>

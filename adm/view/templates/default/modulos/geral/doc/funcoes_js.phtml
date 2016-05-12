@@ -132,6 +132,32 @@
 <input type="text" class="block_enter form-control">
 </pre>
 
+<pre>
+<strong>INPUT TAGS </strong>
+<br /><br />
+- Classe: <b>input_tags</b> <br /><br />
+{assign var="a15" value='<input type="text" class="input_tags form-control">'}
+{$a15|@htmlspecialchars}
+<br /><br />
+<input type="text" class="input_tags form-control">
+
+<div class="callout callout-info m-t-25">
+    <h4>Atenção!</h4>
+    <p>Este plugin não funciona corretamente na função de editar.</p>
+</div>
+</pre>
+
+<pre>
+<strong>BLOQUEO AS AÇÕES COPIAR, RECORTAR E COLAR NO INPUT TEXT </strong>
+<br /><br />
+- Classe: <b>block_past</b> <br /><br />
+{assign var="a4" value='<input type="text" class="block_past form-control">'}
+{$a4|@htmlspecialchars}
+<br /><br />
+<input type="text" class="block_past form-control">
+</pre>
+
+
 
 <!-- ==================== -->
 <h3 class="p-t-20"><span class="text-uppercase">Funções de Máscaras do Campo Input Text</span> <code> Usar na View </code></h3>
@@ -234,6 +260,7 @@
     <p>Este plugin não funciona corretamente na função de editar.</p>
 </div>
 </pre>
+
 
 <!-- ==================== -->
 <h3 class="p-t-20"><span class="text-uppercase">Funções do Campo Textarea</span> <code> Usar na View </code></h3>

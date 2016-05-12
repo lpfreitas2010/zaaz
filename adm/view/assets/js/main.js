@@ -66,6 +66,7 @@
         'stacktable':               'libs/inc/plugins/stacktable.js-master/stacktable.min',
         'tablesaw-master':          'libs/inc/plugins/tablesaw-master/dist/tablesaw',
         'Lobibox':                  'libs/inc/plugins/Lobibox-master/dist/js/Lobibox.min',
+        'jQuery-Tags-Input-master': 'libs/inc/plugins/jQuery-Tags-Input-master/src/jquery.tagsinput',
 
 
 

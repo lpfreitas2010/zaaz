@@ -17,25 +17,25 @@
 
 		<!-- Logo texto -->
 		<div class="logo-texto hidden_area remove_area_responsive show_area_responsive">
-			<a href="{$path_raiz}" title="{$nome_logo_admin}"><span><b>{$nome_logo_admin|truncate:25:" ...":true}</b></span></a>
+			<a href="{$path_raiz}" title="{$nome_logo_admin}"><span class="text-uppercase"><b>{$nome_logo_admin|truncate:25:" ...":true}</b></span></a>
 		</div>
 		<div class="logo-texto hidden_area show_area_responsive1">
-			<a href="{$path_raiz}" title="{$nome_logo_admin}"><span><b>{$nome_logo_admin|truncate:12:"...":true}</b></span></a>
+			<a href="{$path_raiz}" title="{$nome_logo_admin}"><span class="text-uppercase"><b>{$nome_logo_admin|truncate:12:"...":true}</b></span></a>
 		</div>
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
 				<li id="notificacoes_adm" class="dropdown notifications-menu m-r-5"></li>
-				<li><a class="m-r-5 hidden-sm hidden-xs" title="Alterar Meus Dados" href="{$path_raiz}usuarios/editar/{$id_usuario_ativo}"><i class="fa fa-pencil-square-o"></i> </a></li>
-				<li><a class="hidden-sm hidden-xs link m-r-15" href="javascript:void(0);" link="{$path_logoff}" title="Finalizar a Sessão (Alt+L)"><i class="fa fa-power-off"></i> Sair </a></li>
+				<li><a class="m-r-5 hidden-sm hidden-xs" title="Alterar Meus Dados" href="{$path_raiz}usuarios/editar/{$id_usuario_ativo}"><i class="fa fa-pencil-square-o f-s-16"></i> </a></li>
+				<li><a class="hidden-sm hidden-xs link m-r-15" href="javascript:void(0);" link="{$path_logoff}" title="Finalizar a Sessão (Alt+L)"><i class="fa fa-power-off f-s-16"></i> Sair </a></li>
 				<li class="m-l-5 m-r-20 hidden-sm hidden-xs hidden_area remove_area_responsive show_area_responsive">
 					<div class="form-inline">
 						  <div class="form-group">
 						    <input type="text" class="form-control input-pesq-geral" id="input-pesq-geral" placeholder="O que você procura?">
-							<button title="Pesquisar" type="button" name="name" class="btn btn-pesq-geral"><i class="fa fa-search"></i></button>
+							<button title="Pesquisar" type="button" name="name" class="btn btn-pesq-geral"><i class="fa fa-search f-s-16"></i></button>
 						  </div>
 					  </div>
 				</li>
-				<li><a class="hidden-md hidden-lg mostra_area m-r-15" href="javascript:void(0);" focus="input-pesq-geral" show_area='.pesquisa-responsiva' title="Pesquisa"><i class="fa fa-search"></i> </a></li>
+				<li><a class="hidden-md hidden-lg mostra_area m-r-15" href="javascript:void(0);" focus="input-pesq-geral" show_area='.pesquisa-responsiva' title="Pesquisa"><i class="fa fa-search f-s-16"></i> </a></li>
 			</ul>
 		</div>
 	</nav>

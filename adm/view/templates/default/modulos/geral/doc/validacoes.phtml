@@ -39,6 +39,9 @@
 //TRATO CAMPO MULTIPLE
 $campo = array_values($campo); //reordeno array
 
+//TRATO CAMPO SEPARADO POR VIRGULAS
+$campos = explode(",", $campos);
+
 //CONVERTO STRING PARA MAIUSCULO E MINUSCULO
 $campo = $this->funcoes->conv_string($campo,2);</pre>
 

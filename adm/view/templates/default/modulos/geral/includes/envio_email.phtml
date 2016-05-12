@@ -1,0 +1,80 @@
+{strip}
+
+
+<!-- INCLUDE DO FORM -->
+<form id="form_email" name="form_email" url="{$action_emails_enviados}" action="javascript:void(0);" method="post">
+      <input type="submit" class="hidden_area">
+
+      <!-- CMD CONTROLLER -->
+      <input type="hidden" name="cmd" value="{$cmd_emails_enviados}">
+
+      <!-- MONTO ÁREAS -->
+      <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 area_feedback hidden_area" id="area_email">
+        <div class="box box-primary box-solid">
+                <div class="box-header with-border area_feedback_titulo">
+                    <div class='row'>
+                        <h3 class="box-title col-md-12 f-s-24 m-b-5"><i class="fa fa-envelope"></i> Enviar E-mails <a href="#" class="mostra_area pull-right" hide_area="#area_email"><i class="fa fa-times"></i> </a></h3>
+
+                    </div>
+                </div>
+                <div class="box-body">
+
+                        <!-- EMAILS -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_emails_email">
+                                <label for="feedback_area"><span class="f-s-16"><i class="fa fa-envelope-o"></i> E-mails</span></label>
+                                <!--<input type="text" name="emails_email" id="emails_email" class="input_tags">-->
+                                <select class="select_multiple form-control" name="emails_email[]" id="emails_email" multiple>
+                                    {foreach $emails_email as $i}
+                                        <option value="{$i.email}">{$i.email}</option>
+                                    {/foreach}
+                                </select>
+                                <span id="icon_error_emails_email" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_emails_email" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- ASSUNTO -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_email_assunto">
+                                <label for="feedback_area"><span class="f-s-16"><i class="fa fa-file-text-o"></i> Assunto</span></label>
+                                <input type="text" name="email_assunto" id="email_assunto" class="form-control">
+                                <span id="icon_error_emaill_assunto" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_email_assunto" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- ANEXO -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_arquivos_email">
+                                <label for="arquivos_email"><span class="f-s-16"><i class="fa fa-paperclip"></i> Anexar Arquivos </span></label>
+                                <input data-title="tooltip" data-placement="top" type="file" name="arquivos_email[]" multiple class="form-control " id="arquivos_email" placeholder="" title="" value="" data-original-title="Selecione os arquivos">
+                                <span id="icon_error_arquivos_email" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_arquivos_email" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- MENSAGEM -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group remove-error-input has-feedback" id="input_error_email_mensagem">
+                                <label for="email_mensagem"><span class="f-s-16"><i class="fa fa fa-commenting"></i> Mensagem</span></label>
+                                <textarea data-title="tooltip" data-placement="top" title="Escreva a mensagem" name="email_mensagem" class="form-control editor_html_basico" id="email_mensagem" placeholder="" title="" rows="5"></textarea>
+                                <span id="icon_error_email_mensagem" class="glyphicon glyphicon-remove form-control-feedback oculto-icone-error hidden_area" aria-hidden="true" style="display: none;"></span>
+                            </div>
+                            <label id="msg_erro_email_mensagem" class="control-label msg_erro_form" for="inputError" style="display: none;"></label>
+                        </div>
+
+                        <!-- BTN DE SALVAR -->
+                        <div class="col-md-12 col-sm-12 col-xs-12 m-b-10 m-t-10">
+                            <div class="form-group">
+                                <a href="javascript:void(0);" class="btn btn-primary btn_salvar_email m-r-5"><i class="fa fa-paper-plane"></i> ENVIAR E-MAILS </a>
+                                <a href="javascript:void(0);" class="btn btn-default mostra_area" hide_area="#area_email"><i class="fa fa-remove"></i> CANCELAR </a>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+</form>

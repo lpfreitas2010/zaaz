@@ -152,7 +152,7 @@
         <!-- DOCUMENTAÇÃO -->
         {if $cargo_id == 1}
             <li class=" treeview">
-            <a href="{$path_atual}doc" target="_blank" data-hover="dropdown">
+            <a href="{$path_raiz}doc" target="_blank" data-hover="dropdown">
                 <i class="fa fa-code"></i> <span>Documentação</span>
             </a>
             </li>
@@ -161,8 +161,24 @@
         <!-- ============================================================== -->
         <!-- COMUNIQUE UM ERRO -->
         <li class=" treeview">
-            <a href="#" class="mostra_area" show_area=".area_feedback" focus="feedback_area" data-hover="dropdown">
+            <a href="#" class="mostra_area" show_area="#area_feedback" focus="feedback_area" data-hover="dropdown">
                 <i class="fa fa-bug"></i> <span>Comunique um erro</span>
+            </a>
+        </li>
+
+        <!-- ============================================================== -->
+        <!-- ENVIAR SMS -->
+        <li class=" treeview">
+            <a href="#" class="mostra_area" show_area="#area_sms" focus="" data-hover="dropdown">
+                <i class="fa fa-mobile-phone fa-lg"></i> <span>Enviar SMS</span>
+            </a>
+        </li>
+
+        <!-- ============================================================== -->
+        <!-- ENVIAR EMAIL -->
+        <li class=" treeview">
+            <a href="#" class="mostra_area" show_area="#area_email" focus="" data-hover="dropdown">
+                <i class="fa fa-envelope"></i> <span>Enviar E-mails</span>
             </a>
         </li>
 

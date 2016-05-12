@@ -244,7 +244,13 @@
             $arquivo = $this->getArquivo();
             if(!empty($arquivo)){
                  $arquivo = $this->getArquivo();
-                 $mail->AddAttachment($arquivo['tmp_name'], $arquivo['name']); //Adiciono Anexo
+                 if(is_array($arquivo['tmp_name'])){
+                     for ($i=0; $i <count($arquivo['tmp_name']) ; $i++) {
+                         $mail->AddAttachment($arquivo['tmp_name'][$i], $arquivo['name'][$i]); //Adiciono Anexo
+                     }
+                 }else{
+                     $mail->AddAttachment($arquivo['tmp_name'], $arquivo['name']); //Adiciono Anexo
+                 }
             }
 
             //LIMPO CAMPOS

@@ -8,7 +8,7 @@
             <li class="active">{$texto}</li>
           </ol>
 
-          
+
           <p class="f-s-16">
               Envio e-mails, permite múltiplas conexões smtp e gravo logs de e-mails enviados.
           </p>
@@ -95,6 +95,63 @@ $exec_email = $this->email->envio_email_phpmailer(); //Envio o e-mail</pre>
 $this->logs->setApp($this->dir_app)
 ->setEmail_re('')->setEmail('') //E-mail Remetene - E-mail destinatario
 ->setStatus('Enviado')->setMensagem('')->gravo_log_email_enviado();</pre>
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Exemplo Real</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>ENVIO E-MAIL</strong>{literal}
+
+//PEGO AS CONFIGURAÇÕES DO BANCO DE DADOS
+$this->core->includeControllerView('core',$this->dir_app); //Incluo arquivo coreController.php
+$controller_geral = new coreController();
+$configs_admin = $controller_geral->retorno_configs_admin();
+
+//DADOS
+$assunto  = "Assunto de teste";
+$mensagem = "Mensagem de teste";
+$emails   = array('teste@teste.com.br','teste@teste.com.br');
+
+//MONTO O E-MAIL
+$this->email->setConexoes('true');
+$this->email->setHost_smtp($configs_admin[0]['smtp_host']);
+$this->email->setUsername_smtp($configs_admin[0]['smtp_username']);
+$this->email->setSenha_smtp($configs_admin[0]['smtp_senha']);
+$this->email->setPorta_smtp($configs_admin[0]['smtp_porta']);
+$this->email->setTls_smtp($configs_admin[0]['smtp_tls']);
+$this->email->setEmail_from($configs_admin[0]['smtp_username']); //email remetente
+$this->email->setNome_remetente($_SESSION['adm_nome_user']); //nome remetente
+$this->email->setEmail_send($emails); //destinatario
+$this->email->setEmail_resposta($_SESSION['adm_email_user']); //email resposta
+$this->email->setNome_resposta($_SESSION['adm_nome_user']); //nome resposta
+$this->email->setAssunto($assunto); //Assunto
+$this->email->setConteudo($mensagem); //Conteúdo
+
+//ENVIO EMAIL
+$exec_email = $this->email->envio_email_phpmailer();
+if($exec_email != true){
+    for ($i=0; $i <count($emails) ; $i++) {
+        $this->logs->setApp($this->dir_app)
+        ->setEmail_re($configs_admin[0]['smtp_username'])->setEmail($emails[$i]) //E-mail Remetene - E-mail destinatario
+        ->setStatus('Erro no envio')->setMensagem($mensagem)->gravo_log_email_enviado();
+    }
+
+    //MOSTRO MENSAGEM DE ERRO
+    $this->funcoes->set_array(null,'erro','Erro ao enviar os E-mails!'); //Mensagem
+    echo json_encode($this->funcoes->get_array()); //Mostro na tela
+
+}else{
+    for ($i=0; $i <count($emails) ; $i++) {
+        $this->logs->setApp($this->dir_app)
+        ->setEmail_re($configs_admin[0]['smtp_username'])->setEmail($emails[$i]) //E-mail Remetene - E-mail destinatario
+        ->setStatus('Enviado')->setMensagem($mensagem)->gravo_log_email_enviado();
+    }
+
+    //MENSAGEM DE SUCESSO
+    $this->funcoes->set_array(null,'sucesso','E-mails enviados com sucesso!')->set_array(null,'limpo_campo','true'); // Mensagem de erro $id não é um array
+    echo json_encode($this->funcoes->get_array());
+}
+{/literal}</pre>
 
 
       </div>

@@ -25,6 +25,13 @@ require(['funcoes_gerais','config_modulo','config_mensagens'], function (funcoes
         feedback = new feedback();
     }); //feedback
 
+    //=================================================================
+    //CHAMO A LISTAGEM
+    require(['funcoes_geral'], function (geral) {
+        geral.listagem('');
+        //geral.listagem(''); //Outras listagens
+    });
+
   //OCULTO TELA DE CARREGANDO
   $('.fakeloader').fadeOut(200);
 

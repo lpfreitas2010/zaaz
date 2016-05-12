@@ -113,13 +113,3 @@
 .visible-print-inline-block {
 	display: none !important;
 }
-
-
-@media print {
-	.box-profile {
-		display: none;
-	}
-	img {
-		max-width: 100%;
-	}
-}

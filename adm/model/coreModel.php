@@ -41,6 +41,53 @@
 			}
 		}
 
+//***************************************************************************************************************************************************************
+//RETORNO TELEFONES UTILIZADOS NO SMS
+//***************************************************************************************************************************************************************
+		function retorno_telefones_utilizados(){
+
+			//MONTO O COMANDO
+			$this->setTable('adm_sms_enviados');
+			$this->setColuna('telefone');
+			$this->setWhere('adm_usuario_id = '.$_SESSION['adm_id_user'].'');
+			$this->setGroup('telefone'); // id ...
+			$exec = $this->Read();
+			$this->limpo_campos();
+			for($i=0;$i<count($exec);$i++){
+				$array[] = $exec[$i];
+			}
+
+			//RETORNO CAMPO OU ERRO
+			if(count($exec) >= 1){
+				return $array;
+			}else{
+				return $this->get_msgError();
+			}
+		}
+
+//***************************************************************************************************************************************************************
+//RETORNO EMAILS UTILIZADOS NO EMAILS
+//***************************************************************************************************************************************************************
+		function retorno_emails_utilizados(){
+
+			//MONTO O COMANDO
+			$this->setTable('adm_email_enviados');
+			$this->setColuna('email');
+			$this->setWhere('adm_usuario_id = '.$_SESSION['adm_id_user'].'');
+			$this->setGroup('email'); // id ...
+			$exec = $this->Read();
+			$this->limpo_campos();
+			for($i=0;$i<count($exec);$i++){
+				$array[] = $exec[$i];
+			}
+
+			//RETORNO CAMPO OU ERRO
+			if(count($exec) >= 1){
+				return $array;
+			}else{
+				return $this->get_msgError();
+			}
+		}
 
 //***************************************************************************************************************************************************************
 //RETORNO DADOS DO USUARIO

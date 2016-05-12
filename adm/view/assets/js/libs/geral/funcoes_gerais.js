@@ -72,6 +72,12 @@ define(['jquery'], function ($) {
 //***************************************************************************************************************************************************************
 
         //=================================================================
+        //JQUERY INPUT TAGS
+        require(['jQuery-Tags-Input-master'], function () {
+            $('.input_tags').tagsInput({width:'auto'});
+        });
+
+        //=================================================================
         //PEGO O LINK E REDIRECIONO
         redireciono_click();
         this.link_redirect = function () {
@@ -160,6 +166,9 @@ define(['jquery'], function ($) {
             $(".select_multiple").trigger("chosen:updated"); //limpo campo chosen
             $(".select_personalizado").trigger("chosen:updated"); //limpo campo chosen
             $("select").find('option:selected').removeAttr("selected"); //limpo campos select
+            require(['jQuery-Tags-Input-master'], function () {
+                $('.input_tags').importTags(''); //limpo campo tags input
+            });
             subir_topo(); //subo p/ o topo
         }
         this.limpa_form = function (campo,param) {

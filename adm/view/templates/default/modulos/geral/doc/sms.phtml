@@ -79,15 +79,63 @@ $id_array[]       = $sms->gero_id(); //Gravo em array o id{/literal}</pre>
 <strong>ENVIO SMS</strong>
 
 if($disparo == true){
-$sms->setMensagem($msg_list); //seto mensagem no helper
-$return = $sms->envia_sms(); //envio sms
+    $sms->setMensagem($msg_list); //seto mensagem no helper
+    $return = $sms->envia_sms(); //envio sms
 
-//GRAVO LOG SMS ARRAY
-for ($i=0; $i <count($id_array) ; $i++) {
-$this->logs->setApp($this->dir_app) //Pasta da aplicação
-->setId_sms($id_array[$i])->setTelefone($telefone_array[$i])->setStatus($return[$i])->setMensagem($mensagem_array[$i])->gravo_log_sms_enviado();
-}
+    //GRAVO LOG SMS ARRAY
+    for ($i=0; $i <count($id_array) ; $i++) {
+    $this->logs->setApp($this->dir_app) //Pasta da aplicação
+    ->setId_sms($id_array[$i])->setTelefone($telefone_array[$i])->setStatus($return[$i])->setMensagem($mensagem_array[$i])->gravo_log_sms_enviado();
+    }
 }</pre>
+
+<!-- ==================== -->
+<h3 class="p-t-20"><span class="text-uppercase">Exemplo Real</span> <code> Usar no Controller </code></h3>
+
+<pre>
+<strong>ENVIO SMS</strong>{literal}
+
+//INSTANCIO SMS
+$this->core->includeHelper('sms');
+$sms = new smsHelper();
+
+//PEGO AS CONFIGURAÇÕES DO BANCO DE DADOS
+$this->core->includeControllerView('core',$this->dir_app); //Incluo arquivo coreController.php
+$controller_geral = new coreController();
+$configs_admin = $controller_geral->retorno_configs_admin();
+
+//DADOS DE SMS
+$sms->setUsername($configs_admin[0]['sms_username']);
+$sms->setSenha($configs_admin[0]['sms_senha']);
+
+//TELEFONES
+$telefones = array('0350000000','0350000000');
+
+//FOR COM TELEFONES
+$msg_list = null;
+for ($i=0; $i <count($telefones) ; $i++) {
+        $telefone         = $sms->trato_num_telefone($telefones[$i]);
+        $id               = $sms->gero_id();
+        $mensagem         = 'Mensagem de teste';
+        $msg_list        .= "55{$telefone};{$mensagem};{$id}"."\n";
+        $disparo          = true;
+        $mensagem_array[] = $mensagem; //gravo em array
+        $telefone_array[] = $telefone; //gravo em array
+        $id_array[]       = $sms->gero_id(); //gravo em array
+}
+
+//DISPARO SMS
+if($disparo == true){
+    $sms->setMensagem($msg_list);
+    $return = $sms->envia_sms();
+
+    //GRAVO LOG SMS ARRAY ***
+    for ($i=0; $i <count($id_array) ; $i++) {
+        $this->logs->setApp($this->dir_app) //Pasta da aplicação
+        ->setId_sms($id_array[$i])->setTelefone($telefone_array[$i])->setStatus($return[$i])->setMensagem($mensagem_array[$i])->gravo_log_sms_enviado();
+    }
+}
+{/literal}</pre>
 
       </div>
 </div>

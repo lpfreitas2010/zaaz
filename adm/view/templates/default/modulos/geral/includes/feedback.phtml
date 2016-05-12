@@ -9,11 +9,11 @@
       <input type="hidden" name="cmd" id="cmd" value="{$cmd_add_feedback}">
 
       <!-- MONTO ÁREAS -->
-      <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 area_feedback hidden_area">
+      <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 area_feedback hidden_area" id="area_feedback">
         <div class="box box-primary box-solid">
                 <div class="box-header with-border area_feedback_titulo">
                     <div class='row'>
-                        <h3 class="box-title col-md-12"><i class="fa fa-bug"></i> Comunique um erro <a href="#" class="mostra_area pull-right" hide_area=".area_feedback"><i class="fa fa-times"></i> </a></h3>
+                        <h3 class="box-title col-md-12 f-s-24 m-b-5"><i class="fa fa-bug"></i> Comunique um erro <a href="#" class="mostra_area pull-right" hide_area="#area_feedback"><i class="fa fa-times"></i> </a></h3>
 
                     </div>
                 </div>
@@ -69,9 +69,10 @@
                         </div>
 
                         <!-- BTN DE SALVAR -->
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12 m-b-10 m-t-10">
                             <div class="form-group">
-                                <a href="javascript:void(0);" class="btn btn-success btn-fla btn_salvar_feedback"><i class="fa fa-paper-plane"></i> Enviar Mensagem </a>
+                                <a href="javascript:void(0);" class="btn btn-primary btn_salvar_feedback m-r-5"><i class="fa fa-paper-plane"></i> ENVIAR FEEDBACK </a>
+                                <a href="javascript:void(0);" class="btn btn-default mostra_area" hide_area="#area_feedback"><i class="fa fa-remove"></i> CANCELAR </a>
                             </div>
                         </div>
 

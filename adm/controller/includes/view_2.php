@@ -248,7 +248,7 @@
                         ->set_array(1,'btn_href',$interface['href_btn_novo'])
                         ->set_array(1,'btn_title',$this->btns_acoes['title_btn_novo'])
                         ->set_array(1,'btn_id','btn_adicionar')
-                        ->set_array(1,'btn_class','btn-dois btn-success mostra_area monta_dados_form limpo_id_editar')
+                        ->set_array(1,'btn_class','btn-dois btn-success mostra_area monta_dados_form limpo_id_editar f-s-16')
                         ->set_array(1,'btn_class_resp','mostra_area monta_dados_form limpo_id_editar')
                         ->set_array(1,'btn_class_icon',$interface['class_icone_novo'])
                         ->set_array(1,'btn_outros','limpar_campos_form="form_add_edd" hide_area="#area_btns_acoes" show_area2="#area_btns_status_acoes_forms" hide_area2="#area_listagem" hide_area3="#area-editar" hide_area4=".area-geral-listagem" show_area3="#area-adicionar" show_area4="#btn_salvar_novo_form" show_area5="#area_formulario"');
@@ -257,7 +257,7 @@
                         ->set_array(2,'btn_href','javascript:void(0);')
                         ->set_array(2,'btn_title',$this->btns_acoes['title_btn_editar'])
                         ->set_array(2,'btn_id','btn_editar')
-                        ->set_array(2,'btn_class','btn-dois btn-default2 mostra_area btn_editar hidden_area list_op1')
+                        ->set_array(2,'btn_class','btn-dois btn-default2 mostra_area btn_editar hidden_area list_op1 f-s-16')
                         ->set_array(2,'btn_class_resp','mostra_area btn_editar hidden_area list_op1')
                         ->set_array(2,'btn_hidden_resp','hidden_area list_op1')
                         ->set_array(2,'btn_class_icon',$interface['class_icone_editar'])
@@ -268,7 +268,7 @@
                         ->set_array(3,'btn_title',$this->btns_acoes['title_btn_excluir'])
                         ->set_array(3,'btn_id','btn_excluir_check')
                         ->set_array(3,'btn_id_resp','btn_excluir_check_resp')
-                        ->set_array(3,'btn_class','btn-dois btn-default2 hidden_area list_op2')
+                        ->set_array(3,'btn_class','btn-dois btn-default2 hidden_area list_op2 f-s-16')
                         ->set_array(3,'btn_class_resp','hidden_area list_op2')
                         ->set_array(3,'btn_hidden_resp','hidden_area list_op2')
                         ->set_array(3,'btn_class_icon',$interface['class_icone_excluir'])
@@ -278,7 +278,7 @@
                         ->set_array(4,'btn_href','javascript:void(0);')
                         ->set_array(4,'btn_title',$this->btns_acoes['title_btn_detalhamento'])
                         ->set_array(4,'btn_id','btn_detalhamento')
-                        ->set_array(4,'btn_class','btn-dois btn-default2 btn_detalhamento hidden_area list_op1')
+                        ->set_array(4,'btn_class','btn-dois btn-default2 btn_detalhamento hidden_area list_op1 f-s-16')
                         ->set_array(4,'btn_class_resp','btn_detalhamento hidden_area list_op1')
                         ->set_array(4,'btn_hidden_resp','hidden_area list_op1')
                         ->set_array(4,'btn_class_icon',$interface['class_icone_detalhamento']);
@@ -288,7 +288,7 @@
                         ->set_array(5,'btn_title',$this->btns_acoes['title_btn_ativar'])
                         ->set_array(5,'btn_id','btn_ativar_check')
                         ->set_array(5,'btn_id_resp','btn_ativar_check_resp')
-                        ->set_array(5,'btn_class','btn-dois btn-default2 hidden_area list_op2')
+                        ->set_array(5,'btn_class','btn-dois btn-default2 hidden_area list_op2 f-s-16')
                         ->set_array(5,'btn_class_resp','hidden_area list_op2')
                         ->set_array(5,'btn_hidden_resp','hidden_area list_op2')
                         ->set_array(5,'btn_class_icon',$interface['class_icone_ativar'])
@@ -299,7 +299,7 @@
                         ->set_array(6,'btn_title',$this->btns_acoes['title_btn_desativar'])
                         ->set_array(6,'btn_id','btn_ativar_check2')
                         ->set_array(6,'btn_id_resp','btn_ativar_check2_resp')
-                        ->set_array(6,'btn_class','btn-dois btn-default2 hidden_area list_op2')
+                        ->set_array(6,'btn_class','btn-dois btn-default2 hidden_area list_op2 f-s-16')
                         ->set_array(6,'btn_class_resp','hidden_area list_op2')
                         ->set_array(6,'btn_hidden_resp','hidden_area list_op2')
                         ->set_array(6,'btn_class_icon',$interface['class_icone_desativar'])
@@ -310,7 +310,7 @@
                         ->set_array(11,'btn_title',$this->btns_acoes['title_btn_excluir_tudo'])
                         ->set_array(11,'btn_id','btn_excluir_tudo')
                         ->set_array(11,'btn_id_resp','btn_excluir_tudo2')
-                        ->set_array(11,'btn_class','btn-dois btn-danger')
+                        ->set_array(11,'btn_class','btn-dois btn-default2 f-s-16')
                         ->set_array(11,'btn_class_resp','')
                         ->set_array(11,'btn_hidden_resp','')
                         ->set_array(11,'btn_class_icon',$this->btns_acoes['class_icone_excluir_tudo'])
@@ -319,14 +319,14 @@
                         ->set_array(10,'btn_texto',$this->btns_acoes['txt_btn_atualizar'])
                         ->set_array(10,'btn_href',$path_parametro)
                         ->set_array(10,'btn_title',$this->btns_acoes['title_btn_atualizar'])
-                        ->set_array(10,'btn_class','btn-dois pull-right btn-transparente')
+                        ->set_array(10,'btn_class','btn-dois pull-right btn-transparente f-s-18')
                         ->set_array(10,'btn_class_resp','')
                         ->set_array(10,'btn_class_icon',$interface['class_icone_atualizar']);
         $this->funcoes->set_array(7,'btn_status',$interface['status_imprimir'])
                         ->set_array(7,'btn_texto',$this->btns_acoes['txt_btn_imprimir'])
                         ->set_array(7,'btn_href','javascript:void(0);')
                         ->set_array(7,'btn_title',$this->btns_acoes['title_btn_imprimir'])
-                        ->set_array(7,'btn_class','btn-dois pull-right btn-transparente mostra_area')
+                        ->set_array(7,'btn_class','btn-dois pull-right btn-transparente mostra_area f-s-18')
                         ->set_array(7,'btn_class_resp','mostra_area')
                         ->set_array(7,'btn_class_icon',$interface['class_icone_imprimir'])
                         ->set_array(7,'btn_outros','topo="true" hide_area=".area_boxes_pers" show_area="#area_imprimir"');
@@ -334,7 +334,7 @@
                         ->set_array(9,'btn_texto',$this->btns_acoes['txt_btn_csv'])
                         ->set_array(9,'btn_href',$this->cmds['action_exp_csv'])
                         ->set_array(9,'btn_title',$this->btns_acoes['title_btn_csv'])
-                        ->set_array(9,'btn_class','btn-dois pull-right btn-transparente')
+                        ->set_array(9,'btn_class','btn-dois pull-right btn-transparente f-s-18')
                         ->set_array(9,'btn_class_resp','')
                         ->set_array(9,'btn_class_icon',$interface['class_icone_exp_csv'])
                         ->set_array(9,'btn_target','_blank') // Target do botão
@@ -343,7 +343,7 @@
                         ->set_array(8,'btn_texto',$this->btns_acoes['txt_btn_pdf'])
                         ->set_array(8,'btn_href','javascript:void(0);')
                         ->set_array(8,'btn_title',$this->btns_acoes['title_btn_pdf'])
-                        ->set_array(8,'btn_class','btn-dois pull-right btn-transparente mostra_area')
+                        ->set_array(8,'btn_class','btn-dois pull-right btn-transparente mostra_area f-s-18')
                         ->set_array(8,'btn_class_resp','mostra_area')
                         ->set_array(8,'btn_class_icon',$interface['class_icone_exp_pdf'])
                         ->set_array(8,'btn_outros','topo="true" hide_area=".area_boxes_pers" show_area="#area_exp_pdf"');
@@ -353,7 +353,7 @@
         //ICONE SALVAR
         $icon_salvar_ = $this->btns_acoes['class_icone_salvar'];
         if(empty($icon_salvar_)){
-            $icon_salvar = 'fa fa-save';
+            $icon_salvar = 'glyphicon glyphicon-floppy-disk';
         }else{
             $icon_salvar = $icon_salvar_;
         }
@@ -376,7 +376,7 @@
                         ->set_array(4,'btn_id','btn_salvar_novo_form')
                         ->set_array(4,'btn_class','btn-dois btn-default2 btn_salvar_novo_form')
                         ->set_array(4,'btn_class_resp','btn_salvar_novo_form')
-                        ->set_array(4,'btn_class_icon','fa fa-save')
+                        ->set_array(4,'btn_class_icon','glyphicon glyphicon-floppy-disk')
                         ->set_array(4,'btn_outros','');
         $this->funcoes->set_array(3,'btn_status',$interface['status_btn_salvar_fechar'])
                         ->set_array(3,'btn_texto',$this->btns_acoes['txt_btn_salvar_fechar'])
@@ -385,7 +385,7 @@
                         ->set_array(3,'btn_id','btn_salvar_fechar_form')
                         ->set_array(3,'btn_class','btn-dois btn-default2 btn_salvar_fechar_form')
                         ->set_array(3,'btn_class_resp','btn_salvar_fechar_form')
-                        ->set_array(3,'btn_class_icon','fa fa-save')
+                        ->set_array(3,'btn_class_icon','glyphicon glyphicon-floppy-disk')
                         ->set_array(3,'btn_outros','');
         $this->funcoes->set_array(2,'btn_status',$interface['status_btn_fechar'])
                         ->set_array(2,'btn_texto',$this->btns_acoes['txt_btn_fechar'])
@@ -394,13 +394,13 @@
                         ->set_array(2,'btn_id','')
                         ->set_array(2,'btn_class','btn-dois btn-default2 right-force mostra_area limpo_form_add_edd')
                         ->set_array(2,'btn_class_resp','mostra_area limpo_form_add_edd')
-                        ->set_array(2,'btn_class_icon','fa fa-times-circle')
+                        ->set_array(2,'btn_class_icon','fa fa-times')
                         ->set_array(2,'btn_outros','show_area="#area_listagem" show_area2="#area_btns_acoes" hide_area="#area_formulario" hide_area2="#area_btns_status_acoes_forms"');
         $this->funcoes->set_array(10,'btn_status',$interface['status_btn_atualizar'])
                         ->set_array(10,'btn_texto',$this->btns_acoes['txt_btn_atualizar'])
                         ->set_array(10,'btn_href','javascript:void(0);')
                         ->set_array(10,'btn_title',$this->btns_acoes['title_btn_atualizar'])
-                        ->set_array(10,'btn_class','btn-dois pull-right btn-transparente monta_dados_form')
+                        ->set_array(10,'btn_class','btn-dois pull-right btn-transparente monta_dados_form f-s-18')
                         ->set_array(10,'btn_class_resp','monta_dados_form')
                         ->set_array(10,'btn_class_icon',$interface['class_icone_atualizar']);
         $interface['btns_opcoes_acoes_forms'] = $this->funcoes->get_array(); // Seto o array na view [Array]
@@ -442,5 +442,3 @@
         //OUTROS
         $interface['foco_campo_form_add_edd'] = $this->btns_acoes['foco_campo_form'];
         $interface['status_menu_lateral']     = $this->btns_acoes['status_menu_lateral'];
-
-    

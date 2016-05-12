@@ -27,6 +27,10 @@ function carrego_parametros(){
   $this->btns_acoes['foco_campo_form'] = "campo_id"; // Foco campo form add e edd
 
   //===========================================================
+  //CAMPOS DEFAULT
+  require $this->core->includeControllerInclude("carrego_parametros_0", $this->dir_app);
+
+  //===========================================================
   //TEXTOS GERAIS ****-
   $this->btns_acoes['txt_ativar_pret_sing']      = "Ativado"; // Texto do btn de ativar no preterito singular
   $this->btns_acoes['txt_desativar_pret_sing']   = "Desativado"; // Texto do btn de ativar no preterito singular

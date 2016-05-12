@@ -370,4 +370,24 @@
 			}
 		}
 
+
+//***************************************************************************************************************************************************************
+//RETORNO ASSINATURA DO USUARIO
+//***************************************************************************************************************************************************************
+		function retorno_assinatura_usuario(){
+			$this->setTable('adm_usuario'); // Tabela
+			$this->setColuna('assinatura_email');
+			$this->setWhere("id = ".$_SESSION['adm_id_user'].""); // Where ****-
+			$exec = $this->Read();
+			$this->limpo_campos();
+			for($i=0;$i<count($exec);$i++){
+				$string = $exec[$i]['assinatura_email'];
+			}
+			if(count($exec) >= 1){
+				return $string;
+			}else{
+				return false;
+			}
+		}
+
 }

@@ -135,6 +135,10 @@
     $interface['cargo_id']                  = $_SESSION['adm_id_cargo'];
     $interface['action_controller_feedback'] = $this->funcoes->monto_path_controller_comp($this->dir_app,'adm_feedback'); //contrtoller feed back
     $interface['cmd_add_feedback']           = $this->config_apps->getCmds_controller('core',1); //cmd de add e editar feedback
+    $interface['action_emails_enviados']     = $this->funcoes->monto_path_controller_comp($this->dir_app,'adm_emails_enviados'); //contrtoller
+    $interface['cmd_emails_enviados']        = $this->config_apps->getCmds_controller('core',15);
+    $interface['action_sms_enviados']        = $this->funcoes->monto_path_controller_comp($this->dir_app,'adm_sms_enviados'); //contrtoller
+    $interface['cmd_sms_enviados']           = $this->config_apps->getCmds_controller('core',15);
 
     //===========================================================
     //OUTROS PARAMETROS
@@ -148,6 +152,10 @@
         //=============================================-==============
         //PEGO OS TOTAL DE REGISTROS USADOS NO MENU
         $interface['total_registros_menu'] = $controller_geral->retorno_array_total_reg_menu();
+
+        //PEGO O ARRAY COM OS EMAILS E TELEFONES UTILIZADOS
+        $interface['telefones_sms'] = $controller_geral->retorno_telefones_utilizados();
+        $interface['emails_email']  = $controller_geral->retorno_emails_utilizados();
 
         //===========================================================
         //EXECUTO FUNÇÕES GERAIS DO CORE
