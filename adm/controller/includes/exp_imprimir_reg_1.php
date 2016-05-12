@@ -99,10 +99,9 @@
             //COMANDO PARA EXPORTAR PDF
             $mpdf->SetDisplayMode('fullpage');
 			$css = file_get_contents('');
-			$css .= file_get_contents('../view/assets/css/AdminLTE.css');
-			$css .= file_get_contents('../view/assets/css/pdf.css');
-			$css .= file_get_contents('../view/assets/css/font-awesome.css');
-			$css .= file_get_contents('../view/assets/css/ionicons.css');
+            $css .= file_get_contents('../view/assets/css/theme.css');
+            $css .= file_get_contents('../view/assets/css/pdf.css');
+            $css .= file_get_contents('../view/assets/css/font-awesome.css');
 			$mpdf->WriteHTML($css,1);
             $mpdf->WriteHTML($view->retorno_template_php('modulos/geral/pdf/pdf_'.$this->url_pagina.'.phtml'));
             $mpdf->Output();
