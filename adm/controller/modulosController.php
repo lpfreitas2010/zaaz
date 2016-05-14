@@ -158,7 +158,7 @@ class modulosController {
 		
 			//===========================================================
 			//CLASSE DE ICONES DE BTNS DE AÇÕES ****-
-
+ 			$this->btns_acoes['class_icone_listagem']     = "fa fa-lock"; // Classe do icone da listagem
 
 			//===========================================================
 			//ACTION E CMDS DO CONTROLLER ****-

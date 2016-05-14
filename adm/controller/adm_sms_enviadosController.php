@@ -110,7 +110,7 @@ class adm_sms_enviadosController {
 			$this->adm_usuario_modulo_id         = 3; //Id do módulo
             $this->url_pagina                    = "adm_sms_enviados"; //Url da página
             $this->nome_pagina_singular          = "SMS"; // Nome da página singular
-            $this->nome_pagina_plural            = "Admin SMS Enviados"; // Nome da página plural
+            $this->nome_pagina_plural            = "SMS Enviados"; // Nome da página plural
             $this->btns_acoes['foco_campo_form'] = "testee"; // Foco campo form add e edd
 
 			//===========================================================

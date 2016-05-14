@@ -109,7 +109,7 @@ class usuariosController {
 			$this->adm_usuario_modulo_id         = 2; //Id do módulo
             $this->url_pagina                    = "usuarios"; //Url da página
             $this->nome_pagina_singular          = "Usuário"; // Nome da página singular
-            $this->nome_pagina_plural            = "Admin Usuários"; // Nome da página plural
+            $this->nome_pagina_plural            = "Usuários"; // Nome da página plural
             $this->btns_acoes['foco_campo_form'] = "nome"; // Foco campo form add e edd
 
 			//===========================================================

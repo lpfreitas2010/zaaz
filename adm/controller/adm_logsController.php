@@ -110,7 +110,7 @@ class adm_logsController {
 			$this->adm_usuario_modulo_id         = 3; //Id do módulo
             $this->url_pagina                    = "adm_logs"; //Url da página
             $this->nome_pagina_singular          = "Log"; // Nome da página singular
-            $this->nome_pagina_plural            = "Admin Logs"; // Nome da página plural
+            $this->nome_pagina_plural            = "Logs dos Usuários"; // Nome da página plural
             $this->btns_acoes['foco_campo_form'] = "testee"; // Foco campo form add e edd
 
 			//===========================================================

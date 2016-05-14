@@ -109,8 +109,8 @@ class adm_configuracoesController {
 			//PARAMETROS GERAIS ****-
 			$this->adm_usuario_modulo_id         = 1; //Id do módulo
             $this->url_pagina                    = "adm_configuracoes"; //Url da página
-            $this->nome_pagina_singular          = "Admin Configurações"; // Nome da página singular
-            $this->nome_pagina_plural            = "Admin Configurações"; // Nome da página plural
+            $this->nome_pagina_singular          = "Configurações Gerais"; // Nome da página singular
+            $this->nome_pagina_plural            = "Configurações"; // Nome da página plural
             $this->btns_acoes['foco_campo_form'] = "smtp_host"; // Foco campo form add e edd
 
 			//===========================================================
@@ -569,15 +569,15 @@ class adm_configuracoesController {
 				$mont_html->set_array(0,'icone_titulo','fa fa-envelope'); // Classe icone - Font Awesome Icons
 				$mont_html->set_array(0,'class_area',''); // Ocultar e mostrar uma área com um select: select_chang_show_hide_areas e area_sh_(value do option)
 				$mont_html->set_array(0,'conteudo'," {$host_smtp} {$username_smtp} {$senha_smtp} {$sms_porta} {$smtp_tls} {$smtp_debug} {$nome_empresa_email} {$email_principal} {$email_assinatura} "); //conteudo ***
-				$mont_html->set_array(1,'titulo','Configurações do Zenvia SMS');
+				$mont_html->set_array(1,'titulo','Configurações do Gateway de SMS - Zenvia');
 				$mont_html->set_array(1,'icone_titulo','fa fa-lg fa-mobile'); // Classe icone - Font Awesome Icons
 				$mont_html->set_array(1,'class_area',''); // Ocultar e mostrar uma área com um select: select_chang_show_hide_areas e area_sh_(value do option)
 				$mont_html->set_array(1,'conteudo'," {$sms_username} {$sms_senha}  {$nome_empresa_sms} {$telefone_principal}"); //conteudo ***
-				$mont_html->set_array(2,'titulo','Configurações do Painel');
+				$mont_html->set_array(2,'titulo','Configurações do Painel Administrativo');
 				$mont_html->set_array(2,'icone_titulo','fa fa-cog'); // Classe icone - Font Awesome Icons
 				$mont_html->set_array(2,'class_area',''); // Ocultar e mostrar uma área com um select: select_chang_show_hide_areas e area_sh_(value do option)
 				$mont_html->set_array(2,'conteudo'," {$nome_logo_admin} {$versao_aplicacao} {$modo_sistema} "); //conteudo ***
-				$mont_html->set_array(3,'titulo','Imagem de Fundo');
+				$mont_html->set_array(3,'titulo','Imagem de Fundo Geral Administrativo');
 				$mont_html->set_array(3,'icone_titulo','fa fa-camera'); // Classe icone - Font Awesome Icons
 				$mont_html->set_array(3,'class_area',''); // Ocultar e mostrar uma área com um select: select_chang_show_hide_areas e area_sh_(value do option)
 				$mont_html->set_array(3,'conteudo'," {$input_file} {$listagem_arquivos}"); //conteudo ***
@@ -1369,7 +1369,7 @@ class adm_configuracoesController {
 			if($this->model->retorn_campo_editar_val_id('img_fundo_login') == ''){
 				if($this->model->retorn_campo_editar('img_fundo_login', '') == ''){
 					if (empty($img_fundo_login['tmp_name'])) {
-						$this->funcoes->set_array(null,'erro','Selecione uma imagem de fundo do login.'); // Mensagem de erro
+						$this->funcoes->set_array(null,'erro','Selecione uma imagem de fundo geral.'); // Mensagem de erro
 						echo json_encode($this->funcoes->get_array());
 						exit();
 					}
@@ -1388,7 +1388,7 @@ class adm_configuracoesController {
 			//RETORNO ARRAY COM ERROS
 			$erro_upload = $upload->getMsg_erro();
 			if (!empty($erro_upload)) {
-				$this->funcoes->set_array(null,'erro','<b>Imagem de fundo do Login</b> <br />'.$this->funcoes->get_errors_inline($erro_upload)); // Mensagem de erro
+				$this->funcoes->set_array(null,'erro','<b>Imagem de fundo geral</b> <br />'.$this->funcoes->get_errors_inline($erro_upload)); // Mensagem de erro
 				echo json_encode($this->funcoes->get_array());
 				exit();
 			}

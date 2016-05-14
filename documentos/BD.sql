@@ -1,12 +1,13 @@
-﻿-- --------------------------------------------------------
+-- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
--- Versão do servidor:           5.6.26 - MySQL Community Server (GPL)
+-- Versão do servidor:           10.1.10-MariaDB - mariadb.org binary distribution
 -- OS do Servidor:               Win32
--- HeidiSQL Versão:              9.3.0.5023
+-- HeidiSQL Versão:              9.3.0.5062
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
@@ -31,22 +32,26 @@ CREATE TABLE IF NOT EXISTS `adm_configuracoes` (
   `tema_admin` varchar(50) NOT NULL,
   `img_fundo_login` varchar(100) NOT NULL,
   `modo_sistema` varchar(100) NOT NULL,
+  `notif_user_erro_email` varchar(250) NOT NULL,
+  `notif_user_erro_sms` varchar(250) NOT NULL,
+  `notif_user_feedbacks` varchar(250) NOT NULL,
+  `notif_user_backups` varchar(250) NOT NULL,
   `modificado` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela zaaz.adm_configuracoes: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela zaaz.adm_configuracoes: ~1 rows (aproximadamente)
 DELETE FROM `adm_configuracoes`;
 /*!40000 ALTER TABLE `adm_configuracoes` DISABLE KEYS */;
-INSERT INTO `adm_configuracoes` (`id`, `smtp_nome`, `smtp_host`, `smtp_username`, `smtp_senha`, `smtp_porta`, `smtp_tls`, `smtp_debug`, `email_principal`, `email_assinatura`, `sms_nome`, `sms_username`, `sms_senha`, `telefone_principal`, `versao_aplicacao`, `nome_logo_admin`, `tema_admin`, `img_fundo_login`, `modo_sistema`, `modificado`) VALUES
-	(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '1.0.0', 'Zaaz Framework', '', '', 'Modo de Desenvolvimento', '0000-00-00 00:00:00');
+INSERT INTO `adm_configuracoes` (`id`, `smtp_nome`, `smtp_host`, `smtp_username`, `smtp_senha`, `smtp_porta`, `smtp_tls`, `smtp_debug`, `email_principal`, `email_assinatura`, `sms_nome`, `sms_username`, `sms_senha`, `telefone_principal`, `versao_aplicacao`, `nome_logo_admin`, `tema_admin`, `img_fundo_login`, `modo_sistema`, `notif_user_erro_email`, `notif_user_erro_sms`, `notif_user_feedbacks`, `notif_user_backups`, `modificado`) VALUES
+	(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '1.0.0', 'Zaaz Framework', '', '', 'Modo de Desenvolvimento', '', '', '', '', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `adm_configuracoes` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_email_enviados
 CREATE TABLE IF NOT EXISTS `adm_email_enviados` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `adm_usuario_id` int(11) NOT NULL,
+  `app` varchar(100) NOT NULL DEFAULT 'adm',
   `email_re` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `mensagem` text NOT NULL,
@@ -66,7 +71,6 @@ CREATE TABLE IF NOT EXISTS `adm_email_enviados` (
 DELETE FROM `adm_email_enviados`;
 /*!40000 ALTER TABLE `adm_email_enviados` DISABLE KEYS */;
 /*!40000 ALTER TABLE `adm_email_enviados` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_feedback
 CREATE TABLE IF NOT EXISTS `adm_feedback` (
@@ -90,7 +94,6 @@ DELETE FROM `adm_feedback`;
 /*!40000 ALTER TABLE `adm_feedback` DISABLE KEYS */;
 /*!40000 ALTER TABLE `adm_feedback` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_feedback_imagens
 CREATE TABLE IF NOT EXISTS `adm_feedback_imagens` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
@@ -108,11 +111,11 @@ DELETE FROM `adm_feedback_imagens`;
 /*!40000 ALTER TABLE `adm_feedback_imagens` DISABLE KEYS */;
 /*!40000 ALTER TABLE `adm_feedback_imagens` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_sms_enviados
 CREATE TABLE IF NOT EXISTS `adm_sms_enviados` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `adm_usuario_id` int(11) NOT NULL,
+  `app` varchar(100) NOT NULL DEFAULT 'adm',
   `id_sms` varchar(100) NOT NULL,
   `telefone` varchar(20) NOT NULL,
   `mensagem` varchar(150) NOT NULL,
@@ -133,10 +136,10 @@ DELETE FROM `adm_sms_enviados`;
 /*!40000 ALTER TABLE `adm_sms_enviados` DISABLE KEYS */;
 /*!40000 ALTER TABLE `adm_sms_enviados` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_usuario
 CREATE TABLE IF NOT EXISTS `adm_usuario` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
+  `app` varchar(100) NOT NULL DEFAULT 'adm',
   `codigo` varchar(250) NOT NULL,
   `nome` varchar(250) NOT NULL,
   `sobrenome` varchar(250) NOT NULL,
@@ -157,11 +160,10 @@ CREATE TABLE IF NOT EXISTS `adm_usuario` (
 -- Copiando dados para a tabela zaaz.adm_usuario: ~2 rows (aproximadamente)
 DELETE FROM `adm_usuario`;
 /*!40000 ALTER TABLE `adm_usuario` DISABLE KEYS */;
-INSERT INTO `adm_usuario` (`id`, `codigo`, `nome`, `sobrenome`, `sexo`, `data_nascimento`, `telefone`, `telefone2`, `email`, `email2`, `email_notificacoes`, `img_perfil`, `assinatura_email`, `modificado`, `criado`) VALUES
-	(1, '', 'Padrão', '', '', '0000-00-00', '', '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-	(2, '', 'Desenvolvedor', '', 'Masculino', '1969-12-31', '', '', '', '', 'desenvolvedor@email.com', '', '', '2016-04-23 13:20:22', '0000-00-00 00:00:00');
+INSERT INTO `adm_usuario` (`id`, `app`, `codigo`, `nome`, `sobrenome`, `sexo`, `data_nascimento`, `telefone`, `telefone2`, `email`, `email2`, `email_notificacoes`, `img_perfil`, `assinatura_email`, `modificado`, `criado`) VALUES
+	(1, 'adm', '', 'Padrão', '', '', '0000-00-00', '', '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(2, 'adm', '', 'Desenvolvedor', '', 'Masculino', '1969-12-31', '', '', '', '', 'desenvolvedor@email.com', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `adm_usuario` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_usuario_auth
 CREATE TABLE IF NOT EXISTS `adm_usuario_auth` (
@@ -189,13 +191,12 @@ CREATE TABLE IF NOT EXISTS `adm_usuario_auth` (
   CONSTRAINT `fk_adm_usuario_auth_adm_usuario1` FOREIGN KEY (`adm_usuario_id`) REFERENCES `adm_usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela zaaz.adm_usuario_auth: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela zaaz.adm_usuario_auth: ~1 rows (aproximadamente)
 DELETE FROM `adm_usuario_auth`;
 /*!40000 ALTER TABLE `adm_usuario_auth` DISABLE KEYS */;
 INSERT INTO `adm_usuario_auth` (`id`, `adm_usuario_id`, `status_id`, `token`, `force_senha`, `username`, `usertelefone`, `useremail`, `senha`, `senha_antiga`, `ultimo_acesso`, `ultima_mod_senha`, `ultima_mod_username`, `modificado`, `criado`) VALUES
-	(1, 2, 1, '', '', 'desenvolvedor', '', 'desenvolvedor@email.com', 'bc7537585f06e7ccf6ed3e2a7e6c8b11', '', '2016-04-23 16:26:14', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(1, 2, 1, '', '', 'desenvolvedor', '', 'desenvolvedor@email.com', 'bc7537585f06e7ccf6ed3e2a7e6c8b11', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `adm_usuario_auth` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_usuario_endereco
 CREATE TABLE IF NOT EXISTS `adm_usuario_endereco` (
@@ -220,19 +221,18 @@ CREATE TABLE IF NOT EXISTS `adm_usuario_endereco` (
   CONSTRAINT `fk_adm_usuario_endereco_estado1` FOREIGN KEY (`estado_id`) REFERENCES `local_estado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela zaaz.adm_usuario_endereco: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela zaaz.adm_usuario_endereco: ~1 rows (aproximadamente)
 DELETE FROM `adm_usuario_endereco`;
 /*!40000 ALTER TABLE `adm_usuario_endereco` DISABLE KEYS */;
 INSERT INTO `adm_usuario_endereco` (`id`, `adm_usuario_id`, `estado_id`, `cidade_id`, `logradouro`, `numero`, `complemento`, `bairro`, `CEP`, `referencia`, `modificado`, `criado`) VALUES
 	(1, 2, 11, 3574, '', 0, '', '', '', '', '2016-04-23 13:20:22', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `adm_usuario_endereco` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_usuario_logs
 CREATE TABLE IF NOT EXISTS `adm_usuario_logs` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `adm_usuario_id` int(20) NOT NULL,
-  `app` varchar(100) NOT NULL,
+  `app` varchar(100) NOT NULL DEFAULT 'adm',
   `url` varchar(200) NOT NULL,
   `pagina` varchar(200) NOT NULL,
   `acao` text NOT NULL,
@@ -252,11 +252,11 @@ DELETE FROM `adm_usuario_logs`;
 /*!40000 ALTER TABLE `adm_usuario_logs` DISABLE KEYS */;
 /*!40000 ALTER TABLE `adm_usuario_logs` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_usuario_logs_acesso
 CREATE TABLE IF NOT EXISTS `adm_usuario_logs_acesso` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `adm_usuario_id` int(20) NOT NULL,
+  `app` varchar(100) NOT NULL DEFAULT 'adm',
   `hora` datetime NOT NULL,
   `acao` varchar(20) NOT NULL,
   `IP` varchar(20) NOT NULL,
@@ -274,7 +274,6 @@ CREATE TABLE IF NOT EXISTS `adm_usuario_logs_acesso` (
 DELETE FROM `adm_usuario_logs_acesso`;
 /*!40000 ALTER TABLE `adm_usuario_logs_acesso` DISABLE KEYS */;
 /*!40000 ALTER TABLE `adm_usuario_logs_acesso` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_usuario_modulo
 CREATE TABLE IF NOT EXISTS `adm_usuario_modulo` (
@@ -297,7 +296,6 @@ INSERT INTO `adm_usuario_modulo` (`id`, `modulo`, `descricao`, `modificado`, `cr
 	(5, 'Admin Usuários Restrições', 'Página: Restrições Usuários', '2016-02-26 10:15:05', '2016-02-16 16:44:16'),
 	(6, 'Padrão Admin', 'Página: Notificações e Feedback', '2016-04-22 12:21:41', '2016-02-17 08:15:13');
 /*!40000 ALTER TABLE `adm_usuario_modulo` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_usuario_modulo_opcoes
 CREATE TABLE IF NOT EXISTS `adm_usuario_modulo_opcoes` (
@@ -437,7 +435,6 @@ INSERT INTO `adm_usuario_modulo_opcoes` (`id`, `adm_usuario_id`, `adm_usuario_mo
 	(1126, 2, 6, 19, 1, '2016-03-11 10:44:55', '2016-03-09 08:50:10');
 /*!40000 ALTER TABLE `adm_usuario_modulo_opcoes` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_usuario_modulo_opcoes_default
 CREATE TABLE IF NOT EXISTS `adm_usuario_modulo_opcoes_default` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
@@ -573,7 +570,6 @@ INSERT INTO `adm_usuario_modulo_opcoes_default` (`id`, `adm_usuario_modulo_id`, 
 	(365, 6, 19, 0, '0000-00-00 00:00:00', '2016-03-09 08:50:09');
 /*!40000 ALTER TABLE `adm_usuario_modulo_opcoes_default` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_usuario_nivel
 CREATE TABLE IF NOT EXISTS `adm_usuario_nivel` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
@@ -595,7 +591,6 @@ INSERT INTO `adm_usuario_nivel` (`id`, `nivel`, `nome_logo_admin`, `tema_admin`,
 	(4, 'Operacional', 'Zaaz Operacional', 'skin-blue', '2016-04-21 14:09:40', '2016-04-21 07:53:09');
 /*!40000 ALTER TABLE `adm_usuario_nivel` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_usuario_nivel_usuario
 CREATE TABLE IF NOT EXISTS `adm_usuario_nivel_usuario` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
@@ -610,13 +605,12 @@ CREATE TABLE IF NOT EXISTS `adm_usuario_nivel_usuario` (
   CONSTRAINT `FK_adm_usuario_nivel_usuario_adm_usuario_nivel` FOREIGN KEY (`adm_usuario_nivel_id`) REFERENCES `adm_usuario_nivel` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela zaaz.adm_usuario_nivel_usuario: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela zaaz.adm_usuario_nivel_usuario: ~1 rows (aproximadamente)
 DELETE FROM `adm_usuario_nivel_usuario`;
 /*!40000 ALTER TABLE `adm_usuario_nivel_usuario` DISABLE KEYS */;
 INSERT INTO `adm_usuario_nivel_usuario` (`id`, `adm_usuario_id`, `adm_usuario_nivel_id`, `modificado`, `criado`) VALUES
 	(34, 2, 1, '0000-00-00 00:00:00', '2016-02-16 10:18:57');
 /*!40000 ALTER TABLE `adm_usuario_nivel_usuario` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_usuario_notificaoes
 CREATE TABLE IF NOT EXISTS `adm_usuario_notificaoes` (
@@ -635,13 +629,12 @@ CREATE TABLE IF NOT EXISTS `adm_usuario_notificaoes` (
   KEY `fk_adm_usuario_notificaoes_config_status1_idx` (`status_id`),
   CONSTRAINT `fk_adm_usuario_notificaoes_adm_usuario1` FOREIGN KEY (`adm_usuario_id`) REFERENCES `adm_usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_adm_usuario_notificaoes_config_status1` FOREIGN KEY (`status_id`) REFERENCES `config_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela zaaz.adm_usuario_notificaoes: ~0 rows (aproximadamente)
 DELETE FROM `adm_usuario_notificaoes`;
 /*!40000 ALTER TABLE `adm_usuario_notificaoes` DISABLE KEYS */;
 /*!40000 ALTER TABLE `adm_usuario_notificaoes` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_usuario_online
 CREATE TABLE IF NOT EXISTS `adm_usuario_online` (
@@ -658,13 +651,14 @@ CREATE TABLE IF NOT EXISTS `adm_usuario_online` (
   UNIQUE KEY `adm_usuario_id_UNIQUE` (`adm_usuario_id`),
   KEY `fk_adm_usuario_online_adm_usuario1_idx` (`adm_usuario_id`),
   CONSTRAINT `fk_adm_usuario_online_adm_usuario1` FOREIGN KEY (`adm_usuario_id`) REFERENCES `adm_usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela zaaz.adm_usuario_online: ~0 rows (aproximadamente)
 DELETE FROM `adm_usuario_online`;
 /*!40000 ALTER TABLE `adm_usuario_online` DISABLE KEYS */;
+INSERT INTO `adm_usuario_online` (`id`, `adm_usuario_id`, `hora`, `IP`, `SO`, `navegador`, `idioma`, `modificado`, `criado`) VALUES
+	(2, 2, '2016-05-14 19:08:36', '::1', 'Windows 10', 'Chrome 50.0.2661.102', 'pt', '2016-05-14 19:08:36', '2016-05-14 19:08:34');
 /*!40000 ALTER TABLE `adm_usuario_online` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.adm_usuario_permissoes_acoes
 CREATE TABLE IF NOT EXISTS `adm_usuario_permissoes_acoes` (
@@ -700,7 +694,6 @@ INSERT INTO `adm_usuario_permissoes_acoes` (`id`, `acoes`, `modificado`, `criado
 	(19, '<i class="fa fa-pie-chart"></i> GRÁFICO', '0000-00-00 00:00:00', '2016-03-09 08:50:09');
 /*!40000 ALTER TABLE `adm_usuario_permissoes_acoes` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.adm_usuario_tempo_sessao
 CREATE TABLE IF NOT EXISTS `adm_usuario_tempo_sessao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -710,13 +703,12 @@ CREATE TABLE IF NOT EXISTS `adm_usuario_tempo_sessao` (
   `criado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `adm_usuario_id` (`adm_usuario_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- Copiando dados para a tabela zaaz.adm_usuario_tempo_sessao: ~0 rows (aproximadamente)
 DELETE FROM `adm_usuario_tempo_sessao`;
 /*!40000 ALTER TABLE `adm_usuario_tempo_sessao` DISABLE KEYS */;
 /*!40000 ALTER TABLE `adm_usuario_tempo_sessao` ENABLE KEYS */;
-
 
 -- Copiando estrutura para tabela zaaz.config_status
 CREATE TABLE IF NOT EXISTS `config_status` (
@@ -735,7 +727,6 @@ INSERT INTO `config_status` (`id`, `status`, `modificado`, `criado`) VALUES
 	(2, 'Inativo', '0000-00-00 00:00:00', '2015-08-11 15:24:47');
 /*!40000 ALTER TABLE `config_status` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.local_cidade
 CREATE TABLE IF NOT EXISTS `local_cidade` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
@@ -750,7 +741,7 @@ CREATE TABLE IF NOT EXISTS `local_cidade` (
   CONSTRAINT `FK_usuario_cidade_usuario_estado` FOREIGN KEY (`estado_id`) REFERENCES `local_estado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=9715 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela zaaz.local_cidade: ~9.863 rows (aproximadamente)
+-- Copiando dados para a tabela zaaz.local_cidade: ~9.714 rows (aproximadamente)
 DELETE FROM `local_cidade`;
 /*!40000 ALTER TABLE `local_cidade` DISABLE KEYS */;
 INSERT INTO `local_cidade` (`id`, `estado_id`, `cidade`, `uf`, `modificado`, `criado`) VALUES
@@ -10470,7 +10461,6 @@ INSERT INTO `local_cidade` (`id`, `estado_id`, `cidade`, `uf`, `modificado`, `cr
 	(9714, 27, 'Xambioa', 'TO', '0000-00-00 00:00:00', '2015-07-16 14:33:57');
 /*!40000 ALTER TABLE `local_cidade` ENABLE KEYS */;
 
-
 -- Copiando estrutura para tabela zaaz.local_estado
 CREATE TABLE IF NOT EXISTS `local_estado` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
@@ -10514,6 +10504,7 @@ INSERT INTO `local_estado` (`id`, `uf`, `estado`, `modificado`, `criado`) VALUES
 	(26, 'SP', 'São Paulo', '0000-00-00 00:00:00', '2015-07-16 14:29:38'),
 	(27, 'TO', 'Tocantins', '0000-00-00 00:00:00', '2015-07-16 14:29:38');
 /*!40000 ALTER TABLE `local_estado` ENABLE KEYS */;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
