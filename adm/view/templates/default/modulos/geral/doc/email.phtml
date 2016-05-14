@@ -141,7 +141,7 @@ if($exec_email != true){
     echo json_encode($this->funcoes->get_array()); //Mostro na tela
 
 }else{
-    for ($i=0; $i <count($emails) ; $i++) {
+    for ($i=0; $i < count($emails) ; $i++) {
         $this->logs->setApp($this->dir_app)
         ->setEmail_re($configs_admin[0]['smtp_username'])->setEmail($emails[$i]) //E-mail Remetene - E-mail destinatario
         ->setStatus('Enviado')->setMensagem($mensagem)->gravo_log_email_enviado();

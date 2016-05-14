@@ -87,26 +87,32 @@
 
         //ENVIA SMS
         function envia_sms(){
+            
+            $username = $this->getUsername();
+            $senha    =  $this->getSenha();
+            if(!empty($username) && !empty($senha)){
+                
+                //INICIO REQUISIÇÃO
+                $core = new core();
+                $core->includeInc('zenvia/php/PHP_tutorial/human_gateway_client_api/HumanClientMain.php');
+                
+                //EXECUTO
+                $humanMultipleSend = new HumanMultipleSend($this->getUsername(), $this->getSenha());
 
-            //INICIO REQUISIÇÃO
-            $core = new core();
-            $core->includeInc('zenvia/php/PHP_tutorial/human_gateway_client_api/HumanClientMain.php');
+                //TRATO MENSAGEM
+                $mensagem = $this->getMensagem();
 
-            //EXECUTO
-            $humanMultipleSend = new HumanMultipleSend($this->getUsername(), $this->getSenha());
-
-            //TRATO MENSAGEM
-            $mensagem = $this->getMensagem();
-
-            //RETORNO
-            $response = $humanMultipleSend->sendMultipleList(HumanMultipleSend::TYPE_C, utf8_decode($mensagem));
-            foreach ($response as $resp) {
-                $code = $resp->getCode();
-                if($code != 200 && $code != 900){
-                    $array[] = $code;
+                //RETORNO
+                $response = $humanMultipleSend->sendMultipleList(HumanMultipleSend::TYPE_C, utf8_decode($mensagem));
+                foreach ($response as $resp) {
+                    $code = $resp->getCode();
+                    if($code != 200){
+                        $array[] = $code;
+                    }
                 }
+                return $array;
             }
-            return $array;
+    
         }
 
     }

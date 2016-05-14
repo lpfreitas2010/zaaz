@@ -113,7 +113,7 @@ $telefones = array('0350000000','0350000000');
 
 //FOR COM TELEFONES
 $msg_list = null;
-for ($i=0; $i <count($telefones) ; $i++) {
+for ($i=0; $i < count($telefones) ; $i++) {
         $telefone         = $sms->trato_num_telefone($telefones[$i]);
         $id               = $sms->gero_id();
         $mensagem         = 'Mensagem de teste';
@@ -130,7 +130,7 @@ if($disparo == true){
     $return = $sms->envia_sms();
 
     //GRAVO LOG SMS ARRAY ***
-    for ($i=0; $i <count($id_array) ; $i++) {
+    for ($i=0; $i < count($id_array) ; $i++) {
         $this->logs->setApp($this->dir_app) //Pasta da aplicação
         ->setId_sms($id_array[$i])->setTelefone($telefone_array[$i])->setStatus($return[$i])->setMensagem($mensagem_array[$i])->gravo_log_sms_enviado();
     }

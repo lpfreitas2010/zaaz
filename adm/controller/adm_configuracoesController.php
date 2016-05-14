@@ -1310,7 +1310,7 @@ class adm_configuracoesController {
 					$this->logs->setApp($this->dir_app) //Pasta da aplicação
 					->setId_sms($id)->setTelefone($telefone_principal)->setStatus(''.$return[$i].'')->setMensagem($mensagem)->gravo_log_sms_enviado();
 					if($return[$i] != '000'){
-						$this->funcoes->set_array(null,'erro','As configurações de SMS estão incorretas. Verifique se os dados estão corretos!'); // Mensagem de erro
+						$this->funcoes->set_array(null,'erro','As configurações de SMS estão incorretas. Verifique se os dados estão corretos! <br /> <strong> Código do Erro: '.$return[$i].'</strong> '); // Mensagem de erro
 						echo json_encode($this->funcoes->get_array());
 						exit();
 					}
