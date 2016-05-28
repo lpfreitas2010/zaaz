@@ -182,7 +182,7 @@
 			//VERIFICO SE JA TEM ANTES DE INSERIR
 			$this->setTable('adm_usuario_notificaoes');
 			$this->setColuna('*');
-			$this->setWhere("adm_usuario_id = {$this->getCampos('adm_usuario_id')} AND mensagem = '{$this->getCampos('mensagem')}' AND url_destino = '{$this->getCampos('url_destino')}' ");
+			$this->setWhere("(adm_usuario_id = {$this->getCampos('adm_usuario_id')}) AND (mensagem = '{$this->getCampos('mensagem')}' ) AND (url_destino = '{$this->getCampos('url_destino')}') ");
 			$exec = $this->Read();
 			$this->limpo_campos();
 			if(count($exec)==0){

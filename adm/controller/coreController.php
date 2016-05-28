@@ -176,7 +176,9 @@
         function aniversariantes_dia(){
             $aniversariantes = $this->model->retorno_aniversariantes_dia();
             for ($i=0; $i < count($aniversariantes) ; $i++) {
-                $this->insiro_notificacao('fa fa-birthday-cake','Parabéns '.$aniversariantes[$i]['nome'].'! <br />Hoje '.$this->funcoes->retorno_data_por_extenso($this->funcoes->conv_datahora($aniversariantes[$i]['data_nascimento'],'d-m-Y')).' é o dia do seu Aniversário. ',null,$aniversariantes[$i]['id'],null);
+                if(!empty($aniversariantes[$i]['id'])){
+                     $this->insiro_notificacao('fa fa-birthday-cake','Parabéns '.$aniversariantes[$i]['nome'].'! <br />Hoje '.$this->funcoes->retorno_data_por_extenso($this->funcoes->conv_datahora($aniversariantes[$i]['data_nascimento'],'d-m-Y')).' é o dia do seu Aniversário. ',null,$aniversariantes[$i]['id'],null);
+                }
             }
         }
 
@@ -313,7 +315,7 @@
             //SETO OS DADOS
             $this->model->setCampos('adm_usuario_id',$usuario_id);
             $this->model->setCampos('status_id',2);
-            $this->model->setCampos('mensagem',$mensagem);
+            $this->model->setCampos('mensagem',$this->funcoes->anti_injection($mensagem,'html'));
             $this->model->setCampos('url_destino',$url_destino);
             $this->model->setCampos('class_icon',$class_icone);
             $this->model->setCampos('texto_botao_acao',$texto_botao_acao);
@@ -328,8 +330,8 @@
                 ->setMensagem($this->core->get_msg_array('sucesso_inserir_log_adm','Notificações,'.$ult_id))->gravo_log();
             }else{
                 //GRAVO LOG
-                $this->logs->setApp($this->dir_app)->setUrl($_SERVER['SERVER_NAME'].$_SERVER ['REQUEST_URI'])->setPagina(end(explode("/", $_SERVER['PHP_SELF'])))
-                ->setMensagem($this->core->get_msg_array('erro_inserir','Notificações'))->gravo_log(); //Gravo log
+               // $this->logs->setApp($this->dir_app)->setUrl($_SERVER['SERVER_NAME'].$_SERVER ['REQUEST_URI'])->setPagina(end(explode("/", $_SERVER['PHP_SELF'])))
+               // ->setMensagem($this->core->get_msg_array('erro_inserir','Notificações'))->gravo_log(); //Gravo log
             }
         }
 

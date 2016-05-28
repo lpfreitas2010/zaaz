@@ -50,47 +50,52 @@
 
 		//CAMPO DO BANCO (usuario_id)
 		public function getCampo_usuario_id($param){
-			if($param == 'web'){ //pasta web
+			/*if($param == 'web'){ //pasta web
 					return 'usuario_id';
 			}else{ //outras pastas apps
 					return $param.'_usuario_id';
-			}
+			}*/
+			return 'adm_usuario_id';
 		}
 
 		//TABELA DO BANCO (usuario_logs)
 		public function getTabela_usuario_logs($param){
-			if($param == 'web'){ //pasta web
+			/*if($param == 'web'){ //pasta web
 					return 'usuario_logs';
 			}else{ //outras pastas apps
 					return $param.'_usuario_logs';
-			}
+			}*/
+			return 'adm_usuario_logs';
 		}
 
 		//TABELA DO BANCO (usuario_logs_acesso)
 		public function getTabela_usuario_logs_acesso($param){
-			if($param == 'web'){ //pasta web
+			/*if($param == 'web'){ //pasta web
 					return 'usuario_logs_acesso';
 			}else{ //outras pastas apps
 					return $param.'_usuario_logs_acesso';
-			}
+			}*/
+			return 'adm_usuario_logs_acesso';
 		}
 
 		//TABELA DO BANCO (sms)
 		public function getTabela_usuario_sms($param){
-			if($param == 'web'){ //pasta web
+			/*if($param == 'web'){ //pasta web
 				return 'adm_sms_enviados';
 			}else{ //outras pastas apps
 				return $param.'_sms_enviados';
-			}
+			}*/
+			return 'adm_sms_enviados';
 		}
 
 		//TABELA DO BANCO (email)
 		public function getTabela_usuario_email($param){
-			if($param == 'web'){ //pasta web
+			/*if($param == 'web'){ //pasta web
 				return 'adm_email_enviados';
 			}else{ //outras pastas apps
 				return $param.'_email_enviados';
-			}
+			}*/
+			return 'adm_email_enviados';
 		}
 
 		//DATA ATUAL
@@ -262,8 +267,8 @@
 			$this->core->includeModel();
 			$conexao = new conexao();
 			$conexao->setTable($this->getTabela_usuario_logs_acesso($this->getApp()));
-			$conexao->setColuna($this->getCampo_usuario_id($this->getApp()))->setColuna('hora')->setColuna('acao')->setColuna('IP')->setColuna('SO')->setColuna('navegador')->setColuna('idioma');
-			$conexao->setValue($this->getUsuario_id($this->getApp()))->setValue(date("Y-m-d H:i:s"))->setValue($this->getMensagem())->setValue($this->getIp())->setValue($this->getSO())->setValue($this->getNavegador())->setValue($this->getIdioma());
+			$conexao->setColuna($this->getCampo_usuario_id($this->getApp()))->setColuna('hora')->setColuna('acao')->setColuna('IP')->setColuna('SO')->setColuna('navegador')->setColuna('idioma')->setColuna('app');
+			$conexao->setValue($this->getUsuario_id($this->getApp()))->setValue(date("Y-m-d H:i:s"))->setValue($this->getMensagem())->setValue($this->getIp())->setValue($this->getSO())->setValue($this->getNavegador())->setValue($this->getIdioma())->setValue($this->getApp());
 			$conexao->Create();
 			$conexao->limpo_campos();
 		}
@@ -274,8 +279,8 @@
 			$this->core->includeModel();
 			$conexao = new conexao();
 			$conexao->setTable($this->getTabela_usuario_sms($this->getApp()));
-			$conexao->setColuna($this->getCampo_usuario_id($this->getApp()))->setColuna('id_sms')->setColuna('telefone')->setColuna('mensagem')->setColuna('status')->setColuna('SO')->setColuna('IP')->setColuna('navegador')->setColuna('idioma');
-			$conexao->setValue($this->getUsuario_id($this->getApp()))->setValue($this->getId_sms())->setValue($this->getTelefone())->setValue($this->getMensagem())->setValue($this->getStatus())->setValue($this->getSO())->setValue($this->getIp())->setValue($this->getNavegador())->setValue($this->getIdioma());
+			$conexao->setColuna($this->getCampo_usuario_id($this->getApp()))->setColuna('id_sms')->setColuna('telefone')->setColuna('mensagem')->setColuna('status')->setColuna('SO')->setColuna('IP')->setColuna('navegador')->setColuna('idioma')->setColuna('app');
+			$conexao->setValue($this->getUsuario_id($this->getApp()))->setValue($this->getId_sms())->setValue($this->getTelefone())->setValue($this->getMensagem())->setValue($this->getStatus())->setValue($this->getSO())->setValue($this->getIp())->setValue($this->getNavegador())->setValue($this->getIdioma())->setValue($this->getApp());
 			$conexao->Create();
 			$conexao->limpo_campos();
 		}
@@ -286,8 +291,8 @@
 			$this->core->includeModel();
 			$conexao = new conexao();
 			$conexao->setTable($this->getTabela_usuario_email($this->getApp()));
-			$conexao->setColuna($this->getCampo_usuario_id($this->getApp()))->setColuna('email_re')->setColuna('email')->setColuna('mensagem')->setColuna('status')->setColuna('SO')->setColuna('IP')->setColuna('navegador')->setColuna('idioma');
-			$conexao->setValue($this->getUsuario_id($this->getApp()))->setValue($this->getEmail_re())->setValue($this->getEmail())->setValue($this->getMensagem())->setValue($this->getStatus())->setValue($this->getSO())->setValue($this->getIp())->setValue($this->getNavegador())->setValue($this->getIdioma());
+			$conexao->setColuna($this->getCampo_usuario_id($this->getApp()))->setColuna('email_re')->setColuna('email')->setColuna('mensagem')->setColuna('status')->setColuna('SO')->setColuna('IP')->setColuna('navegador')->setColuna('idioma')->setColuna('app');
+			$conexao->setValue($this->getUsuario_id($this->getApp()))->setValue($this->getEmail_re())->setValue($this->getEmail())->setValue($this->getMensagem())->setValue($this->getStatus())->setValue($this->getSO())->setValue($this->getIp())->setValue($this->getNavegador())->setValue($this->getIdioma())->setValue($this->getApp());
 			$conexao->Create();
 			$conexao->limpo_campos();
 		}

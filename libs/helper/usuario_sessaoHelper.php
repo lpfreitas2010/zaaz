@@ -29,29 +29,32 @@
 
 			//TABELA DO BANCO (usuario_online)
 			public function getTabela_usuario_online($param){
-					if($param == 'web'){ //pasta web
+					/*if($param == 'web'){ //pasta web
 							return 'usuario_online';
 					}else{ //outras pastas apps
 							return $param.'_usuario_online';
-					}
+					}*/
+					return 'adm_usuario_online';
 			}
 
 			//TABELA DO BANCO (usuario_tempo_sessao)
 			public function getTabela_usuario_tempo_sessao($param){
-					if($param == 'web'){ //pasta web
+					/*if($param == 'web'){ //pasta web
 							return 'usuario_tempo_sessao';
 					}else{ //outras pastas apps
 							return $param.'_usuario_tempo_sessao';
-					}
+					}*/
+					return 'adm_usuario_tempo_sessao';
 			}
 
 			//CAMPO DO BANCO (usuario_id)
 			public function getCampo_usuario_id($param){
-					if($param == 'web'){ //pasta web
+					/*if($param == 'web'){ //pasta web
 							return 'usuario_id';
 					}else{ //outras pastas apps
 					  	return $param.'_usuario_id';
-					}
+					}*/
+					return 'adm_usuario_id';
 			}
 
 			//ID DO USUÁRIO LOGADO NO SISTEMA
